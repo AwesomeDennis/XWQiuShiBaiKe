@@ -43,9 +43,11 @@
             self.author = [user objectForKey:@"login"];
             self.authorID = [user objectForKey:@"id"];
             self.authorImageURL = [user objectForKey:@"icon"];
-            NSString *prefixAuthorID = [_authorID substringWithRange:NSMakeRange(0, 3)];
-            NSString *newAuthorImageURL = [NSString stringWithFormat:@"http://pic.moumentei.com/system/avtnew/%@/%@/thumb/%@", prefixAuthorID, _authorID, _authorImageURL];
-            self.authorImageURL = newAuthorImageURL;
+            if ([self.authorID length] > 3) {
+                NSString *prefixAuthorID = [_authorID substringWithRange:NSMakeRange(0, 3)];
+                NSString *newAuthorImageURL = [NSString stringWithFormat:@"http://pic.moumentei.com/system/avtnew/%@/%@/thumb/%@", prefixAuthorID, _authorID, _authorImageURL];
+                self.authorImageURL = newAuthorImageURL;
+            }
         }
     }
     

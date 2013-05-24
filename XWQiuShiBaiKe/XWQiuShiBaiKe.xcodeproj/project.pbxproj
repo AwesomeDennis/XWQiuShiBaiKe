@@ -670,14 +670,14 @@
 			children = (
 				195C14DA174F43D900F9B000 /* Elite */,
 				195C14DE174F43D900F9B000 /* ImageTruth */,
+				195C14E8174F43D900F9B000 /* Stroll */,
+				195C14EC174F43D900F9B000 /* Traversing */,
 				195C14E2174F43D900F9B000 /* QiuShiDetailViewController.h */,
 				195C14E3174F43D900F9B000 /* QiuShiDetailViewController.m */,
 				195C14E4174F43D900F9B000 /* QiuShiDetailViewController.xib */,
 				195C14E5174F43D900F9B000 /* QiuShiImageViewController.h */,
 				195C14E6174F43D900F9B000 /* QiuShiImageViewController.m */,
 				195C14E7174F43D900F9B000 /* QiuShiImageViewController.xib */,
-				195C14E8174F43D900F9B000 /* Stroll */,
-				195C14EC174F43D900F9B000 /* Traversing */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -1598,6 +1598,7 @@
 				195C14C3174F409600F9B000 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
