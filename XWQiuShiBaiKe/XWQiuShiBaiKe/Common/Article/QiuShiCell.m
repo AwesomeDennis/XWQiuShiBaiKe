@@ -1,0 +1,256 @@
+//
+//  QiuShiCell.m
+//  XWQSBK
+//
+//  Created by renxinwei on 13-5-5.
+//  Copyright (c) 2013年 renxinwei. All rights reserved.
+//
+
+#import "QiuShiCell.h"
+#import "QiuShi.h"
+#import "UIImageView+WebCache.h"
+#import "QiuShiImageViewController.h"
+
+@implementation QiuShiCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+- (void)dealloc
+{
+    [_commentButton release];
+    [_favoriteButton release];
+    [_voteForButton release];
+    [_voteAgainstButton release];
+    [_plusView release];
+    [_minusView release];
+    [_avatarImageView release];
+    [_nameLabel release];
+    [_contentLabel release];
+    [_pictureImageView release];
+    [_tagImageView release];
+    [_tagContentLabel release];
+
+    [super dealloc];
+}
+
+#pragma mark - Public method
+
+- (void)configQiuShiCellWithQiuShi:(QiuShi *)qiushi
+{
+    voteForCount = 0;
+    voteAgainstCount = 0;
+    
+    voteForCount = qiushi.upCount;
+    voteAgainstCount = qiushi.downCount;
+    
+    CGRect rect = CGRectZero;
+    CGFloat y = 10;
+    //作者、头像
+    if (qiushi.author) {
+        _nameLabel.hidden = NO;
+        _avatarImageView.hidden = NO;
+        _nameLabel.text = qiushi.author;
+        y += CGRectGetHeight(_nameLabel.frame) + 8;
+        [_avatarImageView setImageWithURL:[NSURL URLWithString:qiushi.authorImageURL] placeholderImage:[UIImage imageNamed:@"thumb_avatar.png"]];
+    }
+    else {
+        _nameLabel.hidden = YES;
+        _avatarImageView.hidden = YES;
+    }
+    
+    //内容
+    if (qiushi.content)
+    {
+        CGFloat contentHeight = [qiushi.content sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(300, 300) lineBreakMode:UILineBreakModeCharacterWrap].height;
+        rect = _contentLabel.frame;
+        rect.size.height = contentHeight;
+        rect.origin.y = y;
+        _contentLabel.frame = rect;
+        _contentLabel.text = qiushi.content;
+        
+        y += CGRectGetHeight(_contentLabel.frame) + 8;
+    }
+    
+    //图片
+    if (qiushi.imageURL) {
+        _pictureImageView.hidden = NO;
+        rect = _pictureImageView.frame;
+        rect.origin.y = y;
+        _pictureImageView.frame = rect;
+        [_pictureImageView setImageWithURL:[NSURL URLWithString:qiushi.imageURL] placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+        [_pictureImageView addGestureRecognizer:tap];
+        [tap release];
+        
+        y += CGRectGetHeight(_pictureImageView.frame) + 8;
+    }
+    else {
+        _pictureImageView.hidden = YES;
+    }
+    
+    //MidImage
+    _midImageURL = qiushi.imageMidURL;
+    
+    //tag
+    if (qiushi.tag.length > 0) {
+        _tagImageView.hidden = NO;
+        _tagContentLabel.hidden = NO;
+        _tagContentLabel.text = qiushi.tag;
+        
+        rect = _tagImageView.frame;
+        rect.origin.y = y;
+        _tagImageView.frame = rect;
+        
+        rect = _tagContentLabel.frame;
+        rect.origin.y = y;
+        _tagContentLabel.frame = rect;
+        
+        y += CGRectGetHeight(_tagImageView.frame) + 4;
+    }
+    else {
+        _tagImageView.hidden = YES;
+        _tagContentLabel.hidden = YES;
+    }
+    
+    [self configVoteForButton:y withTitle:qiushi.upCount];
+    [self configVoteAgainstButton:y withTitle:qiushi.downCount];
+    [self configCommentButton:y withTitle:qiushi.commentsCount];
+    [self configFavoriteButton:y];
+    
+    rect = _commentButton.frame;
+    rect.origin.y = y;
+    _commentButton.frame = rect;
+    
+    rect = _favoriteButton.frame;
+    rect.origin.y = y;
+    _favoriteButton.frame = rect;
+    
+    y += CGRectGetHeight(_voteForButton.frame) + 10;
+    
+    rect = self.frame;
+    rect.size.height = y;
+    self.frame = rect;
+    
+    [self initQiuShiCell];
+}
+
++ (CGFloat)getCellHeight:(QiuShi *)qiushi
+{
+    CGFloat height = 10;
+    height += qiushi.author != nil ? (30 + 8) : 0;
+    if (qiushi.content) {
+        CGFloat contentHeight = [qiushi.content sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(300, 300) lineBreakMode:UILineBreakModeCharacterWrap].height;
+        height += (contentHeight + 8);
+    }
+    height += qiushi.imageURL != nil ? (125 + 8) : 0;
+    height += qiushi.tag.length > 0 ? (16 + 3) : 0;
+    height += (46 + 4);
+    height += 10;
+    
+    return height;
+}
+
+#pragma mark - Private methods
+
+//点击图片
+- (void)handleSingleTap:(UITapGestureRecognizer *)gesture
+{
+    [_delegate didTapedQiuShiCellImage:_midImageURL];
+}
+
+- (void)initQiuShiCell
+{
+    _plusView = [[XWZoomInPlusView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    _minusView = [[XWZoomInMinusView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    
+    [self addSubview:_plusView];
+    [self addSubview:_minusView];
+}
+
+- (void)configVoteForButton:(CGFloat)y withTitle:(NSInteger)forCount
+{
+    _voteForButton = [[XWVoteButton alloc] initWithFrame:CGRectMake(10, y, 65, 46)];
+    UIImage *nImage = [UIImage imageNamed:@"icon_for_enable.png"];
+    UIImage *sImage = [UIImage imageNamed:@"icon_for_active.png"];
+    [_voteForButton setFaceButtonImage:nImage andSelectedImage:sImage];
+    [_voteForButton setCount:forCount];
+    [_voteForButton addTarget:self action:@selector(voteForButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_voteForButton];
+}
+
+- (void)configVoteAgainstButton:(CGFloat)y withTitle:(NSInteger)againstCount
+{
+    _voteAgainstButton = [[XWVoteButton alloc] initWithFrame:CGRectMake(85, y, 65, 46)];
+    UIImage *nAImage = [UIImage imageNamed:@"icon_against_enable.png"];
+    UIImage *sAImage = [UIImage imageNamed:@"icon_against_active.png"];
+    [_voteAgainstButton setFaceButtonImage:nAImage andSelectedImage:sAImage];
+    [_voteAgainstButton setCount:againstCount];
+    [_voteAgainstButton addTarget:self action:@selector(voteAgainstButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_voteAgainstButton];
+}
+
+- (void)configCommentButton:(CGFloat)y withTitle:(NSInteger)commentCount
+{
+    _commentButton = [[XWCommentButton alloc] initWithFrame:CGRectMake(220, y, 40, 46)];
+    [_commentButton setCount:commentCount];
+    [self addSubview:_commentButton];
+}
+
+- (void)configFavoriteButton:(CGFloat)y
+{
+    _favoriteButton = [[XWFavoriteButton alloc] initWithFrame:CGRectMake(265, 45, 35, 46)];
+    UIImage *nFImage = [UIImage imageNamed:@"icon_fav_enable.png"];
+    UIImage *sFImage = [UIImage imageNamed:@"icon_fav_active.png"];
+    [_favoriteButton setFavoriteButtonImage:nFImage andSelectedImage:sFImage];
+    [_favoriteButton addTarget:self action:@selector(favoriteButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_favoriteButton];
+}
+
+- (void)voteForButtonClicked
+{
+    [_voteForButton setStateSelected:YES];
+    [_voteAgainstButton setStateSelected:NO];
+    [_voteForButton setUserInteractionEnabled:NO];
+    [_voteAgainstButton setUserInteractionEnabled:YES];
+    
+    CGRect rect = _voteForButton.frame;
+    rect.origin.y -= rect.size.height/2;
+    [_plusView zoomInPlusTextInPoint:rect.origin];
+    [_voteForButton setCount:(voteForCount + 1)];
+    [_voteAgainstButton setCount:voteAgainstCount];
+}
+
+- (void)voteAgainstButtonClicked
+{
+    [_voteAgainstButton setStateSelected:YES];
+    [_voteForButton setStateSelected:NO];
+    [_voteForButton setUserInteractionEnabled:YES];
+    [_voteAgainstButton setUserInteractionEnabled:NO];
+    
+    CGRect rect = _voteAgainstButton.frame;
+    rect.origin.y -= rect.size.height/2;
+    [_minusView zoomInMinusTextInPoint:rect.origin];
+    [_voteAgainstButton setCount:(voteAgainstCount - 1)];
+    [_voteForButton setCount:voteForCount];
+}
+
+- (void)favoriteButtonClicked
+{
+    [_favoriteButton setStateSelected:!_favoriteButton.selected];
+}
+
+@end
