@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class SideBarViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) SideBarViewController *sideBarViewController;
 
 @end
