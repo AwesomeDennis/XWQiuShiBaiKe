@@ -16,6 +16,15 @@
 		195C14BA174F409600F9B000 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C14B9174F409600F9B000 /* Default.png */; };
 		195C14BC174F409600F9B000 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C14BB174F409600F9B000 /* Default@2x.png */; };
 		195C14BE174F409600F9B000 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C14BD174F409600F9B000 /* Default-568h@2x.png */; };
+		195C14C5174F423800F9B000 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14C4174F423800F9B000 /* ImageIO.framework */; };
+		195C14C7174F424600F9B000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14C6174F424600F9B000 /* MapKit.framework */; };
+		195C14C9174F425100F9B000 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14C8174F425100F9B000 /* libz.1.2.5.dylib */; };
+		195C14CB174F425800F9B000 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14CA174F425800F9B000 /* MobileCoreServices.framework */; };
+		195C14CD174F425E00F9B000 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14CC174F425E00F9B000 /* SystemConfiguration.framework */; };
+		195C14CF174F426400F9B000 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14CE174F426400F9B000 /* CFNetwork.framework */; };
+		195C14D1174F426B00F9B000 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14D0174F426B00F9B000 /* QuartzCore.framework */; };
+		195C14D7174F42B800F9B000 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C14D4174F42B800F9B000 /* Comment.m */; };
+		195C14D8174F42B800F9B000 /* QiuShi.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C14D6174F42B800F9B000 /* QiuShi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +41,17 @@
 		195C14B9174F409600F9B000 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		195C14BB174F409600F9B000 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		195C14BD174F409600F9B000 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		195C14C4174F423800F9B000 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		195C14C6174F424600F9B000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		195C14C8174F425100F9B000 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		195C14CA174F425800F9B000 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		195C14CC174F425E00F9B000 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		195C14CE174F426400F9B000 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		195C14D0174F426B00F9B000 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		195C14D3174F42B800F9B000 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		195C14D4174F42B800F9B000 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		195C14D5174F42B800F9B000 /* QiuShi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuShi.h; sourceTree = "<group>"; };
+		195C14D6174F42B800F9B000 /* QiuShi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiuShi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +59,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				195C14D1174F426B00F9B000 /* QuartzCore.framework in Frameworks */,
+				195C14CF174F426400F9B000 /* CFNetwork.framework in Frameworks */,
+				195C14CD174F425E00F9B000 /* SystemConfiguration.framework in Frameworks */,
+				195C14CB174F425800F9B000 /* MobileCoreServices.framework in Frameworks */,
+				195C14C9174F425100F9B000 /* libz.1.2.5.dylib in Frameworks */,
+				195C14C7174F424600F9B000 /* MapKit.framework in Frameworks */,
+				195C14C5174F423800F9B000 /* ImageIO.framework in Frameworks */,
 				195C14A8174F409600F9B000 /* UIKit.framework in Frameworks */,
 				195C14AA174F409600F9B000 /* Foundation.framework in Frameworks */,
 				195C14AC174F409600F9B000 /* CoreGraphics.framework in Frameworks */,
@@ -68,6 +95,13 @@
 		195C14A6174F409600F9B000 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				195C14D0174F426B00F9B000 /* QuartzCore.framework */,
+				195C14CE174F426400F9B000 /* CFNetwork.framework */,
+				195C14CC174F425E00F9B000 /* SystemConfiguration.framework */,
+				195C14CA174F425800F9B000 /* MobileCoreServices.framework */,
+				195C14C8174F425100F9B000 /* libz.1.2.5.dylib */,
+				195C14C6174F424600F9B000 /* MapKit.framework */,
+				195C14C4174F423800F9B000 /* ImageIO.framework */,
 				195C14A7174F409600F9B000 /* UIKit.framework */,
 				195C14A9174F409600F9B000 /* Foundation.framework */,
 				195C14AB174F409600F9B000 /* CoreGraphics.framework */,
@@ -78,6 +112,7 @@
 		195C14AD174F409600F9B000 /* XWQiuShiBaiKe */ = {
 			isa = PBXGroup;
 			children = (
+				195C14D2174F42B800F9B000 /* Model */,
 				195C14B6174F409600F9B000 /* AppDelegate.h */,
 				195C14B7174F409600F9B000 /* AppDelegate.m */,
 				195C14AE174F409600F9B000 /* Supporting Files */,
@@ -97,6 +132,17 @@
 				195C14BD174F409600F9B000 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		195C14D2174F42B800F9B000 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				195C14D3174F42B800F9B000 /* Comment.h */,
+				195C14D4174F42B800F9B000 /* Comment.m */,
+				195C14D5174F42B800F9B000 /* QiuShi.h */,
+				195C14D6174F42B800F9B000 /* QiuShi.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +212,8 @@
 			files = (
 				195C14B4174F409600F9B000 /* main.m in Sources */,
 				195C14B8174F409600F9B000 /* AppDelegate.m in Sources */,
+				195C14D7174F42B800F9B000 /* Comment.m in Sources */,
+				195C14D8174F42B800F9B000 /* QiuShi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

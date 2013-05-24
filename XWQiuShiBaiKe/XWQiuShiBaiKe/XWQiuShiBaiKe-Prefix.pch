@@ -11,4 +11,38 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <QuartzCore/QuartzCore.h>
+//添加预编译
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequestDelegate.h"
+#import "ASIHTTPRequestConfig.h"
+#import "EGORefreshTableHeaderView.h"
+
 #endif
+
+#define kDeviceWidth [UIScreen mainScreen].bounds.size.width
+#define KDeviceHeight [UIScreen mainScreen].bounds.size.height
+
+#define ClearRequest(request) if(request!=nil){[request clearDelegatesAndCancel];[request release];request=nil;}
+#define IntergerToString(num) [NSString stringWithFormat:@"%d", num]
+
+//api接口
+//通用: 糗事类型，每页显示数量，当前页数
+#define api_article(type, count, page)           [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/%@?count=%d&page=%d", type, count, page]
+
+//评论: 糗事ID，每页显示数量，当前页数
+#define api_article_comment(id, count, page)     [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/%@/comments?count=%d&page=%d", id, count, page]
+
+//随便逛逛:干货、嫩草
+#define api_stroll_suggest(count, page)          [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/suggest?count=%d&page=%d", count, page]
+#define api_stroll_latest(count, page)           [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/latest?count=%d&page=%d", count, page]
+//精华:日、周、月
+#define api_elite_day(count, page)               [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/day?count=%d&page=%d", count, page]
+#define api_elite_week(count, page)              [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/week?count=%d&page=%d", count, page]
+#define api_elite_month(count, page)             [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/month?count=%d&page=%d", count, page]
+//有图有真相:硬菜、时令
+#define api_imagetruth_imgrank(count, page)      [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/imgrank?count=%d&page=%d", count, page]
+#define api_imagetruth_images(count, page)       [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/images?count=%d&page=%d", count, page]
+//穿越
+#define api_traversing_history(day, count, page) [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/history/%@?count=%d&page=%d", day, count, page]
