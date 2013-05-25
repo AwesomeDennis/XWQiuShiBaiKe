@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "Toolkit.h"
+#import "UIViewController+KNSemiModal.h"
 
 @interface SettingViewController ()
 
@@ -30,11 +31,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.view setBackgroundColor:[Toolkit getAppBackgroundColor]];
+    [self initToolBar];
 }
 
-- (void)dealloc {
+- (void)viewDidUnload
+{
+    [self setCloseBarButton:nil];
+    [self setTitleBarButton:nil];
+    [self setSettingToolBar:nil];
+    [super viewDidUnload];
+}
+
+- (void)dealloc
+{
     [_settingTableView release];
     [_modelSwitch release];
+    [_closeBarButton release];
+    [_titleBarButton release];
+    [_settingToolBar release];
     [super dealloc];
 }
 
@@ -139,5 +153,38 @@
 }
 
 #pragma mark - UITableView delegate method
+
+
+#pragma mark - Private methods
+
+- (void)initToolBar
+{
+    [_settingToolBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    
+    [self initTitleView];
+    
+    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    [closeButton setImage:[UIImage imageNamed:@"icon_close_large.png"] forState:UIControlStateNormal];
+    [closeButton addTarget:self action:@selector(closeSettingViewController) forControlEvents:UIControlEventTouchUpInside];
+    _closeBarButton.customView = closeButton;
+    [closeButton release];
+}
+
+- (void)initTitleView
+{
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 35)];
+    titleLabel.textAlignment = UITextAlignmentCenter;
+    titleLabel.font = [UIFont systemFontOfSize:18];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.text = @"设置";
+    _titleBarButton.customView = titleLabel;
+    [titleLabel release];
+}
+
+- (void)closeSettingViewController
+{
+    [self dismissSemiModalViewWithCompletion:nil];
+}
 
 @end

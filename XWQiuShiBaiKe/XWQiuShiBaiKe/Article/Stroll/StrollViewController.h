@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Toolkit.h"
 
+/**
+ *随便逛逛
+ */
 @interface StrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, XWSliderSwitchDelegate, QiuShiCellDelegate>
 {
     ASIHTTPRequest *_strollRequest;

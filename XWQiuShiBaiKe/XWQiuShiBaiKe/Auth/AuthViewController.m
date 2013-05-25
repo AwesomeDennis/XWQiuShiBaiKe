@@ -45,6 +45,16 @@
     [self initToolBar];
 }
 
+- (void)viewDidUnload
+{
+    [self setCloseBarButton:nil];
+    [self setTitleBarButton:nil];
+    [self setLoginBarButton:nil];
+    [self setAuthToolBar:nil];
+    [self setLoginTextFieldView:nil];
+    [super viewDidUnload];
+}
+
 - (void)dealloc
 {
     [_loginButton release];
@@ -101,6 +111,18 @@
 //    [self animateIncorrectMessage:_registerPasswordTextField];
 }
 
+- (IBAction)registerBackgroundViewClicked:(id)sender
+{
+    [_registerNameTextField resignFirstResponder];
+    [_registerPasswordTextField resignFirstResponder];
+}
+
+- (IBAction)loginBackgroundViewClicked:(id)sender
+{
+    [_loginNameTextField resignFirstResponder];
+    [_loginPasswordTextField resignFirstResponder];
+}
+
 #pragma mark - Private methods
 
 - (void)initView
@@ -127,9 +149,9 @@
     _titleLabel.backgroundColor = [UIColor clearColor];
     _titleLabel.text = @"注册";
     
-    _titleBarButton.customView = _titleLabel;
-    
+    _titleBarButton.customView = _titleLabel;    
 }
+
 - (void)initTextField:(UITextField *)textField withImage:(NSString *)imageName
 {
     UIImage *image = [UIImage imageNamed:imageName];
@@ -269,12 +291,4 @@
     [self dismissSemiModalViewWithCompletion:nil];
 }
 
-- (void)viewDidUnload {
-    [self setCloseBarButton:nil];
-    [self setTitleBarButton:nil];
-    [self setLoginBarButton:nil];
-    [self setAuthToolBar:nil];
-    [self setLoginTextFieldView:nil];
-    [super viewDidUnload];
-}
 @end

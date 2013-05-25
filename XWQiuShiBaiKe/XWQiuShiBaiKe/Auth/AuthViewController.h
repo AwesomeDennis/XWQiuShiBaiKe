@@ -45,5 +45,7 @@
 - (IBAction)loginWeiboButtonClicked:(id)sender;
 - (IBAction)loginQQButtonClicked:(id)sender;
 - (IBAction)registerNextButtonClicked:(id)sender;
+- (IBAction)registerBackgroundViewClicked:(id)sender;
+- (IBAction)loginBackgroundViewClicked:(id)sender;
 
 @end

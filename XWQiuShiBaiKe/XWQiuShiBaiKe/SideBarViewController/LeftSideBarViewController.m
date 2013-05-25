@@ -320,21 +320,20 @@
 
 - (IBAction)faceTitleView:(id)sender
 {
-    AuthViewController *con = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
+    AuthViewController *authVC = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
     //UINavigationController *nav= [[UINavigationController alloc] initWithRootViewController:con];
     //[nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forBarMetrics:UIBarMetricsDefault];
     //[self presentViewController:con animated:YES completion:nil];
-    [self presentSemiViewController:con];
+    [self presentSemiViewController:authVC];
 }
 
 - (IBAction)sideSettingButtonClicked:(id)sender
 {
-    SettingViewController *vc = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forBarMetrics:UIBarMetricsDefault];
-    [self presentViewController:nav animated:YES completion:nil];
-    [nav release];
-    [vc release];
+    SettingViewController *settingVC = [[[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil] autorelease];
+    //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    //[nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forBarMetrics:UIBarMetricsDefault];
+    //[self presentViewController:nav animated:YES completion:nil];
+    [self presentSemiViewController:settingVC];
 }
 
 @end

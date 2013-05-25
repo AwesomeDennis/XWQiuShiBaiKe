@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Toolkit.h"
 
+/**
+ *穿越
+ */
 @interface TraversingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, QiuShiCellDelegate>
 {
     ASIHTTPRequest *_traversingRequest;

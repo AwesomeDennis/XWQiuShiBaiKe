@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Toolkit.h"
 
+/**
+ *精华
+ */
 @interface EliteViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, XWSliderSwitchDelegate, QiuShiCellDelegate>
 {
     ASIHTTPRequest *_eliteRequest;

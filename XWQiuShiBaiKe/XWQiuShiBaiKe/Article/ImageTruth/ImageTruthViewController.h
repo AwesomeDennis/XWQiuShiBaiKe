@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Toolkit.h"
 
+/**
+ *有图有真相
+ */
 @interface ImageTruthViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, XWSliderSwitchDelegate, QiuShiCellDelegate>
 {
     ASIHTTPRequest *_imageTruthRequest;
