@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19499A4C175121530043EEE8 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19499A4A175121530043EEE8 /* libMobClickLibrary.a */; };
 		195C14A8174F409600F9B000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14A7174F409600F9B000 /* UIKit.framework */; };
 		195C14AA174F409600F9B000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14A9174F409600F9B000 /* Foundation.framework */; };
 		195C14AC174F409600F9B000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14AB174F409600F9B000 /* CoreGraphics.framework */; };
@@ -251,6 +252,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19499A4A175121530043EEE8 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		19499A4B175121530043EEE8 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		195C14A4174F409600F9B000 /* XWQiuShiBaiKe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XWQiuShiBaiKe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		195C14A7174F409600F9B000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		195C14A9174F409600F9B000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -580,12 +583,30 @@
 				195C14A8174F409600F9B000 /* UIKit.framework in Frameworks */,
 				195C14AA174F409600F9B000 /* Foundation.framework in Frameworks */,
 				195C14AC174F409600F9B000 /* CoreGraphics.framework in Frameworks */,
+				19499A4C175121530043EEE8 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19499A48175121530043EEE8 /* 3rd Libs */ = {
+			isa = PBXGroup;
+			children = (
+				19499A49175121530043EEE8 /* UMAnalytics_Sdk_2.2.0.OpenUDID */,
+			);
+			path = "3rd Libs";
+			sourceTree = "<group>";
+		};
+		19499A49175121530043EEE8 /* UMAnalytics_Sdk_2.2.0.OpenUDID */ = {
+			isa = PBXGroup;
+			children = (
+				19499A4A175121530043EEE8 /* libMobClickLibrary.a */,
+				19499A4B175121530043EEE8 /* MobClick.h */,
+			);
+			path = UMAnalytics_Sdk_2.2.0.OpenUDID;
+			sourceTree = "<group>";
+		};
 		195C149B174F409600F9B000 = {
 			isa = PBXGroup;
 			children = (
@@ -623,6 +644,7 @@
 		195C14AD174F409600F9B000 /* XWQiuShiBaiKe */ = {
 			isa = PBXGroup;
 			children = (
+				19499A48175121530043EEE8 /* 3rd Libs */,
 				195C14D2174F42B800F9B000 /* Model */,
 				195C14D9174F43D900F9B000 /* Article */,
 				195C14FC174F43E800F9B000 /* Utils */,
@@ -1562,6 +1584,10 @@
 				GCC_PREFIX_HEADER = "XWQiuShiBaiKe/XWQiuShiBaiKe-Prefix.pch";
 				INFOPLIST_FILE = "XWQiuShiBaiKe/XWQiuShiBaiKe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1574,6 +1600,10 @@
 				GCC_PREFIX_HEADER = "XWQiuShiBaiKe/XWQiuShiBaiKe-Prefix.pch";
 				INFOPLIST_FILE = "XWQiuShiBaiKe/XWQiuShiBaiKe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
