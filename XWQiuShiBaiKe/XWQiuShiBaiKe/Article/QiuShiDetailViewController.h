@@ -11,8 +11,9 @@
 #import "QiuShiCell.h"
 #import "ASIHTTPRequest.h"
 #import "LoadMoreFooterView.h"
+#import "ShareOptionView.h"
 
-@interface QiuShiDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, ASIHTTPRequestDelegate, LoadMoreFooterViewDelegate, QiuShiCellDelegate>
+@interface QiuShiDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, ASIHTTPRequestDelegate, LoadMoreFooterViewDelegate, QiuShiCellDelegate, ShareOptionViewDelegate>
 {
     ASIHTTPRequest *_commentRequest;
     LoadMoreFooterView *_loadMoreFooterView;

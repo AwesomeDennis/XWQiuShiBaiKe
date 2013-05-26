@@ -52,7 +52,7 @@
     [_refreshHeaderView refreshLastUpdatedDate];
     
     _requestType = RequestTypeNormal;
-    _qiushiType = QiuShiTypeSuggest;
+    _qiushiType = QiuShiTypeImgrank;
     _currentImgrankPage = 1;
     _currentImagesPage = 1;
     _imageTruthImgrankArray = [[NSMutableArray alloc] initWithCapacity:0];
@@ -267,7 +267,7 @@
 {
     //_qiushiType = index == 0 ? QiuShiTypeSuggest : QiuShiTypeLatest;
     if (index == 0) {
-        _qiushiType = QiuShiTypeSuggest;
+        _qiushiType = QiuShiTypeImgrank;
         if (!_imgrankLoaded) {
             //[self refreshed];
             [self initStrollRequestWithType:_qiushiType andPage:1];
@@ -279,7 +279,7 @@
         }
     }
     else {
-        _qiushiType = QiuShiTypeLatest;
+        _qiushiType = QiuShiTypeImages;
         if (!_imagesLoaded) {
             //[self refreshed];
             [self initStrollRequestWithType:_qiushiType andPage:1];

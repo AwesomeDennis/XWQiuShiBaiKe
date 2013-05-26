@@ -221,6 +221,13 @@
     NSLog(@"服务不可用");
 }
 
+#pragma mark - ShareOptionViewDelegate methods
+
+- (void)shareOptionView:(ShareOptionView *)shareView didClickButtonAtIndex:(NSInteger)index
+{
+    [shareView fadeOut];
+}
+
 #pragma mark - UIAction methods
 
 - (IBAction)backButtonClicked:(id)sender
@@ -230,7 +237,10 @@
 
 - (IBAction)shareButtonClicked:(id)sender
 {
-    
+    ShareOptionView *shareView = [[[ShareOptionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))] autorelease];
+    shareView.delegate = self;
+    [self.view addSubview:shareView];
+    [shareView fadeIn];
 }
 
 #pragma mark - Private methods

@@ -690,9 +690,9 @@
 		195C14D9174F43D900F9B000 /* Article */ = {
 			isa = PBXGroup;
 			children = (
+				195C14E8174F43D900F9B000 /* Stroll */,
 				195C14DA174F43D900F9B000 /* Elite */,
 				195C14DE174F43D900F9B000 /* ImageTruth */,
-				195C14E8174F43D900F9B000 /* Stroll */,
 				195C14EC174F43D900F9B000 /* Traversing */,
 				195C14E2174F43D900F9B000 /* QiuShiDetailViewController.h */,
 				195C14E3174F43D900F9B000 /* QiuShiDetailViewController.m */,
