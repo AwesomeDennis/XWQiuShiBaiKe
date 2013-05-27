@@ -32,5 +32,6 @@ typedef enum {
 @interface Toolkit : NSObject
 
 + (UIColor *)getAppBackgroundColor;
++ (NSString *)dateStringAfterRandomDay;
 
 @end
