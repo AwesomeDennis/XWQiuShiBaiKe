@@ -46,3 +46,32 @@
 #define api_imagetruth_images(count, page)       [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/images?count=%d&page=%d", count, page]
 //穿越
 #define api_traversing_history(day, count, page) [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/history/%@?count=%d&page=%d", day, count, page]
+//发表评论:POST 参数：{"content" : "笑啊啊啊啊啊啊","anonymous" : false}
+#define api_create_comment(id)                   [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/%@/comment/create", id]
+//登录:POST post参数：{"login" : "362922604@qq.com","pass" : "rxw@356868"}
+#define api_login                   @"http://m2.qiushibaike.com/user/signin"
+//顶、踩糗事:POST
+/*
+ {
+ "votes" : [
+ {
+ "type" : "up",		type为dn、up
+ "action" : 1,			默认为1
+ "session" : "suggest\/1\/1368151192",	糗事类型、当前是第几条糗事、（糗事创建日期？时间戳？）
+ "target" : "28798106"		糗事id
+ }
+ ]
+ }
+ 
+ {
+ "votes" : [
+ {
+ "type" : "dn",
+ "action" : 1,
+ "session" : "suggest\/1\/1368151173",
+ "target" : "28798106"
+ }
+ ]
+ }
+ */
+#define api_vote        @"http://vote.qiushibaike.com/vote_queue"

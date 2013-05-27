@@ -249,6 +249,7 @@
 		195C16F4174F449200F9B000 /* side_user_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C1658174F449200F9B000 /* side_user_background@2x.png */; };
 		195C16F5174F449200F9B000 /* side_user_background_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C1659174F449200F9B000 /* side_user_background_active.png */; };
 		195C16F6174F449200F9B000 /* side_user_background_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C165A174F449200F9B000 /* side_user_background_active@2x.png */; };
+		1964759F17534F1F00AC3393 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964759E17534F1F00AC3393 /* Config.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -566,6 +567,8 @@
 		195C1658174F449200F9B000 /* side_user_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "side_user_background@2x.png"; sourceTree = "<group>"; };
 		195C1659174F449200F9B000 /* side_user_background_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = side_user_background_active.png; sourceTree = "<group>"; };
 		195C165A174F449200F9B000 /* side_user_background_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "side_user_background_active@2x.png"; sourceTree = "<group>"; };
+		1964759D17534F1F00AC3393 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		1964759E17534F1F00AC3393 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -955,6 +958,8 @@
 				195C1597174F446800F9B000 /* Article */,
 				195C159E174F446800F9B000 /* Toolkit.h */,
 				195C159F174F446800F9B000 /* Toolkit.m */,
+				1964759D17534F1F00AC3393 /* Config.h */,
+				1964759E17534F1F00AC3393 /* Config.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1506,6 +1511,7 @@
 				195C15A9174F447000F9B000 /* AuthViewController.m in Sources */,
 				195C15AF174F447D00F9B000 /* LeftSideBarViewController.m in Sources */,
 				195C15B6174F448500F9B000 /* SideBarViewController.m in Sources */,
+				1964759F17534F1F00AC3393 /* Config.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
