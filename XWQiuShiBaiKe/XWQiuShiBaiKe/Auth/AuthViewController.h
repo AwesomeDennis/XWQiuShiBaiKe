@@ -7,14 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIFormDataRequest.h"
+#import "Dialog.h"
 
 /**
  *登录、注册
  */
-@interface AuthViewController : UIViewController
+@interface AuthViewController : UIViewController <ASIHTTPRequestDelegate>
 {
+    Dialog *_dialog;
+    
     UIButton *_loginButton;
     UILabel *_titleLabel;
+    
+    ASIFormDataRequest *_loginRequest;
 }
 
 @property (retain, nonatomic) IBOutlet UIView *registerView;

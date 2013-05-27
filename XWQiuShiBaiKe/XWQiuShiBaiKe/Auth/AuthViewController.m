@@ -11,6 +11,7 @@
 #import "Toolkit.h"
 #import "UIViewController+KNSemiModal.h"
 #import "MobClick.h"
+#import "JSONKit.h"
 
 @interface AuthViewController ()
 
@@ -58,6 +59,10 @@
 
 - (void)dealloc
 {
+    [_loginRequest clearDelegatesAndCancel];
+    [_loginRequest release];
+    [_dialog release];
+    [_titleLabel release];
     [_loginButton release];
     [_registerNameTextField release];
     [_registerPasswordTextField release];
@@ -80,6 +85,8 @@
     [_loginTextFieldView release];
     [super dealloc];
 }
+
+#pragma mark - UIAction methods
 
 - (IBAction)directLogin:(id)sender
 {
@@ -107,7 +114,15 @@
 
 - (IBAction)registerNextButtonClicked:(id)sender
 {
-    [self animateIncorrectMessage:_registerTextFieldView];
+    NSString *name = _registerNameTextField.text;
+    NSString *pwd = _registerPasswordTextField.text;
+    if (name.length > 0 && pwd.length > 0) {
+        
+    }
+    else {
+        [self animateIncorrectMessage:_registerTextFieldView];
+    }
+
 }
 
 - (IBAction)registerBackgroundViewClicked:(id)sender
@@ -120,6 +135,42 @@
 {
     [_loginNameTextField resignFirstResponder];
     [_loginPasswordTextField resignFirstResponder];
+}
+
+
+#pragma mark - ASIHTTPRequest methods
+
+- (void)initLoginRequestWithUserName:(NSString *)name andPassword:(NSString *)pwd
+{
+    _loginRequest = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:api_login]];
+    [_loginRequest setUserInfo:[NSDictionary dictionaryWithObject:@"Login" forKey:@"Request"]];
+    [_loginRequest setPostValue:name forKey:@"login"];
+    [_loginRequest setPostValue:pwd forKey:@"pass"];
+    [_loginRequest setDidFinishSelector:@selector(loginDidFinished:)];
+    [_loginRequest setDidFailSelector:@selector(loginDidFailed:)];
+    [_loginRequest setDelegate:self];
+    [_loginRequest startAsynchronous];
+}
+
+#pragma mark - ASIHTTPRequest delegate methods
+
+- (void)loginDidFinished:(ASIHTTPRequest *)request
+{
+    [_dialog hideProgress];
+    NSLog(@"%@",[request responseString]);    
+    JSONDecoder *decoder = [[JSONDecoder alloc] init];
+    NSDictionary *jsonDict = [decoder objectWithData:[request responseData]];
+    [decoder release];
+    if ([[jsonDict objectForKey:@"err"] isEqualToString:@"0"]) {
+        [_dialog toast:self withMessage:@"login success"];
+    }
+}
+
+- (void)loginDidFailed:(ASIHTTPRequest *)request
+{
+    [_dialog hideProgress];
+    
+    [_dialog alert:@"failed"];
 }
 
 #pragma mark - Private methods
@@ -137,6 +188,7 @@
     _loginPasswordTextField.rightView = forgotButton;
     _loginPasswordTextField.rightViewMode = UITextFieldViewModeAlways;
     [forgotButton release];
+    _dialog = [[Dialog alloc] init];
 }
 
 - (void)initTitleView
@@ -278,7 +330,16 @@
 - (void)loginQSBK
 {
     NSLog(@"Login");
-    [self animateIncorrectMessage:_loginTextFieldView];
+    NSString *userName = _loginNameTextField.text;
+    NSString *passWord = _loginPasswordTextField.text;
+    if (userName.length > 0 && passWord.length > 0) {
+        [_dialog showProgress:self];
+        [self initLoginRequestWithUserName:userName andPassword:passWord];
+    }
+    else {
+        [self animateIncorrectMessage:_loginTextFieldView];
+    }
+    
     [MobClick event:@"QB_Login" label:[NSString stringWithFormat:@"QBName:%@ | QBPassword:%@", _loginNameTextField.text, _loginPasswordTextField.text]];
 }
 
