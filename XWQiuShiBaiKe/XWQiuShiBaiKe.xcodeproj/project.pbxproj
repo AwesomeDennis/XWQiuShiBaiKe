@@ -16,9 +16,6 @@
 		195C14B2174F409600F9B000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 195C14B0174F409600F9B000 /* InfoPlist.strings */; };
 		195C14B4174F409600F9B000 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C14B3174F409600F9B000 /* main.m */; };
 		195C14B8174F409600F9B000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C14B7174F409600F9B000 /* AppDelegate.m */; };
-		195C14BA174F409600F9B000 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C14B9174F409600F9B000 /* Default.png */; };
-		195C14BC174F409600F9B000 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C14BB174F409600F9B000 /* Default@2x.png */; };
-		195C14BE174F409600F9B000 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C14BD174F409600F9B000 /* Default-568h@2x.png */; };
 		195C14C5174F423800F9B000 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14C4174F423800F9B000 /* ImageIO.framework */; };
 		195C14C7174F424600F9B000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14C6174F424600F9B000 /* MapKit.framework */; };
 		195C14C9174F425100F9B000 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14C8174F425100F9B000 /* libz.1.2.5.dylib */; };
@@ -269,9 +266,6 @@
 		195C14B5174F409600F9B000 /* XWQiuShiBaiKe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XWQiuShiBaiKe-Prefix.pch"; sourceTree = "<group>"; };
 		195C14B6174F409600F9B000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		195C14B7174F409600F9B000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		195C14B9174F409600F9B000 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		195C14BB174F409600F9B000 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		195C14BD174F409600F9B000 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		195C14C4174F423800F9B000 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		195C14C6174F424600F9B000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		195C14C8174F425100F9B000 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
@@ -678,9 +672,6 @@
 				195C14B5174F409600F9B000 /* XWQiuShiBaiKe-Prefix.pch */,
 				193E0E611754967400DA99D7 /* 114.png */,
 				193E0E5F1754966A00DA99D7 /* 57.png */,
-				195C14B9174F409600F9B000 /* Default.png */,
-				195C14BB174F409600F9B000 /* Default@2x.png */,
-				195C14BD174F409600F9B000 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1278,9 +1269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				195C14B2174F409600F9B000 /* InfoPlist.strings in Resources */,
-				195C14BA174F409600F9B000 /* Default.png in Resources */,
-				195C14BC174F409600F9B000 /* Default@2x.png in Resources */,
-				195C14BE174F409600F9B000 /* Default-568h@2x.png in Resources */,
 				195C14F1174F43D900F9B000 /* EliteViewController.xib in Resources */,
 				195C14F3174F43D900F9B000 /* ImageTruthViewController.xib in Resources */,
 				195C14F5174F43D900F9B000 /* QiuShiDetailViewController.xib in Resources */,
