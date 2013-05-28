@@ -21,12 +21,13 @@
     QiuShiType _qiushiType;
     
     NSMutableArray *_traversingArray;
-    NSString *_dateString;
+    //NSString *_dateString;
     NSInteger _currentTraversingPage;
     BOOL _reloading;
 }
 
 @property (nonatomic) BOOL isLoaded;
+@property (copy, nonatomic) NSString *dateString;
 @property (retain, nonatomic) ASIHTTPRequest *traversingRequest;
 @property (retain, nonatomic) IBOutlet UIButton *sideButton;
 @property (retain, nonatomic) IBOutlet UIButton *timeAgainButton;

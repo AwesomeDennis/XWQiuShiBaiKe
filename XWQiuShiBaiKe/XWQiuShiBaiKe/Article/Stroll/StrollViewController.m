@@ -52,6 +52,8 @@
     
     _requestType = RequestTypeNormal;
     _qiushiType = QiuShiTypeSuggest;
+    _strollSuggestPoint = CGPointZero;
+    _strollLatestPoint = CGPointZero;
     _currentSuggestPage = 1;
     _currentLatestPage = 1;
     _strollSuggestArray = [[NSMutableArray alloc] initWithCapacity:0];
@@ -280,8 +282,8 @@
         }
         else {
             [_strollTableView reloadData];
-            [_strollTableView setContentOffset:_strollSuggestPoint];
         }
+        [_strollTableView setContentOffset:_strollSuggestPoint];
     }
     else {
         _qiushiType = QiuShiTypeLatest;
@@ -292,8 +294,8 @@
         }
         else {
             [_strollTableView reloadData];
-            [_strollTableView setContentOffset:_strollLatestPoint];
         }
+        [_strollTableView setContentOffset:_strollLatestPoint];
     }
 }
 

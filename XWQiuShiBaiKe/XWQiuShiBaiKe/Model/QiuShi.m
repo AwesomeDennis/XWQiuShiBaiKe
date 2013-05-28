@@ -13,6 +13,7 @@
 - (id)initWithQiuShiDictionary:(NSDictionary *)dictionary
 {
     if (self = [super init]) {
+        [self initWords];
         if (((NSString *)[dictionary objectForKey:@"tag"]).length > 0) {
             self.tag = [dictionary objectForKey:@"tag"];
         }
@@ -52,6 +53,13 @@
     }
     
     return self;
+}
+
+- (void)initWords
+{
+//    self.imageURL = @"";
+//    self.imageMidURL = @"";
+    self.authorImageURL = @"";
 }
 
 - (void)dealloc

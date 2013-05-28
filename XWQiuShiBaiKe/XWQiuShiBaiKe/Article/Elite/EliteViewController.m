@@ -53,6 +53,9 @@
     
     _requestType = RequestTypeNormal;
     _qiushiType = QiuShiTypeDay;
+    _eliteDayPoint = CGPointZero;
+    _eliteWeekPoint = CGPointZero;
+    _eliteMonthPoint = CGPointZero;
     _currentDayPage = 1;
     _currentWeekPage = 1;
     _currentMonthPage = 1;
@@ -61,7 +64,7 @@
     _eliteMonthArray = [[NSMutableArray alloc] initWithCapacity:0];
     [self initEliteRequestWithType:_qiushiType andPage:_currentDayPage];
     _dayLoaded = YES;
-    //[self refreshed];
+    [self refreshed];
 }
 
 - (void)dealloc
@@ -336,8 +339,8 @@
         }
         else {
             [_eliteTableView reloadData];
-            [_eliteTableView setContentOffset:_eliteDayPoint];
         }
+        [_eliteTableView setContentOffset:_eliteDayPoint];
     }
     else if (index == 1) {
         _qiushiType = QiuShiTypeWeek;
@@ -348,8 +351,8 @@
         }
         else {
             [_eliteTableView reloadData];
-            [_eliteTableView setContentOffset:_eliteWeekPoint];
         }
+        [_eliteTableView setContentOffset:_eliteWeekPoint];
     }
     else {
         _qiushiType = QiuShiTypeMonth;
@@ -360,8 +363,8 @@
         }
         else {
             [_eliteTableView reloadData];
-            [_eliteTableView setContentOffset:_eliteMonthPoint];
         }
+        [_eliteTableView setContentOffset:_eliteMonthPoint];
     }
 }
 

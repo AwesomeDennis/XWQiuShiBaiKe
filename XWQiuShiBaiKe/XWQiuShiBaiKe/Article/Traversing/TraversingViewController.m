@@ -51,14 +51,13 @@
     
     _requestType = RequestTypeNormal;
     _qiushiType = QiuShiTypeHistory;
-    _dateString = @"2013-05-01";
     _currentTraversingPage = 1;
     _traversingArray = [[NSMutableArray alloc] initWithCapacity:0];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateStr = [formatter stringFromDate:[NSDate date]];
-    _dateString = dateStr;
+    self.dateString = dateStr;
     [formatter release];
 
     [self initTraversingRequestWithType:_qiushiType andPage:_currentTraversingPage];
@@ -68,6 +67,7 @@
 - (void)dealloc
 {
     SafeClearRequest(self.traversingRequest);
+    [self.dateString release];
     [_refreshHeaderView release];
     [_loadMoreFooterView release];
     [_traversingTableView release];
@@ -221,6 +221,10 @@
         }
     }
     
+    NSArray *dateArray = [self.dateString componentsSeparatedByString:@"-"];
+    NSString *title = [NSString stringWithFormat:@"%@年%@月%@日", dateArray[0], dateArray[1], dateArray[2]];
+    self.title = title;
+    
     [_traversingTableView reloadData];
 }
 
@@ -265,7 +269,8 @@
 
 - (IBAction)timeAgainButtonClicked:(id)sender
 {
-    _dateString = [Toolkit dateStringAfterRandomDay];
+    self.title = @"穿越中";
+    self.dateString = [Toolkit dateStringAfterRandomDay];
     _currentTraversingPage = 1;
     [_traversingTableView setContentOffset:CGPointZero animated:YES];
     [self initTraversingRequestWithType:_qiushiType andPage:_currentTraversingPage];
@@ -284,7 +289,7 @@
 
 - (void)initTraversingRequestWithType:(QiuShiType)type andPage:(NSInteger)page
 {
-    NSURL *url = [NSURL URLWithString:api_traversing_history(_dateString, 30, page)];
+    NSURL *url = [NSURL URLWithString:api_traversing_history(self.dateString, 30, page)];
     self.traversingRequest = [ASIHTTPRequest requestWithURL:url];
     _traversingRequest.delegate = self;
     [_traversingRequest startAsynchronous];

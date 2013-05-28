@@ -53,6 +53,8 @@
     
     _requestType = RequestTypeNormal;
     _qiushiType = QiuShiTypeImgrank;
+    _imageTruthImgrankPoint = CGPointZero;
+    _imageTruthImagesPoint = CGPointZero;
     _currentImgrankPage = 1;
     _currentImagesPage = 1;
     _imageTruthImgrankArray = [[NSMutableArray alloc] initWithCapacity:0];
@@ -281,8 +283,8 @@
         }
         else {
             [_imageTruthTableView reloadData];
-            [_imageTruthTableView setContentOffset:_imageTruthImgrankPoint];
         }
+        [_imageTruthTableView setContentOffset:_imageTruthImgrankPoint];
     }
     else {
         _qiushiType = QiuShiTypeImages;
@@ -293,8 +295,8 @@
         }
         else {
             [_imageTruthTableView reloadData];
-            [_imageTruthTableView setContentOffset:_imageTruthImagesPoint];
         }
+        [_imageTruthTableView setContentOffset:_imageTruthImagesPoint];
     }
 }
 
