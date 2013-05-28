@@ -5,6 +5,19 @@
 
 @implementation Dialog
 
+static Dialog *instance = nil;
+
++ (Dialog *)Instance
+{
+    @synchronized(self)
+    {
+        if (instance == nil) {
+            instance = [self new];
+        }
+    }
+    return instance;
+}
+
 - (void)alert:(NSString *)message {
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:nil 

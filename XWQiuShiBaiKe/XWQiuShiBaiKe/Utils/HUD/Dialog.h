@@ -10,6 +10,8 @@
 	long long currentLength;
 }
 
++ (Dialog *)Instance;
+
 //提示对话框
 - (void)alert:(NSString *)message;
 
