@@ -66,7 +66,14 @@
 
 - (void)dealloc
 {
+    SafeClearRequest(self.eliteRequest);
+    [_refreshHeaderView release];
+    [_loadMoreFooterView release];
+    [_sliderSwitch release];
     [_eliteTableView release];
+    [_eliteDayArray release];
+    [_eliteMonthArray release];
+    [_eliteWeekArray release];
     [_sideButton release];
     [_postButton release];
     [super dealloc];
@@ -421,7 +428,7 @@
     else {
         url = [NSURL URLWithString:api_elite_month(30, page)];
     }
-    _eliteRequest = [ASIHTTPRequest requestWithURL:url];
+    self.eliteRequest = [ASIHTTPRequest requestWithURL:url];
     _eliteRequest.delegate = self;
     [_eliteRequest startAsynchronous];
 }

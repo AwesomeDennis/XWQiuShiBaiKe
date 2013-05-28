@@ -14,18 +14,20 @@
  */
 @interface TraversingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, QiuShiCellDelegate>
 {
-    ASIHTTPRequest *_traversingRequest;
+    //ASIHTTPRequest *_traversingRequest;
     EGORefreshTableHeaderView *_refreshHeaderView;
     LoadMoreFooterView *_loadMoreFooterView;
     RequestType _requestType;
     QiuShiType _qiushiType;
     
     NSMutableArray *_traversingArray;
+    NSString *_dateString;
     NSInteger _currentTraversingPage;
     BOOL _reloading;
 }
 
 @property (nonatomic) BOOL isLoaded;
+@property (retain, nonatomic) ASIHTTPRequest *traversingRequest;
 @property (retain, nonatomic) IBOutlet UIButton *sideButton;
 @property (retain, nonatomic) IBOutlet UIButton *timeAgainButton;
 @property (retain, nonatomic) IBOutlet UITableView *traversingTableView;

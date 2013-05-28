@@ -14,7 +14,7 @@
  */
 @interface ImageTruthViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, XWSliderSwitchDelegate, QiuShiCellDelegate>
 {
-    ASIHTTPRequest *_imageTruthRequest;
+    //ASIHTTPRequest *_imageTruthRequest;
     EGORefreshTableHeaderView *_refreshHeaderView;
     LoadMoreFooterView *_loadMoreFooterView;
     RequestType _requestType;
@@ -33,6 +33,7 @@
 }
 
 @property (nonatomic) BOOL isLoaded;
+@property (retain, nonatomic) ASIHTTPRequest *imageTruthRequest;
 @property (retain, nonatomic) IBOutlet UITableView *imageTruthTableView;
 @property (retain, nonatomic) IBOutlet UIButton *sideButton;
 @property (retain, nonatomic) IBOutlet UIButton *postButton;

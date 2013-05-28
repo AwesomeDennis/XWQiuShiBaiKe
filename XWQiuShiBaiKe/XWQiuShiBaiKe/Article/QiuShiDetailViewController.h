@@ -15,7 +15,7 @@
 
 @interface QiuShiDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, ASIHTTPRequestDelegate, LoadMoreFooterViewDelegate, QiuShiCellDelegate, ShareOptionViewDelegate>
 {
-    ASIHTTPRequest *_commentRequest;
+    //ASIHTTPRequest *_commentRequest;
     LoadMoreFooterView *_loadMoreFooterView;
     NSMutableArray *_commentArray;
     NSInteger _currentCommentPage;
@@ -24,6 +24,7 @@
 }
 
 @property (retain, nonatomic) QiuShi *qiushi;
+@property (retain, nonatomic) ASIHTTPRequest *commentRequest;
 @property (retain, nonatomic) IBOutlet UITableView *qiushiDetailTableView;
 @property (retain, nonatomic) IBOutlet UIButton *backButton;
 @property (retain, nonatomic) IBOutlet UIButton *shareButton;

@@ -64,7 +64,13 @@
 
 - (void)dealloc
 {
+    SafeClearRequest(self.imageTruthRequest);
+    [_sliderSwitch release];
+    [_refreshHeaderView release];
+    [_loadMoreFooterView release];
     [_imageTruthTableView release];
+    [_imageTruthImgrankArray release];
+    [_imageTruthImagesArray release];
     [_sideButton release];
     [_postButton release];
     [super dealloc];
@@ -351,7 +357,7 @@
     else {
         url = [NSURL URLWithString:api_imagetruth_images(30, page)];
     }
-    _imageTruthRequest = [ASIHTTPRequest requestWithURL:url];
+    self.imageTruthRequest = [ASIHTTPRequest requestWithURL:url];
     _imageTruthRequest.delegate = self;
     [_imageTruthRequest startAsynchronous];
 }

@@ -46,7 +46,7 @@
 
 - (void)dealloc
 {
-    //ClearRequest(_commentRequest);
+    SafeClearRequest(self.commentRequest);
     [_loadMoreFooterView release];
     [_commentArray release];
     [_qiushiDetailTableView release];
@@ -255,7 +255,7 @@
 
 - (void)initCommentRequest:(NSString *)qiushiID page:(NSInteger)page
 {
-    _commentRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_article_comment(qiushiID, 50, page)]];
+    self.commentRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_article_comment(qiushiID, 50, page)]];
     _commentRequest.delegate = self;
     [_commentRequest startAsynchronous];
 }

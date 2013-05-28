@@ -14,7 +14,7 @@
  */
 @interface StrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, XWSliderSwitchDelegate, QiuShiCellDelegate>
 {
-    ASIHTTPRequest *_strollRequest;
+    //ASIHTTPRequest *_strollRequest;
     EGORefreshTableHeaderView *_refreshHeaderView;
     LoadMoreFooterView *_loadMoreFooterView;
     RequestType _requestType;
@@ -33,7 +33,7 @@
 }
 
 @property (nonatomic) BOOL isLoaded;
-
+@property (retain, nonatomic) ASIHTTPRequest *strollRequest;
 @property (retain, nonatomic) IBOutlet UITableView *strollTableView;
 @property (retain, nonatomic) IBOutlet UIButton *sideButton;
 @property (retain, nonatomic) IBOutlet UIButton *postButton;

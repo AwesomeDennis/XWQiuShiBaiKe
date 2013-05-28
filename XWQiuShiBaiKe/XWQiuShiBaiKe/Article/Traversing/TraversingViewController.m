@@ -7,6 +7,7 @@
 //
 
 #import "TraversingViewController.h"
+#import "Toolkit.h"
 
 @interface TraversingViewController ()
 
@@ -50,14 +51,27 @@
     
     _requestType = RequestTypeNormal;
     _qiushiType = QiuShiTypeHistory;
+    _dateString = @"2013-05-01";
     _currentTraversingPage = 1;
     _traversingArray = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateStr = [formatter stringFromDate:[NSDate date]];
+    _dateString = dateStr;
+    [formatter release];
+
     [self initTraversingRequestWithType:_qiushiType andPage:_currentTraversingPage];
     [self refreshed];
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
+    SafeClearRequest(self.traversingRequest);
+    [_refreshHeaderView release];
+    [_loadMoreFooterView release];
     [_traversingTableView release];
+    [_traversingArray release];
     [_sideButton release];
     [_timeAgainButton release];
     [super dealloc];
@@ -201,7 +215,6 @@
     if (array) {
         for (int i = 0; i < [array count]; i++) {
             NSDictionary *qiushiDic = [array objectAtIndex:i];
-            //////穿越装载QiuShi出现问题
             QiuShi *qs = [[QiuShi alloc] initWithQiuShiDictionary:qiushiDic];
             [_traversingArray addObject:qs];
             [qs release];
@@ -252,7 +265,10 @@
 
 - (IBAction)timeAgainButtonClicked:(id)sender
 {
-    
+    _dateString = [Toolkit dateStringAfterRandomDay];
+    _currentTraversingPage = 1;
+    [_traversingTableView setContentOffset:CGPointZero animated:YES];
+    [self initTraversingRequestWithType:_qiushiType andPage:_currentTraversingPage];
 }
 
 #pragma mark - Private methods
@@ -268,8 +284,8 @@
 
 - (void)initTraversingRequestWithType:(QiuShiType)type andPage:(NSInteger)page
 {
-    NSURL *url = [NSURL URLWithString:api_traversing_history(@"2012-5-3", 30, page)];
-    _traversingRequest = [ASIHTTPRequest requestWithURL:url];
+    NSURL *url = [NSURL URLWithString:api_traversing_history(_dateString, 30, page)];
+    self.traversingRequest = [ASIHTTPRequest requestWithURL:url];
     _traversingRequest.delegate = self;
     [_traversingRequest startAsynchronous];
 }

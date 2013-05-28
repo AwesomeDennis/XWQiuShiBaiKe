@@ -63,7 +63,7 @@
 
 - (void)dealloc
 {
-    ClearRequest(_strollRequest);
+    SafeClearRequest(self.strollRequest);
     [_refreshHeaderView release];
     [_loadMoreFooterView release];
     [_strollSuggestArray release];
@@ -356,7 +356,7 @@
     else {
         url = [NSURL URLWithString:api_stroll_latest(30, page)];
     }
-    _strollRequest = [ASIHTTPRequest requestWithURL:url];
+    self.strollRequest = [ASIHTTPRequest requestWithURL:url];
     _strollRequest.delegate = self;
     [_strollRequest startAsynchronous];
 }

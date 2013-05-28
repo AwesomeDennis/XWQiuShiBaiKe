@@ -24,7 +24,7 @@
 #define kDeviceWidth [UIScreen mainScreen].bounds.size.width
 #define KDeviceHeight [UIScreen mainScreen].bounds.size.height
 
-#define ClearRequest(request) if(request!=nil){[request clearDelegatesAndCancel];[request release];request=nil;}
+#define SafeClearRequest(request) if(request!=nil){[request clearDelegatesAndCancel];[request release];request=nil;}
 #define IntergerToString(num) [NSString stringWithFormat:@"%d", num]
 
 //api接口
