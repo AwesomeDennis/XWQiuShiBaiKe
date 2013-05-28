@@ -25,6 +25,18 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginEvent:@"QB_Traversing"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endEvent:@"QB_Traversing"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,7 +73,7 @@
     [formatter release];
 
     [self initTraversingRequestWithType:_qiushiType andPage:_currentTraversingPage];
-    [self refreshed];
+    //[self refreshed];
 }
 
 - (void)dealloc

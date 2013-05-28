@@ -340,7 +340,7 @@
         [self animateIncorrectMessage:_loginTextFieldView];
     }
     
-    [MobClick event:@"QB_Login" label:[NSString stringWithFormat:@"QBName:%@ | QBPassword:%@", _loginNameTextField.text, _loginPasswordTextField.text]];
+    [MobClick event:@"QB_Login" label:_loginNameTextField.text];
 }
 
 - (void)closeAuthViewController

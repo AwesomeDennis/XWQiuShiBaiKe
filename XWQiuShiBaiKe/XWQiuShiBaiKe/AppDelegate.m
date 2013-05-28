@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "SideBarViewController.h"
-#import "MobClick.h"
 
 @implementation AppDelegate
 

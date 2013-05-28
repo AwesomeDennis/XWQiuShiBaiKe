@@ -18,6 +18,7 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "ASIHTTPRequestConfig.h"
 #import "EGORefreshTableHeaderView.h"
+#import "MobClick.h"
 #import "Dialog.h"
 #endif
 

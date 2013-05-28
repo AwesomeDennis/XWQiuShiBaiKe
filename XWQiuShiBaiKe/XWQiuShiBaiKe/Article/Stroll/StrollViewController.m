@@ -23,6 +23,18 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginEvent:@"QB_Stroll"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endEvent:@"QB_Stroll"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -60,7 +72,7 @@
     _strollLatestArray = [[NSMutableArray alloc] initWithCapacity:0];
     [self initStrollRequestWithType:_qiushiType andPage:_currentSuggestPage];
     _suggestLoaded = YES;
-    [self refreshed];
+    //[self refreshed];
 }
 
 - (void)dealloc

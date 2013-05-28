@@ -23,6 +23,18 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginEvent:@"QB_Elite"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endEvent:@"QB_Elite"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -64,7 +76,7 @@
     _eliteMonthArray = [[NSMutableArray alloc] initWithCapacity:0];
     [self initEliteRequestWithType:_qiushiType andPage:_currentDayPage];
     _dayLoaded = YES;
-    [self refreshed];
+    //[self refreshed];
 }
 
 - (void)dealloc
