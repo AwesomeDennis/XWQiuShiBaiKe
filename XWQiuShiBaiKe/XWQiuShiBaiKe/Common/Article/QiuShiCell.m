@@ -65,7 +65,9 @@
         _avatarImageView.hidden = NO;
         _nameLabel.text = qiushi.author;
         y += CGRectGetHeight(_nameLabel.frame) + 8;
-        [_avatarImageView setImageWithURL:[NSURL URLWithString:qiushi.authorImageURL] placeholderImage:[UIImage imageNamed:@"thumb_avatar.png"]];
+        if ((NSNull *)qiushi.authorImageURL != [NSNull null]) {
+            [_avatarImageView setImageWithURL:[NSURL URLWithString:qiushi.authorImageURL] placeholderImage:[UIImage imageNamed:@"thumb_avatar.png"]];
+        }
     }
     else {
         _nameLabel.hidden = YES;
