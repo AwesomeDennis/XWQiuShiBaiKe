@@ -18,7 +18,7 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "ASIHTTPRequestConfig.h"
 #import "EGORefreshTableHeaderView.h"
-
+#import "Dialog.h"
 #endif
 
 #define kDeviceWidth [UIScreen mainScreen].bounds.size.width
