@@ -36,9 +36,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *sideSettingButton;
 @property (retain, nonatomic) IBOutlet UIButton *sideJoinQBButton;
 @property (retain, nonatomic) IBOutlet UIButton *sideTitleButton;
-
 @property (retain, nonatomic) IBOutlet UITableView *sideMenuTableView;
-
 
 - (IBAction)faceTitleView:(id)sender;
 - (IBAction)sideSettingButtonClicked:(id)sender;

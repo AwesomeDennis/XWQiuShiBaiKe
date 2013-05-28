@@ -14,8 +14,9 @@
 @interface LeftSideBarViewController ()
 {
     NSArray *_dataList;
-    int _selectIndex;
 }
+@property (retain, nonatomic) NSIndexPath *selectIndexPath;
+
 @end
 
 @implementation LeftSideBarViewController
@@ -36,9 +37,8 @@
     _dataList = @[@"1",@"2",@"3",@"4",@"5"];
     if ([_delegate respondsToSelector:@selector(leftSideBarSelectWithController:)]) {
         [_delegate leftSideBarSelectWithController:[self subConWithIndex:0]];
-        _selectIndex = 0;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [self.sideMenuTableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        self.selectIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.sideMenuTableView selectRowAtIndexPath:_selectIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     }
     [self initViews];
 }
@@ -197,78 +197,84 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if ([_delegate respondsToSelector:@selector(leftSideBarSelectWithController:)]) {
-        if (indexPath.row == _selectIndex) {
+        if ([indexPath isEqual:_selectIndexPath]) {
             [_delegate leftSideBarSelectWithController:nil];
-        }else
-        {
-            [_delegate leftSideBarSelectWithController:[self subConWithIndex:indexPath.row]];
         }
-        
+        else {
+            [_delegate leftSideBarSelectWithController:[self subConWithIndex:indexPath]];
+        }
     }
-    _selectIndex = indexPath.row;
+    self.selectIndexPath = indexPath;
 }
 
 #pragma mark - Private methods
 
-- (UIViewController *)subConWithIndex:(int)index
+- (UIViewController *)subConWithIndex:(NSIndexPath *)indexPath
 {
     UIViewController *vc = nil;
-    switch (index) {
-        case 0:
-        {
-            if (_strollVC && _strollVC.isLoaded) {
-                return _strollNavController;
-            }
-            else {
-                _strollVC = [[StrollViewController alloc] initWithNibName:@"StrollViewController" bundle:nil];
-                _strollNavController = [self configNavigationController:_strollNavController withRootVC:_strollVC];
-                return _strollNavController;
-            }
-        }
-            break;
-        case 1:
-        {
-            if (_eliteVC && _eliteVC.isLoaded) {
-                return _eliteNavController;
-            }
-            else
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
             {
-                _eliteVC = [[EliteViewController alloc] initWithNibName:@"EliteViewController" bundle:nil];
-                _eliteNavController = [self configNavigationController:_eliteNavController withRootVC:_eliteVC];
-                return _eliteNavController;
+                if (_strollVC && _strollVC.isLoaded) {
+                    return _strollNavController;
+                }
+                else {
+                    _strollVC = [[StrollViewController alloc] initWithNibName:@"StrollViewController" bundle:nil];
+                    _strollNavController = [self configNavigationController:_strollNavController withRootVC:_strollVC];
+                    return _strollNavController;
+                }
             }
-        }
-            break;
-        case 2:
-        {
-            if (_imageTruthVC && _imageTruthVC.isLoaded) {
-                return _imageTruthNavController;
-            }
-            else
+                break;
+            case 1:
             {
-                _imageTruthVC = [[ImageTruthViewController alloc] initWithNibName:@"ImageTruthViewController" bundle:nil];
-                _imageTruthNavController = [self configNavigationController:_imageTruthNavController withRootVC:_imageTruthVC];
-                return _imageTruthNavController;
+                if (_eliteVC && _eliteVC.isLoaded) {
+                    return _eliteNavController;
+                }
+                else
+                {
+                    _eliteVC = [[EliteViewController alloc] initWithNibName:@"EliteViewController" bundle:nil];
+                    _eliteNavController = [self configNavigationController:_eliteNavController withRootVC:_eliteVC];
+                    return _eliteNavController;
+                }
             }
-        }
-            break;
-        case 3:
-        {
-            if (_traversingVC && _traversingVC.isLoaded) {
-                return _traversingeNavController;
-            }
-            else
+                break;
+            case 2:
             {
-                _traversingVC = [[TraversingViewController alloc] initWithNibName:@"TraversingViewController" bundle:nil];
-                _traversingeNavController = [self configNavigationController:_traversingeNavController withRootVC:_traversingVC];
-                return _traversingeNavController;
+                if (_imageTruthVC && _imageTruthVC.isLoaded) {
+                    return _imageTruthNavController;
+                }
+                else
+                {
+                    _imageTruthVC = [[ImageTruthViewController alloc] initWithNibName:@"ImageTruthViewController" bundle:nil];
+                    _imageTruthNavController = [self configNavigationController:_imageTruthNavController withRootVC:_imageTruthVC];
+                    return _imageTruthNavController;
+                }
             }
+                break;
+            case 3:
+            {
+                if (_traversingVC && _traversingVC.isLoaded) {
+                    return _traversingeNavController;
+                }
+                else
+                {
+                    _traversingVC = [[TraversingViewController alloc] initWithNibName:@"TraversingViewController" bundle:nil];
+                    _traversingeNavController = [self configNavigationController:_traversingeNavController withRootVC:_traversingVC];
+                    return _traversingeNavController;
+                }
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        default:
-            break;
+    }
+    else if (indexPath.section == 1) {
+        [[Dialog Instance] toast:@"你特么的别点咯，这东西还没做好啦"];
+    }
+    else {
+        [[Dialog Instance] toast:@"这个真心没做，等等吧"];
     }
 
     return vc;
