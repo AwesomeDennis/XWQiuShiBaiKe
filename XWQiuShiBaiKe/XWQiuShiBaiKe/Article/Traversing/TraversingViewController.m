@@ -124,7 +124,9 @@
         ((QiuShiCell *)cell).delegate = self;
     }
     
-    [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[_traversingArray objectAtIndex:indexPath.row]];
+    if ([_traversingArray count] > 0) {
+        [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[_traversingArray objectAtIndex:indexPath.row]];
+    }
     
     return cell;
 }
@@ -242,7 +244,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    NSLog(@"服务不可用");
+    [[Dialog Instance] toast:self withMessage:@"擦,穿个J8!"];
 }
 
 #pragma mark - QiuShiCellDelegate method
@@ -291,8 +293,8 @@
 {
     NSURL *url = [NSURL URLWithString:api_traversing_history(self.dateString, 30, page)];
     self.traversingRequest = [ASIHTTPRequest requestWithURL:url];
-    _traversingRequest.delegate = self;
-    [_traversingRequest startAsynchronous];
+    self.traversingRequest.delegate = self;
+    [self.traversingRequest startAsynchronous];
 }
 
 @end

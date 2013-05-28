@@ -142,21 +142,6 @@
     return height;
 }
 
-- (void)scrollViewDid
-{
-    CommentCell *cell = (CommentCell *)[_qiushiDetailTableView.visibleCells lastObject];
-    Comment *comment = (Comment *)[_commentArray lastObject];
-    if (cell.visibleFloor == comment.floor) {
-        NSLog(@"did scroll ...last one");
-        _moreLoading = YES;
-        if (_moreLoading) {
-            _moreLoading = NO;
-            _currentCommentPage++;
-            [self initCommentRequest:_qiushi.qiushiID page:_currentCommentPage];
-        }
-    }
-}
-
 #pragma mark - UIScrollView delegate method
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -218,7 +203,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    NSLog(@"服务不可用");
+    [[Dialog Instance] toast:self withMessage:@"评论不行了,顶一个上去啊!"];
 }
 
 #pragma mark - ShareOptionViewDelegate methods
@@ -256,8 +241,8 @@
 - (void)initCommentRequest:(NSString *)qiushiID page:(NSInteger)page
 {
     self.commentRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_article_comment(qiushiID, 50, page)]];
-    _commentRequest.delegate = self;
-    [_commentRequest startAsynchronous];
+    self.commentRequest.delegate = self;
+    [self.commentRequest startAsynchronous];
 }
 
 @end

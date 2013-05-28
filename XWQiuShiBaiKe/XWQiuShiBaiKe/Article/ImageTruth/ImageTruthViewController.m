@@ -128,7 +128,9 @@
     }
     
     NSMutableArray *imageTruthArray = _qiushiType == QiuShiTypeImgrank ? _imageTruthImgrankArray : _imageTruthImagesArray;
-    [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[imageTruthArray objectAtIndex:indexPath.row]];
+    if ([imageTruthArray count] > 0) {
+        [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[imageTruthArray objectAtIndex:indexPath.row]];
+    }
     
     return cell;
 }
@@ -266,7 +268,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    NSLog(@"服务不可用");
+    [[Dialog Instance] toast:self withMessage:@"yep,网络太慢了,先lol会儿吧!"];
 }
 
 #pragma mark - XWSliderSwitchDelegate method
@@ -360,8 +362,8 @@
         url = [NSURL URLWithString:api_imagetruth_images(30, page)];
     }
     self.imageTruthRequest = [ASIHTTPRequest requestWithURL:url];
-    _imageTruthRequest.delegate = self;
-    [_imageTruthRequest startAsynchronous];
+    self.imageTruthRequest.delegate = self;
+    [self.imageTruthRequest startAsynchronous];
 }
 
 @end

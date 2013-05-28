@@ -161,7 +161,9 @@
             break;
     }
     
-    [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[eliteArray objectAtIndex:indexPath.row]];
+    if ([eliteArray count] > 0) {
+        [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[eliteArray objectAtIndex:indexPath.row]];
+    }
     
     return cell;
 }
@@ -323,7 +325,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    NSLog(@"服务不可用");
+    [[Dialog Instance] toast:self withMessage:@"yep,网络有问题咯!"];
 }
 
 #pragma mark - XWSliderSwitchDelegate method
@@ -432,8 +434,8 @@
         url = [NSURL URLWithString:api_elite_month(30, page)];
     }
     self.eliteRequest = [ASIHTTPRequest requestWithURL:url];
-    _eliteRequest.delegate = self;
-    [_eliteRequest startAsynchronous];
+    self.eliteRequest.delegate = self;
+    [self.eliteRequest startAsynchronous];
 }
 
 - (NSMutableArray *)getEliteArray

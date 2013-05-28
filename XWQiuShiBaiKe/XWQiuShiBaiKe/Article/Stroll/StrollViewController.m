@@ -127,7 +127,9 @@
     }
 
     NSMutableArray *strollArray = _qiushiType == QiuShiTypeSuggest ? _strollSuggestArray : _strollLatestArray;
-    [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[strollArray objectAtIndex:indexPath.row]];
+    if ([strollArray count]) {
+        [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[strollArray objectAtIndex:indexPath.row]];
+    }
 
     return cell;
 }
@@ -265,7 +267,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    NSLog(@"服务不可用");
+    [[Dialog Instance] toast:self withMessage:@"呵呵,网络不行了.滚粗!"];
 }
 
 #pragma mark - XWSliderSwitchDelegate method 
@@ -359,8 +361,8 @@
         url = [NSURL URLWithString:api_stroll_latest(30, page)];
     }
     self.strollRequest = [ASIHTTPRequest requestWithURL:url];
-    _strollRequest.delegate = self;
-    [_strollRequest startAsynchronous];
+    self.strollRequest.delegate = self;
+    [self.strollRequest startAsynchronous];
 }
 
 @end

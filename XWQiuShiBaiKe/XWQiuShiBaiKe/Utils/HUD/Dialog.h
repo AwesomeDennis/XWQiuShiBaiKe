@@ -17,6 +17,7 @@
 
 //类似于Android一个显示框效果
 - (void)toast:(UIViewController *)controller withMessage:(NSString *) message;
+- (void)toast:(NSString *)message;
 
 //带遮罩效果的进度条
 - (void)gradient:(UIViewController *)controller seletor:(SEL)method;
