@@ -252,6 +252,7 @@
 		1964759F17534F1F00AC3393 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964759E17534F1F00AC3393 /* Config.m */; };
 		198060641754986700E5069A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198060631754986700E5069A /* Default@2x.png */; };
 		198060661754987200E5069A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198060651754987200E5069A /* Default-568h@2x.png */; };
+		19E232D61755F8280085BE89 /* NSDictionary+JSONCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -573,6 +574,9 @@
 		1964759E17534F1F00AC3393 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		198060631754986700E5069A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		198060651754987200E5069A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		19E232D41755F8280085BE89 /* NSDictionary+JSONCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONCategory.h"; sourceTree = "<group>"; };
+		19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONCategory.m"; sourceTree = "<group>"; };
+		19E232D81755F9B80085BE89 /* XWCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCategory.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -800,6 +804,7 @@
 		195C1514174F43E800F9B000 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				19E232D31755F7FA0085BE89 /* XWCategory */,
 				195C1515174F43E800F9B000 /* MJPopupViewController */,
 				195C151A174F43E800F9B000 /* UIViewController+KNSemiModal */,
 				195C151D174F43E800F9B000 /* XWCustomView */,
@@ -1225,6 +1230,16 @@
 			path = SideBar;
 			sourceTree = "<group>";
 		};
+		19E232D31755F7FA0085BE89 /* XWCategory */ = {
+			isa = PBXGroup;
+			children = (
+				19E232D81755F9B80085BE89 /* XWCategory.h */,
+				19E232D41755F8280085BE89 /* NSDictionary+JSONCategory.h */,
+				19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */,
+			);
+			path = XWCategory;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1537,6 +1552,7 @@
 				195C15AF174F447D00F9B000 /* LeftSideBarViewController.m in Sources */,
 				195C15B6174F448500F9B000 /* SideBarViewController.m in Sources */,
 				1964759F17534F1F00AC3393 /* Config.m in Sources */,
+				19E232D61755F8280085BE89 /* NSDictionary+JSONCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
