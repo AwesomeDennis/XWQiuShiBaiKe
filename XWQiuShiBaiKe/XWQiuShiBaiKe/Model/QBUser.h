@@ -1,0 +1,25 @@
+//
+//  QBUser.h
+//  XWQiuShiBaiKe
+//
+//  Created by renxinwei on 13-5-29.
+//  Copyright (c) 2013年 renxinwei's iMac. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface QBUser : NSObject
+
+@property (nonatomic, copy) NSString *last_visited_at;
+@property (nonatomic, copy) NSString *created_at;
+@property (nonatomic, copy) NSString *state;
+@property (nonatomic, copy) NSString *email;
+@property (nonatomic, copy) NSString *last_device;
+@property (nonatomic, copy) NSString *role;
+@property (nonatomic, copy) NSString *login;
+@property (nonatomic, copy) NSString *qbId;
+@property (nonatomic, copy) NSString *icon;
+
+- (id)initWithQBUserDictionary:(NSDictionary *)dictionary;
+
+@end

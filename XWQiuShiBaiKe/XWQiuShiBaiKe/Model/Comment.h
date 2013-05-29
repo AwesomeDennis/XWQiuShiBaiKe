@@ -16,6 +16,6 @@
 @property (nonatomic,assign) NSInteger floor;               //楼层
 @property (nonatomic,assign) NSInteger totalCount;          //总评论数
 
-- (id)initWithDictionary:(NSDictionary *)dictionary;
+- (id)initWithCommentDictionary:(NSDictionary *)dictionary;
 
 @end

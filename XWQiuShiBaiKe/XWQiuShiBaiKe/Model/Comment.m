@@ -10,7 +10,7 @@
 
 @implementation Comment
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithCommentDictionary:(NSDictionary *)dictionary
 {
     if (self = [super init]) {
         self.commentID = [dictionary objectForKey:@"id"];
