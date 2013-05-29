@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193055F2175619E2009DEE32 /* QBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 193055F1175619E2009DEE32 /* QBUser.m */; };
 		193E0E601754966A00DA99D7 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E5F1754966A00DA99D7 /* 57.png */; };
 		193E0E621754967400DA99D7 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E611754967400DA99D7 /* 114.png */; };
 		193E0E64175497F200DA99D7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E63175497F200DA99D7 /* Default.png */; };
@@ -256,6 +257,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		193055F0175619E2009DEE32 /* QBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBUser.h; sourceTree = "<group>"; };
+		193055F1175619E2009DEE32 /* QBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBUser.m; sourceTree = "<group>"; };
 		193E0E5F1754966A00DA99D7 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57.png; path = ../57.png; sourceTree = "<group>"; };
 		193E0E611754967400DA99D7 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = ../114.png; sourceTree = "<group>"; };
 		193E0E63175497F200DA99D7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -696,6 +699,8 @@
 				195C14D4174F42B800F9B000 /* Comment.m */,
 				195C14D5174F42B800F9B000 /* QiuShi.h */,
 				195C14D6174F42B800F9B000 /* QiuShi.m */,
+				193055F0175619E2009DEE32 /* QBUser.h */,
+				193055F1175619E2009DEE32 /* QBUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1553,6 +1558,7 @@
 				195C15B6174F448500F9B000 /* SideBarViewController.m in Sources */,
 				1964759F17534F1F00AC3393 /* Config.m in Sources */,
 				19E232D61755F8280085BE89 /* NSDictionary+JSONCategory.m in Sources */,
+				193055F2175619E2009DEE32 /* QBUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
