@@ -9,6 +9,6 @@
 #ifndef XWQiuShiBaiKe_XWCategory_h
 #define XWQiuShiBaiKe_XWCategory_h
 
-#import "NSDictionary+JSONCategory"
+#import "NSDictionary+JSONCategory.h"
 
 #endif

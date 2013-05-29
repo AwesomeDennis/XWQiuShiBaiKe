@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ASIFormDataRequest.h"
-#import "Dialog.h"
 
 /**
  *登录、注册
@@ -20,7 +18,7 @@
     UIButton *_loginButton;
     UILabel *_titleLabel;
     
-    ASIFormDataRequest *_loginRequest;
+    ASIHTTPRequest *_loginRequest;
 }
 
 @property (retain, nonatomic) IBOutlet UIView *registerView;

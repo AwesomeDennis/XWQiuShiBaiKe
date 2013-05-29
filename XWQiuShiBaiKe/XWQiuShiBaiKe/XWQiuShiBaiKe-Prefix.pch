@@ -18,6 +18,8 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "ASIHTTPRequestConfig.h"
 #import "EGORefreshTableHeaderView.h"
+#import "XWCategory.h"
+#import "JSONKit.h"
 #import "MobClick.h"
 #import "Dialog.h"
 #endif
@@ -49,7 +51,7 @@
 #define api_traversing_history(day, count, page) [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/history/%@?count=%d&page=%d", day, count, page]
 //发表评论:POST 参数：{"content" : "笑啊啊啊啊啊啊","anonymous" : false}
 #define api_create_comment(id)                   [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/%@/comment/create", id]
-//登录:POST post参数：{"login" : "362922604@qq.com","pass" : "rxw@356868"}
+//登录:POST
 #define api_login                   @"http://m2.qiushibaike.com/user/signin"
 //顶、踩糗事:POST
 /*

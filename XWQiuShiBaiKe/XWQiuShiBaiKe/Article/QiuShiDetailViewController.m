@@ -191,7 +191,7 @@
     if (array) {
         for (int i = 0; i < [array count]; i++) {
             NSDictionary *commentDic = [array objectAtIndex:i];
-            Comment *comment = [[Comment alloc] initWithDictionary:commentDic];
+            Comment *comment = [[Comment alloc] initWithCommentDictionary:commentDic];
             [_commentArray addObject:comment];
             [comment release];
         }

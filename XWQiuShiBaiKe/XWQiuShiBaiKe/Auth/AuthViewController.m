@@ -7,11 +7,9 @@
 //
 
 #import "AuthViewController.h"
-#import <QuartzCore/QuartzCore.h>
 #import "Toolkit.h"
 #import "UIViewController+KNSemiModal.h"
-#import "MobClick.h"
-#import "JSONKit.h"
+#import "QBUser.h"
 
 @interface AuthViewController ()
 
@@ -142,10 +140,11 @@
 
 - (void)initLoginRequestWithUserName:(NSString *)name andPassword:(NSString *)pwd
 {
-    _loginRequest = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:api_login]];
+    NSDictionary *loginDict = [NSDictionary dictionaryWithObjectsAndKeys:name, @"login", pwd, @"pass", nil];
+    _loginRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_login]];
     [_loginRequest setUserInfo:[NSDictionary dictionaryWithObject:@"Login" forKey:@"Request"]];
-    [_loginRequest setPostValue:name forKey:@"login"];
-    [_loginRequest setPostValue:pwd forKey:@"pass"];
+    [_loginRequest setRequestMethod:@"POST"];
+    [_loginRequest appendPostData:[loginDict toJSON]];
     [_loginRequest setDidFinishSelector:@selector(loginDidFinished:)];
     [_loginRequest setDidFailSelector:@selector(loginDidFailed:)];
     [_loginRequest setDelegate:self];
@@ -161,8 +160,21 @@
     JSONDecoder *decoder = [[JSONDecoder alloc] init];
     NSDictionary *jsonDict = [decoder objectWithData:[request responseData]];
     [decoder release];
-    if ([[jsonDict objectForKey:@"err"] isEqualToString:@"0"]) {
-        [_dialog toast:self withMessage:@"login success"];
+    
+    NSLog(@"err:%@", [jsonDict objectForKey:@"err"]);
+    NSString *resultCode = [NSString stringWithFormat:@"%@", [jsonDict objectForKey:@"err"]];
+    if ([resultCode isEqualToString:@"0"]) {
+        NSString *token = [jsonDict objectForKey:@"token"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:token forKey:@"QBToken"];
+        
+        //id userDict = [jsonDict objectForKey:@"user"];
+        //QBUser *qnUser = [[QBUser alloc] initWithQBUserDictionary:userDict];
+        
+        [_dialog toast:self withMessage:@"终于登录成功咯"];
+    }
+    else {
+        [_dialog toast:self withMessage:@"特么的，登录失败了"];
     }
 }
 
@@ -170,7 +182,7 @@
 {
     [_dialog hideProgress];
     
-    [_dialog alert:@"failed"];
+    [_dialog toast:self withMessage:@"特么的，登录失败了"];
 }
 
 #pragma mark - Private methods
