@@ -30,12 +30,7 @@
 #define SafeClearRequest(request) if(request!=nil){[request clearDelegatesAndCancel];[request release];request=nil;}
 #define IntergerToString(num) [NSString stringWithFormat:@"%d", num]
 
-//api接口
-//通用: 糗事类型，每页显示数量，当前页数
-#define api_article(type, count, page)           [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/%@?count=%d&page=%d", type, count, page]
-
-//评论: 糗事ID，每页显示数量，当前页数
-#define api_article_comment(id, count, page)     [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/%@/comments?count=%d&page=%d", id, count, page]
+//QSBK api接口
 
 //随便逛逛:干货、嫩草
 #define api_stroll_suggest(count, page)          [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/suggest?count=%d&page=%d", count, page]
@@ -49,18 +44,33 @@
 #define api_imagetruth_images(count, page)       [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/images?count=%d&page=%d", count, page]
 //穿越
 #define api_traversing_history(day, count, page) [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/history/%@?count=%d&page=%d", day, count, page]
-//发表评论:POST 参数：{"content" : "笑啊啊啊啊啊啊","anonymous" : false}
+//评论: 糗事ID，每页显示数量，当前页数
+#define api_article_comment(id, count, page)     [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/%@/comments?count=%d&page=%d", id, count, page]
+
+//发表评论: POST Header:Qbtoken 参数：{"content" : "笑啊啊啊啊啊啊","anonymous" : false}
 #define api_create_comment(id)                   [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/%@/comment/create", id]
 //登录:POST
-#define api_login                   @"http://m2.qiushibaike.com/user/signin"
+#define api_qiushi_login                         @"http://m2.qiushibaike.com/user/signin"
+//反馈:POST
+#define api_qiushi_feedback                      @"http://m2.qiushibaike.com/feedback"
+//我收藏的: GET Header:Qbtoken
+#define api_mine_collect(page, count)            [NSString stringWithFormat:@"http://m2.qiushibaike.com/collect/list?page=%d&count=%d", page, count]
+//我评论的: GET Header:Qbtoken
+#define api_mine_participate(page, count)        [NSString stringWithFormat:@"http://m2.qiushibaike.com/user/my/participate?page=%d&count=%d", page, count]
+//我发表的: GET Header:Qbtoken
+#define api_mine_articles(page, count)           [NSString stringWithFormat:@"http://m2.qiushibaike.com/user/my/articles?page=%d&count=%d", page, count]
+//发布糗事:POST
+#define api_qiushi_create                        @"http://m2.qiushibaike.com/article/create"
+
 //顶、踩糗事:POST
+#define api_qiushi_vote                          @"http://vote.qiushibaike.com/vote_queue"
 /*
  {
  "votes" : [
  {
  "type" : "up",		type为dn、up
  "action" : 1,			默认为1
- "session" : "suggest\/1\/1368151192",	糗事类型、当前是第几条糗事、（糗事创建日期？时间戳？）
+ "session" : "suggest/1/1368151192",	糗事类型、当前是第几条糗事、（糗事创建日期？时间戳？）
  "target" : "28798106"		糗事id
  }
  ]
@@ -71,10 +81,10 @@
  {
  "type" : "dn",
  "action" : 1,
- "session" : "suggest\/1\/1368151173",
+ "session" : "suggest/1/1368151173",
  "target" : "28798106"
  }
  ]
  }
  */
-#define api_vote        @"http://vote.qiushibaike.com/vote_queue"
+

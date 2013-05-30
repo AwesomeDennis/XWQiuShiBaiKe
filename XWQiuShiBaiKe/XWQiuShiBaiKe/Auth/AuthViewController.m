@@ -141,7 +141,7 @@
 - (void)initLoginRequestWithUserName:(NSString *)name andPassword:(NSString *)pwd
 {
     NSDictionary *loginDict = [NSDictionary dictionaryWithObjectsAndKeys:name, @"login", pwd, @"pass", nil];
-    _loginRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_login]];
+    _loginRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_qiushi_login]];
     [_loginRequest setUserInfo:[NSDictionary dictionaryWithObject:@"Login" forKey:@"Request"]];
     [_loginRequest setRequestMethod:@"POST"];
     [_loginRequest appendPostData:[loginDict toJSON]];
