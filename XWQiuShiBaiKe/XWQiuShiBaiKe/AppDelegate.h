@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QBUser.h"
 
 @class SideBarViewController;
 
@@ -14,5 +15,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) SideBarViewController *sideBarViewController;
+@property (retain, nonatomic) QBUser *qbUser;
 
 @end
