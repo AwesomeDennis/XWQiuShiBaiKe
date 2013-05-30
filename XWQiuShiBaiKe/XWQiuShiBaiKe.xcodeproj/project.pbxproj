@@ -253,6 +253,8 @@
 		1964759F17534F1F00AC3393 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964759E17534F1F00AC3393 /* Config.m */; };
 		198060641754986700E5069A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198060631754986700E5069A /* Default@2x.png */; };
 		198060661754987200E5069A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198060651754987200E5069A /* Default-568h@2x.png */; };
+		19A7555217572A1600B75C96 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7554F17572A1600B75C96 /* libUMFeedback.a */; };
+		19A7555317572A1600B75C96 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19A7555017572A1600B75C96 /* umFeedback.bundle */; };
 		19E232D61755F8280085BE89 /* NSDictionary+JSONCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */; };
 /* End PBXBuildFile section */
 
@@ -577,6 +579,9 @@
 		1964759E17534F1F00AC3393 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		198060631754986700E5069A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		198060651754987200E5069A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		19A7554F17572A1600B75C96 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
+		19A7555017572A1600B75C96 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
+		19A7555117572A1600B75C96 /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
 		19E232D41755F8280085BE89 /* NSDictionary+JSONCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONCategory.h"; sourceTree = "<group>"; };
 		19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONCategory.m"; sourceTree = "<group>"; };
 		19E232D81755F9B80085BE89 /* XWCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCategory.h; sourceTree = "<group>"; };
@@ -598,6 +603,7 @@
 				195C14AA174F409600F9B000 /* Foundation.framework in Frameworks */,
 				195C14AC174F409600F9B000 /* CoreGraphics.framework in Frameworks */,
 				19499A4C175121530043EEE8 /* libMobClickLibrary.a in Frameworks */,
+				19A7555217572A1600B75C96 /* libUMFeedback.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +613,7 @@
 		19499A48175121530043EEE8 /* 3rd Libs */ = {
 			isa = PBXGroup;
 			children = (
+				19A7554E17572A1600B75C96 /* UMFeedback_iOS_1.4 */,
 				19499A49175121530043EEE8 /* UMAnalytics_Sdk_2.2.0.OpenUDID */,
 			);
 			path = "3rd Libs";
@@ -1235,6 +1242,16 @@
 			path = SideBar;
 			sourceTree = "<group>";
 		};
+		19A7554E17572A1600B75C96 /* UMFeedback_iOS_1.4 */ = {
+			isa = PBXGroup;
+			children = (
+				19A7554F17572A1600B75C96 /* libUMFeedback.a */,
+				19A7555017572A1600B75C96 /* umFeedback.bundle */,
+				19A7555117572A1600B75C96 /* UMFeedback.h */,
+			);
+			path = UMFeedback_iOS_1.4;
+			sourceTree = "<group>";
+		};
 		19E232D31755F7FA0085BE89 /* XWCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -1471,6 +1488,7 @@
 				193E0E64175497F200DA99D7 /* Default.png in Resources */,
 				198060641754986700E5069A /* Default@2x.png in Resources */,
 				198060661754987200E5069A /* Default-568h@2x.png in Resources */,
+				19A7555317572A1600B75C96 /* umFeedback.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1642,6 +1660,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
+					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMFeedback_iOS_1.4\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1658,6 +1677,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
+					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMFeedback_iOS_1.4\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
