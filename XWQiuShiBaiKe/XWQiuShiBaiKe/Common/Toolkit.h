@@ -17,6 +17,7 @@
 #import "XWSliderSwitch.h"
 #import "QiuShiCell.h"
 #import "QiuShi.h"
+#import "QBUser.h"
 
 typedef enum {
     QiuShiTypeSuggest = 1000,       //随便逛逛-干货
@@ -33,5 +34,6 @@ typedef enum {
 
 + (UIColor *)getAppBackgroundColor;
 + (NSString *)dateStringAfterRandomDay;
++ (QBUser *)getQBUser;
 
 @end

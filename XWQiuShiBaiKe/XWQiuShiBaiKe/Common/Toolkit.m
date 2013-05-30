@@ -10,6 +10,12 @@
 
 @implementation Toolkit
 
++ (QBUser *)getQBUser
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    return appDelegate.qbUser;
+}
+
 //获取整个应用通用的背景色
 + (UIColor *)getAppBackgroundColor
 {

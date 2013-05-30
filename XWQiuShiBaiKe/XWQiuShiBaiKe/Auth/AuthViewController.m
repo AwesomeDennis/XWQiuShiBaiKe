@@ -352,6 +352,7 @@
     NSString *passWord = _loginPasswordTextField.text;
     if (userName.length > 0 && passWord.length > 0) {
         [_dialog showProgress:self];
+        [self loginBackgroundViewClicked:nil];
         [self initLoginRequestWithUserName:userName andPassword:passWord];
     }
     else {

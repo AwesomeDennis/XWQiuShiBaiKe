@@ -43,6 +43,12 @@
     [self initViews];
 }
 
+- (void)viewDidUnload
+{
+    [self setSideFaceButton:nil];
+    [super viewDidUnload];
+}
+
 - (void)dealloc
 {
     [_strollNavController release];
@@ -339,12 +345,13 @@
 
 - (IBAction)faceTitleView:(id)sender
 {
-    AuthViewController *authVC = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
-    authVC.delegate = self;
-    //UINavigationController *nav= [[UINavigationController alloc] initWithRootViewController:con];
-    //[nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forBarMetrics:UIBarMetricsDefault];
-    //[self presentViewController:con animated:YES completion:nil];
-    [self presentSemiViewController:authVC];
+    UIViewController *vc = nil;
+    if (![Toolkit getQBUser]) {
+        vc = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
+        ((AuthViewController *)vc).delegate = self;
+    }
+    
+    [self presentSemiViewController:vc];
 }
 
 - (IBAction)sideSettingButtonClicked:(id)sender
@@ -356,8 +363,4 @@
     [self presentSemiViewController:settingVC];
 }
 
-- (void)viewDidUnload {
-    [self setSideFaceButton:nil];
-    [super viewDidUnload];
-}
 @end
