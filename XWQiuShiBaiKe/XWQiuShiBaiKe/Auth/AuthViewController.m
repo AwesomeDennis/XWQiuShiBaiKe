@@ -57,8 +57,7 @@
 
 - (void)dealloc
 {
-    [_loginRequest clearDelegatesAndCancel];
-    [_loginRequest release];
+    SafeClearRequest(self.loginRequest)
     [_dialog release];
     [_titleLabel release];
     [_loginButton release];
@@ -141,14 +140,14 @@
 - (void)initLoginRequestWithUserName:(NSString *)name andPassword:(NSString *)pwd
 {
     NSDictionary *loginDict = [NSDictionary dictionaryWithObjectsAndKeys:name, @"login", pwd, @"pass", nil];
-    _loginRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_qiushi_login]];
-    [_loginRequest setUserInfo:[NSDictionary dictionaryWithObject:@"Login" forKey:@"Request"]];
-    [_loginRequest setRequestMethod:@"POST"];
-    [_loginRequest appendPostData:[loginDict toJSON]];
-    [_loginRequest setDidFinishSelector:@selector(loginDidFinished:)];
-    [_loginRequest setDidFailSelector:@selector(loginDidFailed:)];
-    [_loginRequest setDelegate:self];
-    [_loginRequest startAsynchronous];
+    self.loginRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_qiushi_login]];
+    [self.loginRequest setUserInfo:[NSDictionary dictionaryWithObject:@"Login" forKey:@"Request"]];
+    [self.loginRequest setRequestMethod:@"POST"];
+    [self.loginRequest appendPostData:[loginDict toJSON]];
+    [self.loginRequest setDidFinishSelector:@selector(loginDidFinished:)];
+    [self.loginRequest setDidFailSelector:@selector(loginDidFailed:)];
+    [self.loginRequest setDelegate:self];
+    [self.loginRequest startAsynchronous];
 }
 
 #pragma mark - ASIHTTPRequest delegate methods
@@ -168,10 +167,17 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:token forKey:@"QBToken"];
         
-        //id userDict = [jsonDict objectForKey:@"user"];
-        //QBUser *qnUser = [[QBUser alloc] initWithQBUserDictionary:userDict];
+        id userDict = [jsonDict objectForKey:@"user"];
+        AppDelegate *appDelegate = ((AppDelegate *)[[UIApplication sharedApplication] delegate]);
+        appDelegate.qbUser = [[QBUser alloc] initWithQBUserDictionary:userDict];
         
-        [_dialog toast:self withMessage:@"终于登录成功咯"];
+        if (_delegate && [_delegate respondsToSelector:@selector(QBUserDidLoginSuccessWithQBName:andImage:)]) {
+            [_delegate QBUserDidLoginSuccessWithQBName:appDelegate.qbUser.login andImage:appDelegate.qbUser.icon];
+        }
+        
+        [_dialog toast:self withMessage:@"登录成功啦"];
+        
+        [self dismissSemiModalView];
     }
     else {
         [_dialog toast:self withMessage:@"特么的，登录失败了"];

@@ -12,10 +12,11 @@
 #import "EliteViewController.h"
 #import "ImageTruthViewController.h"
 #import "TraversingViewController.h"
+#import "AuthViewController.h"
 
 @protocol SideBarSelectedDelegate;
 
-@interface LeftSideBarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface LeftSideBarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, AuthViewController>
 {
     
 }
@@ -34,6 +35,7 @@
 
 @property (assign, nonatomic) id<SideBarSelectedDelegate> delegate;
 @property (retain, nonatomic) IBOutlet UIButton *sideSettingButton;
+@property (retain, nonatomic) IBOutlet UIButton *sideFaceButton;
 @property (retain, nonatomic) IBOutlet UIButton *sideJoinQBButton;
 @property (retain, nonatomic) IBOutlet UIButton *sideTitleButton;
 @property (retain, nonatomic) IBOutlet UITableView *sideMenuTableView;

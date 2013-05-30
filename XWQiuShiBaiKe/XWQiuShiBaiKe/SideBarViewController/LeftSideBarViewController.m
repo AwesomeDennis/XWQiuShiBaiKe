@@ -7,9 +7,9 @@
 //
 
 #import "LeftSideBarViewController.h"
-#import "AuthViewController.h"
 #import "SettingViewController.h"
 #import "UIViewController+KNSemiModal.h"
+#import "UIButton+WebCache.h"
 
 @interface LeftSideBarViewController ()
 {
@@ -57,6 +57,7 @@
     [_sideJoinQBButton release];
     [_sideTitleButton release];
     [_sideMenuTableView release];
+    [_sideFaceButton release];
     [super dealloc];
 }
 
@@ -208,6 +209,18 @@
     self.selectIndexPath = indexPath;
 }
 
+#pragma mark - AuthViewController delegate method
+
+- (void)QBUserDidLoginSuccessWithQBName:(NSString *)name andImage:(NSString *)imageUrl
+{
+    if (imageUrl) {
+        [_sideFaceButton setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"side_user_avatar.png"]];
+    }
+    if (name) {
+        [_sideJoinQBButton setTitle:name forState:UIControlStateNormal];
+    }
+}
+
 #pragma mark - Private methods
 
 - (UIViewController *)subConWithIndex:(NSIndexPath *)indexPath
@@ -327,6 +340,7 @@
 - (IBAction)faceTitleView:(id)sender
 {
     AuthViewController *authVC = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
+    authVC.delegate = self;
     //UINavigationController *nav= [[UINavigationController alloc] initWithRootViewController:con];
     //[nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forBarMetrics:UIBarMetricsDefault];
     //[self presentViewController:con animated:YES completion:nil];
@@ -342,4 +356,8 @@
     [self presentSemiViewController:settingVC];
 }
 
+- (void)viewDidUnload {
+    [self setSideFaceButton:nil];
+    [super viewDidUnload];
+}
 @end
