@@ -11,6 +11,12 @@
 		193E0E601754966A00DA99D7 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E5F1754966A00DA99D7 /* 57.png */; };
 		193E0E621754967400DA99D7 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E611754967400DA99D7 /* 114.png */; };
 		193E0E64175497F200DA99D7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E63175497F200DA99D7 /* Default.png */; };
+		194560A617578095008E2CF4 /* MineCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560A417578095008E2CF4 /* MineCollectViewController.m */; };
+		194560A717578095008E2CF4 /* MineCollectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194560A517578095008E2CF4 /* MineCollectViewController.xib */; };
+		194560AB175780B5008E2CF4 /* MineParticipateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560A9175780B5008E2CF4 /* MineParticipateViewController.m */; };
+		194560AC175780B5008E2CF4 /* MineParticipateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194560AA175780B5008E2CF4 /* MineParticipateViewController.xib */; };
+		194560B0175780D8008E2CF4 /* MineArticlesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560AE175780D8008E2CF4 /* MineArticlesViewController.m */; };
+		194560B1175780D8008E2CF4 /* MineArticlesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194560AF175780D8008E2CF4 /* MineArticlesViewController.xib */; };
 		19499A4C175121530043EEE8 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19499A4A175121530043EEE8 /* libMobClickLibrary.a */; };
 		195C14A8174F409600F9B000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14A7174F409600F9B000 /* UIKit.framework */; };
 		195C14AA174F409600F9B000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14A9174F409600F9B000 /* Foundation.framework */; };
@@ -264,6 +270,15 @@
 		193E0E5F1754966A00DA99D7 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57.png; path = ../57.png; sourceTree = "<group>"; };
 		193E0E611754967400DA99D7 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = ../114.png; sourceTree = "<group>"; };
 		193E0E63175497F200DA99D7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		194560A317578095008E2CF4 /* MineCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectViewController.h; sourceTree = "<group>"; };
+		194560A417578095008E2CF4 /* MineCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectViewController.m; sourceTree = "<group>"; };
+		194560A517578095008E2CF4 /* MineCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineCollectViewController.xib; sourceTree = "<group>"; };
+		194560A8175780B5008E2CF4 /* MineParticipateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineParticipateViewController.h; sourceTree = "<group>"; };
+		194560A9175780B5008E2CF4 /* MineParticipateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineParticipateViewController.m; sourceTree = "<group>"; };
+		194560AA175780B5008E2CF4 /* MineParticipateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineParticipateViewController.xib; sourceTree = "<group>"; };
+		194560AD175780D8008E2CF4 /* MineArticlesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineArticlesViewController.h; sourceTree = "<group>"; };
+		194560AE175780D8008E2CF4 /* MineArticlesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineArticlesViewController.m; sourceTree = "<group>"; };
+		194560AF175780D8008E2CF4 /* MineArticlesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineArticlesViewController.xib; sourceTree = "<group>"; };
 		19499A4A175121530043EEE8 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		19499A4B175121530043EEE8 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		195C14A4174F409600F9B000 /* XWQiuShiBaiKe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XWQiuShiBaiKe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -610,6 +625,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		194560A21757802A008E2CF4 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				194560A317578095008E2CF4 /* MineCollectViewController.h */,
+				194560A417578095008E2CF4 /* MineCollectViewController.m */,
+				194560A517578095008E2CF4 /* MineCollectViewController.xib */,
+				194560A8175780B5008E2CF4 /* MineParticipateViewController.h */,
+				194560A9175780B5008E2CF4 /* MineParticipateViewController.m */,
+				194560AA175780B5008E2CF4 /* MineParticipateViewController.xib */,
+				194560AD175780D8008E2CF4 /* MineArticlesViewController.h */,
+				194560AE175780D8008E2CF4 /* MineArticlesViewController.m */,
+				194560AF175780D8008E2CF4 /* MineArticlesViewController.xib */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		19499A48175121530043EEE8 /* 3rd Libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,6 +746,7 @@
 		195C14D9174F43D900F9B000 /* Article */ = {
 			isa = PBXGroup;
 			children = (
+				194560A21757802A008E2CF4 /* Mine */,
 				195C14E8174F43D900F9B000 /* Stroll */,
 				195C14DA174F43D900F9B000 /* Elite */,
 				195C14DE174F43D900F9B000 /* ImageTruth */,
@@ -1290,7 +1322,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "renxinwei's iMac";
+				ORGANIZATIONNAME = "renxinwei's MacBook Pro";
 			};
 			buildConfigurationList = 195C149F174F409600F9B000 /* Build configuration list for PBXProject "XWQiuShiBaiKe" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1489,6 +1521,9 @@
 				198060641754986700E5069A /* Default@2x.png in Resources */,
 				198060661754987200E5069A /* Default-568h@2x.png in Resources */,
 				19A7555317572A1600B75C96 /* umFeedback.bundle in Resources */,
+				194560A717578095008E2CF4 /* MineCollectViewController.xib in Resources */,
+				194560AC175780B5008E2CF4 /* MineParticipateViewController.xib in Resources */,
+				194560B1175780D8008E2CF4 /* MineArticlesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1577,6 +1612,9 @@
 				1964759F17534F1F00AC3393 /* Config.m in Sources */,
 				19E232D61755F8280085BE89 /* NSDictionary+JSONCategory.m in Sources */,
 				193055F2175619E2009DEE32 /* QBUser.m in Sources */,
+				194560A617578095008E2CF4 /* MineCollectViewController.m in Sources */,
+				194560AB175780B5008E2CF4 /* MineParticipateViewController.m in Sources */,
+				194560B0175780D8008E2CF4 /* MineArticlesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
