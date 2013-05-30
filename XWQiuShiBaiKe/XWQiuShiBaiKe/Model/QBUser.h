@@ -20,6 +20,7 @@
 @property (nonatomic, copy) NSString *qbId;
 @property (nonatomic, copy) NSString *icon;
 
++ (QBUser *)shareInstance;
 - (id)initWithQBUserDictionary:(NSDictionary *)dictionary;
 
 @end

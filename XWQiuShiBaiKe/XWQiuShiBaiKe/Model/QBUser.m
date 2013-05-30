@@ -10,6 +10,18 @@
 
 @implementation QBUser
 
+static QBUser *instance = nil;
++ (QBUser *)shareInstance
+{
+    @synchronized(self)
+    {
+        if (instance == nil) {
+            instance = [self new];
+        }
+    }
+    return instance;
+}
+
 - (id)initWithQBUserDictionary:(NSDictionary *)dictionary
 {
     if (self = [super init]) {
