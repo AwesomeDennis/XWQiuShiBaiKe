@@ -26,6 +26,7 @@
     self.window.rootViewController = self.sideBarViewController;
     [self.window makeKeyAndVisible];
     [self umengTrack];
+    [self umengFeedback];
     
     return YES;
 }
@@ -78,12 +79,13 @@
 }
 - (void)umengFeedback
 {
-    [UMFeedback setLogEnabled:YES];
+    //[UMFeedback setLogEnabled:YES];
     [UMFeedback checkWithAppkey:UMENG_APPKEY];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(umCheck:) name:UMFBCheckFinishedNotification object:nil];
 }
 
-- (void)umCheck:(NSNotification *)notification {
+- (void)umCheck:(NSNotification *)notification
+{
     UIAlertView *alertView;
     if (notification.userInfo) {
         NSArray *newReplies = [notification.userInfo objectForKey:@"newReplies"];
@@ -100,19 +102,18 @@
         
         alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"查看", nil];
         ((UILabel *) [[alertView subviews] objectAtIndex:1]).textAlignment = NSTextAlignmentLeft;
-        
-    } else {
-        alertView = [[UIAlertView alloc] initWithTitle:@"没有新回复" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+        [alertView show];
     }
-    [alertView show];
+//    else {
+//        alertView = [[UIAlertView alloc] initWithTitle:@"没有新回复" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+//    }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex == 1) {
         NSLog(@"查看feedback");
-        //[self.sideBarViewController webFeedback:nil];
-    } else {
-        
+        [UMFeedback showFeedback:self.sideBarViewController withAppkey:UMENG_APPKEY];
     }
 }
 

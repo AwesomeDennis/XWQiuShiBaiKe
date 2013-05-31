@@ -156,6 +156,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                
+                break;
+                
+            default:
+                break;
+        }
+    }
+    else if (indexPath.section == 1) {
+        
+    }
+    else if (indexPath.section == 2) {
+        switch (indexPath.row) {
+            case 0:
+                [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    else if (indexPath.section == 3) {
+        
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
