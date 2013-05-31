@@ -37,10 +37,6 @@
 		195C14F1174F43D900F9B000 /* EliteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195C14DD174F43D900F9B000 /* EliteViewController.xib */; };
 		195C14F2174F43D900F9B000 /* ImageTruthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C14E0174F43D900F9B000 /* ImageTruthViewController.m */; };
 		195C14F3174F43D900F9B000 /* ImageTruthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195C14E1174F43D900F9B000 /* ImageTruthViewController.xib */; };
-		195C14F4174F43D900F9B000 /* QiuShiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C14E3174F43D900F9B000 /* QiuShiDetailViewController.m */; };
-		195C14F5174F43D900F9B000 /* QiuShiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195C14E4174F43D900F9B000 /* QiuShiDetailViewController.xib */; };
-		195C14F6174F43D900F9B000 /* QiuShiImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C14E6174F43D900F9B000 /* QiuShiImageViewController.m */; };
-		195C14F7174F43D900F9B000 /* QiuShiImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195C14E7174F43D900F9B000 /* QiuShiImageViewController.xib */; };
 		195C14F8174F43D900F9B000 /* StrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C14EA174F43D900F9B000 /* StrollViewController.m */; };
 		195C14F9174F43D900F9B000 /* StrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195C14EB174F43D900F9B000 /* StrollViewController.xib */; };
 		195C14FA174F43D900F9B000 /* TraversingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C14EE174F43D900F9B000 /* TraversingViewController.m */; };
@@ -308,12 +304,6 @@
 		195C14DF174F43D900F9B000 /* ImageTruthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTruthViewController.h; sourceTree = "<group>"; };
 		195C14E0174F43D900F9B000 /* ImageTruthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTruthViewController.m; sourceTree = "<group>"; };
 		195C14E1174F43D900F9B000 /* ImageTruthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageTruthViewController.xib; sourceTree = "<group>"; };
-		195C14E2174F43D900F9B000 /* QiuShiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuShiDetailViewController.h; sourceTree = "<group>"; };
-		195C14E3174F43D900F9B000 /* QiuShiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiuShiDetailViewController.m; sourceTree = "<group>"; };
-		195C14E4174F43D900F9B000 /* QiuShiDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QiuShiDetailViewController.xib; sourceTree = "<group>"; };
-		195C14E5174F43D900F9B000 /* QiuShiImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuShiImageViewController.h; sourceTree = "<group>"; };
-		195C14E6174F43D900F9B000 /* QiuShiImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiuShiImageViewController.m; sourceTree = "<group>"; };
-		195C14E7174F43D900F9B000 /* QiuShiImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QiuShiImageViewController.xib; sourceTree = "<group>"; };
 		195C14E9174F43D900F9B000 /* StrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrollViewController.h; sourceTree = "<group>"; };
 		195C14EA174F43D900F9B000 /* StrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrollViewController.m; sourceTree = "<group>"; };
 		195C14EB174F43D900F9B000 /* StrollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StrollViewController.xib; sourceTree = "<group>"; };
@@ -751,12 +741,6 @@
 				195C14DA174F43D900F9B000 /* Elite */,
 				195C14DE174F43D900F9B000 /* ImageTruth */,
 				195C14EC174F43D900F9B000 /* Traversing */,
-				195C14E2174F43D900F9B000 /* QiuShiDetailViewController.h */,
-				195C14E3174F43D900F9B000 /* QiuShiDetailViewController.m */,
-				195C14E4174F43D900F9B000 /* QiuShiDetailViewController.xib */,
-				195C14E5174F43D900F9B000 /* QiuShiImageViewController.h */,
-				195C14E6174F43D900F9B000 /* QiuShiImageViewController.m */,
-				195C14E7174F43D900F9B000 /* QiuShiImageViewController.xib */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -1349,8 +1333,6 @@
 				195C14B2174F409600F9B000 /* InfoPlist.strings in Resources */,
 				195C14F1174F43D900F9B000 /* EliteViewController.xib in Resources */,
 				195C14F3174F43D900F9B000 /* ImageTruthViewController.xib in Resources */,
-				195C14F5174F43D900F9B000 /* QiuShiDetailViewController.xib in Resources */,
-				195C14F7174F43D900F9B000 /* QiuShiImageViewController.xib in Resources */,
 				195C14F9174F43D900F9B000 /* StrollViewController.xib in Resources */,
 				195C14FB174F43D900F9B000 /* TraversingViewController.xib in Resources */,
 				195C1591174F43F200F9B000 /* SettingViewController.xib in Resources */,
@@ -1556,8 +1538,6 @@
 				195C14D8174F42B800F9B000 /* QiuShi.m in Sources */,
 				195C14F0174F43D900F9B000 /* EliteViewController.m in Sources */,
 				195C14F2174F43D900F9B000 /* ImageTruthViewController.m in Sources */,
-				195C14F4174F43D900F9B000 /* QiuShiDetailViewController.m in Sources */,
-				195C14F6174F43D900F9B000 /* QiuShiImageViewController.m in Sources */,
 				195C14F8174F43D900F9B000 /* StrollViewController.m in Sources */,
 				195C14FA174F43D900F9B000 /* TraversingViewController.m in Sources */,
 				195C1563174F43E800F9B000 /* ASIAuthenticationDialog.m in Sources */,
