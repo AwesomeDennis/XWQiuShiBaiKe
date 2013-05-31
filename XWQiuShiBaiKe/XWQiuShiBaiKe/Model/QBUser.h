@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QBUser : NSObject
+@interface QBUser : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *last_visited_at;
 @property (nonatomic, copy) NSString *created_at;

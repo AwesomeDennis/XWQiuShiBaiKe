@@ -22,6 +22,51 @@ static QBUser *instance = nil;
     return instance;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [super init]) {
+        self.qbId = [decoder decodeObjectForKey:@"qbId"];
+        self.login = [decoder decodeObjectForKey:@"login"];
+        self.icon = [decoder decodeObjectForKey:@"icon"];
+        self.role = [decoder decodeObjectForKey:@"role"];
+        self.last_device = [decoder decodeObjectForKey:@"last_device"];
+        self.email = [decoder decodeObjectForKey:@"email"];
+        self.state = [decoder decodeObjectForKey:@"state"];
+        self.created_at = [decoder decodeObjectForKey:@"create_at"];
+        self.last_visited_at = [decoder decodeObjectForKey:@"last_visited_at"];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.qbId forKey:@"qbId"];
+    [encoder encodeObject:self.login forKey:@"login"];
+    [encoder encodeObject:self.icon forKey:@"icom"];
+    [encoder encodeObject:self.role forKey:@"role"];
+    [encoder encodeObject:self.last_device forKey:@"last_device"];
+    [encoder encodeObject:self.email forKey:@"email"];
+    [encoder encodeObject:self.state forKey:@"state"];
+    [encoder encodeObject:self.created_at forKey:@"created_at"];
+    [encoder encodeObject:self.last_visited_at forKey:@"last_visited_at"];
+}
+
+- (void)saveCustomObject:(QBUser *)user
+{
+    NSData *myEncodeedObject = [NSKeyedArchiver archivedDataWithRootObject:user];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:myEncodeedObject forKey:@"myEncodeedObject"];
+}
+
+- (QBUser *)loadCustomObjectWithKey:(NSString *)key
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodeedObject = [defaults objectForKey:key];
+    QBUser *obj = (QBUser *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeedObject];
+    return obj;
+}
+
 - (id)initWithQBUserDictionary:(NSDictionary *)dictionary
 {
     if (self = [super init]) {
