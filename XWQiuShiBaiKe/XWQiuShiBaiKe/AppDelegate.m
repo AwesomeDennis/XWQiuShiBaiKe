@@ -63,7 +63,7 @@
     [MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
     [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
     //
-    [MobClick startWithAppkey:@"51a0df8e56240b7b2102fe59" reportPolicy:(ReportPolicy) BATCH channelId:nil];
+    [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:(ReportPolicy) BATCH channelId:nil];
     //   reportPolicy为枚举类型,可以为 REALTIME, BATCH,SENDDAILY,SENDWIFIONLY几种
     //   channelId 为NSString * 类型，channelId 为nil或@""时,默认会被被当作@"App Store"渠道
     
@@ -75,6 +75,45 @@
     //    1.6.8之前的初始化方法
     //    [MobClick setDelegate:self reportPolicy:REALTIME];  //建议使用新方法
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onlineConfigCallBack:) name:UMOnlineConfigDidFinishedNotification object:nil];
+}
+- (void)umengFeedback
+{
+    [UMFeedback setLogEnabled:YES];
+    [UMFeedback checkWithAppkey:UMENG_APPKEY];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(umCheck:) name:UMFBCheckFinishedNotification object:nil];
+}
+
+- (void)umCheck:(NSNotification *)notification {
+    UIAlertView *alertView;
+    if (notification.userInfo) {
+        NSArray *newReplies = [notification.userInfo objectForKey:@"newReplies"];
+        NSLog(@"newReplies = %@", newReplies);
+        NSString *title = [NSString stringWithFormat:@"有%d条新回复", [newReplies count]];
+        NSMutableString *content = [NSMutableString string];
+        for (NSUInteger i = 0; i < [newReplies count]; i++) {
+            NSString *dateTime = [[newReplies objectAtIndex:i] objectForKey:@"datetime"];
+            NSString *_content = [[newReplies objectAtIndex:i] objectForKey:@"content"];
+            [content appendString:[NSString stringWithFormat:@"%d .......%@.......\r\n", i + 1, dateTime]];
+            [content appendString:_content];
+            [content appendString:@"\r\n\r\n"];
+        }
+        
+        alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"查看", nil];
+        ((UILabel *) [[alertView subviews] objectAtIndex:1]).textAlignment = NSTextAlignmentLeft;
+        
+    } else {
+        alertView = [[UIAlertView alloc] initWithTitle:@"没有新回复" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+    }
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        NSLog(@"查看feedback");
+        //[self.sideBarViewController webFeedback:nil];
+    } else {
+        
+    }
 }
 
 @end

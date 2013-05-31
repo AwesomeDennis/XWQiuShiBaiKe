@@ -23,14 +23,16 @@
 #import "XWCategory.h"
 #import "JSONKit.h"
 #import "MobClick.h"
+#import "UMFeedback.h"
 #import "Dialog.h"
 #endif
 
-#define kDeviceWidth [UIScreen mainScreen].bounds.size.width
-#define KDeviceHeight [UIScreen mainScreen].bounds.size.height
+#define UMENG_APPKEY                @"51a0df8e56240b7b2102fe59"
+#define kDeviceWidth                [UIScreen mainScreen].bounds.size.width
+#define KDeviceHeight               [UIScreen mainScreen].bounds.size.height
 
-#define SafeClearRequest(request) if(request!=nil){[request clearDelegatesAndCancel];[request release];request=nil;}
-#define IntergerToString(num) [NSString stringWithFormat:@"%d", num]
+#define SafeClearRequest(request)   if(request!=nil){[request clearDelegatesAndCancel];[request release];request=nil;}
+#define IntergerToString(num)       [NSString stringWithFormat:@"%d", num]
 
 //QSBK api接口
 
