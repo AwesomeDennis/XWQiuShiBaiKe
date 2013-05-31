@@ -258,6 +258,12 @@
 		19A7555217572A1600B75C96 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7554F17572A1600B75C96 /* libUMFeedback.a */; };
 		19A7555317572A1600B75C96 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19A7555017572A1600B75C96 /* umFeedback.bundle */; };
 		19E232D61755F8280085BE89 /* NSDictionary+JSONCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */; };
+		19F5724F17587AB700DEE940 /* QiuShiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F5724A17587AB700DEE940 /* QiuShiDetailViewController.m */; };
+		19F5725017587AB700DEE940 /* QiuShiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F5724B17587AB700DEE940 /* QiuShiDetailViewController.xib */; };
+		19F5725117587AB700DEE940 /* QiuShiImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F5724D17587AB700DEE940 /* QiuShiImageViewController.m */; };
+		19F5725217587AB700DEE940 /* QiuShiImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F5724E17587AB700DEE940 /* QiuShiImageViewController.xib */; };
+		19F5725617587AEF00DEE940 /* CreateQiuShiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F5725417587AEF00DEE940 /* CreateQiuShiViewController.m */; };
+		19F5725717587AEF00DEE940 /* CreateQiuShiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F5725517587AEF00DEE940 /* CreateQiuShiViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -590,6 +596,15 @@
 		19E232D41755F8280085BE89 /* NSDictionary+JSONCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONCategory.h"; sourceTree = "<group>"; };
 		19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONCategory.m"; sourceTree = "<group>"; };
 		19E232D81755F9B80085BE89 /* XWCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCategory.h; sourceTree = "<group>"; };
+		19F5724917587AB700DEE940 /* QiuShiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuShiDetailViewController.h; sourceTree = "<group>"; };
+		19F5724A17587AB700DEE940 /* QiuShiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiuShiDetailViewController.m; sourceTree = "<group>"; };
+		19F5724B17587AB700DEE940 /* QiuShiDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QiuShiDetailViewController.xib; sourceTree = "<group>"; };
+		19F5724C17587AB700DEE940 /* QiuShiImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuShiImageViewController.h; sourceTree = "<group>"; };
+		19F5724D17587AB700DEE940 /* QiuShiImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiuShiImageViewController.m; sourceTree = "<group>"; };
+		19F5724E17587AB700DEE940 /* QiuShiImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QiuShiImageViewController.xib; sourceTree = "<group>"; };
+		19F5725317587AEF00DEE940 /* CreateQiuShiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateQiuShiViewController.h; sourceTree = "<group>"; };
+		19F5725417587AEF00DEE940 /* CreateQiuShiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateQiuShiViewController.m; sourceTree = "<group>"; };
+		19F5725517587AEF00DEE940 /* CreateQiuShiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateQiuShiViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -736,6 +751,7 @@
 		195C14D9174F43D900F9B000 /* Article */ = {
 			isa = PBXGroup;
 			children = (
+				19F5724817587AB700DEE940 /* Common */,
 				194560A21757802A008E2CF4 /* Mine */,
 				195C14E8174F43D900F9B000 /* Stroll */,
 				195C14DA174F43D900F9B000 /* Elite */,
@@ -1278,6 +1294,22 @@
 			path = XWCategory;
 			sourceTree = "<group>";
 		};
+		19F5724817587AB700DEE940 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				19F5725317587AEF00DEE940 /* CreateQiuShiViewController.h */,
+				19F5725417587AEF00DEE940 /* CreateQiuShiViewController.m */,
+				19F5725517587AEF00DEE940 /* CreateQiuShiViewController.xib */,
+				19F5724917587AB700DEE940 /* QiuShiDetailViewController.h */,
+				19F5724A17587AB700DEE940 /* QiuShiDetailViewController.m */,
+				19F5724B17587AB700DEE940 /* QiuShiDetailViewController.xib */,
+				19F5724C17587AB700DEE940 /* QiuShiImageViewController.h */,
+				19F5724D17587AB700DEE940 /* QiuShiImageViewController.m */,
+				19F5724E17587AB700DEE940 /* QiuShiImageViewController.xib */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1506,6 +1538,9 @@
 				194560A717578095008E2CF4 /* MineCollectViewController.xib in Resources */,
 				194560AC175780B5008E2CF4 /* MineParticipateViewController.xib in Resources */,
 				194560B1175780D8008E2CF4 /* MineArticlesViewController.xib in Resources */,
+				19F5725017587AB700DEE940 /* QiuShiDetailViewController.xib in Resources */,
+				19F5725217587AB700DEE940 /* QiuShiImageViewController.xib in Resources */,
+				19F5725717587AEF00DEE940 /* CreateQiuShiViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1595,6 +1630,9 @@
 				194560A617578095008E2CF4 /* MineCollectViewController.m in Sources */,
 				194560AB175780B5008E2CF4 /* MineParticipateViewController.m in Sources */,
 				194560B0175780D8008E2CF4 /* MineArticlesViewController.m in Sources */,
+				19F5724F17587AB700DEE940 /* QiuShiDetailViewController.m in Sources */,
+				19F5725117587AB700DEE940 /* QiuShiImageViewController.m in Sources */,
+				19F5725617587AEF00DEE940 /* CreateQiuShiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
