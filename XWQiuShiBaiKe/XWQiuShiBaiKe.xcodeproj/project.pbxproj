@@ -18,6 +18,14 @@
 		194560B0175780D8008E2CF4 /* MineArticlesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560AE175780D8008E2CF4 /* MineArticlesViewController.m */; };
 		194560B1175780D8008E2CF4 /* MineArticlesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194560AF175780D8008E2CF4 /* MineArticlesViewController.xib */; };
 		19499A4C175121530043EEE8 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19499A4A175121530043EEE8 /* libMobClickLibrary.a */; };
+		19563CFE175A272100E2EC35 /* MineQBInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19563CFC175A272100E2EC35 /* MineQBInfoViewController.m */; };
+		19563CFF175A272100E2EC35 /* MineQBInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19563CFD175A272100E2EC35 /* MineQBInfoViewController.xib */; };
+		19563D02175A2A4F00E2EC35 /* avatar_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 19563D00175A2A4F00E2EC35 /* avatar_title.png */; };
+		19563D03175A2A4F00E2EC35 /* avatar_title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19563D01175A2A4F00E2EC35 /* avatar_title@2x.png */; };
+		19563D06175A2B5B00E2EC35 /* row_auth.png in Resources */ = {isa = PBXBuildFile; fileRef = 19563D04175A2B5B00E2EC35 /* row_auth.png */; };
+		19563D07175A2B5B00E2EC35 /* row_auth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19563D05175A2B5B00E2EC35 /* row_auth@2x.png */; };
+		19563D0A175A2CB500E2EC35 /* thumb_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 19563D08175A2CB500E2EC35 /* thumb_upload.png */; };
+		19563D0B175A2CB500E2EC35 /* thumb_upload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19563D09175A2CB500E2EC35 /* thumb_upload@2x.png */; };
 		195C14A8174F409600F9B000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14A7174F409600F9B000 /* UIKit.framework */; };
 		195C14AA174F409600F9B000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14A9174F409600F9B000 /* Foundation.framework */; };
 		195C14AC174F409600F9B000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195C14AB174F409600F9B000 /* CoreGraphics.framework */; };
@@ -283,6 +291,15 @@
 		194560AF175780D8008E2CF4 /* MineArticlesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineArticlesViewController.xib; sourceTree = "<group>"; };
 		19499A4A175121530043EEE8 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		19499A4B175121530043EEE8 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		19563CFB175A272100E2EC35 /* MineQBInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineQBInfoViewController.h; sourceTree = "<group>"; };
+		19563CFC175A272100E2EC35 /* MineQBInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineQBInfoViewController.m; sourceTree = "<group>"; };
+		19563CFD175A272100E2EC35 /* MineQBInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineQBInfoViewController.xib; sourceTree = "<group>"; };
+		19563D00175A2A4F00E2EC35 /* avatar_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_title.png; sourceTree = "<group>"; };
+		19563D01175A2A4F00E2EC35 /* avatar_title@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar_title@2x.png"; sourceTree = "<group>"; };
+		19563D04175A2B5B00E2EC35 /* row_auth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = row_auth.png; sourceTree = "<group>"; };
+		19563D05175A2B5B00E2EC35 /* row_auth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "row_auth@2x.png"; sourceTree = "<group>"; };
+		19563D08175A2CB500E2EC35 /* thumb_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb_upload.png; sourceTree = "<group>"; };
+		19563D09175A2CB500E2EC35 /* thumb_upload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb_upload@2x.png"; sourceTree = "<group>"; };
 		195C14A4174F409600F9B000 /* XWQiuShiBaiKe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XWQiuShiBaiKe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		195C14A7174F409600F9B000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		195C14A9174F409600F9B000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -642,6 +659,9 @@
 				194560AD175780D8008E2CF4 /* MineArticlesViewController.h */,
 				194560AE175780D8008E2CF4 /* MineArticlesViewController.m */,
 				194560AF175780D8008E2CF4 /* MineArticlesViewController.xib */,
+				19563CFB175A272100E2EC35 /* MineQBInfoViewController.h */,
+				19563CFC175A272100E2EC35 /* MineQBInfoViewController.m */,
+				19563CFD175A272100E2EC35 /* MineQBInfoViewController.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1128,6 +1148,8 @@
 		195C15E4174F449100F9B000 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				19563D04175A2B5B00E2EC35 /* row_auth.png */,
+				19563D05175A2B5B00E2EC35 /* row_auth@2x.png */,
 				195C15E5174F449100F9B000 /* bar_background.png */,
 				195C15E6174F449100F9B000 /* bar_background@2x.png */,
 				195C15E7174F449100F9B000 /* head_button.png */,
@@ -1171,6 +1193,10 @@
 		195C1609174F449100F9B000 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				19563D08175A2CB500E2EC35 /* thumb_upload.png */,
+				19563D09175A2CB500E2EC35 /* thumb_upload@2x.png */,
+				19563D00175A2A4F00E2EC35 /* avatar_title.png */,
+				19563D01175A2A4F00E2EC35 /* avatar_title@2x.png */,
 				195C160A174F449100F9B000 /* head_background.png */,
 				195C160B174F449100F9B000 /* head_background@2x.png */,
 				195C160C174F449100F9B000 /* icon_back_enable.png */,
@@ -1541,6 +1567,13 @@
 				19F5725017587AB700DEE940 /* QiuShiDetailViewController.xib in Resources */,
 				19F5725217587AB700DEE940 /* QiuShiImageViewController.xib in Resources */,
 				19F5725717587AEF00DEE940 /* CreateQiuShiViewController.xib in Resources */,
+				19563CFF175A272100E2EC35 /* MineQBInfoViewController.xib in Resources */,
+				19563D02175A2A4F00E2EC35 /* avatar_title.png in Resources */,
+				19563D03175A2A4F00E2EC35 /* avatar_title@2x.png in Resources */,
+				19563D06175A2B5B00E2EC35 /* row_auth.png in Resources */,
+				19563D07175A2B5B00E2EC35 /* row_auth@2x.png in Resources */,
+				19563D0A175A2CB500E2EC35 /* thumb_upload.png in Resources */,
+				19563D0B175A2CB500E2EC35 /* thumb_upload@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1633,6 +1666,7 @@
 				19F5724F17587AB700DEE940 /* QiuShiDetailViewController.m in Sources */,
 				19F5725117587AB700DEE940 /* QiuShiImageViewController.m in Sources */,
 				19F5725617587AEF00DEE940 /* CreateQiuShiViewController.m in Sources */,
+				19563CFE175A272100E2EC35 /* MineQBInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
