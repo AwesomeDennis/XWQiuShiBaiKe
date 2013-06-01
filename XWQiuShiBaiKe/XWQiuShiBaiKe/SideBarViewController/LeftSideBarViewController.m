@@ -10,6 +10,7 @@
 #import "SettingViewController.h"
 #import "UIViewController+KNSemiModal.h"
 #import "UIButton+WebCache.h"
+#import "MineQBInfoViewController.h"
 
 @interface LeftSideBarViewController ()
 {
@@ -302,7 +303,7 @@
 - (void)initViews
 {
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_textural.png"]]];
-    [_sideJoinQBButton setBackgroundImage:[self getButtonBackgroundImage] forState:UIControlStateNormal];
+    //[_sideJoinQBButton setBackgroundImage:[self getButtonBackgroundImage] forState:UIControlStateNormal];
     [_sideSettingButton setBackgroundImage:[self getSideTitleBackgroundImage] forState:UIControlStateNormal];
     [_sideTitleButton setBackgroundImage:[self getSideTitleBackgroundImage] forState:UIControlStateNormal];
 }
@@ -346,10 +347,12 @@
 - (IBAction)faceTitleView:(id)sender
 {
     UIViewController *vc = nil;
-    if (![Toolkit getQBUser]) {
-        vc = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
-        ((AuthViewController *)vc).delegate = self;
-    }
+//    if (![Toolkit getQBUser]) {
+//        vc = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
+//        ((AuthViewController *)vc).delegate = self;
+//    }
+
+    vc = [[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil];
     
     [self presentSemiViewController:vc];
 }
