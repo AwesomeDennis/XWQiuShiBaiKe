@@ -13,10 +13,11 @@
 #import "ImageTruthViewController.h"
 #import "TraversingViewController.h"
 #import "AuthViewController.h"
+#import "MineQBInfoViewController.h"
 
 @protocol SideBarSelectedDelegate;
 
-@interface LeftSideBarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, AuthViewController>
+@interface LeftSideBarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, AuthViewControllerDelegate, MineQBInfoViewControllerDelegate>
 {
     
 }

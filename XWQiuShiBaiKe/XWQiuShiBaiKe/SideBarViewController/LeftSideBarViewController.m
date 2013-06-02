@@ -10,7 +10,6 @@
 #import "SettingViewController.h"
 #import "UIViewController+KNSemiModal.h"
 #import "UIButton+WebCache.h"
-#import "MineQBInfoViewController.h"
 
 @interface LeftSideBarViewController ()
 {
@@ -226,6 +225,21 @@
     if (name) {
         [_sideJoinQBButton setTitle:name forState:UIControlStateNormal];
     }
+    else {
+        [_sideJoinQBButton setTitle:@"你还没有名字哦" forState:UIControlStateNormal];
+    }
+}
+
+#pragma mark - MineQBInfoViewControllerDelegate method
+
+- (void)QBUserDidLogOutSuccess
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:nil forKey:@"QBToken"];
+    [defaults setObject:nil forKey:@"QBUser"];
+    
+    [_sideJoinQBButton setTitle:@"加入糗百" forState:UIControlStateNormal];
+    [_sideFaceButton setImage:[UIImage imageNamed:@"side_user_avatar.png"] forState:UIControlStateNormal];
 }
 
 #pragma mark - Private methods
@@ -306,6 +320,10 @@
     //[_sideJoinQBButton setBackgroundImage:[self getButtonBackgroundImage] forState:UIControlStateNormal];
     [_sideSettingButton setBackgroundImage:[self getSideTitleBackgroundImage] forState:UIControlStateNormal];
     [_sideTitleButton setBackgroundImage:[self getSideTitleBackgroundImage] forState:UIControlStateNormal];
+    QBUser *user = [Toolkit getQBUserLocal];
+    if (user) {
+        [self QBUserDidLoginSuccessWithQBName:user.login andImage:user.icon];
+    }
 }
 
 - (UIImage *)getButtonBackgroundImage
@@ -347,12 +365,15 @@
 - (IBAction)faceTitleView:(id)sender
 {
     UIViewController *vc = nil;
-//    if (![Toolkit getQBUser]) {
-//        vc = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
-//        ((AuthViewController *)vc).delegate = self;
-//    }
-
-    vc = [[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil];
+    
+    if (![Toolkit getQBUserLocal]) {
+        vc = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
+        ((AuthViewController *)vc).delegate = self;
+    }
+    else {
+        vc = [[[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil] autorelease];
+        ((MineQBInfoViewController *)vc).delegate = self;
+    }
     
     [self presentSemiViewController:vc];
 }
@@ -360,9 +381,6 @@
 - (IBAction)sideSettingButtonClicked:(id)sender
 {
     SettingViewController *settingVC = [[[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil] autorelease];
-    //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    //[nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forBarMetrics:UIBarMetricsDefault];
-    //[self presentViewController:nav animated:YES completion:nil];
     [self presentSemiViewController:settingVC];
 }
 

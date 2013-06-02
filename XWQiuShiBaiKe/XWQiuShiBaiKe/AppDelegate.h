@@ -15,6 +15,5 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) SideBarViewController *sideBarViewController;
-@property (retain, nonatomic) QBUser *qbUser;
 
 @end
