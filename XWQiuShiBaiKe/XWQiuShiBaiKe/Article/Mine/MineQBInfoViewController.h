@@ -8,22 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MineQBInfoViewControllerDelegate <NSObject>
+
+@optional
+- (void)QBUserDidLogOutSuccess;
+
+@end
+
 @interface MineQBInfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (assign, nonatomic) id<MineQBInfoViewControllerDelegate> delegate;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *closeBarButton;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *titleBarButton;
 @property (retain, nonatomic) IBOutlet UIToolbar *mineInfoToolBar;
-
 @property (retain, nonatomic) IBOutlet UITableView *mineInfoTableView;
 @property (retain, nonatomic) IBOutlet UIView *mineInfoHeaderView;
 @property (retain, nonatomic) IBOutlet UILabel *mineNameLabel;
 @property (retain, nonatomic) IBOutlet UIButton *mineAuthButton;
 @property (retain, nonatomic) IBOutlet UIButton *mineFaceButton;
-
 @property (retain, nonatomic) IBOutlet UIView *mineInfoFooterView;
 @property (retain, nonatomic) IBOutlet UIButton *mineLogOutButton;
 @property (retain, nonatomic) IBOutlet UITableViewCell *qqShareCell;
-
 @property (retain, nonatomic) IBOutlet UITableViewCell *sinaShareCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *renrenShareCell;
 

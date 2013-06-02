@@ -9,6 +9,7 @@
 #import "MineQBInfoViewController.h"
 #import "UIViewController+KNSemiModal.h"
 #import "Toolkit.h"
+#import "UIButton+WebCache.h"
 
 @interface MineQBInfoViewController ()
 
@@ -32,6 +33,7 @@
     [self.view setBackgroundColor:[Toolkit getAppBackgroundColor]];
     [self initToolBar];
     [self initButton:_mineLogOutButton withNormalImageName:@"row_sina_bg.png" andHighlightImageName:nil];
+    [self initMineHeaderView];
 }
 
 - (void)dealloc
@@ -75,10 +77,15 @@
 - (IBAction)authButtonClicked:(id)sender {
 }
 
-- (IBAction)faceButtonClicked:(id)sender {
+- (IBAction)faceButtonClicked:(id)sender
+{
+    NSLog(@"face button clicked");
 }
 
-- (IBAction)logoutButtonClicked:(id)sender {
+- (IBAction)logoutButtonClicked:(id)sender
+{
+    [_delegate QBUserDidLogOutSuccess];
+    [self dismissSemiModalView];
 }
 
 #pragma mark - UITableView DataSource methods
@@ -229,6 +236,17 @@
         UIImage *btnImageActive = [UIImage imageNamed:hImageName];
         btnImageActive = [btnImageActive resizableImageWithCapInsets:UIEdgeInsetsMake(22, 20, 22, 20)];
         [button setBackgroundImage:btnImageActive forState:UIControlStateHighlighted];
+    }
+}
+
+- (void)initMineHeaderView
+{
+    QBUser *qbUser = [Toolkit getQBUserLocal];
+    if (qbUser && (NSNull *)qbUser.icon != [NSNull null]) {
+        [_mineFaceButton setImageWithURL:[NSURL URLWithString:qbUser.icon]];
+    }
+    if (qbUser && (NSNull *)qbUser.login != [NSNull null]) {
+        [_mineNameLabel setText:qbUser.login];
     }
 }
 
