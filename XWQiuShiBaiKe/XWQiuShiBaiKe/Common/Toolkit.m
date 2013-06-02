@@ -10,10 +10,21 @@
 
 @implementation Toolkit
 
-+ (QBUser *)getQBUser
+//保存QBUser到本地
++ (void)saveQBUserLocal:(QBUser *)qbUser
 {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    return appDelegate.qbUser;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:qbUser];
+    [defaults setObject:data forKey:@"QBUser"];
+}
+
+//取出保存在本地的QBUser
++ (QBUser *)getQBUserLocal
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [defaults objectForKey:@"QBUser"];
+    QBUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    return user;
 }
 
 //获取整个应用通用的背景色

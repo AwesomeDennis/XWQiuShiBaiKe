@@ -32,8 +32,9 @@ typedef enum {
 
 @interface Toolkit : NSObject
 
++ (void)saveQBUserLocal:(QBUser *)qbUser;
++ (QBUser *)getQBUserLocal;
 + (UIColor *)getAppBackgroundColor;
 + (NSString *)dateStringAfterRandomDay;
-+ (QBUser *)getQBUser;
 
 @end
