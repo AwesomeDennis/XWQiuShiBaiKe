@@ -32,7 +32,7 @@ static QBUser *instance = nil;
         self.last_device = [decoder decodeObjectForKey:@"last_device"];
         self.email = [decoder decodeObjectForKey:@"email"];
         self.state = [decoder decodeObjectForKey:@"state"];
-        self.created_at = [decoder decodeObjectForKey:@"create_at"];
+        self.created_at = [decoder decodeObjectForKey:@"created_at"];
         self.last_visited_at = [decoder decodeObjectForKey:@"last_visited_at"];
     }
     
@@ -43,7 +43,7 @@ static QBUser *instance = nil;
 {
     [encoder encodeObject:self.qbId forKey:@"qbId"];
     [encoder encodeObject:self.login forKey:@"login"];
-    [encoder encodeObject:self.icon forKey:@"icom"];
+    [encoder encodeObject:self.icon forKey:@"icon"];
     [encoder encodeObject:self.role forKey:@"role"];
     [encoder encodeObject:self.last_device forKey:@"last_device"];
     [encoder encodeObject:self.email forKey:@"email"];
