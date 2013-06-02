@@ -12,7 +12,7 @@
  *登录、注册
  */
 
-@protocol AuthViewController <NSObject>
+@protocol AuthViewControllerDelegate <NSObject>
 
 @optional
 - (void)QBUserDidLoginSuccessWithQBName:(NSString *)name andImage:(NSString *)imageUrl;
@@ -27,7 +27,7 @@
     UILabel *_titleLabel;
 }
 
-@property (assign, nonatomic) id<AuthViewController> delegate;
+@property (assign, nonatomic) id<AuthViewControllerDelegate> delegate;
 @property (retain, nonatomic) ASIHTTPRequest *loginRequest;
 @property (retain, nonatomic) IBOutlet UIView *registerView;
 @property (retain, nonatomic) IBOutlet UIView *loginView;

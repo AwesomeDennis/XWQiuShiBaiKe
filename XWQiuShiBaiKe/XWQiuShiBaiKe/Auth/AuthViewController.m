@@ -10,6 +10,7 @@
 #import "Toolkit.h"
 #import "UIViewController+KNSemiModal.h"
 #import "QBUser.h"
+#import "MineQBInfoViewController.h"
 
 @interface AuthViewController ()
 
@@ -119,7 +120,6 @@
     else {
         [self animateIncorrectMessage:_registerTextFieldView];
     }
-
 }
 
 - (IBAction)registerBackgroundViewClicked:(id)sender
@@ -168,16 +168,22 @@
         [defaults setObject:token forKey:@"QBToken"];
         
         id userDict = [jsonDict objectForKey:@"user"];
-        AppDelegate *appDelegate = ((AppDelegate *)[[UIApplication sharedApplication] delegate]);
-        appDelegate.qbUser = [[QBUser alloc] initWithQBUserDictionary:userDict];
+        QBUser *qbUser = [[QBUser alloc] initWithQBUserDictionary:userDict];
+        [Toolkit saveQBUserLocal:qbUser];
         
         if (_delegate && [_delegate respondsToSelector:@selector(QBUserDidLoginSuccessWithQBName:andImage:)]) {
-            [_delegate QBUserDidLoginSuccessWithQBName:appDelegate.qbUser.login andImage:appDelegate.qbUser.icon];
+            [_delegate QBUserDidLoginSuccessWithQBName:qbUser.login andImage:qbUser.icon];
         }
+        
+        [qbUser release];
         
         [_dialog toast:self withMessage:@"登录成功啦"];
         
-        [self dismissSemiModalView];
+        MineQBInfoViewController *infoVC = [[[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil] autorelease];
+        [self presentSemiViewController:infoVC withOptions:nil completion:^{
+            [self dismissSemiModalView];
+        } dismissBlock:nil];
+        
     }
     else {
         [_dialog toast:self withMessage:@"特么的，登录失败了"];
