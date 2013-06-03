@@ -150,6 +150,7 @@
 {
     _reloading = YES;
     _requestType = RequestTypeNormal;
+    _currentPage = 1;
     
     [self initArticlesRequestWithPage:_currentPage];
 }
@@ -170,8 +171,8 @@
 {
     _reloading = YES;
     _requestType = RequestTypeLoadMore;
-    
     _currentPage++;
+    
     [self initArticlesRequestWithPage:_currentPage];
 }
 

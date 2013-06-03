@@ -149,6 +149,7 @@
 {
     _reloading = YES;
     _requestType = RequestTypeNormal;
+    _currentPage = 1;
     
     [self initCollectRequestWithPage:_currentPage];
 }
@@ -169,8 +170,8 @@
 {
     _reloading = YES;
     _requestType = RequestTypeLoadMore;
-    
     _currentPage++;
+    
     [self initCollectRequestWithPage:_currentPage];
 }
 
