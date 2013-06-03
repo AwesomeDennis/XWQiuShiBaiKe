@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *login;
 @property (nonatomic, copy) NSString *qbId;
 @property (nonatomic, copy) NSString *icon;
+@property (nonatomic, copy) NSString *avatar;
 
 + (QBUser *)shareInstance;
 - (id)initWithQBUserDictionary:(NSDictionary *)dictionary;

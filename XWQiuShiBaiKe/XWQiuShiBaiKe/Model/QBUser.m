@@ -28,6 +28,7 @@ static QBUser *instance = nil;
         self.qbId = [decoder decodeObjectForKey:@"qbId"];
         self.login = [decoder decodeObjectForKey:@"login"];
         self.icon = [decoder decodeObjectForKey:@"icon"];
+        self.avatar = [decoder decodeObjectForKey:@"avatar"];
         self.role = [decoder decodeObjectForKey:@"role"];
         self.last_device = [decoder decodeObjectForKey:@"last_device"];
         self.email = [decoder decodeObjectForKey:@"email"];
@@ -44,27 +45,13 @@ static QBUser *instance = nil;
     [encoder encodeObject:self.qbId forKey:@"qbId"];
     [encoder encodeObject:self.login forKey:@"login"];
     [encoder encodeObject:self.icon forKey:@"icon"];
+    [encoder encodeObject:self.avatar forKey:@"avatar"];
     [encoder encodeObject:self.role forKey:@"role"];
     [encoder encodeObject:self.last_device forKey:@"last_device"];
     [encoder encodeObject:self.email forKey:@"email"];
     [encoder encodeObject:self.state forKey:@"state"];
     [encoder encodeObject:self.created_at forKey:@"created_at"];
     [encoder encodeObject:self.last_visited_at forKey:@"last_visited_at"];
-}
-
-- (void)saveCustomObject:(QBUser *)user
-{
-    NSData *myEncodeedObject = [NSKeyedArchiver archivedDataWithRootObject:user];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:myEncodeedObject forKey:@"myEncodeedObject"];
-}
-
-- (QBUser *)loadCustomObjectWithKey:(NSString *)key
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *myEncodeedObject = [defaults objectForKey:key];
-    QBUser *obj = (QBUser *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeedObject];
-    return obj;
 }
 
 - (id)initWithQBUserDictionary:(NSDictionary *)dictionary
@@ -84,8 +71,11 @@ static QBUser *instance = nil;
             self.icon = icon;
             if ([self.qbId length] > 3) {
                 NSString *prefixAuthorID = [_qbId substringWithRange:NSMakeRange(0, 3)];
-                NSString *newAuthorImageURL = [NSString stringWithFormat:@"http://pic.moumentei.com/system/avtnew/%@/%@/thumb/%@", prefixAuthorID, _qbId, icon];
-                self.icon = newAuthorImageURL;
+                NSString *newAuthorIconURL = [NSString stringWithFormat:@"http://pic.moumentei.com/system/avtnew/%@/%@/thumb/%@", prefixAuthorID, _qbId, icon];
+                NSString *newAuthorAvatarURL = [NSString stringWithFormat:@"http://pic.moumentei.com/system/avtnew/%@/%@/medium/%@", prefixAuthorID, _qbId, icon];
+                
+                self.icon = newAuthorIconURL;              
+                self.avatar = newAuthorAvatarURL;
             }
         }
     }
@@ -104,6 +94,7 @@ static QBUser *instance = nil;
     _login = nil;
     _qbId = nil;
     _icon = nil;
+    _avatar = nil;
     
     [super dealloc];
 }
