@@ -10,6 +10,20 @@
 
 @implementation Toolkit
 
+//保存QBToken到本地
++ (void)saveQBTokenLocal:(NSString *)token
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:token forKey:@"QBToken"];
+}
+
+//取出保存在本地的QBToken
++ (NSString *)getQBTokenLocal
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return (NSString *)[defaults objectForKey:@"QBToken"];
+}
+
 //保存QBUser到本地
 + (void)saveQBUserLocal:(QBUser *)qbUser
 {
@@ -23,7 +37,7 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *data = [defaults objectForKey:@"QBUser"];
-    QBUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    QBUser *user = (QBUser *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
     return user;
 }
 

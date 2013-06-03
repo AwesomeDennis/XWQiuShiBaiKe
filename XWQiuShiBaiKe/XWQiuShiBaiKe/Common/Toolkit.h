@@ -20,18 +20,20 @@
 #import "QBUser.h"
 
 typedef enum {
-    QiuShiTypeSuggest = 1000,       //随便逛逛-干货
-    QiuShiTypeLatest = 1001,        //随便逛逛-嫩草
-    QiuShiTypeDay = 2000,           //精华-日
-    QiuShiTypeWeek = 2001,          //精华-周
-    QiuShiTypeMonth = 2002,         //精华-月
-    QiuShiTypeImgrank = 3000,       //有图有真相-硬菜
-    QiuShiTypeImages = 3001,        //有图有真相-时令
-    QiuShiTypeHistory = 4000        //穿越
+    QiuShiTypeSuggest   = 1000,       //随便逛逛-干货
+    QiuShiTypeLatest    = 1001,       //随便逛逛-嫩草
+    QiuShiTypeDay       = 2000,       //精华-日
+    QiuShiTypeWeek      = 2001,       //精华-周
+    QiuShiTypeMonth     = 2002,       //精华-月
+    QiuShiTypeImgrank   = 3000,       //有图有真相-硬菜
+    QiuShiTypeImages    = 3001,       //有图有真相-时令
+    QiuShiTypeHistory   = 4000        //穿越
 }QiuShiType;
 
 @interface Toolkit : NSObject
 
++ (void)saveQBTokenLocal:(NSString *)token;
++ (NSString *)getQBTokenLocal;
 + (void)saveQBUserLocal:(QBUser *)qbUser;
 + (QBUser *)getQBUserLocal;
 + (UIColor *)getAppBackgroundColor;
