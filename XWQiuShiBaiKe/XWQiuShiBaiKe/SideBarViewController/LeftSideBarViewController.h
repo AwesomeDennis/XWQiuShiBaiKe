@@ -14,6 +14,9 @@
 #import "TraversingViewController.h"
 #import "AuthViewController.h"
 #import "MineQBInfoViewController.h"
+#import "MineCollectViewController.h"
+#import "MineParticipateViewController.h"
+#import "MineArticlesViewController.h"
 
 @protocol SideBarSelectedDelegate;
 
@@ -33,6 +36,12 @@
 
 @property (retain, nonatomic) TraversingViewController *traversingVC;
 @property (retain, nonatomic) UINavigationController *traversingeNavController;
+
+@property (retain, nonatomic) MineCollectViewController *collectVC;
+@property (retain, nonatomic) UINavigationController *collectNavController;
+
+@property (retain, nonatomic) MineParticipateViewController *participateVC;
+@property (retain, nonatomic) UINavigationController *participateNavController;
 
 @property (assign, nonatomic) id<SideBarSelectedDelegate> delegate;
 @property (retain, nonatomic) IBOutlet UIButton *sideSettingButton;

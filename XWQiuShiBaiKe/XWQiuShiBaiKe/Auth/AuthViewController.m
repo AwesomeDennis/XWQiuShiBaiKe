@@ -7,7 +7,6 @@
 //
 
 #import "AuthViewController.h"
-#import "Toolkit.h"
 #import "UIViewController+KNSemiModal.h"
 #import "QBUser.h"
 #import "MineQBInfoViewController.h"
@@ -164,8 +163,7 @@
     NSString *resultCode = [NSString stringWithFormat:@"%@", [jsonDict objectForKey:@"err"]];
     if ([resultCode isEqualToString:@"0"]) {
         NSString *token = [jsonDict objectForKey:@"token"];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:token forKey:@"QBToken"];
+        [Toolkit saveQBTokenLocal:token];
         
         id userDict = [jsonDict objectForKey:@"user"];
         QBUser *qbUser = [[QBUser alloc] initWithQBUserDictionary:userDict];
@@ -179,11 +177,8 @@
         
         [_dialog toast:self withMessage:@"登录成功啦"];
         
-        MineQBInfoViewController *infoVC = [[[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil] autorelease];
-        [self presentSemiViewController:infoVC withOptions:nil completion:^{
-            [self dismissSemiModalView];
-        } dismissBlock:nil];
-        
+        //MineQBInfoViewController *infoVC = [[[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil] autorelease];
+        [self performSelector:@selector(closeAuthViewController) withObject:nil afterDelay:1];
     }
     else {
         [_dialog toast:self withMessage:@"特么的，登录失败了"];
@@ -193,7 +188,6 @@
 - (void)loginDidFailed:(ASIHTTPRequest *)request
 {
     [_dialog hideProgress];
-    
     [_dialog toast:self withMessage:@"特么的，登录失败了"];
 }
 
@@ -370,7 +364,7 @@
 
 - (void)closeAuthViewController
 {
-    [self dismissSemiModalViewWithCompletion:nil];
+    [self dismissSemiModalView];
 }
 
 @end

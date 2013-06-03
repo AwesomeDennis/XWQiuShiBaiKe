@@ -266,8 +266,7 @@
                 if (_eliteVC && _eliteVC.isLoaded) {
                     return _eliteNavController;
                 }
-                else
-                {
+                else {
                     _eliteVC = [[EliteViewController alloc] initWithNibName:@"EliteViewController" bundle:nil];
                     _eliteNavController = [self configNavigationController:_eliteNavController withRootVC:_eliteVC];
                     return _eliteNavController;
@@ -279,8 +278,7 @@
                 if (_imageTruthVC && _imageTruthVC.isLoaded) {
                     return _imageTruthNavController;
                 }
-                else
-                {
+                else {
                     _imageTruthVC = [[ImageTruthViewController alloc] initWithNibName:@"ImageTruthViewController" bundle:nil];
                     _imageTruthNavController = [self configNavigationController:_imageTruthNavController withRootVC:_imageTruthVC];
                     return _imageTruthNavController;
@@ -292,8 +290,7 @@
                 if (_traversingVC && _traversingVC.isLoaded) {
                     return _traversingeNavController;
                 }
-                else
-                {
+                else {
                     _traversingVC = [[TraversingViewController alloc] initWithNibName:@"TraversingViewController" bundle:nil];
                     _traversingeNavController = [self configNavigationController:_traversingeNavController withRootVC:_traversingVC];
                     return _traversingeNavController;
@@ -305,6 +302,42 @@
         }
     }
     else if (indexPath.section == 1) {
+        if ([Toolkit getQBTokenLocal]) {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    if (_collectVC && _collectVC.isLoaded) {
+                        return _collectNavController;
+                    }
+                    else {
+                        _collectVC = [[MineCollectViewController alloc] initWithNibName:@"MineCollectViewController" bundle:nil];
+                        _collectNavController = [self configNavigationController:_collectNavController withRootVC:_collectVC];
+                        return _collectNavController;
+                    }
+                }
+                    break;
+                case 1:
+                {
+                    if (_participateVC && _participateVC.isLoaded) {
+                        return _participateNavController;
+                    }
+                    else {
+                        _participateVC = [[MineParticipateViewController alloc] initWithNibName:@"MineParticipateViewController" bundle:nil];
+                        _participateNavController = [self configNavigationController:_participateNavController withRootVC:_participateVC];
+                        return _participateNavController;
+                    }
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+        else {
+            AuthViewController *authVC = [[[AuthViewController alloc] initWithNibName:@"" bundle:nil] autorelease];
+            authVC.delegate = self;
+            [self presentSemiViewController:authVC];
+        }
+        
         [[Dialog Instance] toast:@"你特么的别点咯，这东西还没做好啦"];
     }
     else {
