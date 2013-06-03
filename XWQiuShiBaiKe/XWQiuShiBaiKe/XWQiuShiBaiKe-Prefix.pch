@@ -25,6 +25,7 @@
 #import "MobClick.h"
 #import "UMFeedback.h"
 #import "Dialog.h"
+#import "Toolkit.h"
 #endif
 
 #define UMENG_APPKEY                @"51a0df8e56240b7b2102fe59"
@@ -63,8 +64,18 @@
 #define api_mine_participate(page, count)        [NSString stringWithFormat:@"http://m2.qiushibaike.com/user/my/participate?page=%d&count=%d", page, count]
 //我发表的: GET Header:Qbtoken
 #define api_mine_articles(page, count)           [NSString stringWithFormat:@"http://m2.qiushibaike.com/user/my/articles?page=%d&count=%d", page, count]
-//发布糗事:POST
+//发布糗事:POST Header:Qbtoken:94b0843c2b1b940a5b50594e5422ef6d976dedcb Content-Type:multipart/form-data; boundary=ixhan-dot-com
 #define api_qiushi_create                        @"http://m2.qiushibaike.com/article/create"
+/*
+ post:
+ --ixhan-dot-com
+ Content-Disposition: form-data; name="json"
+ 
+ {"content":"咯女哦谢谢","anonymous":true,"allow_comment":true}
+ --ixhan-dot-com
+ 
+ --ixhan-dot-com--
+ */
 
 //顶、踩糗事:POST
 #define api_qiushi_vote                          @"http://vote.qiushibaike.com/vote_queue"

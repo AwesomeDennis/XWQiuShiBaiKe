@@ -7,7 +7,6 @@
 //
 
 #import "SettingViewController.h"
-#import "Toolkit.h"
 #import "UIViewController+KNSemiModal.h"
 
 @interface SettingViewController ()
