@@ -186,6 +186,7 @@
     if (_reloading) {
         _reloading = NO;
         [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_articlesTableView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_articlesTableView];
     }
     
     if (_requestType == RequestTypeNormal) {
@@ -238,6 +239,8 @@
 {
     NSURL *url = [NSURL URLWithString:api_mine_articles(page, 30)];
     self.articlesRequest = [ASIHTTPRequest requestWithURL:url];
+    [self.articlesRequest setRequestMethod:@"GET"];
+    [self.articlesRequest addRequestHeader:@"Qbtoken" value:[Toolkit getQBTokenLocal]];
     self.articlesRequest.delegate = self;
     [self.articlesRequest startAsynchronous];
 }

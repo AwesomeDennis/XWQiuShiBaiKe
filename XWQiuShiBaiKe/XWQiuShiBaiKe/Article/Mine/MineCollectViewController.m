@@ -77,7 +77,10 @@
 
 - (IBAction)sideButtonClicked:(id)sender
 {
-    
+    SideBarShowDirection direction = [SideBarViewController getShowingState] ? SideBarShowDirectionNone : SideBarShowDirectionLeft;
+    if ([[SideBarViewController share] respondsToSelector:@selector(showSideBarControllerWithDirection:)]) {
+        [[SideBarViewController share] showSideBarControllerWithDirection:direction];
+    }
 }
 
 #pragma mark - UITableView datasource methods
@@ -171,6 +174,11 @@
     [self initCollectRequestWithPage:_currentPage];
 }
 
+- (BOOL)loadMoreTableFooterDataSourceIsLoading:(LoadMoreFooterView *)view
+{
+    return _reloading;
+}
+
 #pragma mark - ASIHttpRequest delegate methods
 
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -182,6 +190,7 @@
     if (_reloading) {
         _reloading = NO;
         [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_collectTableView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_collectTableView];
     }
     
     if (_requestType == RequestTypeNormal) {
@@ -223,7 +232,6 @@
 - (void)initViews
 {
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
-    
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_sideButton] autorelease];
     //self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_postButton] autorelease];
     
@@ -234,6 +242,8 @@
 {
     NSURL *url = [NSURL URLWithString:api_mine_collect(page, 30)];
     self.collectRequest = [ASIHTTPRequest requestWithURL:url];
+    [self.collectRequest setRequestMethod:@"GET"];
+    [self.collectRequest addRequestHeader:@"Qbtoken" value:[Toolkit getQBTokenLocal]];
     self.collectRequest.delegate = self;
     [self.collectRequest startAsynchronous];
 }

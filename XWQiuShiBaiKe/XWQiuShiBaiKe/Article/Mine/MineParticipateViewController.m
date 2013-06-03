@@ -186,6 +186,7 @@
     if (_reloading) {
         _reloading = NO;
         [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_participateTableView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_participateTableView];
     }
     
     if (_requestType == RequestTypeNormal) {
@@ -238,6 +239,8 @@
 {
     NSURL *url = [NSURL URLWithString:api_mine_participate(page, 30)];
     self.participateRequest = [ASIHTTPRequest requestWithURL:url];
+    [self.participateRequest setRequestMethod:@"GET"];
+    [self.participateRequest addRequestHeader:@"Qbtoken" value:[Toolkit getQBTokenLocal]];
     self.participateRequest.delegate = self;
     [self.participateRequest startAsynchronous];
 }

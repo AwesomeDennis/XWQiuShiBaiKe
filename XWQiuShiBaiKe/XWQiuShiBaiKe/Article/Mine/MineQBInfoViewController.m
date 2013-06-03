@@ -8,7 +8,6 @@
 
 #import "MineQBInfoViewController.h"
 #import "UIViewController+KNSemiModal.h"
-#import "Toolkit.h"
 #import "UIButton+WebCache.h"
 
 @interface MineQBInfoViewController ()
@@ -242,8 +241,8 @@
 - (void)initMineHeaderView
 {
     QBUser *qbUser = [Toolkit getQBUserLocal];
-    if (qbUser && (NSNull *)qbUser.icon != [NSNull null]) {
-        [_mineFaceButton setImageWithURL:[NSURL URLWithString:qbUser.icon]];
+    if (qbUser && (NSNull *)qbUser.icon != [NSNull null]) {       
+        [_mineFaceButton setImageWithURL:[NSURL URLWithString:qbUser.avatar]];
     }
     if (qbUser && (NSNull *)qbUser.login != [NSNull null]) {
         [_mineNameLabel setText:qbUser.login];
