@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "UIViewController+KNSemiModal.h"
+#import "UMWebViewController.h"
 
 @interface SettingViewController ()
 
@@ -179,7 +180,7 @@
         }
     }
     else if (indexPath.section == 3) {
-        
+        [self showAppRecommendWebView];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -215,6 +216,13 @@
 - (void)closeSettingViewController
 {
     [self dismissSemiModalViewWithCompletion:nil];
+}
+
+- (void)showAppRecommendWebView
+{
+    UMWebViewController *controller = [[UMWebViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+    [controller release];
 }
 
 @end

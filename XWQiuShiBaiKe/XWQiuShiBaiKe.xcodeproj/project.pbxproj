@@ -18,6 +18,9 @@
 		193E0E64175497F200DA99D7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E63175497F200DA99D7 /* Default.png */; };
 		1943358B175DFE1400FCEBD1 /* UIColor+XWCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1943358A175DFE1400FCEBD1 /* UIColor+XWCategory.m */; };
 		1943358E175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1943358D175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m */; };
+		19433594175E50F800FCEBD1 /* libUMAppNetwork_3.5.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19433590175E50F800FCEBD1 /* libUMAppNetwork_3.5.5.a */; };
+		19433595175E50F800FCEBD1 /* UMUFP.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19433591175E50F800FCEBD1 /* UMUFP.bundle */; };
+		194335A0175E526700FCEBD1 /* UMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1943359F175E526700FCEBD1 /* UMWebViewController.m */; };
 		194560A617578095008E2CF4 /* MineCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560A417578095008E2CF4 /* MineCollectViewController.m */; };
 		194560A717578095008E2CF4 /* MineCollectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194560A517578095008E2CF4 /* MineCollectViewController.xib */; };
 		194560AB175780B5008E2CF4 /* MineParticipateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560A9175780B5008E2CF4 /* MineParticipateViewController.m */; };
@@ -297,6 +300,12 @@
 		1943358A175DFE1400FCEBD1 /* UIColor+XWCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XWCategory.m"; sourceTree = "<group>"; };
 		1943358C175DFF3F00FCEBD1 /* NSDictionary+XWCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+XWCategory.h"; sourceTree = "<group>"; };
 		1943358D175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+XWCategory.m"; sourceTree = "<group>"; };
+		19433590175E50F800FCEBD1 /* libUMAppNetwork_3.5.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMAppNetwork_3.5.5.a; sourceTree = "<group>"; };
+		19433591175E50F800FCEBD1 /* UMUFP.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMUFP.bundle; sourceTree = "<group>"; };
+		19433592175E50F800FCEBD1 /* UMUFPImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMUFPImageView.h; sourceTree = "<group>"; };
+		19433593175E50F800FCEBD1 /* UMUFPWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMUFPWebView.h; sourceTree = "<group>"; };
+		1943359E175E526700FCEBD1 /* UMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMWebViewController.h; sourceTree = "<group>"; };
+		1943359F175E526700FCEBD1 /* UMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMWebViewController.m; sourceTree = "<group>"; };
 		194560A317578095008E2CF4 /* MineCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectViewController.h; sourceTree = "<group>"; };
 		194560A417578095008E2CF4 /* MineCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectViewController.m; sourceTree = "<group>"; };
 		194560A517578095008E2CF4 /* MineCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineCollectViewController.xib; sourceTree = "<group>"; };
@@ -656,12 +665,24 @@
 				195C14AC174F409600F9B000 /* CoreGraphics.framework in Frameworks */,
 				19499A4C175121530043EEE8 /* libMobClickLibrary.a in Frameworks */,
 				19A7555217572A1600B75C96 /* libUMFeedback.a in Frameworks */,
+				19433594175E50F800FCEBD1 /* libUMAppNetwork_3.5.5.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1943358F175E50F800FCEBD1 /* UMAppNetwork_SDK_3.5.5 */ = {
+			isa = PBXGroup;
+			children = (
+				19433590175E50F800FCEBD1 /* libUMAppNetwork_3.5.5.a */,
+				19433591175E50F800FCEBD1 /* UMUFP.bundle */,
+				19433592175E50F800FCEBD1 /* UMUFPImageView.h */,
+				19433593175E50F800FCEBD1 /* UMUFPWebView.h */,
+			);
+			path = UMAppNetwork_SDK_3.5.5;
+			sourceTree = "<group>";
+		};
 		194560A21757802A008E2CF4 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,6 +705,7 @@
 		19499A48175121530043EEE8 /* 3rd Libs */ = {
 			isa = PBXGroup;
 			children = (
+				1943358F175E50F800FCEBD1 /* UMAppNetwork_SDK_3.5.5 */,
 				19A7554E17572A1600B75C96 /* UMFeedback_iOS_1.4 */,
 				19499A49175121530043EEE8 /* UMAnalytics_Sdk_2.2.0.OpenUDID */,
 			);
@@ -1031,6 +1053,8 @@
 				195C158D174F43F200F9B000 /* SettingViewController.h */,
 				195C158E174F43F200F9B000 /* SettingViewController.m */,
 				195C158F174F43F200F9B000 /* SettingViewController.xib */,
+				1943359E175E526700FCEBD1 /* UMWebViewController.h */,
+				1943359F175E526700FCEBD1 /* UMWebViewController.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1601,6 +1625,7 @@
 				191EF6BB175DD390003748E2 /* CreateCommentViewController.xib in Resources */,
 				191EF6C1175DDC3F003748E2 /* block_post_background.png in Resources */,
 				191EF6C2175DDC3F003748E2 /* block_post_background@2x.png in Resources */,
+				19433595175E50F800FCEBD1 /* UMUFP.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1697,6 +1722,7 @@
 				191EF6BE175DD9CC003748E2 /* XWPlaceHolderTextView.m in Sources */,
 				1943358B175DFE1400FCEBD1 /* UIColor+XWCategory.m in Sources */,
 				1943358E175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m in Sources */,
+				194335A0175E526700FCEBD1 /* UMWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1781,6 +1807,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
 					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMFeedback_iOS_1.4\"",
+					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAppNetwork_SDK_3.5.5\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1798,6 +1825,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
 					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMFeedback_iOS_1.4\"",
+					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAppNetwork_SDK_3.5.5\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
