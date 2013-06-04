@@ -87,6 +87,7 @@
     [self initBackgroundView];
     [self initToolBar];
     _commentTextView.placeHolder = @"这里不欢迎贴小广告、谩骂、色情、贩毒、卖军火等行为，否则您的言论将有可能作为禁言的呈堂证供的哟。";
+    _commentTextView.placeHolderColor = [UIColor colorWithRed:192/255 green:164/255 blue:143/255 alpha:1.0];
     [_commentTextView becomeFirstResponder];
 }
 
@@ -121,7 +122,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 35)];
     titleLabel.textAlignment = UITextAlignmentCenter;
     titleLabel.font = [UIFont systemFontOfSize:18];
-    titleLabel.textColor = [UIColor brownColor];
+    titleLabel.textColor = [UIColor colorWithRed:130/255 green:95/255 blue:66/255 alpha:1.0];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.text = @"添加评论";
     _titleBarButton.customView = titleLabel;

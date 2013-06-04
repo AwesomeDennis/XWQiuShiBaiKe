@@ -61,15 +61,19 @@
 								<reference key="NSSuperview" ref="852581000"/>
 								<reference key="NSNextKeyView" ref="971890995"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<object class="NSColor" key="IBUIBackgroundColor" id="101233600">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MCAwAA</bytes>
+								</object>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">名字要够长</string>
-								<object class="NSColor" key="IBUITextColor" id="986088805">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC43NjQ3MDU4ODI0IDAuNjY2NjY2NjY2NyAwLjU4ODIzNTI5NDEAA</bytes>
 								</object>
 								<object class="NSColor" key="IBUIHighlightedColor" id="272962327">
 									<int key="NSColorSpace">3</int>
@@ -94,6 +98,7 @@
 								<reference key="NSSuperview" ref="852581000"/>
 								<reference key="NSNextKeyView" ref="969540188"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<reference key="IBUIBackgroundColor" ref="101233600"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -102,8 +107,7 @@
 								<string key="IBUIText">全球最大的中文搜索引擎、致力于让网民更便捷地获取信息，找到所求。百度超过千亿的中文网页数据库，可以瞬间找到相关的搜索结果。</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MCAwIDAAA</bytes>
-									<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
+									<bytes key="NSRGB">MC4zMTM3MjU0OTAyIDAuMjU0OTAxOTYwOCAwLjE5NjA3ODQzMTQAA</bytes>
 								</object>
 								<reference key="IBUIHighlightedColor" ref="272962327"/>
 								<int key="IBUIBaselineAdjustment">0</int>
@@ -159,7 +163,10 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">真相了</string>
-								<reference key="IBUITextColor" ref="986088805"/>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
+								</object>
 								<reference key="IBUIHighlightedColor" ref="272962327"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
@@ -178,10 +185,7 @@
 						<reference key="NSSuperview" ref="90913191"/>
 						<reference key="NSNextKeyView" ref="968016004"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
-						<object class="NSColor" key="IBUIBackgroundColor" id="101233600">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MCAwAA</bytes>
-						</object>
+						<reference key="IBUIBackgroundColor" ref="101233600"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">4</int>

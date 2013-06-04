@@ -243,7 +243,7 @@
     QBUser *qbUser = [Toolkit getQBUserLocal];
     if (qbUser && (NSNull *)qbUser.icon != [NSNull null]) {
         CALayer *layer = [_mineFaceButton layer];
-        layer.cornerRadius = 3;
+        layer.cornerRadius = 5;
         layer.masksToBounds = YES;
         [_mineFaceButton setImageWithURL:[NSURL URLWithString:qbUser.avatar]];
     }

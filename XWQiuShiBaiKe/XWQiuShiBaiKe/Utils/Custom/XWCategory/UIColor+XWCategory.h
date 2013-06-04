@@ -10,7 +10,7 @@
 
 @interface UIColor (XWCategory)
 
-+ (UIColor*)colorWithHex:(long)hexColor;
++ (UIColor *)colorWithHex:(long)hexColor;
 + (UIColor *)colorWithHex:(long)hexColor alpha:(float)opacity;
 + (UIColor *)colorWithHexString:(NSString *)hexColor;
 

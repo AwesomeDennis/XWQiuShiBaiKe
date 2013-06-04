@@ -146,7 +146,7 @@
     }
     settingCell.textLabel.text = settingTitle;
     settingCell.textLabel.font = [UIFont systemFontOfSize:15];
-    settingCell.textLabel.textColor = [UIColor darkGrayColor];
+    settingCell.textLabel.textColor = [UIColor brownColor];
     
     return settingCell;
 }

@@ -10,7 +10,7 @@
 
 @implementation UIColor (XWCategory)
 
-+ (UIColor*)colorWithHex:(long)hexColor
++ (UIColor *)colorWithHex:(long)hexColor
 {
     return [UIColor colorWithHex:hexColor alpha:1.];
 }

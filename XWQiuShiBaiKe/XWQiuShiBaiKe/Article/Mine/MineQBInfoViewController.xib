@@ -46,7 +46,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 44}, {320, 416}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="364022037">
 							<int key="NSColorSpace">3</int>
@@ -164,7 +163,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{285, 37}, {30, 21}}</string>
 						<reference key="NSSuperview" ref="886341005"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -272,7 +270,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{10, 3}, {300, 44}}</string>
 						<reference key="NSSuperview" ref="541061715"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -320,17 +317,17 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{50, 11}, {150, 21}}</string>
 								<reference key="NSSuperview" ref="546037960"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<reference key="IBUIBackgroundColor" ref="364022037"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">QQ空间/腾讯微博</string>
-								<object class="NSColor" key="IBUITextColor" id="230548314">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC40Nzg0MzEzNzI1IDAuNDMxMzcyNTQ5IDAuMzgwMzkyMTU2OQA</bytes>
 								</object>
 								<reference key="IBUIHighlightedColor" ref="403785467"/>
 								<int key="IBUIBaselineAdjustment">0</int>
@@ -392,15 +389,18 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{50, 11}, {150, 21}}</string>
 								<reference key="NSSuperview" ref="196737589"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<reference key="IBUIBackgroundColor" ref="364022037"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">人人网</string>
-								<reference key="IBUITextColor" ref="230548314"/>
+								<object class="NSColor" key="IBUITextColor" id="43798890">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC40Nzg0MzEzNzI1IDAuNDMxMzcyNTQ5IDAuMzgwMzkyMTU2OQA</bytes>
+								</object>
 								<reference key="IBUIHighlightedColor" ref="403785467"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<reference key="IBUIFontDescription" ref="304878817"/>
@@ -428,7 +428,7 @@
 				<reference key="IBUIContentView" ref="196737589"/>
 			</object>
 			<object class="IBUITableViewCell" id="617910727">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="374638169">
@@ -455,13 +455,14 @@
 								<string key="NSFrame">{{50, 11}, {150, 21}}</string>
 								<reference key="NSSuperview" ref="374638169"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<reference key="IBUIBackgroundColor" ref="364022037"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">新浪微博</string>
-								<reference key="IBUITextColor" ref="230548314"/>
+								<reference key="IBUITextColor" ref="43798890"/>
 								<reference key="IBUIHighlightedColor" ref="403785467"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<reference key="IBUIFontDescription" ref="304878817"/>
@@ -482,6 +483,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 44}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="374638169"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
