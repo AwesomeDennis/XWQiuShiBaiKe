@@ -20,6 +20,8 @@
 - (void)toast:(NSString *)message;
 //显示在屏幕中间
 - (void)toastCenter:(NSString *)message;
+//带进度条
+- (void)progressToast:(NSString *)message;
 
 //带遮罩效果的进度条
 - (void)gradient:(UIViewController *)controller seletor:(SEL)method;

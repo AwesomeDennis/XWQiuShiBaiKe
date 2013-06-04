@@ -41,6 +41,7 @@ static Dialog *instance = nil;
 - (void)toast:(NSString *)message {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
 	hud.mode = MBProgressHUDModeText;
+    hud.animationType = MBProgressHUDAnimationZoomOut;
 	hud.labelText = message;
 	hud.margin = 10.f;
 	hud.yOffset = 150.f;
@@ -51,6 +52,18 @@ static Dialog *instance = nil;
 - (void)toastCenter:(NSString *)message {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
 	hud.mode = MBProgressHUDModeText;
+    hud.animationType = MBProgressHUDAnimationZoomOut;
+	hud.labelText = message;
+	hud.margin = 10.f;
+	hud.yOffset = -20.f;
+	hud.removeFromSuperViewOnHide = YES;
+	[hud hide:YES afterDelay:3];
+}
+
+- (void)progressToast:(NSString *)message
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+	hud.mode = MBProgressHUDModeIndeterminate;
 	hud.labelText = message;
 	hud.margin = 10.f;
 	hud.yOffset = -20.f;

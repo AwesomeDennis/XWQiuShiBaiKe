@@ -24,8 +24,8 @@
         _imageScrollView = [[UIScrollView alloc] init];
         _imageScrollView.delegate = self;
         _imageScrollView.bounces = YES;
-        _imageScrollView.showsHorizontalScrollIndicator = YES;
-        _imageScrollView.showsVerticalScrollIndicator = YES;
+        _imageScrollView.showsHorizontalScrollIndicator = NO;
+        _imageScrollView.showsVerticalScrollIndicator = NO;
         //_imageScrollView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
         _imageScrollView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.9];
         [self addTapGesture];
