@@ -32,6 +32,7 @@ typedef enum {
 
 @interface Toolkit : NSObject
 
++ (BOOL)isExistenceNetwork;
 + (void)saveQBTokenLocal:(NSString *)token;
 + (NSString *)getQBTokenLocal;
 + (void)saveQBUserLocal:(QBUser *)qbUser;

@@ -7,8 +7,31 @@
 //
 
 #import "Toolkit.h"
+#import "Reachability.h"
 
 @implementation Toolkit
+
+//判断当前网络是否可用
++ (BOOL)isExistenceNetwork
+{
+    BOOL isExistenceNetwork = YES;
+    Reachability *r = [Reachability reachabilityWithHostName:@"http://www.baidu.com"];
+    switch (r.currentReachabilityStatus) {
+        case NotReachable:
+            isExistenceNetwork = NO;
+            break;
+        case ReachableViaWWAN:
+            isExistenceNetwork = YES;
+            break;
+        case ReachableViaWiFi:
+            isExistenceNetwork = YES;
+            break;
+        default:
+            break;
+    }
+    
+    return isExistenceNetwork;
+}
 
 //保存QBToken到本地
 + (void)saveQBTokenLocal:(NSString *)token
