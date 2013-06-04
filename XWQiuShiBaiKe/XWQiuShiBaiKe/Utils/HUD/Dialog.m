@@ -48,6 +48,16 @@ static Dialog *instance = nil;
 	[hud hide:YES afterDelay:3];
 }
 
+- (void)toastCenter:(NSString *)message {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+	hud.mode = MBProgressHUDModeText;
+	hud.labelText = message;
+	hud.margin = 10.f;
+	hud.yOffset = -20.f;
+	hud.removeFromSuperViewOnHide = YES;
+	[hud hide:YES afterDelay:3];
+}
+
 - (void)gradient:(UIViewController *)controller seletor:(SEL)method {
     HUD = [[MBProgressHUD alloc] initWithView:controller.view];
 	[controller.view addSubview:HUD];
@@ -69,6 +79,16 @@ static Dialog *instance = nil;
     [controller.view addSubview:HUD];
     HUD.delegate = self;
 //    HUD.dimBackground = YES;
+    HUD.labelText = labelText;
+    [HUD show:YES];
+}
+
+- (void)showCenterProgressWithLabel:(NSString *)labelText
+{
+    HUD = [[MBProgressHUD alloc] initWithView:[UIApplication sharedApplication].keyWindow];
+    [[UIApplication sharedApplication].keyWindow addSubview:HUD];
+    HUD.delegate = self;
+    //    HUD.dimBackground = YES;
     HUD.labelText = labelText;
     [HUD show:YES];
 }

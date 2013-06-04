@@ -18,6 +18,8 @@
 //类似于Android一个显示框效果
 - (void)toast:(UIViewController *)controller withMessage:(NSString *) message;
 - (void)toast:(NSString *)message;
+//显示在屏幕中间
+- (void)toastCenter:(NSString *)message;
 
 //带遮罩效果的进度条
 - (void)gradient:(UIViewController *)controller seletor:(SEL)method;
@@ -33,5 +35,6 @@
 
 //显示带说明的进度条
 - (void)showProgress:(UIViewController *)controller withLabel:(NSString *)labelText;
+- (void)showCenterProgressWithLabel:(NSString *)labelText;
 
 @end
