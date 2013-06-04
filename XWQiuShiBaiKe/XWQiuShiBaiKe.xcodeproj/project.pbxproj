@@ -16,6 +16,8 @@
 		193E0E601754966A00DA99D7 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E5F1754966A00DA99D7 /* 57.png */; };
 		193E0E621754967400DA99D7 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E611754967400DA99D7 /* 114.png */; };
 		193E0E64175497F200DA99D7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E63175497F200DA99D7 /* Default.png */; };
+		1943358B175DFE1400FCEBD1 /* UIColor+XWCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1943358A175DFE1400FCEBD1 /* UIColor+XWCategory.m */; };
+		1943358E175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1943358D175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m */; };
 		194560A617578095008E2CF4 /* MineCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560A417578095008E2CF4 /* MineCollectViewController.m */; };
 		194560A717578095008E2CF4 /* MineCollectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194560A517578095008E2CF4 /* MineCollectViewController.xib */; };
 		194560AB175780B5008E2CF4 /* MineParticipateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560A9175780B5008E2CF4 /* MineParticipateViewController.m */; };
@@ -270,7 +272,6 @@
 		198060661754987200E5069A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198060651754987200E5069A /* Default-568h@2x.png */; };
 		19A7555217572A1600B75C96 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7554F17572A1600B75C96 /* libUMFeedback.a */; };
 		19A7555317572A1600B75C96 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19A7555017572A1600B75C96 /* umFeedback.bundle */; };
-		19E232D61755F8280085BE89 /* NSDictionary+JSONCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */; };
 		19F5724F17587AB700DEE940 /* QiuShiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F5724A17587AB700DEE940 /* QiuShiDetailViewController.m */; };
 		19F5725017587AB700DEE940 /* QiuShiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F5724B17587AB700DEE940 /* QiuShiDetailViewController.xib */; };
 		19F5725117587AB700DEE940 /* QiuShiImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F5724D17587AB700DEE940 /* QiuShiImageViewController.m */; };
@@ -292,6 +293,10 @@
 		193E0E5F1754966A00DA99D7 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57.png; path = ../57.png; sourceTree = "<group>"; };
 		193E0E611754967400DA99D7 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = ../114.png; sourceTree = "<group>"; };
 		193E0E63175497F200DA99D7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		19433589175DFE1300FCEBD1 /* UIColor+XWCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XWCategory.h"; sourceTree = "<group>"; };
+		1943358A175DFE1400FCEBD1 /* UIColor+XWCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XWCategory.m"; sourceTree = "<group>"; };
+		1943358C175DFF3F00FCEBD1 /* NSDictionary+XWCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+XWCategory.h"; sourceTree = "<group>"; };
+		1943358D175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+XWCategory.m"; sourceTree = "<group>"; };
 		194560A317578095008E2CF4 /* MineCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectViewController.h; sourceTree = "<group>"; };
 		194560A417578095008E2CF4 /* MineCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectViewController.m; sourceTree = "<group>"; };
 		194560A517578095008E2CF4 /* MineCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineCollectViewController.xib; sourceTree = "<group>"; };
@@ -622,8 +627,6 @@
 		19A7554F17572A1600B75C96 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
 		19A7555017572A1600B75C96 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
 		19A7555117572A1600B75C96 /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
-		19E232D41755F8280085BE89 /* NSDictionary+JSONCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONCategory.h"; sourceTree = "<group>"; };
-		19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONCategory.m"; sourceTree = "<group>"; };
 		19E232D81755F9B80085BE89 /* XWCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCategory.h; sourceTree = "<group>"; };
 		19F5724917587AB700DEE940 /* QiuShiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuShiDetailViewController.h; sourceTree = "<group>"; };
 		19F5724A17587AB700DEE940 /* QiuShiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiuShiDetailViewController.m; sourceTree = "<group>"; };
@@ -1330,8 +1333,10 @@
 			isa = PBXGroup;
 			children = (
 				19E232D81755F9B80085BE89 /* XWCategory.h */,
-				19E232D41755F8280085BE89 /* NSDictionary+JSONCategory.h */,
-				19E232D51755F8280085BE89 /* NSDictionary+JSONCategory.m */,
+				19433589175DFE1300FCEBD1 /* UIColor+XWCategory.h */,
+				1943358A175DFE1400FCEBD1 /* UIColor+XWCategory.m */,
+				1943358C175DFF3F00FCEBD1 /* NSDictionary+XWCategory.h */,
+				1943358D175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m */,
 			);
 			path = XWCategory;
 			sourceTree = "<group>";
@@ -1680,7 +1685,6 @@
 				195C15AF174F447D00F9B000 /* LeftSideBarViewController.m in Sources */,
 				195C15B6174F448500F9B000 /* SideBarViewController.m in Sources */,
 				1964759F17534F1F00AC3393 /* Config.m in Sources */,
-				19E232D61755F8280085BE89 /* NSDictionary+JSONCategory.m in Sources */,
 				193055F2175619E2009DEE32 /* QBUser.m in Sources */,
 				194560A617578095008E2CF4 /* MineCollectViewController.m in Sources */,
 				194560AB175780B5008E2CF4 /* MineParticipateViewController.m in Sources */,
@@ -1691,6 +1695,8 @@
 				19563CFE175A272100E2EC35 /* MineQBInfoViewController.m in Sources */,
 				191EF6BA175DD390003748E2 /* CreateCommentViewController.m in Sources */,
 				191EF6BE175DD9CC003748E2 /* XWPlaceHolderTextView.m in Sources */,
+				1943358B175DFE1400FCEBD1 /* UIColor+XWCategory.m in Sources */,
+				1943358E175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

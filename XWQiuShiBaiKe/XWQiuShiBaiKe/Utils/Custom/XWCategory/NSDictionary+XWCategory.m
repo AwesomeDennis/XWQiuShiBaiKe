@@ -1,14 +1,14 @@
 //
-//  NSDictionary+JSONCategory.m
+//  NSDictionary+XWCategory.m
 //  XWQiuShiBaiKe
 //
-//  Created by Ren XinWei on 13-5-29.
-//  Copyright (c) 2013年 renxinwei's iMac. All rights reserved.
+//  Created by renxinwei on 13-6-4.
+//  Copyright (c) 2013年 renxinwei's MacBook Pro. All rights reserved.
 //
 
-#import "NSDictionary+JSONCategory.h"
+#import "NSDictionary+XWCategory.h"
 
-@implementation NSDictionary (JSONCategory)
+@implementation NSDictionary (XWCategory)
 
 + (NSDictionary *)dictionaryWithContentsOfJSONURLString:(NSString *)urlAddress
 {

@@ -9,6 +9,7 @@
 #ifndef XWQiuShiBaiKe_XWCategory_h
 #define XWQiuShiBaiKe_XWCategory_h
 
-#import "NSDictionary+JSONCategory.h"
+#import "NSDictionary+XWCategory.h"
+#import "UIColor+XWCategory.h"
 
 #endif
