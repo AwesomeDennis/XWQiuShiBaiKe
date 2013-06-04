@@ -10,6 +10,8 @@
 #import "JSONKit.h"
 #import "CommentCell.h"
 #import "QiuShiImageViewController.h"
+#import "CreateCommentViewController.h"
+#import "UIViewController+KNSemiModal.h"
 
 @interface QiuShiDetailViewController ()
 
@@ -226,6 +228,13 @@
     shareView.delegate = self;
     [self.view addSubview:shareView];
     [shareView fadeIn];
+}
+
+- (IBAction)createCommentButtonClicked:(id)sender
+{
+    CreateCommentViewController *vc = [[[CreateCommentViewController alloc] initWithNibName:@"CreateCommentViewController" bundle:nil] autorelease];
+    vc.qiushiID = _qiushi.qiushiID;
+    [self presentSemiViewController:vc];
 }
 
 #pragma mark - Private methods

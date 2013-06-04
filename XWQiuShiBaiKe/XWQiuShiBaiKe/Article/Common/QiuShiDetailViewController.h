@@ -31,5 +31,6 @@
 
 - (IBAction)backButtonClicked:(id)sender;
 - (IBAction)shareButtonClicked:(id)sender;
+- (IBAction)createCommentButtonClicked:(id)sender;
 
 @end
