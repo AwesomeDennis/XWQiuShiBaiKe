@@ -73,6 +73,7 @@
 
     [self initTraversingRequestWithType:_qiushiType andPage:_currentTraversingPage];
     //[self refreshed];
+    [[Dialog Instance] progressToast:@"等一下"];
 }
 
 - (void)dealloc
@@ -255,7 +256,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [[Dialog Instance] toast:self withMessage:@"擦,穿个J8!"];
+    [[Dialog Instance] toast:self withMessage:@"穿个J8!"];
 }
 
 #pragma mark - QiuShiCellDelegate method
@@ -282,7 +283,7 @@
 
 - (IBAction)timeAgainButtonClicked:(id)sender
 {
-    self.title = @"穿越中";
+    self.title = @"穿越中...";
     self.dateString = [Toolkit dateStringAfterRandomDay];
     _currentTraversingPage = 1;
     [_traversingTableView setContentOffset:CGPointZero animated:YES];

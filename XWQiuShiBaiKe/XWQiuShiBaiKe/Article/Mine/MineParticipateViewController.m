@@ -54,6 +54,7 @@
     _currentPage = 1;
     _participateArray = [[NSMutableArray alloc] initWithCapacity:0];
     [self initParticipateRequestWithPage:_currentPage];
+    [[Dialog Instance] progressToast:@"等一下"];
 }
 
 - (void)dealloc
@@ -209,7 +210,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [[Dialog Instance] toast:self withMessage:@"呵呵,网络不行了.滚粗!"];
+    [[Dialog Instance] toast:self withMessage:@"呵呵."];
 }
 
 #pragma mark - QiuShiCellDelegate method

@@ -54,6 +54,7 @@
     [_qiushiDetailTableView release];
     [_backButton release];
     [_shareButton release];
+    [_commentBackgroundImageView release];
     [super dealloc];
 }
 
@@ -62,6 +63,7 @@
     [self setQiushiDetailTableView:nil];
     [self setBackButton:nil];
     [self setShareButton:nil];
+    [self setCommentBackgroundImageView:nil];
     [super viewDidUnload];
 }
 
@@ -242,7 +244,9 @@
 - (void)initViews
 {
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
-    
+    UIImage *backgroundImage = [UIImage imageNamed:@"block_background.png"];
+    backgroundImage = [backgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(15, 320, 14, 0)];
+    _commentBackgroundImageView.image = backgroundImage;
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_backButton] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_shareButton] autorelease];
 }

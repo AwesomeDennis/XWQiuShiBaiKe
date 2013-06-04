@@ -67,7 +67,7 @@
     NSString *resultCode = [NSString stringWithFormat:@"%@", [jsonDict objectForKey:@"err"]];
     if ([resultCode isEqualToString:@"0"]) {
         [self dismissSemiModalViewWithCompletion:^{
-            [[Dialog Instance] toastCenter:@"呵呵，评论成功，人品+1了"];
+            [[Dialog Instance] toastCenter:@"呵呵，评论成功，人品+1了\n审核通过就会显示了"];
         }];
     }
     else {
@@ -87,7 +87,6 @@
     [self initBackgroundView];
     [self initToolBar];
     _commentTextView.placeHolder = @"这里不欢迎贴小广告、谩骂、色情、贩毒、卖军火等行为，否则您的言论将有可能作为禁言的呈堂证供的哟。";
-    _commentTextView.placeHolderColor = [UIColor colorWithRed:192/255 green:164/255 blue:143/255 alpha:1.0];
     [_commentTextView becomeFirstResponder];
 }
 

@@ -26,6 +26,7 @@
 @property (retain, nonatomic) QiuShi *qiushi;
 @property (retain, nonatomic) ASIHTTPRequest *commentRequest;
 @property (retain, nonatomic) IBOutlet UITableView *qiushiDetailTableView;
+@property (retain, nonatomic) IBOutlet UIImageView *commentBackgroundImageView;
 @property (retain, nonatomic) IBOutlet UIButton *backButton;
 @property (retain, nonatomic) IBOutlet UIButton *shareButton;
 

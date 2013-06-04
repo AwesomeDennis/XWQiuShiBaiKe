@@ -241,7 +241,7 @@
 - (void)initMineHeaderView
 {
     QBUser *qbUser = [Toolkit getQBUserLocal];
-    if (qbUser && (NSNull *)qbUser.icon != [NSNull null]) {
+    if (qbUser && (NSNull *)qbUser.avatar != [NSNull null]) {
         CALayer *layer = [_mineFaceButton layer];
         layer.cornerRadius = 5;
         layer.masksToBounds = YES;

@@ -74,6 +74,7 @@
     [self initStrollRequestWithType:_qiushiType andPage:_currentImgrankPage];
     _imgrankLoaded = YES;
     //[self refreshed];
+    [[Dialog Instance] progressToast:@"等一下"];
 }
 
 - (void)dealloc
@@ -280,7 +281,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [[Dialog Instance] toast:self withMessage:@"yep,网络太慢了,先lol会儿吧!"];
+    [[Dialog Instance] toast:self withMessage:@"网络慢,先lol会儿吧!"];
 }
 
 #pragma mark - XWSliderSwitchDelegate method
