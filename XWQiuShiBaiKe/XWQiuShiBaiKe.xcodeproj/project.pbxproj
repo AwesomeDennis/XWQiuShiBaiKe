@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		191EF6BA175DD390003748E2 /* CreateCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6B8175DD390003748E2 /* CreateCommentViewController.m */; };
+		191EF6BB175DD390003748E2 /* CreateCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */; };
+		191EF6BE175DD9CC003748E2 /* XWPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */; };
+		191EF6C1175DDC3F003748E2 /* block_post_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6BF175DDC3F003748E2 /* block_post_background.png */; };
+		191EF6C2175DDC3F003748E2 /* block_post_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6C0175DDC3F003748E2 /* block_post_background@2x.png */; };
 		193055F2175619E2009DEE32 /* QBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 193055F1175619E2009DEE32 /* QBUser.m */; };
 		193E0E601754966A00DA99D7 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E5F1754966A00DA99D7 /* 57.png */; };
 		193E0E621754967400DA99D7 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E611754967400DA99D7 /* 114.png */; };
@@ -275,6 +280,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		191EF6B7175DD390003748E2 /* CreateCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCommentViewController.h; sourceTree = "<group>"; };
+		191EF6B8175DD390003748E2 /* CreateCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCommentViewController.m; sourceTree = "<group>"; };
+		191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateCommentViewController.xib; sourceTree = "<group>"; };
+		191EF6BC175DD9CC003748E2 /* XWPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPlaceHolderTextView.h; sourceTree = "<group>"; };
+		191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPlaceHolderTextView.m; sourceTree = "<group>"; };
+		191EF6BF175DDC3F003748E2 /* block_post_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block_post_background.png; sourceTree = "<group>"; };
+		191EF6C0175DDC3F003748E2 /* block_post_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block_post_background@2x.png"; sourceTree = "<group>"; };
 		193055F0175619E2009DEE32 /* QBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBUser.h; sourceTree = "<group>"; };
 		193055F1175619E2009DEE32 /* QBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBUser.m; sourceTree = "<group>"; };
 		193E0E5F1754966A00DA99D7 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57.png; path = ../57.png; sourceTree = "<group>"; };
@@ -913,6 +925,8 @@
 				195C1529174F43E800F9B000 /* XWZoomInMinusView.m */,
 				195C152A174F43E800F9B000 /* XWZoomInPlusView.h */,
 				195C152B174F43E800F9B000 /* XWZoomInPlusView.m */,
+				191EF6BC175DD9CC003748E2 /* XWPlaceHolderTextView.h */,
+				191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */,
 			);
 			path = XWCustomView;
 			sourceTree = "<group>";
@@ -1107,6 +1121,8 @@
 				195C15BF174F449100F9B000 /* block_foot_background@2x.png */,
 				195C15C0174F449100F9B000 /* block_line.png */,
 				195C15C1174F449100F9B000 /* block_line@2x.png */,
+				191EF6BF175DDC3F003748E2 /* block_post_background.png */,
+				191EF6C0175DDC3F003748E2 /* block_post_background@2x.png */,
 				195C15C2174F449100F9B000 /* button_comment_enable.png */,
 				195C15C3174F449100F9B000 /* button_comment_enable@2x.png */,
 				195C15C4174F449100F9B000 /* button_vote_active.png */,
@@ -1329,6 +1345,9 @@
 				19F5724917587AB700DEE940 /* QiuShiDetailViewController.h */,
 				19F5724A17587AB700DEE940 /* QiuShiDetailViewController.m */,
 				19F5724B17587AB700DEE940 /* QiuShiDetailViewController.xib */,
+				191EF6B7175DD390003748E2 /* CreateCommentViewController.h */,
+				191EF6B8175DD390003748E2 /* CreateCommentViewController.m */,
+				191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */,
 				19F5724C17587AB700DEE940 /* QiuShiImageViewController.h */,
 				19F5724D17587AB700DEE940 /* QiuShiImageViewController.m */,
 				19F5724E17587AB700DEE940 /* QiuShiImageViewController.xib */,
@@ -1574,6 +1593,9 @@
 				19563D07175A2B5B00E2EC35 /* row_auth@2x.png in Resources */,
 				19563D0A175A2CB500E2EC35 /* thumb_upload.png in Resources */,
 				19563D0B175A2CB500E2EC35 /* thumb_upload@2x.png in Resources */,
+				191EF6BB175DD390003748E2 /* CreateCommentViewController.xib in Resources */,
+				191EF6C1175DDC3F003748E2 /* block_post_background.png in Resources */,
+				191EF6C2175DDC3F003748E2 /* block_post_background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1667,6 +1689,8 @@
 				19F5725117587AB700DEE940 /* QiuShiImageViewController.m in Sources */,
 				19F5725617587AEF00DEE940 /* CreateQiuShiViewController.m in Sources */,
 				19563CFE175A272100E2EC35 /* MineQBInfoViewController.m in Sources */,
+				191EF6BA175DD390003748E2 /* CreateCommentViewController.m in Sources */,
+				191EF6BE175DD9CC003748E2 /* XWPlaceHolderTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
