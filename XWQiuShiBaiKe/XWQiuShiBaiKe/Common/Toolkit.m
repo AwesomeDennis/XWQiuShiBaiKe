@@ -30,7 +30,7 @@
             break;
     }
     
-    return isExistenceNetwork;
+    return YES;
 }
 
 //保存QBToken到本地

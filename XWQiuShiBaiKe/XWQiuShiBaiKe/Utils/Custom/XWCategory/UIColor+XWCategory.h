@@ -13,5 +13,6 @@
 + (UIColor *)colorWithHex:(long)hexColor;
 + (UIColor *)colorWithHex:(long)hexColor alpha:(float)opacity;
 + (UIColor *)colorWithHexString:(NSString *)hexColor;
++(CGColorRef)getCGColorFromRed:(int)red Green:(int)green Blue:(int)blue Alpha:(int)alpha;
 
 @end
