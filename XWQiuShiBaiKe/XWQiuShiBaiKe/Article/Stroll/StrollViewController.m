@@ -73,7 +73,7 @@
     [self initStrollRequestWithType:_qiushiType andPage:_currentSuggestPage];
     _suggestLoaded = YES;
     //[self refreshed];
-    [[Dialog Instance] progressToast:@"等一下"];
+    //[[Dialog Instance] progressToast:@"等一下"];
 }
 
 - (void)dealloc

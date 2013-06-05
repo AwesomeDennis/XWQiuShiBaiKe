@@ -125,6 +125,8 @@
             [imageView release];
         }
         [((CommentCell *)cell) configCommentCellWithComment:[_commentArray objectAtIndex:indexPath.row]];
+        //((CommentCell *)cell).blockLineImageView.image = [UIImage imageNamed:@"block_line.png"];
+        
     }
 
     return cell;
@@ -221,7 +223,19 @@
 
 - (void)cellTextDidClicked:(NSInteger)floor
 {
-    [[Dialog Instance] alert:IntergerToString(floor)];
+    BOOL isFloorExist = NO;
+    for (Comment *comment in _commentArray) {
+        if (comment.floor == floor) {
+            isFloorExist = YES;
+            NSString *title = [NSString stringWithFormat:@"%d %@:", floor, comment.author];
+            [[Dialog Instance] alertWithTitle:title andMessage:comment.content];
+            break;
+        }  
+    }
+    
+    if (!isFloorExist) {
+        [[Dialog Instance] toastCenter:@"不知道什么原因找不到了"];
+    }
 }
 
 #pragma mark - UIAction methods
@@ -256,6 +270,8 @@
     _commentBackgroundImageView.image = backgroundImage;
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_backButton] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_shareButton] autorelease];
+    //[_qiushiDetailTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+    [_qiushiDetailTableView setSeparatorColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"block_line.png"]]];
 }
 
 - (void)initCommentRequest:(NSString *)qiushiID page:(NSInteger)page

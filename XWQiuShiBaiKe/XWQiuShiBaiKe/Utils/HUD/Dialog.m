@@ -28,6 +28,17 @@ static Dialog *instance = nil;
     [alertView show];
 }
 
+- (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message {
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:title
+                              message:message
+                              delegate:nil
+                              cancelButtonTitle:@"确定"
+                              otherButtonTitles:nil, nil];
+    [alertView show];
+    [alertView release];
+}
+
 - (void)toast:(UIViewController *)controller withMessage:(NSString *)message {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:controller.view animated:YES];
 	hud.mode = MBProgressHUDModeText;

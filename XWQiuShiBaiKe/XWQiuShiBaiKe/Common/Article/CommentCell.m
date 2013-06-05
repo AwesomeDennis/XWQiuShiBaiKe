@@ -22,7 +22,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 
@@ -52,7 +51,7 @@
     _floorLabel.text = IntergerToString(comment.floor);
     
     NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment.content];
-    int commentCTHeight = [XWCTView getAttributedStringHeightWithString:string WidthValue:280];
+    int commentCTHeight = [XWCTView getAttributedStringHeightWithString:string WidthValue:285];
     [string release];
 
     _commentCTView.delegate = self;
@@ -72,7 +71,7 @@
 {
     CGFloat height = 65;
     NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment];
-    int commentCTHeight = [XWCTView getAttributedStringHeightWithString:string WidthValue:280];
+    int commentCTHeight = [XWCTView getAttributedStringHeightWithString:string WidthValue:285];
     [string release];
     
     height = height - 30 + commentCTHeight;

@@ -14,6 +14,7 @@
 
 //提示对话框
 - (void)alert:(NSString *)message;
+- (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message;
 
 //类似于Android一个显示框效果
 - (void)toast:(UIViewController *)controller withMessage:(NSString *) message;

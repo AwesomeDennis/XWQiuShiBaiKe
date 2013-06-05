@@ -83,7 +83,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{258, 8}, {42, 11}}</string>
 								<reference key="NSSuperview" ref="776451600"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="147889403"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="578929035"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -106,7 +106,7 @@
 							<object class="IBUIView" id="147889403">
 								<reference key="NSNextResponder" ref="776451600"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 25}, {280, 30}}</string>
+								<string key="NSFrame">{{15, 25}, {285, 30}}</string>
 								<reference key="NSSuperview" ref="776451600"/>
 								<reference key="NSNextKeyView" ref="734620533"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -115,17 +115,13 @@
 							</object>
 							<object class="IBUIImageView" id="734620533">
 								<reference key="NSNextResponder" ref="776451600"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">-2147483356</int>
 								<string key="NSFrame">{{0, 64}, {320, 1}}</string>
 								<reference key="NSSuperview" ref="776451600"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="578929035"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">block_line.png</string>
-								</object>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 64}</string>
@@ -260,10 +256,6 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">block_line.png</string>
-			<string key="NS.object.0">{320, 1}</string>
-		</object>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>
