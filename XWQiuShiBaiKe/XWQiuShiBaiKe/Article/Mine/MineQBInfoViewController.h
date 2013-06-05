@@ -15,7 +15,11 @@
 
 @end
 
-@interface MineQBInfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface MineQBInfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate ,UIImagePickerControllerDelegate, UIActionSheetDelegate>
+{
+    UIActionSheet *_addPicSheet;
+    NSData *_imageData;
+}
 
 @property (assign, nonatomic) id<MineQBInfoViewControllerDelegate> delegate;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *closeBarButton;

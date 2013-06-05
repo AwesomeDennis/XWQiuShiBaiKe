@@ -20,6 +20,7 @@
 #import "EGORefreshTableHeaderView.h"
 #import "LoadMoreFooterView.h"
 #import "AppDelegate.h"
+#import "SYExtensions.h"
 #import "XWCategory.h"
 #import "JSONKit.h"
 #import "MobClick.h"
@@ -34,6 +35,12 @@
 
 #define SafeClearRequest(request)   if(request!=nil){[request clearDelegatesAndCancel];[request release];request=nil;}
 #define IntergerToString(num)       [NSString stringWithFormat:@"%d", num]
+#define SafeRelease(obj)\
+if(obj)\
+{\
+[obj release];\
+obj = nil;\
+}\
 
 //QSBK api接口
 

@@ -108,7 +108,6 @@
                 for (NSTextCheckingResult *match in _matchArray) {
                     NSRange range = [match range];
                     if (index >= range.location+1 && index <= (range.location + range.length+1)) {
-                        NSLog(@"bingo");
                         NSString *floor = [[_conetntString substringWithRange:range] substringWithRange:NSMakeRange(0, range.length - 1)];
                         if (_delegate && [_delegate respondsToSelector:@selector(textDidClicked:)]) {
                             [_delegate textDidClicked:floor.integerValue];

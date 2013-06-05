@@ -37,6 +37,8 @@
 
 - (void)dealloc
 {
+    SafeRelease(_imageData);
+    SafeRelease(_addPicSheet);
     [_mineInfoHeaderView release];
     [_mineNameLabel release];
     [_mineAuthButton release];
@@ -78,7 +80,15 @@
 
 - (IBAction)faceButtonClicked:(id)sender
 {
-    NSLog(@"face button clicked");
+    SafeRelease(_imageData);
+    _addPicSheet = [[UIActionSheet alloc]
+                    initWithTitle:@"修改头像"
+                    delegate:self
+                    cancelButtonTitle:@"取消"
+                    destructiveButtonTitle:nil
+                    otherButtonTitles:@"拍照", @"从相册选择", nil];
+    _addPicSheet.actionSheetStyle = UIActionSheetStyleAutomatic;
+    [_addPicSheet showInView:self.view];
 }
 
 - (IBAction)logoutButtonClicked:(id)sender
@@ -199,6 +209,40 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - UIImagePickerControllerDelegate method
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    NSData *data = [[NSData alloc] initWithData:UIImageJPEGRepresentation([image imageByScalingProportionallyToMinimumSize:CGSizeMake(200, 200)], 0.5)];
+    _imageData = [data retain];
+    [data release];
+    [picker dismissModalViewControllerAnimated:YES];
+    
+    //[self initFacePhotoRequest];
+    [[Dialog Instance] showProgress:self withLabel:@"上传头像中..."];
+}
+
+#pragma mark - UIActionSheetDelegate method
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonInde
+{
+    if (actionSheet == _addPicSheet)
+    {
+        switch (buttonInde)
+        {
+            case 0:
+                [self photoImage];
+                break;
+            case 1:
+                [self pickImage];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 #pragma mark - Private methods
 
 - (void)initToolBar
@@ -255,6 +299,34 @@
 - (void)closeSettingViewController
 {
     [self dismissSemiModalViewWithCompletion:nil];
+}
+
+- (void)photoImage
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        ipc.sourceType =  UIImagePickerControllerSourceTypeCamera;
+        ipc.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:ipc.sourceType];
+    } else {
+        ipc.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    ipc.delegate = self;
+    ipc.allowsEditing = YES;
+    [self presentModalViewController:ipc animated:YES];
+}
+
+- (void)pickImage
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        ipc.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+        ipc.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:ipc.sourceType];
+    }
+    ipc.delegate = self;
+    ipc.allowsEditing = YES;
+    [self presentModalViewController:ipc animated:YES];
 }
 
 @end
