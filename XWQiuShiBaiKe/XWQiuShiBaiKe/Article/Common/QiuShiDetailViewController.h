@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "QiuShi.h"
 #import "QiuShiCell.h"
+#import "CommentCell.h"
 #import "ASIHTTPRequest.h"
 #import "LoadMoreFooterView.h"
 #import "ShareOptionView.h"
 
-@interface QiuShiDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, ASIHTTPRequestDelegate, LoadMoreFooterViewDelegate, QiuShiCellDelegate, ShareOptionViewDelegate>
+@interface QiuShiDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, ASIHTTPRequestDelegate, LoadMoreFooterViewDelegate, QiuShiCellDelegate, ShareOptionViewDelegate, CommentCellDelegate>
 {
-    //ASIHTTPRequest *_commentRequest;
     LoadMoreFooterView *_loadMoreFooterView;
     NSMutableArray *_commentArray;
     NSInteger _currentCommentPage;

@@ -8,7 +8,6 @@
 
 #import "QiuShiDetailViewController.h"
 #import "JSONKit.h"
-#import "CommentCell.h"
 #import "QiuShiImageViewController.h"
 #import "CreateCommentViewController.h"
 #import "UIViewController+KNSemiModal.h"
@@ -118,6 +117,7 @@
         cell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"CommentCell" owner:self options:nil] lastObject];
+            ((CommentCell *)cell).delegate = self;
             UIImage *backgroundImage = [UIImage imageNamed:@"block_center_background.png"];
             backgroundImage = [backgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(10, 320, 4, 0)];
             UIImageView *imageView = [[UIImageView alloc] initWithImage:backgroundImage];
@@ -215,6 +215,13 @@
 - (void)shareOptionView:(ShareOptionView *)shareView didClickButtonAtIndex:(NSInteger)index
 {
     [shareView fadeOut];
+}
+
+#pragma mark - CommentCellDelegate method
+
+- (void)cellTextDidClicked:(NSInteger)floor
+{
+    [[Dialog Instance] alert:IntergerToString(floor)];
 }
 
 #pragma mark - UIAction methods

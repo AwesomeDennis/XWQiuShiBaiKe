@@ -30,9 +30,18 @@
 {
     [_authorNameLabel release];
     [_floorLabel release];
-    [_commentLabel release];
     [_blockLineImageView release];
+    [_commentCTView release];
     [super dealloc];
+}
+
+#pragma mark - XWCTViewDelegate delegate method
+
+- (void)textDidClicked:(NSInteger)floor
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(cellTextDidClicked:)]) {
+        [_delegate cellTextDidClicked:floor];
+    }
 }
 
 #pragma mark - Public methods
@@ -42,24 +51,31 @@
     _authorNameLabel.text = comment.author;
     _floorLabel.text = IntergerToString(comment.floor);
     
-    CGFloat commentHeight = [comment.content sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(290, 1000) lineBreakMode:NSLineBreakByCharWrapping].height;
-    CGRect rect = _commentLabel.frame;
-    rect.size.height = commentHeight;
-    _commentLabel.frame = rect;
-    
-    _commentLabel.text = comment.content;
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment.content];
+    int commentCTHeight = [XWCTView getAttributedStringHeightWithString:string WidthValue:280];
+    [string release];
+
+    _commentCTView.delegate = self;
+    _commentCTView.conetntString = comment.content;
+    _commentCTView.maxFloor = comment.floor;
+    CGRect rect = _commentCTView.frame;
+    rect.size.height = commentCTHeight;
+    _commentCTView.frame = rect;
     _visibleFloor = comment.floor;
     
     rect = _blockLineImageView.frame;
-    rect.origin.y = _commentLabel.frame.origin.y + commentHeight + 10;
+    rect.origin.y = _commentCTView.frame.origin.y + commentCTHeight + 10;
     _blockLineImageView.frame = rect;
 }
 
 + (CGFloat)getCellHeight:(NSString *)comment
 {
     CGFloat height = 65;
-    CGFloat commentHeight = [comment sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(280, 1000) lineBreakMode:NSLineBreakByCharWrapping].height;
-    height = height - 30 +commentHeight;
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment];
+    int commentCTHeight = [XWCTView getAttributedStringHeightWithString:string WidthValue:280];
+    [string release];
+    
+    height = height - 30 + commentCTHeight;
     
     return height;
 }

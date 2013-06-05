@@ -8,14 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "Comment.h"
+#import "XWCTView.h"
 
-@interface CommentCell : UITableViewCell
+@protocol CommentCellDelegate <NSObject>
+
+@optional
+- (void)cellTextDidClicked:(NSInteger)floor;
+
+@end
+
+@interface CommentCell : UITableViewCell <XWCTViewDelegate>
 
 @property (assign, nonatomic) NSInteger visibleFloor;
+@property (assign, nonatomic) id<CommentCellDelegate> delegate;
 @property (retain, nonatomic) IBOutlet UILabel *authorNameLabel;
 @property (retain, nonatomic) IBOutlet UILabel *floorLabel;
-@property (retain, nonatomic) IBOutlet UILabel *commentLabel;
 @property (retain, nonatomic) IBOutlet UIImageView *blockLineImageView;
+@property (retain, nonatomic) IBOutlet XWCTView *commentCTView;
 
 - (void)configCommentCellWithComment:(Comment *)comment;
 + (CGFloat)getCellHeight:(NSString *)comment;

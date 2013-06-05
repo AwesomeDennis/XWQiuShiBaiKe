@@ -141,7 +141,7 @@
     rect.origin.y = y;
     _favoriteButton.frame = rect;
     
-    y += CGRectGetHeight(_voteForButton.frame) + 10;
+    y += CGRectGetHeight(_voteForButton.frame) + 5;
     
     rect = self.frame;
     rect.size.height = y;
@@ -161,7 +161,7 @@
     height += qiushi.imageURL != nil ? (125 + 8) : 0;
     height += qiushi.tag.length > 0 ? (16 + 3) : 0;
     height += (46 + 4);
-    height += 10;
+    height += 5;
     
     return height;
 }

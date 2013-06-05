@@ -271,6 +271,8 @@
 		195C16F5174F449200F9B000 /* side_user_background_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C1659174F449200F9B000 /* side_user_background_active.png */; };
 		195C16F6174F449200F9B000 /* side_user_background_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C165A174F449200F9B000 /* side_user_background_active@2x.png */; };
 		1964759F17534F1F00AC3393 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964759E17534F1F00AC3393 /* Config.m */; };
+		1972B411175F112B00C1F958 /* XWCTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1972B410175F112B00C1F958 /* XWCTView.m */; };
+		1972B413175F2D9300C1F958 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1972B412175F2D9300C1F958 /* CoreText.framework */; };
 		198060641754986700E5069A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198060631754986700E5069A /* Default@2x.png */; };
 		198060661754987200E5069A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198060651754987200E5069A /* Default-568h@2x.png */; };
 		19A7555217572A1600B75C96 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7554F17572A1600B75C96 /* libUMFeedback.a */; };
@@ -631,6 +633,9 @@
 		195C165A174F449200F9B000 /* side_user_background_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "side_user_background_active@2x.png"; sourceTree = "<group>"; };
 		1964759D17534F1F00AC3393 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		1964759E17534F1F00AC3393 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		1972B40F175F112B00C1F958 /* XWCTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCTView.h; sourceTree = "<group>"; };
+		1972B410175F112B00C1F958 /* XWCTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCTView.m; sourceTree = "<group>"; };
+		1972B412175F2D9300C1F958 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		198060631754986700E5069A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		198060651754987200E5069A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		19A7554F17572A1600B75C96 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
@@ -653,6 +658,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1972B413175F2D9300C1F958 /* CoreText.framework in Frameworks */,
 				195C14D1174F426B00F9B000 /* QuartzCore.framework in Frameworks */,
 				195C14CF174F426400F9B000 /* CFNetwork.framework in Frameworks */,
 				195C14CD174F425E00F9B000 /* SystemConfiguration.framework in Frameworks */,
@@ -741,6 +747,7 @@
 		195C14A6174F409600F9B000 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1972B412175F2D9300C1F958 /* CoreText.framework */,
 				195C14D0174F426B00F9B000 /* QuartzCore.framework */,
 				195C14CE174F426400F9B000 /* CFNetwork.framework */,
 				195C14CC174F425E00F9B000 /* SystemConfiguration.framework */,
@@ -952,6 +959,8 @@
 				195C152B174F43E800F9B000 /* XWZoomInPlusView.m */,
 				191EF6BC175DD9CC003748E2 /* XWPlaceHolderTextView.h */,
 				191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */,
+				1972B40F175F112B00C1F958 /* XWCTView.h */,
+				1972B410175F112B00C1F958 /* XWCTView.m */,
 			);
 			path = XWCustomView;
 			sourceTree = "<group>";
@@ -1723,6 +1732,7 @@
 				1943358B175DFE1400FCEBD1 /* UIColor+XWCategory.m in Sources */,
 				1943358E175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m in Sources */,
 				194335A0175E526700FCEBD1 /* UMWebViewController.m in Sources */,
+				1972B411175F112B00C1F958 /* XWCTView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
