@@ -232,7 +232,11 @@
 - (void)showAppRecommendWebView
 {
     UMWebViewController *controller = [[UMWebViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forBarMetrics:UIBarMetricsDefault];
+    //nav.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:nav animated:YES completion:nil];
+    [nav release];
     [controller release];
 }
 

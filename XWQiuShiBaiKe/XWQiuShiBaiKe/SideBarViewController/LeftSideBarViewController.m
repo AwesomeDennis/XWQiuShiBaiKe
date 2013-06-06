@@ -413,8 +413,9 @@
 
 - (IBAction)sideSettingButtonClicked:(id)sender
 {
-    SettingViewController *settingVC = [[[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil] autorelease];
+    SettingViewController *settingVC = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
     [self presentSemiViewController:settingVC];
+    [settingVC release];
 }
 
 @end

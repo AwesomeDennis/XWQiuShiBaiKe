@@ -44,10 +44,12 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"精彩推荐";
-    CGFloat navigationBarHeight = self.navigationController.navigationBar.bounds.size.height;
+    self.title = @"精彩推荐";
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonDidClicked)] autorelease];
+    //CGFloat navigationBarHeight = self.navigationController.navigationBar.bounds.size.height;
     
-    _mWebView = [[UMUFPWebView alloc] initWithFrame:CGRectMake(0, navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight) appKey:@"4f7046375270156912000011" slotId:nil];
+    //_mWebView = [[UMUFPWebView alloc] initWithFrame:CGRectMake(0, navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight) appKey:@"4f7046375270156912000011" slotId:nil];
+    _mWebView = [[UMUFPWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) appKey:UMENG_APPKEY slotId:nil];
     _mWebView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [_mWebView setScalesPageToFit:YES];
     _mWebView.delegate = (id<UIWebViewDelegate>)self;
@@ -153,6 +155,13 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 
     [self loadDataFailed];
+}
+
+#pragma mark - UIAction method
+
+- (void)backButtonDidClicked
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

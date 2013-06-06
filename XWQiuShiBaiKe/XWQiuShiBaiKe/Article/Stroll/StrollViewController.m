@@ -73,7 +73,7 @@
     [self initStrollRequestWithType:_qiushiType andPage:_currentSuggestPage];
     _suggestLoaded = YES;
     //[self refreshed];
-    [Dialog progressToast:@"等一下好吗"];
+    //[Dialog progressToast:@"等一下好吗"];
 }
 
 - (void)dealloc
