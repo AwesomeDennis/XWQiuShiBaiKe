@@ -125,8 +125,6 @@
             [imageView release];
         }
         [((CommentCell *)cell) configCommentCellWithComment:[_commentArray objectAtIndex:indexPath.row]];
-        //((CommentCell *)cell).blockLineImageView.image = [UIImage imageNamed:@"block_line.png"];
-        
     }
 
     return cell;
@@ -270,7 +268,6 @@
     _commentBackgroundImageView.image = backgroundImage;
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_backButton] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_shareButton] autorelease];
-    //[_qiushiDetailTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     [_qiushiDetailTableView setSeparatorColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"block_line.png"]]];
 }
 

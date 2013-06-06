@@ -21,6 +21,8 @@
 		19433594175E50F800FCEBD1 /* libUMAppNetwork_3.5.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19433590175E50F800FCEBD1 /* libUMAppNetwork_3.5.5.a */; };
 		19433595175E50F800FCEBD1 /* UMUFP.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19433591175E50F800FCEBD1 /* UMUFP.bundle */; };
 		194335A0175E526700FCEBD1 /* UMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1943359F175E526700FCEBD1 /* UMWebViewController.m */; };
+		19454E97176025D80002E7CC /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19454E94176025D80002E7CC /* SVProgressHUD.bundle */; };
+		19454E98176025D80002E7CC /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 19454E96176025D80002E7CC /* SVProgressHUD.m */; };
 		194560A617578095008E2CF4 /* MineCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560A417578095008E2CF4 /* MineCollectViewController.m */; };
 		194560A717578095008E2CF4 /* MineCollectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194560A517578095008E2CF4 /* MineCollectViewController.xib */; };
 		194560AB175780B5008E2CF4 /* MineParticipateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560A9175780B5008E2CF4 /* MineParticipateViewController.m */; };
@@ -308,6 +310,9 @@
 		19433593175E50F800FCEBD1 /* UMUFPWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMUFPWebView.h; sourceTree = "<group>"; };
 		1943359E175E526700FCEBD1 /* UMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMWebViewController.h; sourceTree = "<group>"; };
 		1943359F175E526700FCEBD1 /* UMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMWebViewController.m; sourceTree = "<group>"; };
+		19454E94176025D80002E7CC /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		19454E95176025D80002E7CC /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		19454E96176025D80002E7CC /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		194560A317578095008E2CF4 /* MineCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectViewController.h; sourceTree = "<group>"; };
 		194560A417578095008E2CF4 /* MineCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectViewController.m; sourceTree = "<group>"; };
 		194560A517578095008E2CF4 /* MineCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineCollectViewController.xib; sourceTree = "<group>"; };
@@ -689,6 +694,16 @@
 			path = UMAppNetwork_SDK_3.5.5;
 			sourceTree = "<group>";
 		};
+		19454E93176025D80002E7CC /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				19454E94176025D80002E7CC /* SVProgressHUD.bundle */,
+				19454E95176025D80002E7CC /* SVProgressHUD.h */,
+				19454E96176025D80002E7CC /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		194560A21757802A008E2CF4 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -972,6 +987,7 @@
 				195C152E174F43E800F9B000 /* Dialog.m */,
 				195C152F174F43E800F9B000 /* MBProgressHUD.h */,
 				195C1530174F43E800F9B000 /* MBProgressHUD.m */,
+				19454E93176025D80002E7CC /* SVProgressHUD */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
@@ -1635,6 +1651,7 @@
 				191EF6C1175DDC3F003748E2 /* block_post_background.png in Resources */,
 				191EF6C2175DDC3F003748E2 /* block_post_background@2x.png in Resources */,
 				19433595175E50F800FCEBD1 /* UMUFP.bundle in Resources */,
+				19454E97176025D80002E7CC /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1733,6 +1750,7 @@
 				1943358E175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m in Sources */,
 				194335A0175E526700FCEBD1 /* UMWebViewController.m in Sources */,
 				1972B411175F112B00C1F958 /* XWCTView.m in Sources */,
+				19454E98176025D80002E7CC /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
