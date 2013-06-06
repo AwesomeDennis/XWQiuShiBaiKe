@@ -190,20 +190,20 @@
         
         [qbUser release];
         
-        [_dialog toast:self withMessage:@"登录成功啦"];
+        [Dialog simpleToast:@"登录成功啦"];
         
         //MineQBInfoViewController *infoVC = [[[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil] autorelease];
         [self performSelector:@selector(closeAuthViewController) withObject:nil afterDelay:1];
     }
     else {
-        [_dialog toast:self withMessage:@"特么的，登录失败了"];
+        [Dialog simpleToast:@"特么的，登录失败了"];
     }
 }
 
 - (void)loginDidFailed:(ASIHTTPRequest *)request
 {
     [_dialog hideProgress];
-    [_dialog toast:self withMessage:@"特么的，登录失败了"];
+    [Dialog simpleToast:@"特么的，登录失败了"];
 }
 
 #pragma mark - Private methods

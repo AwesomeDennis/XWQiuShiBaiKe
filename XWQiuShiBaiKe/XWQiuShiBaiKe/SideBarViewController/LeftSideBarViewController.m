@@ -338,10 +338,10 @@
             [self presentSemiViewController:authVC];
         }
         
-        [[Dialog Instance] toast:@"你特么的别点咯，这东西还没做好啦"];
+        [Dialog toast:@"你特么的别点咯，这东西还没做好啦"];
     }
     else {
-        [[Dialog Instance] toast:@"这个真心没做，等等吧"];
+        [Dialog toast:@"谢谢你，这个正在升级"];
     }
 
     return vc;

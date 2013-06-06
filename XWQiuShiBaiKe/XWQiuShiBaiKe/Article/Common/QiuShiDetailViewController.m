@@ -207,7 +207,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [[Dialog Instance] toast:self withMessage:@"评论不行了,顶一个上去啊!"];
+    [Dialog simpleToast:@"评论不行了,顶一个上去呗!"];
 }
 
 #pragma mark - ShareOptionViewDelegate methods
@@ -226,13 +226,13 @@
         if (comment.floor == floor) {
             isFloorExist = YES;
             NSString *title = [NSString stringWithFormat:@"%d %@:", floor, comment.author];
-            [[Dialog Instance] alertWithTitle:title andMessage:comment.content];
+            [Dialog alertWithTitle:title andMessage:comment.content];
             break;
         }  
     }
     
     if (!isFloorExist) {
-        [[Dialog Instance] toastCenter:@"不知道什么原因找不到了"];
+        [Dialog simpleToast:@"不知道什么原因找不到了"];
     }
 }
 

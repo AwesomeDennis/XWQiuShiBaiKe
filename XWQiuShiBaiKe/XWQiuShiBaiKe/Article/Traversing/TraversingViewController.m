@@ -73,7 +73,7 @@
 
     [self initTraversingRequestWithType:_qiushiType andPage:_currentTraversingPage];
     //[self refreshed];
-    [[Dialog Instance] progressToast:@"等一下"];
+    [Dialog progressToast:@"等一下好吗"];
 }
 
 - (void)dealloc
@@ -257,7 +257,7 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     self.title = @"穿越失败了";
-    [[Dialog Instance] toast:self withMessage:@"穿个J8!"];
+    [Dialog simpleToast:@"穿越失败了"];
 }
 
 #pragma mark - QiuShiCellDelegate method

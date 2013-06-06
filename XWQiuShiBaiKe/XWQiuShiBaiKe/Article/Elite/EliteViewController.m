@@ -77,7 +77,7 @@
     [self initEliteRequestWithType:_qiushiType andPage:_currentDayPage];
     _dayLoaded = YES;
     //[self refreshed];
-    [[Dialog Instance] progressToast:@"等一下"];
+    [Dialog progressToast:@"等一下好吗"];
 }
 
 - (void)dealloc
@@ -338,7 +338,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [[Dialog Instance] toast:self withMessage:@"yep,网络有问题!"];
+    [Dialog simpleToast:@"yep,网络有问题!"];
 }
 
 #pragma mark - XWSliderSwitchDelegate method

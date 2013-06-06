@@ -73,7 +73,7 @@
     [self initStrollRequestWithType:_qiushiType andPage:_currentSuggestPage];
     _suggestLoaded = YES;
     //[self refreshed];
-    //[[Dialog Instance] progressToast:@"等一下"];
+    [Dialog progressToast:@"等一下好吗"];
 }
 
 - (void)dealloc
@@ -280,7 +280,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [[Dialog Instance] toast:self withMessage:@"呵呵,网络不行了!"];
+    [Dialog simpleToast:@"呵呵,网络不行了!"];
 }
 
 #pragma mark - XWSliderSwitchDelegate method 

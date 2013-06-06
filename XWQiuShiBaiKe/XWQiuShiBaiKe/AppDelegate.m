@@ -27,10 +27,7 @@
     [self.window makeKeyAndVisible];
     [self umengTrack];
     [self umengFeedback];
-    if (![Toolkit isExistenceNetwork]) {
-        [[Dialog Instance] alert:@"错误,连接不可用"];
-    }
-    
+        
     return YES;
 }
 
@@ -55,7 +52,7 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     if (![Toolkit isExistenceNetwork]) {
-        [[Dialog Instance] alert:@"错误,连接不可用"];
+        [Dialog alert:@"错误,连接不可用"];
     }
 }
 

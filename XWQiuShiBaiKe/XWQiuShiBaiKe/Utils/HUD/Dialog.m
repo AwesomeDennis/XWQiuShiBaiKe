@@ -18,7 +18,7 @@ static Dialog *instance = nil;
     return instance;
 }
 
-- (void)alert:(NSString *)message {
++ (void)alert:(NSString *)message {
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:nil 
                               message:message 
@@ -26,9 +26,10 @@ static Dialog *instance = nil;
                               cancelButtonTitle:@"确定" 
                               otherButtonTitles:nil, nil];
     [alertView show];
+    [alertView release];
 }
 
-- (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message {
++ (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message {
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:title
                               message:message
@@ -39,7 +40,7 @@ static Dialog *instance = nil;
     [alertView release];
 }
 
-- (void)toast:(UIViewController *)controller withMessage:(NSString *)message {
++ (void)toast:(UIViewController *)controller withMessage:(NSString *)message {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:controller.view animated:YES];
 	hud.mode = MBProgressHUDModeText;
 	hud.labelText = message;
@@ -49,7 +50,7 @@ static Dialog *instance = nil;
 	[hud hide:YES afterDelay:2];
 }
 
-- (void)toast:(NSString *)message {
++ (void)toast:(NSString *)message {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
 	hud.mode = MBProgressHUDModeText;
     hud.animationType = MBProgressHUDAnimationZoomOut;
@@ -57,10 +58,20 @@ static Dialog *instance = nil;
 	hud.margin = 10.f;
 	hud.yOffset = 150.f;
 	hud.removeFromSuperViewOnHide = YES;
-	[hud hide:YES afterDelay:3];
+	[hud hide:YES afterDelay:2];
 }
 
-- (void)toastCenter:(NSString *)message {
++ (void)simpleToast:(NSString *)message
+{
+    [SVProgressHUD showWithStatus:message];
+}
+
++ (void)hideSimpleToast
+{
+    [SVProgressHUD dismiss];
+}
+
++ (void)toastCenter:(NSString *)message {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
 	hud.mode = MBProgressHUDModeText;
     hud.animationType = MBProgressHUDAnimationZoomOut;
@@ -68,10 +79,10 @@ static Dialog *instance = nil;
 	hud.margin = 10.f;
 	hud.yOffset = -20.f;
 	hud.removeFromSuperViewOnHide = YES;
-	[hud hide:YES afterDelay:3];
+	[hud hide:YES afterDelay:2];
 }
 
-- (void)progressToast:(NSString *)message
++ (void)progressToast:(NSString *)message
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
 	hud.mode = MBProgressHUDModeIndeterminate;
@@ -79,7 +90,7 @@ static Dialog *instance = nil;
 	hud.margin = 10.f;
 	hud.yOffset = -20.f;
 	hud.removeFromSuperViewOnHide = YES;
-	[hud hide:YES afterDelay:3];
+	[hud hide:YES afterDelay:2];
 }
 
 - (void)gradient:(UIViewController *)controller seletor:(SEL)method {

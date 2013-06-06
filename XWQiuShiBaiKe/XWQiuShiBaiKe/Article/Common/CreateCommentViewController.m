@@ -78,17 +78,17 @@
     NSString *resultCode = [NSString stringWithFormat:@"%@", [jsonDict objectForKey:@"err"]];
     if ([resultCode isEqualToString:@"0"]) {
         [self dismissSemiModalViewWithCompletion:^{
-            [[Dialog Instance] toastCenter:@"呵呵，评论成功，人品+1了\n审核通过就会显示了"];
+            [Dialog simpleToast:@"呵呵，评论成功，人品+1了\n审核通过就会显示了"];
         }];
     }
     else {
-        [[Dialog Instance] toastCenter:@"特么的，评论失败了"];
+        [Dialog simpleToast:@"特么的，评论失败了"];
     }
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [[Dialog Instance] toastCenter:@"特么的，评论失败了"];
+    [Dialog simpleToast:@"特么的，评论失败了"];
 }
 
 #pragma mark - Private methods
@@ -151,8 +151,14 @@
         [self initCreateCommentRequest];
     }
     else {
-        [[Dialog Instance] toastCenter:@"必须得多写点"];
+        [Dialog simpleToast:@"写的不够啊"];
+        [self performSelector:@selector(hide) withObject:nil afterDelay:2];
     }
+}
+
+- (void)hide
+{
+    [Dialog hideSimpleToast];
 }
 
 - (void)initCreateCommentRequest
