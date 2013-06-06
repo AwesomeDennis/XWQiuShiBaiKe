@@ -37,6 +37,7 @@ typedef NSUInteger SVProgressHUDMaskType;
 #endif
 
 + (void)show;
++ (void)showOnlyStatus:(NSString *)string withDuration:(NSTimeInterval)duration;
 + (void)showWithMaskType:(SVProgressHUDMaskType)maskType;
 + (void)showWithStatus:(NSString*)status;
 + (void)showWithStatus:(NSString*)status maskType:(SVProgressHUDMaskType)maskType;
@@ -54,6 +55,7 @@ typedef NSUInteger SVProgressHUDMaskType;
 
 + (void)popActivity;
 + (void)dismiss;
++ (void)dismissAfterDelay:(NSTimeInterval)delay;
 
 + (BOOL)isVisible;
 

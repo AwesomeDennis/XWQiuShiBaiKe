@@ -126,6 +126,10 @@ CGFloat SVProgressHUDRingThickness = 6;
 
 #pragma mark - Show then dismiss methods
 
++ (void)showOnlyStatus:(NSString *)string withDuration:(NSTimeInterval)duration {
+    [[self sharedView] showImage:nil status:string duration:duration];
+}
+
 + (void)showSuccessWithStatus:(NSString *)string {
     [self showImage:[[self sharedView] hudSuccessImage] status:string];
 }
@@ -152,6 +156,9 @@ CGFloat SVProgressHUDRingThickness = 6;
 	[[self sharedView] dismiss];
 }
 
++ (void)dismissAfterDelay:(NSTimeInterval)delay {
+    [[self sharedView] dismissAfterDelay:delay];
+}
 
 #pragma mark - Instance Methods
 
@@ -537,6 +544,9 @@ CGFloat SVProgressHUDRingThickness = 6;
                      }];
 }
 
+- (void)dismissAfterDelay:(NSTimeInterval)delay {
+    [self performSelector:@selector(dismiss) withObject:nil afterDelay:delay];
+}
 
 #pragma mark -
 #pragma mark Ring progress animation

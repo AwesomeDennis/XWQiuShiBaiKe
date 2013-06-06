@@ -63,12 +63,12 @@ static Dialog *instance = nil;
 
 + (void)simpleToast:(NSString *)message
 {
-    [SVProgressHUD showWithStatus:message];
+    [SVProgressHUD showOnlyStatus:message withDuration:2];
 }
 
 + (void)hideSimpleToast
 {
-    [SVProgressHUD dismiss];
+    [SVProgressHUD dismissAfterDelay:2];
 }
 
 + (void)toastCenter:(NSString *)message {

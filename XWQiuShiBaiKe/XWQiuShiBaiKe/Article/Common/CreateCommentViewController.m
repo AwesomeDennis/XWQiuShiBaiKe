@@ -152,13 +152,7 @@
     }
     else {
         [Dialog simpleToast:@"写的不够啊"];
-        [self performSelector:@selector(hide) withObject:nil afterDelay:2];
     }
-}
-
-- (void)hide
-{
-    [Dialog hideSimpleToast];
 }
 
 - (void)initCreateCommentRequest
