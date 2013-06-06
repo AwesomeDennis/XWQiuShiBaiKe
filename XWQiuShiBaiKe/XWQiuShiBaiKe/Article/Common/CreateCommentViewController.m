@@ -31,6 +31,17 @@
     [self initViews];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (is_iPhone5) {
+        CGRect rect = self.view.frame;
+        rect.size.height = 548;
+        self.view.frame = rect;
+    }
+}
+
 - (void)dealloc
 {
     SafeClearRequest(self.createCommentRequest);

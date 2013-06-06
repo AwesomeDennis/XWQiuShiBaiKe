@@ -256,6 +256,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
+    self.title = @"穿越失败了";
     [[Dialog Instance] toast:self withMessage:@"穿个J8!"];
 }
 

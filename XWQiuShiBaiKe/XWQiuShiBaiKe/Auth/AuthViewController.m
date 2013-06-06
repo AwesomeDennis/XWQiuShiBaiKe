@@ -45,6 +45,19 @@
     [self initToolBar];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (is_iPhone5) {
+        CGRect rect = self.view.frame;
+        rect.size.height = 548;
+        self.view.frame = rect;
+        
+    }
+    [self directLogin:nil];
+}
+
 - (void)viewDidUnload
 {
     [self setCloseBarButton:nil];
@@ -98,7 +111,9 @@
     self.title = @"注册";
     _titleLabel.text = @"注册";
     _loginButton.hidden = YES;
-    [self.authScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    //[self.authScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    CGPoint offset = CGPointMake(0, is_iPhone5 ? 88 : 0);
+    [self.authScrollView setContentOffset:offset animated:YES];
 }
 
 - (IBAction)loginWeiboButtonClicked:(id)sender
