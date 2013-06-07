@@ -59,7 +59,7 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(self.articlesRequest);
+    SafeClearRequest(_articlesRequest);
     [_refreshHeaderView release];
     [_loadMoreFooterView release];
     [_articlesArray release];

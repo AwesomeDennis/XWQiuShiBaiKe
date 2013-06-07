@@ -44,7 +44,7 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(self.createCommentRequest);
+    SafeClearRequest(_createCommentRequest);
     [_createCommentToolbar release];
     [_closeBarButton release];
     [_titleBarButton release];

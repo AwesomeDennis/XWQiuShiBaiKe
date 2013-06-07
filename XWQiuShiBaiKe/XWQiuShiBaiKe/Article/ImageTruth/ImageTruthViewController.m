@@ -79,7 +79,7 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(self.imageTruthRequest);
+    SafeClearRequest(_imageTruthRequest);
     [_sliderSwitch release];
     [_refreshHeaderView release];
     [_loadMoreFooterView release];

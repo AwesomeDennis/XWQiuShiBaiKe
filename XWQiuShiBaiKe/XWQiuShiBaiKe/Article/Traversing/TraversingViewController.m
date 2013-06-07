@@ -78,7 +78,7 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(self.traversingRequest);
+    SafeClearRequest(_traversingRequest);
     [self.dateString release];
     [_refreshHeaderView release];
     [_loadMoreFooterView release];

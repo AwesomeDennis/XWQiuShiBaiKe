@@ -82,7 +82,7 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(self.eliteRequest);
+    SafeClearRequest(_eliteRequest);
     [_refreshHeaderView release];
     [_loadMoreFooterView release];
     [_sliderSwitch release];

@@ -47,7 +47,8 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(self.commentRequest);
+    SafeClearRequest(_commentRequest);
+        
     [_loadMoreFooterView release];
     [_commentArray release];
     [_qiushiDetailTableView release];

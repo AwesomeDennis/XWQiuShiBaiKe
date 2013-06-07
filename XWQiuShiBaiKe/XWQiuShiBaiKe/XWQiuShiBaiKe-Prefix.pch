@@ -33,8 +33,16 @@
 #define kDeviceWidth                [UIScreen mainScreen].bounds.size.width
 #define KDeviceHeight               [UIScreen mainScreen].bounds.size.height
 #define is_iPhone5                  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO) 
-#define SafeClearRequest(request)   if(request!=nil){[request clearDelegatesAndCancel];[request release];request=nil;}
+#define IS_IPHONE_5                 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double)568) < DBL_EPSILON)
 #define IntergerToString(num)       [NSString stringWithFormat:@"%d", num]
+#define SafeClearRequest(request)\
+if(request!=nil)\
+{\
+[request clearDelegatesAndCancel];\
+[request release];\
+request=nil;\
+}\
+
 #define SafeRelease(obj)\
 if(obj)\
 {\

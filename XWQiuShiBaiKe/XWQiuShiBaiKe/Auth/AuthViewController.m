@@ -70,7 +70,7 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(self.loginRequest)
+    SafeClearRequest(_loginRequest)
     [_dialog release];
     [_titleLabel release];
     [_loginButton release];

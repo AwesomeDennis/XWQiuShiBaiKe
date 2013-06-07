@@ -58,7 +58,7 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(self.collectRequest);
+    SafeClearRequest(_collectRequest);
     [_refreshHeaderView release];
     [_loadMoreFooterView release];
     [_collectArray release];

@@ -89,6 +89,9 @@ const float MoveAnimationDuration = 0.3;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+        return YES;
+    }
     return NO;
 }
 
@@ -99,7 +102,7 @@ const float MoveAnimationDuration = 0.3;
 
 - (BOOL)shouldAutorotate
 {
-    return NO;
+    return YES;
 }
 
 - (NSUInteger)supportedInterfaceOrientations

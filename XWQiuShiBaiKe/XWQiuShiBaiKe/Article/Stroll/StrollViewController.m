@@ -78,7 +78,7 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(self.strollRequest);
+    SafeClearRequest(_strollRequest);
     [_refreshHeaderView release];
     [_loadMoreFooterView release];
     [_strollSuggestArray release];
