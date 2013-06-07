@@ -39,16 +39,19 @@
     NSString *pattern = @"\\d+[l楼]";
     NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
     //返回匹配的结果,并保存于mathArray
-    NSArray *matches = [reg matchesInString:_conetntString options:0 range:NSMakeRange(0, [_conetntString length])];
-    self.matchArray = [NSArray arrayWithArray:matches];
-    
-    //遍历结果,小于maxFloor就填充成蓝色
-    for (NSTextCheckingResult *match in matches) {
-        NSRange range = [match range];
-        NSString *floor = [[_conetntString substringWithRange:range] substringWithRange:NSMakeRange(0, range.length - 1)];
-        if (floor.integerValue <= _maxFloor && floor.integerValue > 0) {
-            CGColorRef lightBlue = [UIColor getCGColorFromRed:150 Green:181 Blue:218 Alpha:255];
-            [attrString addAttribute:(id)kCTForegroundColorAttributeName value:(id)lightBlue range:range];
+    NSUInteger numberOfMatches = [reg numberOfMatchesInString:_conetntString options:0 range:NSMakeRange(0, [_conetntString length])];
+    if (numberOfMatches > 0) {
+        NSArray *matches = [reg matchesInString:_conetntString options:0 range:NSMakeRange(0, [_conetntString length])];
+        self.matchArray = [NSArray arrayWithArray:matches];
+        
+        //遍历结果,小于maxFloor就填充成蓝色
+        for (NSTextCheckingResult *match in matches) {
+            NSRange range = [match range];
+            NSString *floor = [[_conetntString substringWithRange:range] substringWithRange:NSMakeRange(0, range.length - 1)];
+            if (floor.integerValue <= _maxFloor && floor.integerValue > 0) {
+                CGColorRef lightBlue = [UIColor getCGColorFromRed:150 Green:181 Blue:218 Alpha:255];
+                [attrString addAttribute:(id)kCTForegroundColorAttributeName value:(id)lightBlue range:range];
+            }
         }
     }
     

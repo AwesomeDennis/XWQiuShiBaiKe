@@ -295,15 +295,17 @@
 
 - (void)initMineHeaderView
 {
-    QBUser *qbUser = [Toolkit getQBUserLocal];
-    if (qbUser && (NSNull *)qbUser.avatar != [NSNull null]) {
-        CALayer *layer = [_mineFaceButton layer];
-        layer.cornerRadius = 5;
-        layer.masksToBounds = YES;
-        [_mineFaceButton setImageWithURL:[NSURL URLWithString:qbUser.avatar]];
-    }
-    if (qbUser && (NSNull *)qbUser.login != [NSNull null]) {
-        [_mineNameLabel setText:qbUser.login];
+    if ([Toolkit getQBTokenLocal]) {
+        QBUser *qbUser = [Toolkit getQBUserLocal];
+        if (qbUser && (NSNull *)qbUser.avatar != [NSNull null]) {
+            CALayer *layer = [_mineFaceButton layer];
+            layer.cornerRadius = 5;
+            layer.masksToBounds = YES;
+            [_mineFaceButton setImageWithURL:[NSURL URLWithString:qbUser.avatar]];
+        }
+        if (qbUser && (NSNull *)qbUser.login != [NSNull null]) {
+            [_mineNameLabel setText:qbUser.login];
+        }
     }
 }
 

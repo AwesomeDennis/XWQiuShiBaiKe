@@ -333,9 +333,10 @@
             }
         }
         else {
-            AuthViewController *authVC = [[[AuthViewController alloc] initWithNibName:@"" bundle:nil] autorelease];
+            AuthViewController *authVC = [[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil];
             authVC.delegate = self;
             [self presentSemiViewController:authVC];
+            [authVC release];
         }
         
         [Dialog toast:@"你特么的别点咯，这东西还没做好啦"];
@@ -353,8 +354,8 @@
     //[_sideJoinQBButton setBackgroundImage:[self getButtonBackgroundImage] forState:UIControlStateNormal];
     [_sideSettingButton setBackgroundImage:[self getSideTitleBackgroundImage] forState:UIControlStateNormal];
     [_sideTitleButton setBackgroundImage:[self getSideTitleBackgroundImage] forState:UIControlStateNormal];
-    QBUser *user = [Toolkit getQBUserLocal];
-    if (user) {
+    if ([Toolkit getQBTokenLocal]) {
+        QBUser *user = [Toolkit getQBUserLocal];
         [self QBUserDidLoginSuccessWithQBName:user.login andImage:user.icon];
     }
 }
@@ -399,7 +400,7 @@
 {
     UIViewController *vc = nil;
     
-    if (![Toolkit getQBUserLocal]) {
+    if (![Toolkit getQBTokenLocal]) {
         vc = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
         ((AuthViewController *)vc).delegate = self;
     }
