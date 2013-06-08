@@ -122,7 +122,7 @@
     
     UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
     [sendButton setImage:[UIImage imageNamed:@"icon_send.png"] forState:UIControlStateNormal];
-    [sendButton addTarget:self action:@selector(sendCurrentComment) forControlEvents:UIControlEventTouchUpInside];
+    [sendButton addTarget:self action:@selector(sendNewComment) forControlEvents:UIControlEventTouchUpInside];
     _sendBarButton.customView = sendButton;
     [sendButton release];
 }
@@ -144,7 +144,7 @@
     [self dismissSemiModalViewWithCompletion:nil];
 }
 
-- (void)sendCurrentComment
+- (void)sendNewComment
 {
     if ([_commentTextView.text length] > 5) {
         [[Dialog Instance] showCenterProgressWithLabel:@"等等等一下..."];

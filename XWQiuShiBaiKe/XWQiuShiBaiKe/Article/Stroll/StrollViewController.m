@@ -7,6 +7,7 @@
 //
 
 #import "StrollViewController.h"
+#import "UIViewController+KNSemiModal.h"
 
 @interface StrollViewController ()
 
@@ -338,7 +339,9 @@
 
 - (IBAction)postButtonClicked:(id)sender
 {
-    
+    CreateQiuShiViewController *vc = [[CreateQiuShiViewController alloc] initWithNibName:@"CreateQiuShiViewController" bundle:nil];
+    [self presentSemiViewController:vc];
+    [vc release];
 }
 
 #pragma mark - Private methods

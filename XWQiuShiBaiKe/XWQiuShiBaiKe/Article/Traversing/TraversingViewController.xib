@@ -101,10 +101,9 @@
 				</object>
 			</object>
 			<object class="IBUIButton" id="290424416">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{32, 32}</string>
-				<reference key="NSSuperview"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="1027373895"/>
 				<bool key="IBUIOpaque">NO</bool>
