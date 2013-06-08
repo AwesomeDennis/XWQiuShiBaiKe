@@ -69,6 +69,7 @@ const float MoveAnimationDuration = 0.3;
     LeftSideBarViewController *_leftCon = [[LeftSideBarViewController alloc] initWithNibName:@"LeftSideBarViewController" bundle:nil];
     _leftCon.delegate = self;
     self.leftSideBarViewController = _leftCon;
+    [_leftCon release];
     
     [self addChildViewController:self.leftSideBarViewController];
     self.leftSideBarViewController.view.frame = self.navBackView.bounds;
@@ -195,6 +196,7 @@ const float MoveAnimationDuration = 0.3;
     if (push) {
         if (_panGestureReconginzer) {
             [self.contentView removeGestureRecognizer:_panGestureReconginzer];
+            [_panGestureReconginzer release];
             _panGestureReconginzer = nil;
         }
     }else
