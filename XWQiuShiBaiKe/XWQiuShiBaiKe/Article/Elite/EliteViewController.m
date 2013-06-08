@@ -211,7 +211,7 @@
     detailVC.qiushi = qs;
     detailVC.title = [NSString stringWithFormat:@"糗事%@", qs.qiushiID];
     [self.navigationController pushViewController:detailVC animated:YES];
-    
+    [detailVC release];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -339,6 +339,11 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [Dialog simpleToast:@"yep,网络有问题!"];
+    if (_reloading) {
+        _reloading = NO;
+        [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_eliteTableView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_eliteTableView];
+    }
 }
 
 #pragma mark - XWSliderSwitchDelegate method
@@ -383,31 +388,16 @@
     }
 }
 
-#pragma mark - QiuShiCellDelegate method
-
-- (void)didTapedQiuShiCellImage:(NSString *)midImageURL
-{
-    QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
-    [qiushiImageVC setQiuShiImageURL:midImageURL];
-    qiushiImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    [self presentViewController:qiushiImageVC animated:YES completion:nil];
-    [qiushiImageVC release];
-}
-
 #pragma mark - UIAction methods
 
 - (IBAction)sideButtonClicked:(id)sender
 {
-    SideBarShowDirection direction = [SideBarViewController getShowingState] ? SideBarShowDirectionNone : SideBarShowDirectionLeft;
-    if ([[SideBarViewController share] respondsToSelector:@selector(showSideBarControllerWithDirection:)]) {
-        [[SideBarViewController share] showSideBarControllerWithDirection:direction];
-    }
+    [self sideButtonDidClicked];
 }
 
 - (IBAction)postButtonClicked:(id)sender
 {
-    
+    [self postButtonDidClicked];
 }
 
 #pragma mark - Private methods

@@ -254,9 +254,10 @@
 
 - (IBAction)createCommentButtonClicked:(id)sender
 {
-    CreateCommentViewController *vc = [[[CreateCommentViewController alloc] initWithNibName:@"CreateCommentViewController" bundle:nil] autorelease];
+    CreateCommentViewController *vc = [[CreateCommentViewController alloc] initWithNibName:@"CreateCommentViewController" bundle:nil];
     vc.qiushiID = _qiushi.qiushiID;
     [self presentSemiViewController:vc];
+    [vc release];
 }
 
 #pragma mark - Private methods

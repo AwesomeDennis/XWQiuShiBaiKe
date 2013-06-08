@@ -8,6 +8,7 @@
 
 #import "StrollViewController.h"
 #import "UIViewController+KNSemiModal.h"
+#import "CreateQiuShiViewController.h"
 
 @interface StrollViewController ()
 
@@ -159,12 +160,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QiuShiDetailViewController *detailVC = [[[QiuShiDetailViewController alloc] initWithNibName:@"QiuShiDetailViewController" bundle:nil] autorelease];
+    QiuShiDetailViewController *detailVC = [[QiuShiDetailViewController alloc] initWithNibName:@"QiuShiDetailViewController" bundle:nil];
     NSMutableArray *strollArray = _qiushiType == QiuShiTypeSuggest ? _strollSuggestArray : _strollLatestArray;
     QiuShi *qs = (QiuShi *)[strollArray objectAtIndex:indexPath.row];
     detailVC.qiushi = qs;
     detailVC.title = [NSString stringWithFormat:@"糗事%@", qs.qiushiID];
     [self.navigationController pushViewController:detailVC animated:YES];
+    [detailVC release];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -282,6 +284,11 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [Dialog simpleToast:@"呵呵,网络不行了!"];
+    if (_reloading) {
+        _reloading = NO;
+        [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_strollTableView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_strollTableView];
+    }
 }
 
 #pragma mark - XWSliderSwitchDelegate method 
@@ -315,33 +322,16 @@
     }
 }
 
-#pragma mark - QiuShiCellDelegate method
-
-- (void)didTapedQiuShiCellImage:(NSString *)midImageURL
-{
-    QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
-    [qiushiImageVC setQiuShiImageURL:midImageURL];
-    qiushiImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    [self presentViewController:qiushiImageVC animated:YES completion:nil];
-    [qiushiImageVC release];
-}
-
 #pragma mark - UIAction methods
 
 - (IBAction)sideButtonClicked:(id)sender
 {
-    SideBarShowDirection direction = [SideBarViewController getShowingState] ? SideBarShowDirectionNone : SideBarShowDirectionLeft;
-    if ([[SideBarViewController share] respondsToSelector:@selector(showSideBarControllerWithDirection:)]) {
-        [[SideBarViewController share] showSideBarControllerWithDirection:direction];
-    }
+    [self sideButtonDidClicked];
 }
 
 - (IBAction)postButtonClicked:(id)sender
 {
-    CreateQiuShiViewController *vc = [[CreateQiuShiViewController alloc] initWithNibName:@"CreateQiuShiViewController" bundle:nil];
-    [self presentSemiViewController:vc];
-    [vc release];
+    [self postButtonDidClicked];
 }
 
 #pragma mark - Private methods

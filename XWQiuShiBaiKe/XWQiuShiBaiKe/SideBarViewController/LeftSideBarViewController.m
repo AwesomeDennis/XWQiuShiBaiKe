@@ -383,15 +383,17 @@
 
 - (void)configCellAttribute:(UITableViewCell *)cell
 {
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.font = [UIFont systemFontOfSize:15];
-    cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_background.png"]] autorelease];
-    cell.selectedBackgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_background_active.png"]] autorelease];
-    UIImageView *arrowImageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_arrow.png"]] autorelease];
-    CGRect rect = arrowImageView.frame;
-    rect.origin.x = 230;
-    arrowImageView.frame = rect;
-    [cell.contentView addSubview:arrowImageView];
+    @autoreleasepool {
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_background.png"]] autorelease];
+        cell.selectedBackgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_background_active.png"]] autorelease];
+        UIImageView *arrowImageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_arrow.png"]] autorelease];
+        CGRect rect = arrowImageView.frame;
+        rect.origin.x = 230;
+        arrowImageView.frame = rect;
+        [cell.contentView addSubview:arrowImageView];
+    }
 }
 
 #pragma mark - UIAction methods
@@ -401,15 +403,16 @@
     UIViewController *vc = nil;
     
     if (![Toolkit getQBTokenLocal]) {
-        vc = [[[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil] autorelease];
+        vc = [[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil];
         ((AuthViewController *)vc).delegate = self;
     }
     else {
-        vc = [[[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil] autorelease];
+        vc = [[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil];
         ((MineQBInfoViewController *)vc).delegate = self;
     }
     
     [self presentSemiViewController:vc];
+    [vc release];
 }
 
 - (IBAction)sideSettingButtonClicked:(id)sender

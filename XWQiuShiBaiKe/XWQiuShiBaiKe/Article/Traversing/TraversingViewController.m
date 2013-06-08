@@ -88,7 +88,9 @@
     [_timeAgainButton release];
     [super dealloc];
 }
-- (void)viewDidUnload {
+
+- (void)viewDidUnload
+{
     [self setTraversingTableView:nil];
     [self setSideButton:nil];
     [self setTimeAgainButton:nil];
@@ -258,28 +260,18 @@
 {
     self.title = @"穿越失败了";
     [Dialog simpleToast:@"穿越失败了"];
-}
-
-#pragma mark - QiuShiCellDelegate method
-
-- (void)didTapedQiuShiCellImage:(NSString *)midImageURL
-{
-    QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
-    [qiushiImageVC setQiuShiImageURL:midImageURL];
-    qiushiImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    [self presentViewController:qiushiImageVC animated:YES completion:nil];
-    [qiushiImageVC release];
+    if (_reloading) {
+        _reloading = NO;
+        [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_traversingTableView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_traversingTableView];
+    }
 }
 
 #pragma mark - UIAction methods
 
 - (IBAction)sideButtonClicked:(id)sender
 {
-    SideBarShowDirection direction = [SideBarViewController getShowingState] ? SideBarShowDirectionNone : SideBarShowDirectionLeft;
-    if ([[SideBarViewController share] respondsToSelector:@selector(showSideBarControllerWithDirection:)]) {
-        [[SideBarViewController share] showSideBarControllerWithDirection:direction];
-    }
+    [self sideButtonDidClicked];
 }
 
 - (IBAction)timeAgainButtonClicked:(id)sender

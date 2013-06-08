@@ -11,7 +11,7 @@
 /**
  *有图有真相
  */
-@interface ImageTruthViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, XWSliderSwitchDelegate, QiuShiCellDelegate>
+@interface ImageTruthViewController : CommonViewController <XWSliderSwitchDelegate>
 {
     //ASIHTTPRequest *_imageTruthRequest;
     EGORefreshTableHeaderView *_refreshHeaderView;

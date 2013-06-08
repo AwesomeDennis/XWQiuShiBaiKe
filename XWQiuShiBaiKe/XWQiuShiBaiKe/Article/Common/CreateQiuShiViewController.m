@@ -150,7 +150,8 @@
         [body appendFormat:@"Content-Type: image/jpg\r\n\r\n"];
     }
     else {
-        [body appendString:@"\r\n"];
+        //[body appendString:@"\r\n"];
+        [body appendString:EndQSBoundary];
     }
     
     //声明myRequestData，用来放入http body
@@ -161,15 +162,15 @@
     //将image的data加入
     //[myRequestData appendData:data];
     //加入结束符--ixhan-dot-com--
-    [myRequestData appendData:[EndQSBoundary dataUsingEncoding:NSUTF8StringEncoding]];
+    //[myRequestData appendData:[EndQSBoundary dataUsingEncoding:NSUTF8StringEncoding]];
     //设置HTTPHeader中Content-Type的值
-    NSString *contentHeader=[NSString stringWithFormat:@"multipart/form-data; boundary=%@", QSBoundary];
+    NSString *contentHeader=[NSString stringWithFormat:@"multipart/form-data; boundary=%@", QIUSHI_FORM_BOUNDARY];
     
     self.createQSRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_qiushi_create]];
     //[_createQSRequest setTimeOutSeconds:60.0];
-    [_createQSRequest addRequestHeader:@"Qbtoken" value:[Toolkit getQBTokenLocal]];
+    [_createQSRequest addRequestHeader:@"Qbtoken" value:@""];
     [_createQSRequest addRequestHeader:@"Content-Type" value:contentHeader];
-    [_createQSRequest addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%d", [myRequestData length]]];
+    //[_createQSRequest addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%d", [myRequestData length]]];
     [_createQSRequest appendPostData:myRequestData];
     [_createQSRequest setRequestMethod:@"POST"];
     [_createQSRequest setDelegate:self];

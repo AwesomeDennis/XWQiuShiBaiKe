@@ -27,6 +27,7 @@
 #import "UMFeedback.h"
 #import "Dialog.h"
 #import "Toolkit.h"
+#import "CommonViewController.h"
 #endif
 
 #define UMENG_APPKEY                @"51a0df8e56240b7b2102fe59"

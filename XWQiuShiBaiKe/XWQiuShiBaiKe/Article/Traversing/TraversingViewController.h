@@ -11,7 +11,7 @@
 /**
  *穿越
  */
-@interface TraversingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, QiuShiCellDelegate>
+@interface TraversingViewController : CommonViewController
 {
     //ASIHTTPRequest *_traversingRequest;
     EGORefreshTableHeaderView *_refreshHeaderView;

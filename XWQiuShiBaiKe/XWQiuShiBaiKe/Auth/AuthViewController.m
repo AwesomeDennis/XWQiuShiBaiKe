@@ -187,12 +187,10 @@
         if (_delegate && [_delegate respondsToSelector:@selector(QBUserDidLoginSuccessWithQBName:andImage:)]) {
             [_delegate QBUserDidLoginSuccessWithQBName:qbUser.login andImage:qbUser.icon];
         }
-        
         [qbUser release];
         
         [Dialog simpleToast:@"登录成功啦"];
         
-        //MineQBInfoViewController *infoVC = [[[MineQBInfoViewController alloc] initWithNibName:@"MineQBInfoViewController" bundle:nil] autorelease];
         [self performSelector:@selector(closeAuthViewController) withObject:nil afterDelay:1];
     }
     else {

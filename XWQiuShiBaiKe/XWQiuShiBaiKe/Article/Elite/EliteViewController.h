@@ -11,7 +11,7 @@
 /**
  *精华
  */
-@interface EliteViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, XWSliderSwitchDelegate, QiuShiCellDelegate>
+@interface EliteViewController : CommonViewController <XWSliderSwitchDelegate>
 {
     //ASIHTTPRequest *_eliteRequest;
     EGORefreshTableHeaderView *_refreshHeaderView;

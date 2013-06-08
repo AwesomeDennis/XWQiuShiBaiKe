@@ -211,18 +211,11 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [Dialog simpleToast:@"网络不行了,滚粗"];
-}
-
-#pragma mark - QiuShiCellDelegate method
-
-- (void)didTapedQiuShiCellImage:(NSString *)midImageURL
-{
-    QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
-    [qiushiImageVC setQiuShiImageURL:midImageURL];
-    qiushiImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    [self presentViewController:qiushiImageVC animated:YES completion:nil];
-    [qiushiImageVC release];
+    if (_reloading) {
+        _reloading = NO;
+        [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_articlesTableView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_articlesTableView];
+    }
 }
 
 #pragma mark - Private methods

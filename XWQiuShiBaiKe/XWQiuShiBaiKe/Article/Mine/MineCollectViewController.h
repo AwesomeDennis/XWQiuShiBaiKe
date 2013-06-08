@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QiuShiCell.h"
 
-@interface MineCollectViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, QiuShiCellDelegate>
+@interface MineCollectViewController : CommonViewController
 {
     EGORefreshTableHeaderView *_refreshHeaderView;
     LoadMoreFooterView *_loadMoreFooterView;
@@ -24,7 +23,9 @@
 @property (retain, nonatomic) ASIHTTPRequest *collectRequest;
 @property (retain, nonatomic) IBOutlet UITableView *collectTableView;
 @property (retain, nonatomic) IBOutlet UIButton *sideButton;
+@property (retain, nonatomic) IBOutlet UIButton *postButton;
 
 - (IBAction)sideButtonClicked:(id)sender;
+- (IBAction)postButtonClicked:(id)sender;
 
 @end

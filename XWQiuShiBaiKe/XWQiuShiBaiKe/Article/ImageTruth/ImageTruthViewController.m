@@ -282,6 +282,11 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [Dialog simpleToast:@"网络慢,先lol会儿吧!"];
+    if (_reloading) {
+        _reloading = NO;
+        [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_imageTruthTableView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_imageTruthTableView];
+    }
 }
 
 #pragma mark - XWSliderSwitchDelegate method
@@ -315,31 +320,16 @@
     }
 }
 
-#pragma mark - QiuShiCellDelegate method
-
-- (void)didTapedQiuShiCellImage:(NSString *)midImageURL
-{
-    QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
-    [qiushiImageVC setQiuShiImageURL:midImageURL];
-    qiushiImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    [self presentViewController:qiushiImageVC animated:YES completion:nil];
-    [qiushiImageVC release];
-}
-
 #pragma mark - UIAction methods
 
 - (IBAction)sideButtonClicked:(id)sender
 {
-    SideBarShowDirection direction = [SideBarViewController getShowingState] ? SideBarShowDirectionNone : SideBarShowDirectionLeft;
-    if ([[SideBarViewController share] respondsToSelector:@selector(showSideBarControllerWithDirection:)]) {
-        [[SideBarViewController share] showSideBarControllerWithDirection:direction];
-    }
+    [self sideButtonDidClicked];
 }
 
 - (IBAction)postButtonClicked:(id)sender
 {
-    
+    [self postButtonDidClicked];
 }
 
 #pragma mark - Private methods

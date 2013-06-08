@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "QiuShiCell.h"
 
-@interface MineArticlesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, QiuShiCellDelegate>
+@interface MineArticlesViewController : UIViewController
 {
     EGORefreshTableHeaderView *_refreshHeaderView;
     LoadMoreFooterView *_loadMoreFooterView;

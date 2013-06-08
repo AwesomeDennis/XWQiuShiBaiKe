@@ -11,7 +11,7 @@
 /**
  *随便逛逛
  */
-@interface StrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate, LoadMoreFooterViewDelegate, ASIHTTPRequestDelegate, XWSliderSwitchDelegate, QiuShiCellDelegate>
+@interface StrollViewController : CommonViewController <XWSliderSwitchDelegate>
 {
     //ASIHTTPRequest *_strollRequest;
     EGORefreshTableHeaderView *_refreshHeaderView;

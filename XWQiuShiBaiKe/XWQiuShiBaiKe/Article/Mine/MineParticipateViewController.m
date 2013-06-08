@@ -65,6 +65,7 @@
     [_participateArray release];
     [_sideButton release];
     [_participateTableView release];
+    [_postButton release];
     [super dealloc];
 }
 
@@ -72,6 +73,7 @@
 {
     [self setSideButton:nil];
     [self setParticipateTableView:nil];
+    [self setPostButton:nil];
     [super viewDidUnload];
 }
 
@@ -79,10 +81,12 @@
 
 - (IBAction)sideButtonClicked:(id)sender
 {
-    SideBarShowDirection direction = [SideBarViewController getShowingState] ? SideBarShowDirectionNone : SideBarShowDirectionLeft;
-    if ([[SideBarViewController share] respondsToSelector:@selector(showSideBarControllerWithDirection:)]) {
-        [[SideBarViewController share] showSideBarControllerWithDirection:direction];
-    }
+    [self sideButtonDidClicked];
+}
+
+- (IBAction)postButtonClicked:(id)sender
+{
+    [self postButtonDidClicked];
 }
 
 #pragma mark - UITableView datasource methods
@@ -211,18 +215,11 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [Dialog simpleToast:@"呵呵."];
-}
-
-#pragma mark - QiuShiCellDelegate method
-
-- (void)didTapedQiuShiCellImage:(NSString *)midImageURL
-{
-    QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
-    [qiushiImageVC setQiuShiImageURL:midImageURL];
-    qiushiImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    [self presentViewController:qiushiImageVC animated:YES completion:nil];
-    [qiushiImageVC release];
+    if (_reloading) {
+        _reloading = NO;
+        [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_participateTableView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_participateTableView];
+    }
 }
 
 #pragma mark - Private methods
@@ -232,7 +229,7 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
     
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_sideButton] autorelease];
-    //self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_postButton] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_postButton] autorelease];
     
     _participateTableView.scrollsToTop = YES;
 }
