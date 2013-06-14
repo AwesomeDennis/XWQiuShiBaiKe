@@ -122,12 +122,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QiuShiDetailViewController *detailVC = [[[QiuShiDetailViewController alloc] initWithNibName:@"QiuShiDetailViewController" bundle:nil] autorelease];
+    QiuShiDetailViewController *detailVC = [[QiuShiDetailViewController alloc] initWithNibName:@"QiuShiDetailViewController" bundle:nil];
     QiuShi *qs = (QiuShi *)[_articlesArray objectAtIndex:indexPath.row];
     detailVC.qiushi = qs;
     detailVC.title = [NSString stringWithFormat:@"糗事%@", qs.qiushiID];
     [self.navigationController pushViewController:detailVC animated:YES];
-    
+    [detailVC release];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

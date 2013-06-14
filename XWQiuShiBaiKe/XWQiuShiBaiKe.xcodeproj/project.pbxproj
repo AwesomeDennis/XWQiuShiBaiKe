@@ -278,6 +278,7 @@
 		1972B413175F2D9300C1F958 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1972B412175F2D9300C1F958 /* CoreText.framework */; };
 		198060641754986700E5069A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198060631754986700E5069A /* Default@2x.png */; };
 		198060661754987200E5069A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198060651754987200E5069A /* Default-568h@2x.png */; };
+		1988FACC176B044C0018D078 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1988FACB176B044B0018D078 /* MessageUI.framework */; };
 		19A7555217572A1600B75C96 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7554F17572A1600B75C96 /* libUMFeedback.a */; };
 		19A7555317572A1600B75C96 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19A7555017572A1600B75C96 /* umFeedback.bundle */; };
 		19F5724F17587AB700DEE940 /* QiuShiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F5724A17587AB700DEE940 /* QiuShiDetailViewController.m */; };
@@ -646,6 +647,7 @@
 		1972B412175F2D9300C1F958 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		198060631754986700E5069A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		198060651754987200E5069A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		1988FACB176B044B0018D078 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		19A7554F17572A1600B75C96 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
 		19A7555017572A1600B75C96 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
 		19A7555117572A1600B75C96 /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1988FACC176B044C0018D078 /* MessageUI.framework in Frameworks */,
 				1972B413175F2D9300C1F958 /* CoreText.framework in Frameworks */,
 				195C14D1174F426B00F9B000 /* QuartzCore.framework in Frameworks */,
 				195C14CF174F426400F9B000 /* CFNetwork.framework in Frameworks */,
@@ -765,6 +768,7 @@
 		195C14A6174F409600F9B000 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1988FACB176B044B0018D078 /* MessageUI.framework */,
 				1972B412175F2D9300C1F958 /* CoreText.framework */,
 				195C14D0174F426B00F9B000 /* QuartzCore.framework */,
 				195C14CE174F426400F9B000 /* CFNetwork.framework */,

@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "QiuShi.h"
 #import "QiuShiCell.h"
 #import "CommentCell.h"
 #import "ShareOptionView.h"
 
-@interface QiuShiDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, ASIHTTPRequestDelegate, LoadMoreFooterViewDelegate, QiuShiCellDelegate, ShareOptionViewDelegate, CommentCellDelegate>
+@interface QiuShiDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, ASIHTTPRequestDelegate, LoadMoreFooterViewDelegate, QiuShiCellDelegate, ShareOptionViewDelegate, CommentCellDelegate, MFMessageComposeViewControllerDelegate>
 {
     LoadMoreFooterView *_loadMoreFooterView;
     NSMutableArray *_commentArray;

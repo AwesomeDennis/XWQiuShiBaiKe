@@ -159,13 +159,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QiuShiDetailViewController *detailVC = [[[QiuShiDetailViewController alloc] initWithNibName:@"QiuShiDetailViewController" bundle:nil] autorelease];
+    QiuShiDetailViewController *detailVC = [[QiuShiDetailViewController alloc] initWithNibName:@"QiuShiDetailViewController" bundle:nil];
     NSMutableArray *imageTruthArray = _qiushiType == QiuShiTypeImgrank ? _imageTruthImgrankArray : _imageTruthImagesArray;
     QiuShi *qs = (QiuShi *)[imageTruthArray objectAtIndex:indexPath.row];
     detailVC.qiushi = qs;
     detailVC.title = [NSString stringWithFormat:@"糗事%@", qs.qiushiID];
     [self.navigationController pushViewController:detailVC animated:YES];
-    
+    [detailVC release];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

@@ -215,6 +215,20 @@
 
 - (void)shareOptionView:(ShareOptionView *)shareView didClickButtonAtIndex:(NSInteger)index
 {
+    if (index == 4) {
+        //短信分享
+        NSLog(@"duanxin");
+        [self displaySMS:_qiushi.content];
+    }
+    else if (index == 5) {
+        //复制内容
+        NSLog(@"fuzhi");
+        UIPasteboard *pasterboard = [UIPasteboard generalPasteboard];
+        [pasterboard setString:_qiushi.content];
+    }
+    else {
+        [Dialog simpleToast:@"这个分享还未实现"];
+    }
     [shareView fadeOut];
 }
 
@@ -235,6 +249,29 @@
     if (!isFloorExist) {
         [Dialog simpleToast:@"不知道什么原因找不到了"];
     }
+}
+
+#pragma mark - MFMessageComposeViewControllerDelegate method
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    NSString *message = @"";
+    switch (result) {
+        case MessageComposeResultSent:
+            message = @"发送成功";
+            break;
+        case MessageComposeResultFailed:
+            message = @"发送失败";
+            break;
+        case MessageComposeResultCancelled:
+            message = @"发送取消";
+            break;
+        default:
+            break;
+    }
+    [Dialog simpleToast:message];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UIAction methods
@@ -278,6 +315,25 @@
     self.commentRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_article_comment(qiushiID, 50, page)]];
     self.commentRequest.delegate = self;
     [self.commentRequest startAsynchronous];
+}
+
+#pragma mark - MFMessage method
+
+- (void)displaySMS:(NSString *)message
+{
+    if ([MFMessageComposeViewController canSendText]) {
+        MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
+        picker.messageComposeDelegate = self;
+        picker.navigationBar.tintColor = [UIColor blackColor];
+        //填入短信接收者、内容
+        picker.body = message;
+        picker.recipients = nil;
+        [self presentViewController:picker animated:YES completion:nil];
+        [picker release];
+    }
+    else {
+        [Dialog simpleToast:@"该设备不支持短信功能"];
+    }
 }
 
 @end

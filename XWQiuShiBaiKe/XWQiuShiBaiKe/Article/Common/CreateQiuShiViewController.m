@@ -136,12 +136,10 @@
     //添加字段名称，换2行
     [body appendFormat:@"Content-Disposition: form-data; name=\"json\"\r\n\r\n"];
     //添加字段的值
-    //NSDictionary *qsContentDict = [NSDictionary dictionaryWithObjectsAndKeys:@"", @"content", @"true", @"anonymous", @"true", @"allow_comment", nil];
+    NSDictionary *qsContentDict = [NSDictionary dictionaryWithObjectsAndKeys:@"dxfggdse", @"content", @"true", @"anonymous", @"true", @"allow_comment", nil];
     //[body appendFormat:@"%@\r\n", [qsContentDict toJSON]];
-    NSString *temp = [NSString stringWithFormat:@"{\"content\":\"88324342888\",\"anonymous\":true,\"allow_comment\":true}"];
-    [body appendFormat:@"%@\r\n", temp];
     //添加分界线，换行
-    [body appendFormat:@"%@\r\n", QSBoundary];
+    //[body appendFormat:@"%@\r\n", QSBoundary];
     //判断是否有图片
     if (NO) {
         //声明pic字段，文件名为boris.png
@@ -151,13 +149,16 @@
     }
     else {
         //[body appendString:@"\r\n"];
-        [body appendString:EndQSBoundary];
+        //[body appendString:EndQSBoundary];
     }
     
     //声明myRequestData，用来放入http body
     NSMutableData *myRequestData = [NSMutableData data];
     //将body字符串转化为UTF8格式的二进制
     [myRequestData appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    [myRequestData appendData:[qsContentDict toJSON]];
+    NSString *temp = [NSString stringWithFormat:@"\r\n%@\r\n%@", QSBoundary, EndQSBoundary];
+    [myRequestData appendData:[temp dataUsingEncoding:NSUTF8StringEncoding]];
     [body release];
     //将image的data加入
     //[myRequestData appendData:data];
@@ -170,7 +171,9 @@
     //[_createQSRequest setTimeOutSeconds:60.0];
     [_createQSRequest addRequestHeader:@"Qbtoken" value:@""];
     [_createQSRequest addRequestHeader:@"Content-Type" value:contentHeader];
-    //[_createQSRequest addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%d", [myRequestData length]]];
+    NSLog(@"content-length:%d", [myRequestData length]);
+    NSLog(@"content:\r\n%@", [[[NSString alloc] initWithData:myRequestData encoding:NSUTF8StringEncoding] autorelease]);
+    [_createQSRequest addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%d", [myRequestData length]]];
     [_createQSRequest appendPostData:myRequestData];
     [_createQSRequest setRequestMethod:@"POST"];
     [_createQSRequest setDelegate:self];

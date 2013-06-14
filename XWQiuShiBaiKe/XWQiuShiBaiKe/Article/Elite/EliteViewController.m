@@ -205,7 +205,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QiuShiDetailViewController *detailVC = [[[QiuShiDetailViewController alloc] initWithNibName:@"QiuShiDetailViewController" bundle:nil] autorelease];
+    QiuShiDetailViewController *detailVC = [[QiuShiDetailViewController alloc] initWithNibName:@"QiuShiDetailViewController" bundle:nil];
     NSMutableArray *eliteArray = [self getEliteArray];
     QiuShi *qs = (QiuShi *)[eliteArray objectAtIndex:indexPath.row];
     detailVC.qiushi = qs;
