@@ -231,7 +231,8 @@
     [picker dismissModalViewControllerAnimated:YES];
     
     //[self initFacePhotoRequest];
-    [[Dialog Instance] showProgress:self withLabel:@"上传头像中..."];
+    //[[Dialog Instance] showProgress:self withLabel:@"上传头像中..."];
+    [Dialog simpleToast:@"这个其实没有实现"];
 }
 
 #pragma mark - UIActionSheetDelegate method

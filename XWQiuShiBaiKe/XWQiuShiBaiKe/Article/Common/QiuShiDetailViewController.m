@@ -208,7 +208,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [Dialog simpleToast:@"评论不行了,顶一个上去呗!"];
+    [Dialog simpleToast:@"评论不行了,顶一个上去!"];
 }
 
 #pragma mark - ShareOptionViewDelegate methods
@@ -217,14 +217,13 @@
 {
     if (index == 4) {
         //短信分享
-        NSLog(@"duanxin");
         [self displaySMS:_qiushi.content];
     }
     else if (index == 5) {
         //复制内容
-        NSLog(@"fuzhi");
         UIPasteboard *pasterboard = [UIPasteboard generalPasteboard];
         [pasterboard setString:_qiushi.content];
+        [Dialog simpleToast:@"糗事内容已复制到剪贴板"];
     }
     else {
         [Dialog simpleToast:@"这个分享还未实现"];
@@ -264,7 +263,7 @@
             message = @"发送失败";
             break;
         case MessageComposeResultCancelled:
-            message = @"发送取消";
+            message = @"取消发送";
             break;
         default:
             break;
