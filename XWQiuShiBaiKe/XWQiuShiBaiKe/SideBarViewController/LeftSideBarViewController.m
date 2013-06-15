@@ -59,6 +59,12 @@
     [_imageTruthVC release];
     [_traversingeNavController release];
     [_traversingVC release];
+    [_collectNavController release];
+    [_collectVC release];
+    [_participateNavController release];
+    [_participateVC release];
+    [_neihanpicNavController release];
+    [_neihanpicVC release];
     [_sideSettingButton release];
     [_sideJoinQBButton release];
     [_sideTitleButton release];
@@ -328,6 +334,9 @@
                     }
                 }
                     break;
+                case 2:
+                    
+                    break;
                 default:
                     break;
             }
@@ -341,6 +350,14 @@
     }
     else {
         [Dialog toast:@"谢谢你，这个正在升级"];
+        if (_neihanpicVC && _neihanpicVC.isLoaded) {
+            return _neihanpicNavController;
+        }
+        else {
+            _neihanpicVC = [[NeiHanPicViewController alloc] initWithNibName:@"NeiHanPicViewController" bundle:nil];
+            _neihanpicNavController = [self configNavigationController:_neihanpicNavController withRootVC:_neihanpicVC];
+            return _neihanpicNavController;
+        }
     }
 
     return vc;

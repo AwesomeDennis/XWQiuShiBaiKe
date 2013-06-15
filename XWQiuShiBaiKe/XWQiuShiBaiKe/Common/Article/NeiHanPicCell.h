@@ -6,8 +6,11 @@
 //  Copyright (c) 2013年 renxinwei's MacBook Pro. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PSCollectionViewCell.h"
 
-@interface NeiHanPicCell : UIView
+@interface NeiHanPicCell : PSCollectionViewCell
+
+@property (retain, nonatomic) UIImageView *imageView;
+@property (retain, nonatomic) UILabel *captionLabel;
 
 @end

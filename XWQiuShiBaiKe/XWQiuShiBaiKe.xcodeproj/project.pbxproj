@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		19072AE3176C88EF00D1AD7C /* NeiHanPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AE2176C88EF00D1AD7C /* NeiHanPicture.m */; };
 		19072AE6176C890600D1AD7C /* NeiHanVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AE5176C890600D1AD7C /* NeiHanVideo.m */; };
+		19072AEF176CB0C000D1AD7C /* PSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AEC176CB0C000D1AD7C /* PSCollectionView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		19072AF0176CB0C000D1AD7C /* PSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AEE176CB0C000D1AD7C /* PSCollectionViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		19072AF3176CB42E00D1AD7C /* NeiHanPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AF2176CB42E00D1AD7C /* NeiHanPicCell.m */; };
+		19072AF8176CB89B00D1AD7C /* NeiHanPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AF6176CB89B00D1AD7C /* NeiHanPicViewController.m */; };
+		19072AF9176CB89B00D1AD7C /* NeiHanPicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19072AF7176CB89B00D1AD7C /* NeiHanPicViewController.xib */; };
 		191EF6BA175DD390003748E2 /* CreateCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6B8175DD390003748E2 /* CreateCommentViewController.m */; };
 		191EF6BB175DD390003748E2 /* CreateCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */; };
 		191EF6BE175DD9CC003748E2 /* XWPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */; };
@@ -296,6 +301,15 @@
 		19072AE2176C88EF00D1AD7C /* NeiHanPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanPicture.m; sourceTree = "<group>"; };
 		19072AE4176C890600D1AD7C /* NeiHanVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanVideo.h; sourceTree = "<group>"; };
 		19072AE5176C890600D1AD7C /* NeiHanVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanVideo.m; sourceTree = "<group>"; };
+		19072AEB176CB0C000D1AD7C /* PSCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCollectionView.h; sourceTree = "<group>"; };
+		19072AEC176CB0C000D1AD7C /* PSCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCollectionView.m; sourceTree = "<group>"; };
+		19072AED176CB0C000D1AD7C /* PSCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCollectionViewCell.h; sourceTree = "<group>"; };
+		19072AEE176CB0C000D1AD7C /* PSCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCollectionViewCell.m; sourceTree = "<group>"; };
+		19072AF1176CB42E00D1AD7C /* NeiHanPicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanPicCell.h; sourceTree = "<group>"; };
+		19072AF2176CB42E00D1AD7C /* NeiHanPicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanPicCell.m; sourceTree = "<group>"; };
+		19072AF5176CB89B00D1AD7C /* NeiHanPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanPicViewController.h; sourceTree = "<group>"; };
+		19072AF6176CB89B00D1AD7C /* NeiHanPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanPicViewController.m; sourceTree = "<group>"; };
+		19072AF7176CB89B00D1AD7C /* NeiHanPicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NeiHanPicViewController.xib; sourceTree = "<group>"; };
 		191EF6B7175DD390003748E2 /* CreateCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCommentViewController.h; sourceTree = "<group>"; };
 		191EF6B8175DD390003748E2 /* CreateCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCommentViewController.m; sourceTree = "<group>"; };
 		191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateCommentViewController.xib; sourceTree = "<group>"; };
@@ -695,6 +709,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19072AEA176CB0C000D1AD7C /* PSCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				19072AEB176CB0C000D1AD7C /* PSCollectionView.h */,
+				19072AEC176CB0C000D1AD7C /* PSCollectionView.m */,
+				19072AED176CB0C000D1AD7C /* PSCollectionViewCell.h */,
+				19072AEE176CB0C000D1AD7C /* PSCollectionViewCell.m */,
+			);
+			path = PSCollectionView;
+			sourceTree = "<group>";
+		};
+		19072AF4176CB7FE00D1AD7C /* NeiHan */ = {
+			isa = PBXGroup;
+			children = (
+				19072AF5176CB89B00D1AD7C /* NeiHanPicViewController.h */,
+				19072AF6176CB89B00D1AD7C /* NeiHanPicViewController.m */,
+				19072AF7176CB89B00D1AD7C /* NeiHanPicViewController.xib */,
+			);
+			path = NeiHan;
+			sourceTree = "<group>";
+		};
 		1943358F175E50F800FCEBD1 /* UMAppNetwork_SDK_3.5.5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -847,6 +882,7 @@
 		195C14D9174F43D900F9B000 /* Article */ = {
 			isa = PBXGroup;
 			children = (
+				19072AF4176CB7FE00D1AD7C /* NeiHan */,
 				19F5724817587AB700DEE940 /* Common */,
 				194560A21757802A008E2CF4 /* Mine */,
 				195C14E8174F43D900F9B000 /* Stroll */,
@@ -900,6 +936,7 @@
 		195C14FC174F43E800F9B000 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				19072AEA176CB0C000D1AD7C /* PSCollectionView */,
 				195C14FD174F43E800F9B000 /* ASIHTTPRequest */,
 				195C1514174F43E800F9B000 /* Custom */,
 				195C152C174F43E800F9B000 /* HUD */,
@@ -1131,6 +1168,8 @@
 				195C159B174F446800F9B000 /* QiuShiCell.h */,
 				195C159C174F446800F9B000 /* QiuShiCell.m */,
 				195C159D174F446800F9B000 /* QiuShiCell.xib */,
+				19072AF1176CB42E00D1AD7C /* NeiHanPicCell.h */,
+				19072AF2176CB42E00D1AD7C /* NeiHanPicCell.m */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -1671,6 +1710,7 @@
 				191EF6C2175DDC3F003748E2 /* block_post_background@2x.png in Resources */,
 				19433595175E50F800FCEBD1 /* UMUFP.bundle in Resources */,
 				19454E97176025D80002E7CC /* SVProgressHUD.bundle in Resources */,
+				19072AF9176CB89B00D1AD7C /* NeiHanPicViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1773,6 +1813,10 @@
 				195E20F217636CC000C0D4EB /* CommonViewController.m in Sources */,
 				19072AE3176C88EF00D1AD7C /* NeiHanPicture.m in Sources */,
 				19072AE6176C890600D1AD7C /* NeiHanVideo.m in Sources */,
+				19072AEF176CB0C000D1AD7C /* PSCollectionView.m in Sources */,
+				19072AF0176CB0C000D1AD7C /* PSCollectionViewCell.m in Sources */,
+				19072AF3176CB42E00D1AD7C /* NeiHanPicCell.m in Sources */,
+				19072AF8176CB89B00D1AD7C /* NeiHanPicViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

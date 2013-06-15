@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSCollectionView.h"
 
-@interface NeiHanPicViewController : UIViewController
+@interface NeiHanPicViewController : CommonViewController <PSCollectionViewDelegate, PSCollectionViewDataSource, ASIHTTPRequestDelegate>
+{
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    LoadMoreFooterView *_loadMoreFooterView;
+    RequestType _requestType;
+    NSInteger _currentPage;
+    BOOL _reloading;
+}
+
+@property (nonatomic) BOOL isLoaded;
+@property (retain, nonatomic) NSMutableArray *picArray;
+@property (retain, nonatomic) PSCollectionView *collectionView;
+@property (retain, nonatomic) ASIHTTPRequest *picRequest;
 
 @end
