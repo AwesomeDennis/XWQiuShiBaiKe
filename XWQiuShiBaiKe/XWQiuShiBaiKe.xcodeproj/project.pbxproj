@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19072AE3176C88EF00D1AD7C /* NeiHanPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AE2176C88EF00D1AD7C /* NeiHanPicture.m */; };
+		19072AE6176C890600D1AD7C /* NeiHanVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AE5176C890600D1AD7C /* NeiHanVideo.m */; };
 		191EF6BA175DD390003748E2 /* CreateCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6B8175DD390003748E2 /* CreateCommentViewController.m */; };
 		191EF6BB175DD390003748E2 /* CreateCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */; };
 		191EF6BE175DD9CC003748E2 /* XWPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */; };
@@ -290,6 +292,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19072AE1176C88EF00D1AD7C /* NeiHanPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanPicture.h; sourceTree = "<group>"; };
+		19072AE2176C88EF00D1AD7C /* NeiHanPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanPicture.m; sourceTree = "<group>"; };
+		19072AE4176C890600D1AD7C /* NeiHanVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanVideo.h; sourceTree = "<group>"; };
+		19072AE5176C890600D1AD7C /* NeiHanVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanVideo.m; sourceTree = "<group>"; };
 		191EF6B7175DD390003748E2 /* CreateCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCommentViewController.h; sourceTree = "<group>"; };
 		191EF6B8175DD390003748E2 /* CreateCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCommentViewController.m; sourceTree = "<group>"; };
 		191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateCommentViewController.xib; sourceTree = "<group>"; };
@@ -830,6 +836,10 @@
 				195C14D6174F42B800F9B000 /* QiuShi.m */,
 				193055F0175619E2009DEE32 /* QBUser.h */,
 				193055F1175619E2009DEE32 /* QBUser.m */,
+				19072AE1176C88EF00D1AD7C /* NeiHanPicture.h */,
+				19072AE2176C88EF00D1AD7C /* NeiHanPicture.m */,
+				19072AE4176C890600D1AD7C /* NeiHanVideo.h */,
+				19072AE5176C890600D1AD7C /* NeiHanVideo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1761,6 +1771,8 @@
 				1972B411175F112B00C1F958 /* XWCTView.m in Sources */,
 				19454E98176025D80002E7CC /* SVProgressHUD.m in Sources */,
 				195E20F217636CC000C0D4EB /* CommonViewController.m in Sources */,
+				19072AE3176C88EF00D1AD7C /* NeiHanPicture.m in Sources */,
+				19072AE6176C890600D1AD7C /* NeiHanVideo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

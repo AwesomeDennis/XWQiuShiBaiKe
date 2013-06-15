@@ -51,7 +51,9 @@ if(obj)\
 obj = nil;\
 }\
 
-//QSBK api接口
+/**
+ *@brief QSBK api接口
+ */
 
 //随便逛逛:干货、嫩草
 #define api_stroll_suggest(count, page)          [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/list/suggest?count=%d&page=%d", count, page]
@@ -119,3 +121,15 @@ obj = nil;\
  }
  */
 
+/**
+ *@brief 内涵 api
+ */
+
+//段子: GET
+#define api_neihan_joke(page)                  [NSString stringWithFormat:@"http://42.121.111.22/weibofun/weibo_list.php?apiver=10200&category=weibo_jokes&page=%d&page_size=30&max_timestamp=-1&vip=1&platform=iphone", page]
+//趣图: GET
+#define api_neihan_picture(page)               [NSString stringWithFormat:@"http://42.121.111.22/weibofun/weibo_list.php?apiver=10200&category=weibo_pics&page=%d&page_size=30&max_timestamp=-1&vip=1&platform=iphone", page]
+//美女: GET
+#define api_neihan_girl(page)                  [NSString stringWithFormat:@"http://42.121.111.22/weibofun/weibo_list.php?apiver=10200&category=weibo_girls&page=%d&page_size=30&max_timestamp=-1&vip=1&platform=iphone", page]
+//视频: GET
+#define api_neihan_video(page)                 [NSString stringWithFormat:@"http://42.121.111.22/weibofun/weibo_list.php?apiver=10200&category=weibo_videos&page=%d&page_size=30&max_timestamp=-1&vip=1&platform=iphone", page]
