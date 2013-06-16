@@ -30,6 +30,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _isLoaded = YES;
+    _neihanType = NeiHanTypePic;
+    _requestType = RequestTypeNormal;
+    _currentPage = 0;
+    
+    [self initSliderSwitch];
     [self initView];
 }
 
@@ -43,6 +48,8 @@
     self.picArray = nil;
     [_refreshHeaderView release];
     [_loadMoreFooterView release];
+    [_sliderSwitch release];
+    [_sideButton release];
     
     [super dealloc];
 }
@@ -77,6 +84,13 @@
 - (void)collectionView:(PSCollectionView *)collectionView didSelectCell:(PSCollectionViewCell *)cell atIndex:(NSInteger)index
 {
     NSLog(@"did click pic");
+    NSDictionary *dict = [_picArray objectAtIndex:index];
+    QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
+    [qiushiImageVC setQiuShiImageURL:[dict objectForKey:@"wpic_middle"]];
+    qiushiImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    [self presentViewController:qiushiImageVC animated:YES completion:nil];
+    [qiushiImageVC release];
 }
 
 #pragma mark - UIScrollView delegate method
@@ -100,8 +114,8 @@
     _reloading = YES;
     _requestType = RequestTypeNormal;
     
-    _currentPage = 1;
-    [self initNeiHanPicRequest:_currentPage];
+    _currentPage = 0;
+    [self loadNeiHanPicDataSource];
 }
 
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
@@ -122,7 +136,7 @@
     _requestType = RequestTypeLoadMore;
     
     _currentPage++;
-    [self initNeiHanPicRequest:_currentPage];
+    [self loadNeiHanPicDataSource];
 }
 
 #pragma mark - ASIHTTPRequest delegate methods
@@ -153,11 +167,55 @@
     [self dataSourceDidError];
 }
 
+#pragma mark - XWSliderSwitchDelegate method
+
+- (void)slideView:(XWSliderSwitch *)slideSwitch switchChangedAtIndex:(NSInteger)index
+{
+    _currentPage = 0;
+    _neihanType = index == 0 ? NeiHanTypePic : NeiHanTypeGirl;
+    [self loadNeiHanPicDataSource];
+    _collectionView.contentOffset = CGPointZero;
+}
+
+#pragma mark - ASIHTTPRequest method
+
+- (void)initNeiHanPicRequestWithType:(NSInteger)type andPage:(NSInteger)page
+{
+    if (type == NeiHanTypePic)
+        self.picRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_neihan_picture(page)]];
+    else
+        self.picRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_neihan_girl(page)]];
+    
+    _picRequest.delegate = self;
+    [_picRequest startAsynchronous];
+}
+
+#pragma mark - UIAction method
+
+- (IBAction)sideButtonClicked:(id)sender
+{
+    [self sideButtonDidClicked];
+}
+
 #pragma mark - private methods
+
+- (void)initSliderSwitch
+{
+    _sliderSwitch = [[XWSliderSwitch alloc] initWithFrame:CGRectMake(0, 0, 118, 29)];
+    _sliderSwitch.labelCount = 2;
+    _sliderSwitch.delegate = self;
+    [_sliderSwitch initSliderSwitch];
+    [_sliderSwitch setSliderSwitchBackground:[UIImage imageNamed:@"top_tab_background2.png"]];
+    [_sliderSwitch setLabelOneText:@"囧图"];
+    [_sliderSwitch setLabelTwoText:@"美女"];
+}
 
 - (void)initView
 {
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
+    self.navigationItem.titleView = _sliderSwitch;
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_sideButton] autorelease];
+    
     self.collectionView = [[PSCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:self.collectionView];
     self.collectionView.delegate = self;
@@ -183,16 +241,14 @@
         _collectionView.footerView = _loadMoreFooterView;
     }
     
-    _currentPage = 0;
-    _requestType = RequestTypeNormal;
     self.picArray = [NSMutableArray array];
     
-    [self loadPSCollectionDataSource];
+    [self loadNeiHanPicDataSource];
 }
 
-- (void)loadPSCollectionDataSource
+- (void)loadNeiHanPicDataSource
 {
-    [self initNeiHanPicRequest:_currentPage];
+    [self initNeiHanPicRequestWithType:_neihanType andPage:_currentPage];
 }
 
 - (void)dataSourceDidLoad
@@ -202,21 +258,13 @@
 
 - (void)dataSourceDidError
 {
-    [Dialog simpleToast:@"呵呵,网络不行了!"];
+    [Dialog simpleToast:@"呵呵,挂了!"];
+    
     if (_reloading) {
         _reloading = NO;
         [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_collectionView];
         [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_collectionView];
     }
-}
-
-#pragma mark - ASIHTTPRequest method
-
-- (void)initNeiHanPicRequest:(NSInteger)page
-{
-    self.picRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_neihan_girl(page)]];
-    _picRequest.delegate = self;
-    [_picRequest startAsynchronous];
 }
 
 @end

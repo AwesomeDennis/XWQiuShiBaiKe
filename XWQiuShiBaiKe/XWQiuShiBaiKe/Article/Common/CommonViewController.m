@@ -33,6 +33,7 @@
 }
 
 #pragma mark - QiuShiCellDelegate method
+
 //点击图片
 - (void)didTapedQiuShiCellImage:(NSString *)midImageURL
 {

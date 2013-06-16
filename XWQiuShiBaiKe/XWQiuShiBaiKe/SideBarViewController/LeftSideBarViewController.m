@@ -165,7 +165,7 @@
         case 2:
             switch (indexPath.row) {
                 case 0:
-                    menuTitle = @"审核新糗事";
+                    menuTitle = @"福利图片";
                     break;
                 default:
                     break;
@@ -349,7 +349,6 @@
         }
     }
     else {
-        [Dialog toast:@"谢谢你，这个正在升级"];
         if (_neihanpicVC && _neihanpicVC.isLoaded) {
             return _neihanpicNavController;
         }

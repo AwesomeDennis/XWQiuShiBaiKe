@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "PSCollectionView.h"
 
-@interface NeiHanPicViewController : CommonViewController <PSCollectionViewDelegate, PSCollectionViewDataSource, ASIHTTPRequestDelegate>
+@interface NeiHanPicViewController : CommonViewController <PSCollectionViewDelegate, PSCollectionViewDataSource, ASIHTTPRequestDelegate, XWSliderSwitchDelegate>
 {
     EGORefreshTableHeaderView *_refreshHeaderView;
     LoadMoreFooterView *_loadMoreFooterView;
+    XWSliderSwitch *_sliderSwitch;
+    NeiHanType _neihanType;
     RequestType _requestType;
     NSInteger _currentPage;
     BOOL _reloading;
@@ -22,5 +24,7 @@
 @property (retain, nonatomic) NSMutableArray *picArray;
 @property (retain, nonatomic) PSCollectionView *collectionView;
 @property (retain, nonatomic) ASIHTTPRequest *picRequest;
+@property (retain, nonatomic) IBOutlet UIButton *sideButton;
+- (IBAction)sideButtonClicked:(id)sender;
 
 @end

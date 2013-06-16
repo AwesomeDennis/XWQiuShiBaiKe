@@ -30,6 +30,12 @@ typedef enum {
     QiuShiTypeHistory   = 4000        //穿越
 }QiuShiType;
 
+typedef enum {
+    NeiHanTypePic       = 5000,       //内涵-囧图
+    NeiHanTypeGirl      = 5001,       //内涵-女照
+    NeiHanTypeVideo     = 6000        //内涵-视频
+}NeiHanType;
+
 @interface Toolkit : NSObject
 
 + (BOOL)isExistenceNetwork;

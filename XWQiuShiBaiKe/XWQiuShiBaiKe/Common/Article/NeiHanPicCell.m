@@ -7,6 +7,7 @@
 //
 
 #import "NeiHanPicCell.h"
+#import "UIImageView+WebCache.h"
 
 #define MARGIN 5.0
 
@@ -17,13 +18,18 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor whiteColor];
+        self.layer.cornerRadius = 3;
+        self.layer.masksToBounds = YES;
+        self.backgroundColor = [UIColor colorWithRed:246.0/255.0 green:246.0/255.0 blue:236.0/255.0 alpha:1.0f];
+        
         self.imageView = [[[UIImageView alloc] initWithFrame:CGRectZero] autorelease];
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         self.imageView.clipsToBounds = YES;
         [self addSubview:self.imageView];
         
         self.captionLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
-        self.captionLabel.font = [UIFont boldSystemFontOfSize:14.0];
+        self.captionLabel.backgroundColor = [UIColor clearColor];
+        self.captionLabel.font = [UIFont systemFontOfSize:12.0];
         self.captionLabel.numberOfLines = 0;
         [self addSubview:self.captionLabel];
     }
@@ -56,7 +62,7 @@
     CGFloat objectWidth = [[self.object objectForKey:@"wpic_s_width"] floatValue];
     CGFloat objectHeight = [[self.object objectForKey:@"wpic_s_height"] floatValue];
     CGFloat scaledHeight = floorf(objectHeight / (objectWidth / width));
-    
+    if (scaledHeight > 250) scaledHeight = 250;
     self.imageView.frame = CGRectMake(left, top, width, scaledHeight);
     
     // Label
@@ -72,10 +78,7 @@
     [super collectionView:collectionView fillCellWithObject:object atIndex:index];
     
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [object objectForKey:@"wpic_middle"]]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        self.imageView.image = [UIImage imageWithData:data];
-    }];
+    [self.imageView setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]];
     
     self.captionLabel.text = [object objectForKey:@"wbody"];
 }
@@ -91,16 +94,17 @@
     CGFloat objectWidth = [[object objectForKey:@"wpic_s_width"] floatValue];
     CGFloat objectHeight = [[object objectForKey:@"wpic_s_height"] floatValue];
     CGFloat scaledHeight = floorf(objectHeight / (objectWidth / width));
+    if (scaledHeight > 250) scaledHeight = 250;
     height += scaledHeight;
     
     // Label
     NSString *caption = [object objectForKey:@"wbody"];
     CGSize labelSize = CGSizeZero;
-    UIFont *labelFont = [UIFont boldSystemFontOfSize:14.0];
+    UIFont *labelFont = [UIFont systemFontOfSize:12.0];
     labelSize = [caption sizeWithFont:labelFont constrainedToSize:CGSizeMake(width, INT_MAX) lineBreakMode:UILineBreakModeWordWrap];
     height += labelSize.height;
     
-    height += MARGIN;
+    height += MARGIN * 2;
     
     return height;
 }
