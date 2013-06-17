@@ -83,7 +83,6 @@
 
 - (void)collectionView:(PSCollectionView *)collectionView didSelectCell:(PSCollectionViewCell *)cell atIndex:(NSInteger)index
 {
-    NSLog(@"did click pic");
     NSDictionary *dict = [_picArray objectAtIndex:index];
     QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
     [qiushiImageVC setQiuShiImageURL:[dict objectForKey:@"wpic_middle"]];

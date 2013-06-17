@@ -162,7 +162,7 @@
         case 2:
             switch (indexPath.row) {
                 case 0:
-                    menuTitle = @"福利图片";
+                    menuTitle = @"内涵图片";
                     break;
                 case 1:
                     menuTitle = @"视频集锦";

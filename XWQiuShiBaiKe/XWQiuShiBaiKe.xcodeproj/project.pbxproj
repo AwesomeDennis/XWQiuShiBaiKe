@@ -29,6 +29,9 @@
 		19433594175E50F800FCEBD1 /* libUMAppNetwork_3.5.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19433590175E50F800FCEBD1 /* libUMAppNetwork_3.5.5.a */; };
 		19433595175E50F800FCEBD1 /* UMUFP.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19433591175E50F800FCEBD1 /* UMUFP.bundle */; };
 		194335A0175E526700FCEBD1 /* UMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1943359F175E526700FCEBD1 /* UMWebViewController.m */; };
+		1944092D176F429200CC590D /* NeiHanVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1944092B176F429200CC590D /* NeiHanVideoViewController.m */; };
+		1944092E176F429200CC590D /* NeiHanVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1944092C176F429200CC590D /* NeiHanVideoViewController.xib */; };
+		19440930176F4BE200CC590D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1944092F176F4BE200CC590D /* MediaPlayer.framework */; };
 		19454E97176025D80002E7CC /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19454E94176025D80002E7CC /* SVProgressHUD.bundle */; };
 		19454E98176025D80002E7CC /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 19454E96176025D80002E7CC /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		194560A617578095008E2CF4 /* MineCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194560A417578095008E2CF4 /* MineCollectViewController.m */; };
@@ -335,6 +338,10 @@
 		19433593175E50F800FCEBD1 /* UMUFPWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMUFPWebView.h; sourceTree = "<group>"; };
 		1943359E175E526700FCEBD1 /* UMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMWebViewController.h; sourceTree = "<group>"; };
 		1943359F175E526700FCEBD1 /* UMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMWebViewController.m; sourceTree = "<group>"; };
+		1944092A176F429200CC590D /* NeiHanVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanVideoViewController.h; sourceTree = "<group>"; };
+		1944092B176F429200CC590D /* NeiHanVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanVideoViewController.m; sourceTree = "<group>"; };
+		1944092C176F429200CC590D /* NeiHanVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NeiHanVideoViewController.xib; sourceTree = "<group>"; };
+		1944092F176F4BE200CC590D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		19454E94176025D80002E7CC /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		19454E95176025D80002E7CC /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		19454E96176025D80002E7CC /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -691,6 +698,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19440930176F4BE200CC590D /* MediaPlayer.framework in Frameworks */,
 				1988FACC176B044C0018D078 /* MessageUI.framework in Frameworks */,
 				1972B413175F2D9300C1F958 /* CoreText.framework in Frameworks */,
 				195C14D1174F426B00F9B000 /* QuartzCore.framework in Frameworks */,
@@ -729,6 +737,9 @@
 				19072AF5176CB89B00D1AD7C /* NeiHanPicViewController.h */,
 				19072AF6176CB89B00D1AD7C /* NeiHanPicViewController.m */,
 				19072AF7176CB89B00D1AD7C /* NeiHanPicViewController.xib */,
+				1944092A176F429200CC590D /* NeiHanVideoViewController.h */,
+				1944092B176F429200CC590D /* NeiHanVideoViewController.m */,
+				1944092C176F429200CC590D /* NeiHanVideoViewController.xib */,
 			);
 			path = NeiHan;
 			sourceTree = "<group>";
@@ -821,6 +832,7 @@
 		195C14A6174F409600F9B000 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1944092F176F4BE200CC590D /* MediaPlayer.framework */,
 				1988FACB176B044B0018D078 /* MessageUI.framework */,
 				1972B412175F2D9300C1F958 /* CoreText.framework */,
 				195C14D0174F426B00F9B000 /* QuartzCore.framework */,
@@ -1724,6 +1736,7 @@
 				19433595175E50F800FCEBD1 /* UMUFP.bundle in Resources */,
 				19454E97176025D80002E7CC /* SVProgressHUD.bundle in Resources */,
 				19072AF9176CB89B00D1AD7C /* NeiHanPicViewController.xib in Resources */,
+				1944092E176F429200CC590D /* NeiHanVideoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1831,6 +1844,7 @@
 				19072AF3176CB42E00D1AD7C /* NeiHanPicCell.m in Sources */,
 				19072AF8176CB89B00D1AD7C /* NeiHanPicViewController.m in Sources */,
 				1916E9FC176E9BFA0046B400 /* UIImage+animatedGIF.m in Sources */,
+				1944092D176F429200CC590D /* NeiHanVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
