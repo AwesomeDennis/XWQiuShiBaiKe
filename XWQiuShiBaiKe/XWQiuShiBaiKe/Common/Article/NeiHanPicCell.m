@@ -78,7 +78,17 @@
     [super collectionView:collectionView fillCellWithObject:object atIndex:index];
     
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [object objectForKey:@"wpic_middle"]]];
-    [self.imageView setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]];
+    if ([[object objectForKey:@"is_gif"] isEqualToString:@"1"]) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *image = [UIImage animatedImageWithAnimatedGIFURL:URL];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.imageView setImage:image];
+            });
+        });
+    }
+    else {
+        [self.imageView setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]];
+    }
     
     self.captionLabel.text = [object objectForKey:@"wbody"];
 }

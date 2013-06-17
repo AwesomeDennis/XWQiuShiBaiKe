@@ -11,5 +11,6 @@
 
 #import "NSDictionary+XWCategory.h"
 #import "UIColor+XWCategory.h"
+#import "UIImage+animatedGIF.h"
 
 #endif

@@ -76,13 +76,22 @@
 - (void)initImageWithURL:(NSString *)url
 {
     [self showProgressHUD];
+    if ([url hasSuffix:@"gif"]) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:url]];
+            if (!image) {
+                [self showCompletedHUD:@"加载失败了哦!"];
+            }
+            else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_previewImageView setImage:image];
+                    [self configPreviewImageViewWithImage:image];
+                });
+            }
+        });
+    }
     [_previewImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]success:^(UIImage *image,BOOL cached) {
-        CGRect rect = _previewImageView.frame;
-        rect.size.width = image.size.width;
-        rect.size.height = image.size.height;
-        _previewImageView.frame = rect;
-        [self resetLayoutByPreviewImageView];
-        [_hud hide:YES afterDelay:1];
+        [self configPreviewImageViewWithImage:image];
     } failure:^(NSError *error) {
         [self showCompletedHUD:@"加载失败了哦!"];
     }];
@@ -183,6 +192,19 @@
     if (!CGRectEqualToRect(_previewImageView.frame, frameToCenter)) {
         _previewImageView.frame = frameToCenter;
     }
+}
+
+/**
+ * @description 加载图片成功后设置image's frame
+ */
+- (void)configPreviewImageViewWithImage:(UIImage *)image
+{
+    CGRect rect = _previewImageView.frame;
+    rect.size.width = image.size.width;
+    rect.size.height = image.size.height;
+    _previewImageView.frame = rect;
+    [self resetLayoutByPreviewImageView];
+    [_hud hide:YES afterDelay:1];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)gesture

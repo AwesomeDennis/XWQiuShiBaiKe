@@ -14,6 +14,7 @@
 		19072AF3176CB42E00D1AD7C /* NeiHanPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AF2176CB42E00D1AD7C /* NeiHanPicCell.m */; };
 		19072AF8176CB89B00D1AD7C /* NeiHanPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AF6176CB89B00D1AD7C /* NeiHanPicViewController.m */; };
 		19072AF9176CB89B00D1AD7C /* NeiHanPicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19072AF7176CB89B00D1AD7C /* NeiHanPicViewController.xib */; };
+		1916E9FC176E9BFA0046B400 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 1916E9FB176E9BFA0046B400 /* UIImage+animatedGIF.m */; };
 		191EF6BA175DD390003748E2 /* CreateCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6B8175DD390003748E2 /* CreateCommentViewController.m */; };
 		191EF6BB175DD390003748E2 /* CreateCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */; };
 		191EF6BE175DD9CC003748E2 /* XWPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */; };
@@ -310,6 +311,8 @@
 		19072AF5176CB89B00D1AD7C /* NeiHanPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanPicViewController.h; sourceTree = "<group>"; };
 		19072AF6176CB89B00D1AD7C /* NeiHanPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanPicViewController.m; sourceTree = "<group>"; };
 		19072AF7176CB89B00D1AD7C /* NeiHanPicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NeiHanPicViewController.xib; sourceTree = "<group>"; };
+		1916E9FA176E9BFA0046B400 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		1916E9FB176E9BFA0046B400 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		191EF6B7175DD390003748E2 /* CreateCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCommentViewController.h; sourceTree = "<group>"; };
 		191EF6B8175DD390003748E2 /* CreateCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCommentViewController.m; sourceTree = "<group>"; };
 		191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateCommentViewController.xib; sourceTree = "<group>"; };
@@ -730,6 +733,15 @@
 			path = NeiHan;
 			sourceTree = "<group>";
 		};
+		1916E9F9176E9BFA0046B400 /* uiimage-from-animated-gif */ = {
+			isa = PBXGroup;
+			children = (
+				1916E9FA176E9BFA0046B400 /* UIImage+animatedGIF.h */,
+				1916E9FB176E9BFA0046B400 /* UIImage+animatedGIF.m */,
+			);
+			path = "uiimage-from-animated-gif";
+			sourceTree = "<group>";
+		};
 		1943358F175E50F800FCEBD1 /* UMAppNetwork_SDK_3.5.5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -981,6 +993,7 @@
 		195C1514174F43E800F9B000 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				1916E9F9176E9BFA0046B400 /* uiimage-from-animated-gif */,
 				19E232D31755F7FA0085BE89 /* XWCategory */,
 				195C1515174F43E800F9B000 /* MJPopupViewController */,
 				195C151A174F43E800F9B000 /* UIViewController+KNSemiModal */,
@@ -1817,6 +1830,7 @@
 				19072AF0176CB0C000D1AD7C /* PSCollectionViewCell.m in Sources */,
 				19072AF3176CB42E00D1AD7C /* NeiHanPicCell.m in Sources */,
 				19072AF8176CB89B00D1AD7C /* NeiHanPicViewController.m in Sources */,
+				1916E9FC176E9BFA0046B400 /* UIImage+animatedGIF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
