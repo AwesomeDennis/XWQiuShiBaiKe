@@ -12,6 +12,7 @@
 #import "XWFavoriteButton.h"
 #import "XWZoomInPlusView.h"
 #import "XWZoomInMinusView.h"
+#import "ASIHTTPRequest.h"
 
 @class QiuShi;
 
@@ -22,7 +23,7 @@
 
 @end
 
-@interface QiuShiCell : UITableViewCell
+@interface QiuShiCell : UITableViewCell <ASIHTTPRequestDelegate>
 {
     XWZoomInPlusView *_plusView;
     XWZoomInMinusView *_minusView;
@@ -31,12 +32,14 @@
     XWCommentButton *_commentButton;
     XWFavoriteButton *_favoriteButton;
     
+    NSString *qiushiId;
     NSString *_midImageURL;
     NSInteger voteForCount;
     NSInteger voteAgainstCount;
 }
 
 @property (assign, nonatomic) id<QiuShiCellDelegate> delegate;
+@property (retain, nonatomic) ASIHTTPRequest *collectRequest;
 @property (retain, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (retain, nonatomic) IBOutlet UILabel *nameLabel;
 @property (retain, nonatomic) IBOutlet UILabel *contentLabel;

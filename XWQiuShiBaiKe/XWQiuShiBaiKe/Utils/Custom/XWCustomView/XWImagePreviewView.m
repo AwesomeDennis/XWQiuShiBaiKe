@@ -214,10 +214,24 @@
     }
 }
 
+/**
+ * @description save image
+ */
 - (void)savePreviewImage
 {
     [self showProgressHUD];
+    //当前只支持保存普通图片
     UIImageWriteToSavedPhotosAlbum(_previewImageView.image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
+    
+    //该方法支持保存各种格式的图片
+    /*
+    ALAssetsLibrary *alLibrary = [[ALAssetsLibrary alloc] init];
+    [alLibrary writeImageDataToSavedPhotosAlbum:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ww3.sinaimg.cn/large/89318f8cjw1e5pypooi1sg207i04b165.gif"]] metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
+        NSLog(@"completion");
+        [self showCompletedHUD:@"ok"];
+    }];
+    [alLibrary release];
+     */
 }
 
 - (void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -226,6 +240,7 @@
     if (!error) {
         message = @"成功保存到相册";
         _saveImageButton.selected = YES;
+        _saveImageButton.enabled = NO;
     }
     else {
         message = [error description];

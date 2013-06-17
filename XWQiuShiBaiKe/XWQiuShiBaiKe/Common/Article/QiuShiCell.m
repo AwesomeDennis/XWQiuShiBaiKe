@@ -31,6 +31,7 @@
 
 - (void)dealloc
 {
+    SafeClearRequest(_collectRequest);
     [_commentButton release];
     [_favoriteButton release];
     [_voteForButton release];
@@ -54,6 +55,7 @@
     voteForCount = 0;
     voteAgainstCount = 0;
     
+    qiushiId = qiushi.qiushiID;
     voteForCount = qiushi.upCount;
     voteAgainstCount = qiushi.downCount;
     
@@ -166,12 +168,34 @@
     return height;
 }
 
+#pragma mark - ASIHTTPRequest delegate methods
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    id dict = [NSJSONSerialization JSONObjectWithData:[request responseData] options:NSJSONReadingAllowFragments error:nil];
+    NSString *err = [NSString stringWithFormat:@"%@", [dict objectForKey:@"err"]];
+    if ([err isEqualToString:@"0"]) {
+        [_favoriteButton setStateSelected:!_favoriteButton.selected];
+        [Dialog simpleToast:_favoriteButton.selected ? @"收藏成功" : @"取消收藏成功"];
+    }
+    else {
+        [Dialog simpleToast:@"收藏失败了"];
+    }
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    [Dialog simpleToast:@"网络不行了"];
+}
+
 #pragma mark - Private methods
 
 //点击图片
 - (void)handleSingleTap:(UITapGestureRecognizer *)gesture
 {
-    [_delegate didTapedQiuShiCellImage:_midImageURL];
+    if (_delegate && [_delegate respondsToSelector:@selector(didTapedQiuShiCellImage:)]) {
+        [_delegate didTapedQiuShiCellImage:_midImageURL];
+    }
 }
 
 - (void)initQiuShiCell
@@ -183,6 +207,9 @@
     [self addSubview:_minusView];
 }
 
+/**
+ * @description 顶按钮
+ */
 - (void)configVoteForButton:(CGFloat)y withTitle:(NSInteger)forCount
 {
     _voteForButton = [[XWVoteButton alloc] initWithFrame:CGRectMake(10, y, 65, 46)];
@@ -194,6 +221,9 @@
     [self addSubview:_voteForButton];
 }
 
+/**
+ * @description 踩按钮
+ */
 - (void)configVoteAgainstButton:(CGFloat)y withTitle:(NSInteger)againstCount
 {
     _voteAgainstButton = [[XWVoteButton alloc] initWithFrame:CGRectMake(85, y, 65, 46)];
@@ -212,6 +242,9 @@
     [self addSubview:_commentButton];
 }
 
+/**
+ * @description 收藏按钮
+ */
 - (void)configFavoriteButton:(CGFloat)y
 {
     _favoriteButton = [[XWFavoriteButton alloc] initWithFrame:CGRectMake(265, 45, 35, 46)];
@@ -222,6 +255,9 @@
     [self addSubview:_favoriteButton];
 }
 
+/**
+ * @description 顶、踩、收藏按钮点击事件，顶踩接口参数未知
+ */
 - (void)voteForButtonClicked
 {
     [_voteForButton setStateSelected:YES];
@@ -252,7 +288,25 @@
 
 - (void)favoriteButtonClicked
 {
-    [_favoriteButton setStateSelected:!_favoriteButton.selected];
+    //收藏先判断是否登录
+    if ([Toolkit getQBTokenLocal]) {
+        [self initCollectRequestWithMethod:_favoriteButton.selected ? @"DELETE" : @"POST"];
+    }
+    else {
+        [Dialog simpleToast:@"请先登录后再收藏"];
+    }
+}
+
+#pragma mark - ASIHTTPRequest method
+
+- (void)initCollectRequestWithMethod:(NSString *)method
+{
+    NSURL *url = [NSURL URLWithString:api_qiushi_collect(qiushiId)];
+    self.collectRequest = [ASIHTTPRequest requestWithURL:url];
+    _collectRequest.delegate = self;
+    [_collectRequest addRequestHeader:@"Qbtoken" value:[Toolkit getQBTokenLocal]];
+    [_collectRequest setRequestMethod:method];
+    [_collectRequest startAsynchronous];
 }
 
 @end

@@ -83,6 +83,10 @@ obj = nil;\
 #define api_mine_participate(page, count)        [NSString stringWithFormat:@"http://m2.qiushibaike.com/user/my/participate?page=%d&count=%d", page, count]
 //我发表的: GET Header:Qbtoken
 #define api_mine_articles(page, count)           [NSString stringWithFormat:@"http://m2.qiushibaike.com/user/my/articles?page=%d&count=%d", page, count]
+//收藏功能 POST Header:Qbtoken
+#define api_qiushi_collect(id)                   [NSString stringWithFormat:@"http://m2.qiushibaike.com/collect/%@", id]
+//取消收藏功能 DELETE Header:Qbtoken
+#define api_qiushi_delete(id)                    [NSString stringWithFormat:@"http://m2.qiushibaike.com/collect/%@", id]
 //发布糗事:POST Header:Qbtoken:94b0843c2b1b940a5b50594e5422ef6d976dedcb Content-Type:multipart/form-data; boundary=ixhan-dot-com
 #define api_qiushi_create                        @"http://m2.qiushibaike.com/article/create"
 /*
@@ -125,7 +129,6 @@ obj = nil;\
 /**
  *@brief 内涵 api
  */
-
 //段子: GET
 #define api_neihan_joke(page)                  [NSString stringWithFormat:@"http://42.121.111.22/weibofun/weibo_list.php?apiver=10200&category=weibo_jokes&page=%d&page_size=30&max_timestamp=-1&vip=1&platform=iphone", page]
 //趣图: GET

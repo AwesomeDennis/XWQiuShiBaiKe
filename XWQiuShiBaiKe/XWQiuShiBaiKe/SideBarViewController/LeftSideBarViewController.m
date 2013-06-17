@@ -108,10 +108,10 @@
             rows = 4;
             break;
         case 1:
-            rows = 3;
+            rows = 2;
             break;
         case 2:
-            rows = 1;
+            rows = 2;
             break;
         default:
             break;
@@ -155,9 +155,6 @@
                 case 1:
                     menuTitle = @"我参与的";
                     break;
-                case 2:
-                    menuTitle = @"我发表的";
-                    break;
                 default:
                     break;
             }
@@ -166,6 +163,9 @@
             switch (indexPath.row) {
                 case 0:
                     menuTitle = @"福利图片";
+                    break;
+                case 1:
+                    menuTitle = @"视频集锦";
                     break;
                 default:
                     break;
@@ -334,9 +334,6 @@
                     }
                 }
                     break;
-                case 2:
-                    
-                    break;
                 default:
                     break;
             }
@@ -349,13 +346,25 @@
         }
     }
     else {
-        if (_neihanpicVC && _neihanpicVC.isLoaded) {
-            return _neihanpicNavController;
-        }
-        else {
-            _neihanpicVC = [[NeiHanPicViewController alloc] initWithNibName:@"NeiHanPicViewController" bundle:nil];
-            _neihanpicNavController = [self configNavigationController:_neihanpicNavController withRootVC:_neihanpicVC];
-            return _neihanpicNavController;
+        switch (indexPath.row) {
+            case 0:
+            {
+                if (_neihanpicVC && _neihanpicVC.isLoaded) {
+                    return _neihanpicNavController;
+                }
+                else {
+                    _neihanpicVC = [[NeiHanPicViewController alloc] initWithNibName:@"NeiHanPicViewController" bundle:nil];
+                    _neihanpicNavController = [self configNavigationController:_neihanpicNavController withRootVC:_neihanpicVC];
+                    return _neihanpicNavController;
+                }
+            }
+                break;
+            case 1:
+            {
+                [Dialog simpleToast:@"正在升级中..."];
+            }
+            default:
+                break;
         }
     }
 
