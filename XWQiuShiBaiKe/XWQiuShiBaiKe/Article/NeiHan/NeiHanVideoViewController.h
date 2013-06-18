@@ -7,11 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
+#import "PSCollectionView.h"
 
-@interface NeiHanVideoViewController : CommonViewController
+@interface NeiHanVideoViewController : CommonViewController <PSCollectionViewDelegate, PSCollectionViewDataSource, ASIHTTPRequestDelegate>
+{
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    LoadMoreFooterView *_loadMoreFooterView;
+    RequestType _requestType;
+    NSInteger _currentPage;
+    BOOL _reloading;
+}
 
+@property (nonatomic) BOOL isLoaded;
+@property (retain, nonatomic) NSMutableArray *videoArray;
+@property (retain, nonatomic) PSCollectionView *collectionView;
+@property (retain, nonatomic) ASIHTTPRequest *videoRequest;
 @property (retain, nonatomic) IBOutlet UIButton *sideButton;
 
 - (IBAction)sideButtonClicked:(id)sender;
+
 @end

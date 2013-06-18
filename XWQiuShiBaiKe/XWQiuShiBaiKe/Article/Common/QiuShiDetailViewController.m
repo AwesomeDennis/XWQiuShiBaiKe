@@ -48,13 +48,13 @@
 - (void)dealloc
 {
     SafeClearRequest(_commentRequest);
-        
     [_loadMoreFooterView release];
     [_commentArray release];
     [_qiushiDetailTableView release];
     [_backButton release];
     [_shareButton release];
     [_commentBackgroundImageView release];
+    
     [super dealloc];
 }
 

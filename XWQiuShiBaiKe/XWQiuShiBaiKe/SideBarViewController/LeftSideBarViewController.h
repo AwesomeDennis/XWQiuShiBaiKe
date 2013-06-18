@@ -18,6 +18,7 @@
 #import "MineParticipateViewController.h"
 #import "MineArticlesViewController.h"
 #import "NeiHanPicViewController.h"
+#import "NeiHanVideoViewController.h"
 
 @protocol SideBarSelectedDelegate;
 
@@ -46,6 +47,9 @@
 
 @property (retain, nonatomic) NeiHanPicViewController *neihanpicVC;
 @property (retain, nonatomic) UINavigationController *neihanpicNavController;
+
+@property (retain, nonatomic) NeiHanVideoViewController *neihanvideoVC;
+@property (retain, nonatomic) UINavigationController *neihanvideoNavController;
 
 @property (assign, nonatomic) id<SideBarSelectedDelegate> delegate;
 @property (retain, nonatomic) IBOutlet UIButton *sideSettingButton;

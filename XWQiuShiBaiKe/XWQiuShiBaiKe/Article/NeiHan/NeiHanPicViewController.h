@@ -25,6 +25,7 @@
 @property (retain, nonatomic) PSCollectionView *collectionView;
 @property (retain, nonatomic) ASIHTTPRequest *picRequest;
 @property (retain, nonatomic) IBOutlet UIButton *sideButton;
+
 - (IBAction)sideButtonClicked:(id)sender;
 
 @end

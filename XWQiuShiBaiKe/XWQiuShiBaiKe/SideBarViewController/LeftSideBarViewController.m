@@ -361,7 +361,14 @@
                 break;
             case 1:
             {
-                [Dialog simpleToast:@"正在升级中..."];
+                if (_neihanvideoVC && _neihanvideoVC.isLoaded) {
+                    return _neihanvideoNavController;
+                }
+                else {
+                    _neihanvideoVC = [[NeiHanVideoViewController alloc] initWithNibName:@"NeiHanVideoViewController" bundle:nil];
+                    _neihanvideoNavController = [self configNavigationController:_neihanvideoNavController withRootVC:_neihanvideoVC];
+                    return _neihanvideoNavController;
+                }
             }
             default:
                 break;
