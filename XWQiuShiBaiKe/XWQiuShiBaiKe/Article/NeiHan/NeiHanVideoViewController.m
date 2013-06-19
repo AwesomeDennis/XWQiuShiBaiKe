@@ -30,27 +30,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //http://my.tv.sohu.com/ipad/57087853.m3u8
+    //test video url:http://my.tv.sohu.com/ipad/57087853.m3u8
     _isLoaded = YES;
     _requestType = RequestTypeNormal;
     _currentPage = 0;
     
     [self initView];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    return YES;
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAll;
 }
 
 - (void)dealloc

@@ -170,9 +170,9 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                
                 break;
-                
+            case 1:
+                [Dialog alert:@"清除缓存成功"];
             default:
                 break;
         }

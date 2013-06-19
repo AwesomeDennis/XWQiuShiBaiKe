@@ -688,7 +688,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         [self.delegate trackEvent:kTrackEventVideoComplete videoID:[_currentVideoInfo objectForKey:@"videoID"] title:[_currentVideoInfo objectForKey:@"title"]];
     }
     
-    [self minimizeVideo];
+    [self fullScreenButtonHandler];
 }
 
 - (void)syncScrubber

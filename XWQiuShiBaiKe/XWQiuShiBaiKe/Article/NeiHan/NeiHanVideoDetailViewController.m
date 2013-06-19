@@ -51,13 +51,14 @@
 
 - (IBAction)shareButtonClicked:(id)sender
 {
-    
+    [Dialog simpleToast:@"还没有分享功能哦"];
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
+    [self.videoPlayerViewController release];
     [_backButton release];
     [_videoBodyLabel release];
     [_shareButton release];
@@ -77,7 +78,7 @@
 - (void)initViews
 {
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_backButton];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_backButton] autorelease];
 }
 
 // Fullscreen / minimize without need for user's input
