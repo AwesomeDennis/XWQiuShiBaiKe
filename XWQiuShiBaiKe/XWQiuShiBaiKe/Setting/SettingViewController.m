@@ -9,6 +9,8 @@
 #import "SettingViewController.h"
 #import "UIViewController+KNSemiModal.h"
 #import "UMWebViewController.h"
+#import "DeveloperInfoViewController.h"
+#import "AboutViewController.h"
 
 @interface SettingViewController ()
 
@@ -173,19 +175,28 @@
                 break;
             case 1:
                 [Dialog alert:@"清除缓存成功"];
+                break;
             default:
                 break;
         }
     }
     else if (indexPath.section == 1) {
-        
+        DeveloperInfoViewController *vc = [[DeveloperInfoViewController alloc] initWithNibName:@"DeveloperInfoViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        [vc release];
     }
     else if (indexPath.section == 2) {
         switch (indexPath.row) {
             case 0:
                 [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
                 break;
-                
+            case 2:
+            {
+                AboutViewController *vc = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
+            }
+                break;
             default:
                 break;
         }

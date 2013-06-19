@@ -15,6 +15,10 @@
 		19072AF8176CB89B00D1AD7C /* NeiHanPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AF6176CB89B00D1AD7C /* NeiHanPicViewController.m */; };
 		19072AF9176CB89B00D1AD7C /* NeiHanPicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19072AF7176CB89B00D1AD7C /* NeiHanPicViewController.xib */; };
 		1916E9FC176E9BFA0046B400 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 1916E9FB176E9BFA0046B400 /* UIImage+animatedGIF.m */; };
+		1918272A1771AE2300240951 /* DeveloperInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191827281771AE2300240951 /* DeveloperInfoViewController.m */; };
+		1918272B1771AE2300240951 /* DeveloperInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191827291771AE2300240951 /* DeveloperInfoViewController.xib */; };
+		1918272F1771AE7900240951 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1918272D1771AE7800240951 /* AboutViewController.m */; };
+		191827301771AE7900240951 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1918272E1771AE7800240951 /* AboutViewController.xib */; };
 		191EF6BA175DD390003748E2 /* CreateCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6B8175DD390003748E2 /* CreateCommentViewController.m */; };
 		191EF6BB175DD390003748E2 /* CreateCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */; };
 		191EF6BE175DD9CC003748E2 /* XWPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */; };
@@ -341,6 +345,12 @@
 		19072AF7176CB89B00D1AD7C /* NeiHanPicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NeiHanPicViewController.xib; sourceTree = "<group>"; };
 		1916E9FA176E9BFA0046B400 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		1916E9FB176E9BFA0046B400 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		191827271771AE2300240951 /* DeveloperInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeveloperInfoViewController.h; sourceTree = "<group>"; };
+		191827281771AE2300240951 /* DeveloperInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeveloperInfoViewController.m; sourceTree = "<group>"; };
+		191827291771AE2300240951 /* DeveloperInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeveloperInfoViewController.xib; sourceTree = "<group>"; };
+		1918272C1771AE7800240951 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		1918272D1771AE7800240951 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		1918272E1771AE7800240951 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		191EF6B7175DD390003748E2 /* CreateCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCommentViewController.h; sourceTree = "<group>"; };
 		191EF6B8175DD390003748E2 /* CreateCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCommentViewController.m; sourceTree = "<group>"; };
 		191EF6B9175DD390003748E2 /* CreateCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateCommentViewController.xib; sourceTree = "<group>"; };
@@ -1226,6 +1236,12 @@
 				195C158F174F43F200F9B000 /* SettingViewController.xib */,
 				1943359E175E526700FCEBD1 /* UMWebViewController.h */,
 				1943359F175E526700FCEBD1 /* UMWebViewController.m */,
+				191827271771AE2300240951 /* DeveloperInfoViewController.h */,
+				191827281771AE2300240951 /* DeveloperInfoViewController.m */,
+				191827291771AE2300240951 /* DeveloperInfoViewController.xib */,
+				1918272C1771AE7800240951 /* AboutViewController.h */,
+				1918272D1771AE7800240951 /* AboutViewController.m */,
+				1918272E1771AE7800240951 /* AboutViewController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1871,6 +1887,8 @@
 				1998B6FA17706FA700F67601 /* transparentBar.png in Resources */,
 				1998B6FB17706FA700F67601 /* transparentBar@2x.png in Resources */,
 				1998B70517706FF900F67601 /* NeiHanVideoDetailViewController.xib in Resources */,
+				1918272B1771AE2300240951 /* DeveloperInfoViewController.xib in Resources */,
+				191827301771AE7900240951 /* AboutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1987,6 +2005,8 @@
 				1998B70417706FF900F67601 /* NeiHanVideoDetailViewController.m in Sources */,
 				1998B70817708CFF00F67601 /* NeiHanVideoCell.m in Sources */,
 				193382D317715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m in Sources */,
+				1918272A1771AE2300240951 /* DeveloperInfoViewController.m in Sources */,
+				1918272F1771AE7900240951 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
