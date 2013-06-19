@@ -45,7 +45,12 @@
     [super viewDidLoad];
     
     self.title = @"精彩推荐";
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonDidClicked)] autorelease];
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setFrame:CGRectMake(0, 0, 32, 32)];
+    [backBtn setImage:[UIImage imageNamed:@"icon_back_enable.png"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backButtonDidClicked) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backBtn] autorelease];
+    //self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonDidClicked)] autorelease];
     //CGFloat navigationBarHeight = self.navigationController.navigationBar.bounds.size.height;
     
     //_mWebView = [[UMUFPWebView alloc] initWithFrame:CGRectMake(0, navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight) appKey:@"4f7046375270156912000011" slotId:nil];

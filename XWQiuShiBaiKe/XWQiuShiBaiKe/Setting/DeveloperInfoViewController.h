@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DeveloperInfoViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UIButton *backButton;
+- (IBAction)backButtonClicked:(id)sender;
 
 @end

@@ -181,9 +181,7 @@
         }
     }
     else if (indexPath.section == 1) {
-        DeveloperInfoViewController *vc = [[DeveloperInfoViewController alloc] initWithNibName:@"DeveloperInfoViewController" bundle:nil];
-        [self.navigationController pushViewController:vc animated:YES];
-        [vc release];
+        [self showDeveloperInfoView];
     }
     else if (indexPath.section == 2) {
         switch (indexPath.row) {
@@ -191,11 +189,7 @@
                 [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
                 break;
             case 2:
-            {
-                AboutViewController *vc = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
-                [self.navigationController pushViewController:vc animated:YES];
-                [vc release];
-            }
+                [self showAppAboutView];
                 break;
             default:
                 break;
@@ -240,15 +234,30 @@
     [self dismissSemiModalViewWithCompletion:nil];
 }
 
+- (void)showDeveloperInfoView
+{
+    DeveloperInfoViewController *vc = [[DeveloperInfoViewController alloc] initWithNibName:@"DeveloperInfoViewController" bundle:nil];
+    [self presentCustomViewController:vc];
+}
+
+- (void)showAppAboutView
+{
+    AboutViewController *vc = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+    [self presentCustomViewController:vc];
+}
+
 - (void)showAppRecommendWebView
 {
     UMWebViewController *controller = [[UMWebViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
-    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forBarMetrics:UIBarMetricsDefault];
-    //nav.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:nav animated:YES completion:nil];
-    [nav release];
-    [controller release];
+    [self presentCustomViewController:controller];
 }
 
+- (void)presentCustomViewController:(UIViewController *)vc
+{
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"head_background.png"] forBarMetrics:UIBarMetricsDefault];
+    [self presentViewController:nav animated:YES completion:nil];
+    [nav release];
+    [vc release];
+}
 @end
