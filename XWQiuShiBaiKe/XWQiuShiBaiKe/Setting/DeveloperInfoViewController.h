@@ -10,6 +10,7 @@
 
 @interface DeveloperInfoViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UIButton *backButton;
+@property (retain, nonatomic) IBOutlet UIWebView *devInfoWebView;
 - (IBAction)backButtonClicked:(id)sender;
 
 @end

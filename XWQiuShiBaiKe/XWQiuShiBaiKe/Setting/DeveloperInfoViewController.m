@@ -29,17 +29,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initViews];
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"developer" ofType:@"html"];
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    [_devInfoWebView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)dealloc
 {
     [_backButton release];
+    [_devInfoWebView release];
     [super dealloc];
 }
 
 - (void)viewDidUnload
 {
     [self setBackButton:nil];
+    [self setDevInfoWebView:nil];
     [super viewDidUnload];
 }
 
@@ -53,4 +59,5 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_backButton] autorelease];
 }
+
 @end

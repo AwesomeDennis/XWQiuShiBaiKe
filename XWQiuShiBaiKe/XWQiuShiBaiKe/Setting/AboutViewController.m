@@ -29,10 +29,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initViews];
+    
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"about" ofType:@"html"];
-    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    htmlString = [htmlString stringByReplacingOccurrencesOfString:@"#AppVersion#" withString:@"1.0.0"];
-    [_aboutWebView loadHTMLString:htmlString baseURL:nil];
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    [_aboutWebView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)dealloc
