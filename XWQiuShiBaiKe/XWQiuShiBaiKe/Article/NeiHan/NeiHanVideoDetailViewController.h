@@ -11,10 +11,10 @@
 
 @interface NeiHanVideoDetailViewController : UIViewController <VideoPlayerDelegate>
 
-@property (strong, nonatomic) NSDictionary *videoDict;
-
-@property (strong, nonatomic) IBOutlet UILabel *videoBodyLabel;
-@property (strong, nonatomic) IBOutlet UIButton *backButton;
+@property (retain, nonatomic) NSDictionary *videoDict;
+@property (retain, nonatomic) VideoPlayerKit *videoPlayerViewController;
+@property (retain, nonatomic) IBOutlet UILabel *videoBodyLabel;
+@property (retain, nonatomic) IBOutlet UIButton *backButton;
 
 - (IBAction)backButtonClicked:(id)sender;
 

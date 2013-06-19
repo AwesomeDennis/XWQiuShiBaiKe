@@ -311,7 +311,7 @@
 		1998B6FE17706FA700F67601 /* FullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1998B6E817706FA700F67601 /* FullScreenViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		1998B6FF17706FA700F67601 /* VideoPlayerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1998B6EB17706FA700F67601 /* VideoPlayerKit.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		1998B70017706FA700F67601 /* VideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1998B6ED17706FA700F67601 /* VideoPlayerView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		1998B70417706FF900F67601 /* NeiHanVideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1998B70217706FF900F67601 /* NeiHanVideoDetailViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1998B70417706FF900F67601 /* NeiHanVideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1998B70217706FF900F67601 /* NeiHanVideoDetailViewController.m */; };
 		1998B70517706FF900F67601 /* NeiHanVideoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1998B70317706FF900F67601 /* NeiHanVideoDetailViewController.xib */; };
 		1998B70817708CFF00F67601 /* NeiHanVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1998B70717708CFF00F67601 /* NeiHanVideoCell.m */; };
 		19A7555217572A1600B75C96 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7554F17572A1600B75C96 /* libUMFeedback.a */; };

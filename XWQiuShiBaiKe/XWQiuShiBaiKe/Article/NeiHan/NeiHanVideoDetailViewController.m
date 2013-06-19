@@ -9,7 +9,7 @@
 #import "NeiHanVideoDetailViewController.h"
 
 @interface NeiHanVideoDetailViewController ()
-@property (strong, nonatomic) VideoPlayerKit *videoPlayerViewController;
+
 @end
 
 @implementation NeiHanVideoDetailViewController
@@ -41,7 +41,7 @@
     }
     [self.videoPlayerViewController.view setFrame:CGRectMake(0, 0, 320, 230)];
     [self.view addSubview:self.videoPlayerViewController.view];
-    [self.videoPlayerViewController playVideoWithTitle:@"" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:YES];
+    [self.videoPlayerViewController playVideoWithTitle:@"" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:NO];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -68,14 +68,14 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-/*
+
 - (void)dealloc
 {
     [_backButton release];
     [_videoBodyLabel release];
     [super dealloc];
 }
-*/
+
 - (void)viewDidUnload
 {
     [self setBackButton:nil];

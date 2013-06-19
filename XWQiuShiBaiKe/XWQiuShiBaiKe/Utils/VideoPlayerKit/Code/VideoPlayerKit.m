@@ -291,7 +291,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
             self.previousBounds = self.videoPlayerView.frame;
             [UIView animateWithDuration:0.45f
                                   delay:0.0f
-                                options:UIViewAnimationOptionCurveLinear
+                                options:UIViewAnimationCurveLinear
                              animations:^{
                                  [self.videoPlayerView setCenter:CGPointMake( self.videoPlayerView.superview.bounds.size.width / 2, ( self.videoPlayerView.superview.bounds.size.height / 2))];
                                  self.videoPlayerView.bounds = self.videoPlayerView.superview.bounds;
@@ -306,7 +306,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                 [self.videoPlayerView setCenter:CGPointMake( self.videoPlayerView.superview.bounds.size.width / 2, self.videoPlayerView.superview.bounds.size.height / 2)];
                 [UIView animateWithDuration:0.25f
                                       delay:0.0f
-                                    options:UIViewAnimationOptionCurveLinear
+                                    options:UIViewAnimationCurveLinear
                                  animations:^{
                                      self.videoPlayerView.alpha = 1.0;
                                  }
@@ -341,7 +341,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         if (self.isAlwaysFullscreen) {
             [UIView animateWithDuration:0.45f
                                   delay:0.0f
-                                options:UIViewAnimationOptionCurveLinear
+                                options:UIViewAnimationCurveLinear
                              animations:^{
                                  self.videoPlayerView.frame = self.previousBounds;
                              }
@@ -356,7 +356,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         } else {
             [UIView animateWithDuration:0.45f
                                   delay:0.0f
-                                options:UIViewAnimationOptionCurveLinear
+                                options:UIViewAnimationCurveLinear
                              animations:^{
                                  self.videoPlayerView.frame = self.previousBounds;
                              }
