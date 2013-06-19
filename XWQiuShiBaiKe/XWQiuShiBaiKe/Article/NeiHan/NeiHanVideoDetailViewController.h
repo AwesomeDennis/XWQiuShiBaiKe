@@ -15,7 +15,9 @@
 @property (retain, nonatomic) VideoPlayerKit *videoPlayerViewController;
 @property (retain, nonatomic) IBOutlet UILabel *videoBodyLabel;
 @property (retain, nonatomic) IBOutlet UIButton *backButton;
+@property (retain, nonatomic) IBOutlet UIButton *shareButton;
 
 - (IBAction)backButtonClicked:(id)sender;
+- (IBAction)shareButtonClicked:(id)sender;
 
 @end

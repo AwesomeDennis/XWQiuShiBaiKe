@@ -30,12 +30,12 @@
     // Do any additional setup after loading the view from its nib.
     [self initViews];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
     _videoBodyLabel.text = [_videoDict objectForKey:@"wbody"];
     NSURL *url = [NSURL URLWithString:[_videoDict objectForKey:@"vplay_url"]];
     if (!self.videoPlayerViewController) {
         self.videoPlayerViewController = [VideoPlayerKit videoPlayerWithContainingViewController:self optionalTopView:nil hideTopViewWithControls:YES];
-        // Need to set edge inset if top view is inserted
-        //[self.videoPlayerViewController setControlsEdgeInsets:UIEdgeInsetsMake(self.topView.frame.size.height, 0, 0, 0)];
         self.videoPlayerViewController.delegate = self;
         self.videoPlayerViewController.allowPortraitFullscreen = NO;
     }
@@ -44,35 +44,23 @@
     [self.videoPlayerViewController playVideoWithTitle:@"" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:NO];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    return YES;
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    NSLog(@"rotate:%d", toInterfaceOrientation);
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAll;
-}
-
 - (IBAction)backButtonClicked:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)shareButtonClicked:(id)sender
+{
+    
+}
+
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [_backButton release];
     [_videoBodyLabel release];
+    [_shareButton release];
     [super dealloc];
 }
 
@@ -80,6 +68,7 @@
 {
     [self setBackButton:nil];
     [self setVideoBodyLabel:nil];
+    [self setShareButton:nil];
     [super viewDidUnload];
 }
 
@@ -98,6 +87,19 @@
         [self.videoPlayerViewController launchFullScreen];
     } else {
         [self.videoPlayerViewController minimizeVideo];
+    }
+}
+
+/**
+ * @description 横屏时自动进入全屏，竖屏时退出全屏
+ */
+- (void)orientationChanged:(NSNotification *)notification
+{
+    if ((UIInterfaceOrientationIsPortrait([[notification object] orientation])
+         && self.videoPlayerViewController.fullScreenModeToggled)
+        || (UIInterfaceOrientationIsLandscape([[notification object] orientation])
+            && !self.videoPlayerViewController.fullScreenModeToggled)) {
+        [self.videoPlayerViewController fullScreenButtonHandler];
     }
 }
 

@@ -12,5 +12,6 @@
 #import "NSDictionary+XWCategory.h"
 #import "UIColor+XWCategory.h"
 #import "UIImage+animatedGIF.h"
+#import "UINavigationController+Rotation_IOS6.h"
 
 #endif

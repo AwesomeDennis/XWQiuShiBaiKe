@@ -59,7 +59,7 @@
     CGFloat left = MARGIN;
     
     // Image
-    self.imageView.frame = CGRectMake(left, top, 130, 120);
+    self.imageView.frame = CGRectMake(left, top, 138, 120);
     
     // Label
     CGSize labelSize = CGSizeZero;

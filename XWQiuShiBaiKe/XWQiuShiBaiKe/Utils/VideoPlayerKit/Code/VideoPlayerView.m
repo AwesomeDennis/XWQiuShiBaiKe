@@ -104,6 +104,8 @@
         _shareButton = [[UIButton alloc] init];
         [_shareButton setImage:[UIImage imageNamed:@"share-button"] forState:UIControlStateNormal];
         [_shareButton setShowsTouchWhenHighlighted:YES];
+        //未添加分享功能，先隐藏该按钮
+        [_shareButton setHidden:YES];
         
         [self addSubview:_shareButton];
         self.controlsEdgeInsets = UIEdgeInsetsZero;
@@ -115,7 +117,6 @@
 {
     [_airplayButton removeObserver:self forKeyPath:@"alpha"];
 }
-
 
 - (void)layoutSubviews
 {

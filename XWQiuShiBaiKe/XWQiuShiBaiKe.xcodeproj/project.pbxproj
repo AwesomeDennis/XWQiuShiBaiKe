@@ -21,6 +21,7 @@
 		191EF6C1175DDC3F003748E2 /* block_post_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6BF175DDC3F003748E2 /* block_post_background.png */; };
 		191EF6C2175DDC3F003748E2 /* block_post_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6C0175DDC3F003748E2 /* block_post_background@2x.png */; };
 		193055F2175619E2009DEE32 /* QBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 193055F1175619E2009DEE32 /* QBUser.m */; };
+		193382D317715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m in Sources */ = {isa = PBXBuildFile; fileRef = 193382D217715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m */; };
 		193E0E601754966A00DA99D7 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E5F1754966A00DA99D7 /* 57.png */; };
 		193E0E621754967400DA99D7 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E611754967400DA99D7 /* 114.png */; };
 		193E0E64175497F200DA99D7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E63175497F200DA99D7 /* Default.png */; };
@@ -349,6 +350,8 @@
 		191EF6C0175DDC3F003748E2 /* block_post_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block_post_background@2x.png"; sourceTree = "<group>"; };
 		193055F0175619E2009DEE32 /* QBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBUser.h; sourceTree = "<group>"; };
 		193055F1175619E2009DEE32 /* QBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBUser.m; sourceTree = "<group>"; };
+		193382D117715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Rotation_IOS6.h"; sourceTree = "<group>"; };
+		193382D217715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Rotation_IOS6.m"; sourceTree = "<group>"; };
 		193E0E5F1754966A00DA99D7 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57.png; path = ../57.png; sourceTree = "<group>"; };
 		193E0E611754967400DA99D7 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = ../114.png; sourceTree = "<group>"; };
 		193E0E63175497F200DA99D7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -1581,6 +1584,8 @@
 				1943358A175DFE1400FCEBD1 /* UIColor+XWCategory.m */,
 				1943358C175DFF3F00FCEBD1 /* NSDictionary+XWCategory.h */,
 				1943358D175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m */,
+				193382D117715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.h */,
+				193382D217715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m */,
 			);
 			path = XWCategory;
 			sourceTree = "<group>";
@@ -1981,6 +1986,7 @@
 				1998B70017706FA700F67601 /* VideoPlayerView.m in Sources */,
 				1998B70417706FF900F67601 /* NeiHanVideoDetailViewController.m in Sources */,
 				1998B70817708CFF00F67601 /* NeiHanVideoCell.m in Sources */,
+				193382D317715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

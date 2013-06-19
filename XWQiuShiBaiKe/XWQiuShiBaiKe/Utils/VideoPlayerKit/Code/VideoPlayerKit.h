@@ -22,6 +22,7 @@
 - (void)launchFullScreen;
 - (void)minimizeVideo;
 - (void)playPauseHandler;
+- (void)fullScreenButtonHandler;
 + (VideoPlayerKit *)videoPlayerWithContainingViewController:(UIViewController *)containingViewController
                                             optionalTopView:(UIView *)topView
                                     hideTopViewWithControls:(BOOL)hideTopViewWithControls;
