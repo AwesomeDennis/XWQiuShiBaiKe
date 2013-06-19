@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190144FB1771EC830088C07B /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 190144F51771EC830088C07B /* about.html */; };
+		190144FC1771EC830088C07B /* app.html in Resources */ = {isa = PBXBuildFile; fileRef = 190144F61771EC830088C07B /* app.html */; };
+		190144FD1771EC830088C07B /* q01.png in Resources */ = {isa = PBXBuildFile; fileRef = 190144F71771EC830088C07B /* q01.png */; };
+		190144FE1771EC830088C07B /* q02.png in Resources */ = {isa = PBXBuildFile; fileRef = 190144F81771EC830088C07B /* q02.png */; };
+		190144FF1771EC830088C07B /* q03.png in Resources */ = {isa = PBXBuildFile; fileRef = 190144F91771EC830088C07B /* q03.png */; };
+		190145001771EC830088C07B /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 190144FA1771EC830088C07B /* style.css */; };
+		190145021771F39D0088C07B /* developer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 190145011771F39D0088C07B /* developer.jpg */; };
 		19072AE3176C88EF00D1AD7C /* NeiHanPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AE2176C88EF00D1AD7C /* NeiHanPicture.m */; };
 		19072AE6176C890600D1AD7C /* NeiHanVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AE5176C890600D1AD7C /* NeiHanVideo.m */; };
 		19072AEF176CB0C000D1AD7C /* PSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19072AEC176CB0C000D1AD7C /* PSCollectionView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -330,6 +337,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190144F51771EC830088C07B /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		190144F61771EC830088C07B /* app.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = app.html; sourceTree = "<group>"; };
+		190144F71771EC830088C07B /* q01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q01.png; sourceTree = "<group>"; };
+		190144F81771EC830088C07B /* q02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q02.png; sourceTree = "<group>"; };
+		190144F91771EC830088C07B /* q03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q03.png; sourceTree = "<group>"; };
+		190144FA1771EC830088C07B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		190145011771F39D0088C07B /* developer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = developer.jpg; sourceTree = "<group>"; };
 		19072AE1176C88EF00D1AD7C /* NeiHanPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanPicture.h; sourceTree = "<group>"; };
 		19072AE2176C88EF00D1AD7C /* NeiHanPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanPicture.m; sourceTree = "<group>"; };
 		19072AE4176C890600D1AD7C /* NeiHanVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanVideo.h; sourceTree = "<group>"; };
@@ -791,6 +805,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190144F41771EC830088C07B /* About */ = {
+			isa = PBXGroup;
+			children = (
+				190144F51771EC830088C07B /* about.html */,
+				190144F61771EC830088C07B /* app.html */,
+				190144F71771EC830088C07B /* q01.png */,
+				190144F81771EC830088C07B /* q02.png */,
+				190144F91771EC830088C07B /* q03.png */,
+				190145011771F39D0088C07B /* developer.jpg */,
+				190144FA1771EC830088C07B /* style.css */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		19072AEA176CB0C000D1AD7C /* PSCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1318,6 +1346,7 @@
 		195C15B8174F449100F9B000 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				190144F41771EC830088C07B /* About */,
 				195C15B9174F449100F9B000 /* Article */,
 				195C15E4174F449100F9B000 /* Auth */,
 				195C1609174F449100F9B000 /* Common */,
@@ -1889,6 +1918,13 @@
 				1998B70517706FF900F67601 /* NeiHanVideoDetailViewController.xib in Resources */,
 				1918272B1771AE2300240951 /* DeveloperInfoViewController.xib in Resources */,
 				191827301771AE7900240951 /* AboutViewController.xib in Resources */,
+				190144FB1771EC830088C07B /* about.html in Resources */,
+				190144FC1771EC830088C07B /* app.html in Resources */,
+				190144FD1771EC830088C07B /* q01.png in Resources */,
+				190144FE1771EC830088C07B /* q02.png in Resources */,
+				190144FF1771EC830088C07B /* q03.png in Resources */,
+				190145001771EC830088C07B /* style.css in Resources */,
+				190145021771F39D0088C07B /* developer.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
