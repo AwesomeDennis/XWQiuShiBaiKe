@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.view setBackgroundColor:[Toolkit getAppBackgroundColor]];
     [self initToolBar];
+    [_modelSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -227,6 +228,12 @@
     titleLabel.text = @"设置";
     _titleBarButton.customView = titleLabel;
     [titleLabel release];
+}
+
+- (void)switchChanged:(id)sender
+{
+    UISwitch *modelSwitch = (UISwitch *)sender;
+    [Dialog simpleToast:modelSwitch.isOn ? @"日" : @"还是日"];
 }
 
 - (void)closeSettingViewController

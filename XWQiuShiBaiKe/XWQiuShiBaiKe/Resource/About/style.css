@@ -5,6 +5,8 @@ img {border:0;}
 h3{font-size:18px;}
 .content{clear:both;}
 
+.developer{text-align:center;background-color:#f9f8f1;background-image:url(developer.png);width:250px;height:51px;-webkit-background-size:250px 141px;background-size:250px 141px;padding-top:91px;margin: 0 auto 0 auto;}
+
 .input-row span,.contact-row span{display:block;}
 .input-row textarea,.contact-row input{width:90%;border:1px solid #d3c8bf;outline:none;border-radius:6px;font-size:14px;padding:6px; -webkit-appearance: none;}
 .button {padding-top:10px;}
