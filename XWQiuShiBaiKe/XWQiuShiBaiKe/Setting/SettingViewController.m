@@ -11,6 +11,8 @@
 #import "UMWebViewController.h"
 #import "DeveloperInfoViewController.h"
 #import "AboutViewController.h"
+#import "RIButtonItem.h"
+#import "UIAlertView+Blocks.h"
 
 @interface SettingViewController ()
 
@@ -190,7 +192,20 @@
                 [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
                 break;
             case 1:
-                [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
+            {
+                RIButtonItem *cancelItem = [RIButtonItem item];
+                cancelItem.label = @"不要";
+                
+                RIButtonItem *okItem = [RIButtonItem item];
+                okItem.label = @"必须滴";
+                okItem.action = ^{
+                    [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
+                };
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"节操是什么" message:@"咱们找个安静的地方探讨一下人生吧" cancelButtonItem:cancelItem otherButtonItems:okItem, nil];
+                [alertView show];
+                [alertView release];
+            }
                 break;
             case 2:
                 [self showAppAboutView];
