@@ -31,6 +31,17 @@
     [self initViews];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (is_iPhone5) {
+        CGRect rect = self.view.frame;
+        rect.size.height = 548;
+        self.view.frame = rect;
+    }
+}
+
 - (void)dealloc
 {
     SafeClearRequest(_createQSRequest);
@@ -110,8 +121,8 @@
 - (void)sendNewQiuShi
 {
     if ([_qsContentTextView.text length] > 5) {
-        [[Dialog Instance] showCenterProgressWithLabel:@"等等等一下..."];
-        [self initCreateQSRequest];
+        [[Dialog Instance] showCenterProgressWithLabel:@"接口参数未知，未能实现发表功能"];
+        //[self initCreateQSRequest];
     }
     else {
         [Dialog simpleToast:@"写的不够啊"];

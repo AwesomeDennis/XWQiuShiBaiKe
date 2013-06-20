@@ -138,7 +138,7 @@
                     settingTitle = @"意见反馈";
                     break;
                 case 1:
-                    settingTitle = @"打分支持糗百";
+                    settingTitle = @"打分支持我";
                     break;
                 case 2:
                     settingTitle = @"关于糗百";
@@ -187,6 +187,9 @@
     else if (indexPath.section == 2) {
         switch (indexPath.row) {
             case 0:
+                [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
+                break;
+            case 1:
                 [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
                 break;
             case 2:
