@@ -24,6 +24,18 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginEvent:@"NH_Video_View"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endEvent:@"NH_Video_View"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

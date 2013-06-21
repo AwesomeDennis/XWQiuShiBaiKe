@@ -29,7 +29,8 @@
     [self.window makeKeyAndVisible];
     [self umengTrack];
     [self umengFeedback];
-        
+    [MobClick beginEvent:@"QB_ActiveTime"];
+    
     return YES;
 }
 
@@ -61,14 +62,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [MobClick endEvent:@"QB_ActiveTime"];
 }
 
 - (void)umengTrack
 {
     //    [MobClick setCrashReportEnabled:NO]; // 如果不需要捕捉异常，注释掉此行
-    [MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
+    //[MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
     [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
-    //
+    //channelId: 91store tongbu pp
     [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:(ReportPolicy) BATCH channelId:nil];
     //   reportPolicy为枚举类型,可以为 REALTIME, BATCH,SENDDAILY,SENDWIFIONLY几种
     //   channelId 为NSString * 类型，channelId 为nil或@""时,默认会被被当作@"App Store"渠道
@@ -117,7 +119,6 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        NSLog(@"查看feedback");
         [UMFeedback showFeedback:self.sideBarViewController withAppkey:UMENG_APPKEY];
     }
 }

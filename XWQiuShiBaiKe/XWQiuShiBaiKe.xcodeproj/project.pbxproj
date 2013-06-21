@@ -36,8 +36,6 @@
 		191EF6C2175DDC3F003748E2 /* block_post_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6C0175DDC3F003748E2 /* block_post_background@2x.png */; };
 		193055F2175619E2009DEE32 /* QBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 193055F1175619E2009DEE32 /* QBUser.m */; };
 		193382D317715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m in Sources */ = {isa = PBXBuildFile; fileRef = 193382D217715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m */; };
-		193E0E601754966A00DA99D7 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E5F1754966A00DA99D7 /* 57.png */; };
-		193E0E621754967400DA99D7 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E611754967400DA99D7 /* 114.png */; };
 		193E0E64175497F200DA99D7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E63175497F200DA99D7 /* Default.png */; };
 		1943358B175DFE1400FCEBD1 /* UIColor+XWCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1943358A175DFE1400FCEBD1 /* UIColor+XWCategory.m */; };
 		1943358E175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1943358D175DFF3F00FCEBD1 /* NSDictionary+XWCategory.m */; };
@@ -299,6 +297,8 @@
 		195C16F5174F449200F9B000 /* side_user_background_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C1659174F449200F9B000 /* side_user_background_active.png */; };
 		195C16F6174F449200F9B000 /* side_user_background_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C165A174F449200F9B000 /* side_user_background_active@2x.png */; };
 		195E20F217636CC000C0D4EB /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195E20F117636CC000C0D4EB /* CommonViewController.m */; };
+		195F32741773F9110049DC32 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E5F1754966A00DA99D7 /* 57.png */; };
+		195F32751773F9190049DC32 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E611754967400DA99D7 /* 114.png */; };
 		1964759F17534F1F00AC3393 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964759E17534F1F00AC3393 /* Config.m */; };
 		1972B411175F112B00C1F958 /* XWCTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1972B410175F112B00C1F958 /* XWCTView.m */; };
 		1972B413175F2D9300C1F958 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1972B412175F2D9300C1F958 /* CoreText.framework */; };
@@ -1687,7 +1687,7 @@
 				195C14A0174F409600F9B000 /* Sources */,
 				195C14A1174F409600F9B000 /* Frameworks */,
 				195C14A2174F409600F9B000 /* Resources */,
-				19FB9D8C1754604D0005E784 /* ShellScript */,
+				195F32761773FF060049DC32 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1896,8 +1896,6 @@
 				195C16F4174F449200F9B000 /* side_user_background@2x.png in Resources */,
 				195C16F5174F449200F9B000 /* side_user_background_active.png in Resources */,
 				195C16F6174F449200F9B000 /* side_user_background_active@2x.png in Resources */,
-				193E0E601754966A00DA99D7 /* 57.png in Resources */,
-				193E0E621754967400DA99D7 /* 114.png in Resources */,
 				193E0E64175497F200DA99D7 /* Default.png in Resources */,
 				198060641754986700E5069A /* Default@2x.png in Resources */,
 				198060661754987200E5069A /* Default-568h@2x.png in Resources */,
@@ -1947,13 +1945,15 @@
 				190145001771EC830088C07B /* style.css in Resources */,
 				1916C2AD1772895C00856AED /* developer.html in Resources */,
 				1916C2AF1772A0C800856AED /* developer.png in Resources */,
+				195F32741773F9110049DC32 /* 57.png in Resources */,
+				195F32751773F9190049DC32 /* 114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		19FB9D8C1754604D0005E784 /* ShellScript */ = {
+		195F32761773FF060049DC32 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2143,8 +2143,8 @@
 		195C14C2174F409600F9B000 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XWQiuShiBaiKe/XWQiuShiBaiKe-Prefix.pch";
 				INFOPLIST_FILE = "XWQiuShiBaiKe/XWQiuShiBaiKe-Info.plist";
@@ -2156,8 +2156,6 @@
 					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAppNetwork_SDK_3.5.5\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2165,7 +2163,7 @@
 		195C14C3174F409600F9B000 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XWQiuShiBaiKe/XWQiuShiBaiKe-Prefix.pch";
 				INFOPLIST_FILE = "XWQiuShiBaiKe/XWQiuShiBaiKe-Info.plist";
@@ -2177,7 +2175,6 @@
 					"\"$(SRCROOT)/XWQiuShiBaiKe/3rd Libs/UMAppNetwork_SDK_3.5.5\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

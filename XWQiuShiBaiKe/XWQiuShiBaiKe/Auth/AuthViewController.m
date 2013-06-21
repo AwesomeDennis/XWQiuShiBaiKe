@@ -148,7 +148,6 @@
     [_loginPasswordTextField resignFirstResponder];
 }
 
-
 #pragma mark - ASIHTTPRequest methods
 
 - (void)initLoginRequestWithUserName:(NSString *)name andPassword:(NSString *)pwd
@@ -169,12 +168,10 @@
 - (void)loginDidFinished:(ASIHTTPRequest *)request
 {
     [_dialog hideProgress];
-    NSLog(@"%@",[request responseString]);    
     JSONDecoder *decoder = [[JSONDecoder alloc] init];
     NSDictionary *jsonDict = [decoder objectWithData:[request responseData]];
     [decoder release];
     
-    NSLog(@"err:%@", [jsonDict objectForKey:@"err"]);
     NSString *resultCode = [NSString stringWithFormat:@"%@", [jsonDict objectForKey:@"err"]];
     if ([resultCode isEqualToString:@"0"]) {
         NSString *token = [jsonDict objectForKey:@"token"];
@@ -360,7 +357,6 @@
 
 - (void)loginQSBK
 {
-    NSLog(@"Login");
     NSString *userName = _loginNameTextField.text;
     NSString *passWord = _loginPasswordTextField.text;
     if (userName.length > 0 && passWord.length > 0) {

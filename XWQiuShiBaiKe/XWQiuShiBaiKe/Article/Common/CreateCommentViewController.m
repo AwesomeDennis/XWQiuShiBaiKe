@@ -82,13 +82,14 @@
         }];
     }
     else {
-        [Dialog simpleToast:@"特么的，评论失败了"];
+        [Dialog simpleToast:@"喔，评论失败了"];
     }
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [Dialog simpleToast:@"特么的，评论失败了"];
+    [[Dialog Instance] hideProgress];
+    [Dialog simpleToast:@"喔，评论失败了"];
 }
 
 #pragma mark - Private methods

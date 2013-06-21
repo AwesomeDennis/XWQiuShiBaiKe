@@ -90,11 +90,13 @@
             }
         });
     }
-    [_previewImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]success:^(UIImage *image,BOOL cached) {
-        [self configPreviewImageViewWithImage:image];
-    } failure:^(NSError *error) {
-        [self showCompletedHUD:@"加载失败了哦!"];
-    }];
+    else {
+        [_previewImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]success:^(UIImage *image,BOOL cached) {
+            [self configPreviewImageViewWithImage:image];
+        } failure:^(NSError *error) {
+            [self showCompletedHUD:@"加载失败了哦!"];
+        }];
+    }
 }
 
 #pragma mark - HUD methods

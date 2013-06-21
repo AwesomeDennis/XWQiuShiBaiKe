@@ -89,7 +89,7 @@
             rows = 3;
             break;
         case 3:
-            rows = 1;
+            rows = 2;
             break;
         default:
             break;
@@ -154,6 +154,9 @@
                 case 0:
                     settingTitle = @"升级至有广告版";
                     break;
+                case 1:
+                    settingTitle = @"检查更新";
+                    break;
                 default:
                     break;
             }
@@ -215,7 +218,10 @@
         }
     }
     else if (indexPath.section == 3) {
-        [self showAppRecommendWebView];
+        if (indexPath.row == 0)
+            [self showAppRecommendWebView];
+        else
+            [MobClick checkUpdate];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

@@ -102,7 +102,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
-    
+    static NSString *cellIdentifier = @"CommentCellIdentifier";
     if (indexPath.section == 0) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"QiuShiCell" owner:self options:nil] lastObject];
         UIImage *backgroundImage = [UIImage imageNamed:@"block_background.png"];
@@ -114,7 +114,6 @@
         [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:_qiushi];
     }
     else {
-        static NSString *cellIdentifier = @"CommentCellIdentifier";
         cell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"CommentCell" owner:self options:nil] lastObject];
@@ -209,6 +208,10 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [Dialog simpleToast:@"评论不行了,顶一个上去!"];
+    if (_moreLoading) {
+        _moreLoading = NO;
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_qiushiDetailTableView];
+    }
 }
 
 #pragma mark - ShareOptionViewDelegate methods

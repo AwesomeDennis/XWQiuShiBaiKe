@@ -26,6 +26,18 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginEvent:@"NH_Video"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endEvent:@"NH_Video"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -167,6 +179,11 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [self dataSourceDidError];
+    if (_reloading) {
+        _reloading = NO;
+        [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_collectionView];
+        [_loadMoreFooterView loadMoreshScrollViewDataSourceDidFinishedLoading:_collectionView];
+    }
 }
 
 #pragma mark - ASIHTTPRequest method

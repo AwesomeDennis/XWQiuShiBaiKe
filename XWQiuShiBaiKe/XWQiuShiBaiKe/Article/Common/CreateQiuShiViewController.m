@@ -121,7 +121,7 @@
 - (void)sendNewQiuShi
 {
     if ([_qsContentTextView.text length] > 5) {
-        [[Dialog Instance] showCenterProgressWithLabel:@"接口参数未知，未能实现发表功能"];
+        [Dialog simpleToast:@"接口参数未知，未能实现发表功能"];
         //[self initCreateQSRequest];
     }
     else {
