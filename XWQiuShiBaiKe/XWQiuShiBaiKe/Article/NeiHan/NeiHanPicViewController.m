@@ -20,7 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"图片";
+        self.title = @"热门囧图";
     }
     return self;
 }
@@ -42,11 +42,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _isLoaded = YES;
-    _neihanType = NeiHanTypePic;
     _requestType = RequestTypeNormal;
     _currentPage = 0;
     
-    [self initSliderSwitch];
     [self initView];
 }
 
@@ -60,7 +58,6 @@
     self.picArray = nil;
     [_refreshHeaderView release];
     [_loadMoreFooterView release];
-    [_sliderSwitch release];
     [_sideButton release];
     
     [super dealloc];
@@ -97,7 +94,7 @@
 {
     NSDictionary *dict = [_picArray objectAtIndex:index];
     QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
-    [qiushiImageVC setQiuShiImageURL:[dict objectForKey:@"wpic_middle"]];
+    [qiushiImageVC setQiuShiImageURL:[dict objectForKey:@"image0"]];
     qiushiImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     [self presentViewController:qiushiImageVC animated:YES completion:nil];
@@ -168,7 +165,7 @@
         [_picArray removeAllObjects];
     }
     
-    [_picArray addObjectsFromArray:[dic objectForKey:@"items"]];
+    [_picArray addObjectsFromArray:[dic objectForKey:@"list"]];
     
     [self dataSourceDidLoad];
 }
@@ -183,25 +180,11 @@
     }
 }
 
-#pragma mark - XWSliderSwitchDelegate method
-
-- (void)slideView:(XWSliderSwitch *)slideSwitch switchChangedAtIndex:(NSInteger)index
-{
-    _currentPage = 0;
-    _neihanType = index == 0 ? NeiHanTypePic : NeiHanTypeGirl;
-    [self loadNeiHanPicDataSource];
-    _collectionView.contentOffset = CGPointZero;
-}
-
 #pragma mark - ASIHTTPRequest method
 
-- (void)initNeiHanPicRequestWithType:(NSInteger)type andPage:(NSInteger)page
+- (void)initNeiHanPicRequestWithPage:(NSInteger)page
 {
-    if (type == NeiHanTypePic)
-        self.picRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_neihan_picture(page)]];
-    else
-        self.picRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_neihan_girl(page)]];
-    
+    self.picRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_neihan_picture(page)]];
     _picRequest.delegate = self;
     [_picRequest startAsynchronous];
 }
@@ -215,21 +198,9 @@
 
 #pragma mark - private methods
 
-- (void)initSliderSwitch
-{
-    _sliderSwitch = [[XWSliderSwitch alloc] initWithFrame:CGRectMake(0, 0, 118, 29)];
-    _sliderSwitch.labelCount = 2;
-    _sliderSwitch.delegate = self;
-    [_sliderSwitch initSliderSwitch];
-    [_sliderSwitch setSliderSwitchBackground:[UIImage imageNamed:@"top_tab_background2.png"]];
-    [_sliderSwitch setLabelOneText:@"囧图"];
-    [_sliderSwitch setLabelTwoText:@"美女"];
-}
-
 - (void)initView
 {
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
-    self.navigationItem.titleView = _sliderSwitch;
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:_sideButton] autorelease];
     
     self.collectionView = [[PSCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -264,7 +235,7 @@
 
 - (void)loadNeiHanPicDataSource
 {
-    [self initNeiHanPicRequestWithType:_neihanType andPage:_currentPage];
+    [self initNeiHanPicRequestWithPage:_currentPage];
 }
 
 - (void)dataSourceDidLoad

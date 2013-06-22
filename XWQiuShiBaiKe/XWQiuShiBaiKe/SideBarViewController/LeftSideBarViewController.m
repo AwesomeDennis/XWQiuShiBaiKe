@@ -111,7 +111,7 @@
             rows = 2;
             break;
         case 2:
-            rows = 2;
+            rows = 3;
             break;
         default:
             break;
@@ -162,9 +162,12 @@
         case 2:
             switch (indexPath.row) {
                 case 0:
-                    menuTitle = @"内涵图片";
+                    menuTitle = @"热门囧图";
                     break;
                 case 1:
+                    menuTitle = @"内涵图片";
+                    break;
+                case 2:
                     menuTitle = @"视频集锦";
                     break;
                 default:
@@ -361,6 +364,18 @@
                 break;
             case 1:
             {
+                if (_neihangirlVC && _neihangirlVC.isLoaded) {
+                    return _neihangirlNavController;
+                }
+                else {
+                    _neihangirlVC = [[NeiHanGirlViewController alloc] initWithNibName:@"NeiHanGirlViewController" bundle:nil];
+                    _neihangirlNavController = [self configNavigationController:_neihangirlNavController withRootVC:_neihangirlVC];
+                    return _neihangirlNavController;
+                }
+            }
+                break;
+            case 2:
+            {
                 if (_neihanvideoVC && _neihanvideoVC.isLoaded) {
                     return _neihanvideoNavController;
                 }
@@ -370,6 +385,7 @@
                     return _neihanvideoNavController;
                 }
             }
+                break;
             default:
                 break;
         }

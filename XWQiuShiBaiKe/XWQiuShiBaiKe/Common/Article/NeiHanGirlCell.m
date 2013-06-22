@@ -1,17 +1,17 @@
 //
-//  NeiHanPicCell.m
+//  NeiHanGirlCell.m
 //  XWQiuShiBaiKe
 //
-//  Created by renxinwei on 13-6-15.
+//  Created by renxinwei on 13-6-22.
 //  Copyright (c) 2013年 renxinwei's MacBook Pro. All rights reserved.
 //
 
-#import "NeiHanPicCell.h"
+#import "NeiHanGirlCell.h"
 #import "UIImageView+WebCache.h"
 
 #define MARGIN 5.0
 
-@implementation NeiHanPicCell
+@implementation NeiHanGirlCell
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -59,8 +59,8 @@
     CGFloat left = MARGIN;
     
     // Image
-    CGFloat objectWidth = [[self.object objectForKey:@"width"] floatValue];
-    CGFloat objectHeight = [[self.object objectForKey:@"height"] floatValue];
+    CGFloat objectWidth = [[self.object objectForKey:@"image_width"] floatValue];
+    CGFloat objectHeight = [[self.object objectForKey:@"image_height"] floatValue];
     CGFloat scaledHeight = floorf(objectHeight / (objectWidth / width));
     if (scaledHeight > 250) scaledHeight = 250;
     self.imageView.frame = CGRectMake(left, top, width, scaledHeight);
@@ -77,7 +77,7 @@
 {
     [super collectionView:collectionView fillCellWithObject:object atIndex:index];
     
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [object objectForKey:@"image0"]]];
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [object objectForKey:@"middle_url"]]];
     if ([[object objectForKey:@"is_gif"] isEqualToString:@"1"]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             UIImage *image = [UIImage animatedImageWithAnimatedGIFURL:URL];
@@ -90,7 +90,7 @@
         [self.imageView setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]];
     }
     
-    self.captionLabel.text = [object objectForKey:@"text"];
+    self.captionLabel.text = [object objectForKey:@"desc"];
 }
 
 + (CGFloat)rowHeightForObject:(id)object inColumnWidth:(CGFloat)columnWidth
@@ -101,14 +101,14 @@
     height += MARGIN;
     
     // Image
-    CGFloat objectWidth = [[object objectForKey:@"width"] floatValue];
-    CGFloat objectHeight = [[object objectForKey:@"height"] floatValue];
+    CGFloat objectWidth = [[object objectForKey:@"image_width"] floatValue];
+    CGFloat objectHeight = [[object objectForKey:@"image_height"] floatValue];
     CGFloat scaledHeight = floorf(objectHeight / (objectWidth / width));
     if (scaledHeight > 250) scaledHeight = 250;
     height += scaledHeight;
     
     // Label
-    NSString *caption = [object objectForKey:@"text"];
+    NSString *caption = [object objectForKey:@"desc"];
     CGSize labelSize = CGSizeZero;
     UIFont *labelFont = [UIFont systemFontOfSize:12.0];
     labelSize = [caption sizeWithFont:labelFont constrainedToSize:CGSizeMake(width, INT_MAX) lineBreakMode:UILineBreakModeWordWrap];

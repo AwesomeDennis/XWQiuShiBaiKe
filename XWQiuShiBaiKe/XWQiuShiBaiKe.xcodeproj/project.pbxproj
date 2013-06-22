@@ -331,6 +331,9 @@
 		1998B70817708CFF00F67601 /* NeiHanVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1998B70717708CFF00F67601 /* NeiHanVideoCell.m */; };
 		19A7555217572A1600B75C96 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7554F17572A1600B75C96 /* libUMFeedback.a */; };
 		19A7555317572A1600B75C96 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19A7555017572A1600B75C96 /* umFeedback.bundle */; };
+		19AE94451775C8A700E9BA2A /* NeiHanGirlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AE94441775C8A700E9BA2A /* NeiHanGirlCell.m */; };
+		19AE94491775C8D700E9BA2A /* NeiHanGirlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AE94471775C8D700E9BA2A /* NeiHanGirlViewController.m */; };
+		19AE944A1775C8D700E9BA2A /* NeiHanGirlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19AE94481775C8D700E9BA2A /* NeiHanGirlViewController.xib */; };
 		19F5724F17587AB700DEE940 /* QiuShiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F5724A17587AB700DEE940 /* QiuShiDetailViewController.m */; };
 		19F5725017587AB700DEE940 /* QiuShiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F5724B17587AB700DEE940 /* QiuShiDetailViewController.xib */; };
 		19F5725117587AB700DEE940 /* QiuShiImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F5724D17587AB700DEE940 /* QiuShiImageViewController.m */; };
@@ -772,6 +775,11 @@
 		19A7554F17572A1600B75C96 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
 		19A7555017572A1600B75C96 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
 		19A7555117572A1600B75C96 /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
+		19AE94431775C8A700E9BA2A /* NeiHanGirlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanGirlCell.h; sourceTree = "<group>"; };
+		19AE94441775C8A700E9BA2A /* NeiHanGirlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanGirlCell.m; sourceTree = "<group>"; };
+		19AE94461775C8D700E9BA2A /* NeiHanGirlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeiHanGirlViewController.h; sourceTree = "<group>"; };
+		19AE94471775C8D700E9BA2A /* NeiHanGirlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeiHanGirlViewController.m; sourceTree = "<group>"; };
+		19AE94481775C8D700E9BA2A /* NeiHanGirlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NeiHanGirlViewController.xib; sourceTree = "<group>"; };
 		19E232D81755F9B80085BE89 /* XWCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCategory.h; sourceTree = "<group>"; };
 		19F5724917587AB700DEE940 /* QiuShiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuShiDetailViewController.h; sourceTree = "<group>"; };
 		19F5724A17587AB700DEE940 /* QiuShiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiuShiDetailViewController.m; sourceTree = "<group>"; };
@@ -845,6 +853,9 @@
 				19072AF5176CB89B00D1AD7C /* NeiHanPicViewController.h */,
 				19072AF6176CB89B00D1AD7C /* NeiHanPicViewController.m */,
 				19072AF7176CB89B00D1AD7C /* NeiHanPicViewController.xib */,
+				19AE94461775C8D700E9BA2A /* NeiHanGirlViewController.h */,
+				19AE94471775C8D700E9BA2A /* NeiHanGirlViewController.m */,
+				19AE94481775C8D700E9BA2A /* NeiHanGirlViewController.xib */,
 				1944092A176F429200CC590D /* NeiHanVideoViewController.h */,
 				1944092B176F429200CC590D /* NeiHanVideoViewController.m */,
 				1944092C176F429200CC590D /* NeiHanVideoViewController.xib */,
@@ -1327,6 +1338,8 @@
 				195C159D174F446800F9B000 /* QiuShiCell.xib */,
 				19072AF1176CB42E00D1AD7C /* NeiHanPicCell.h */,
 				19072AF2176CB42E00D1AD7C /* NeiHanPicCell.m */,
+				19AE94431775C8A700E9BA2A /* NeiHanGirlCell.h */,
+				19AE94441775C8A700E9BA2A /* NeiHanGirlCell.m */,
 				1998B70617708CFF00F67601 /* NeiHanVideoCell.h */,
 				1998B70717708CFF00F67601 /* NeiHanVideoCell.m */,
 			);
@@ -1947,6 +1960,7 @@
 				1916C2AF1772A0C800856AED /* developer.png in Resources */,
 				195F32741773F9110049DC32 /* 57.png in Resources */,
 				195F32751773F9190049DC32 /* 114.png in Resources */,
+				19AE944A1775C8D700E9BA2A /* NeiHanGirlViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2067,6 +2081,8 @@
 				1918272F1771AE7900240951 /* AboutViewController.m in Sources */,
 				1916C2B51772F45D00856AED /* RIButtonItem.m in Sources */,
 				1916C2B61772F45D00856AED /* UIAlertView+Blocks.m in Sources */,
+				19AE94451775C8A700E9BA2A /* NeiHanGirlCell.m in Sources */,
+				19AE94491775C8D700E9BA2A /* NeiHanGirlViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

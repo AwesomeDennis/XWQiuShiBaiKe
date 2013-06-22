@@ -1,27 +1,26 @@
 //
-//  NeiHanVideoViewController.m
+//  NeiHanGirlViewController.m
 //  XWQiuShiBaiKe
 //
-//  Created by renxinwei on 13-6-17.
+//  Created by renxinwei on 13-6-22.
 //  Copyright (c) 2013年 renxinwei's MacBook Pro. All rights reserved.
 //
 
-#import "NeiHanVideoViewController.h"
-#import "NeiHanVideoCell.h"
-#import "NeiHanVideoDetailViewController.h"
+#import "NeiHanGirlViewController.h"
+#import "NeiHanGirlCell.h"
 
-@interface NeiHanVideoViewController ()
+@interface NeiHanGirlViewController ()
 
 @end
 
-@implementation NeiHanVideoViewController
+@implementation NeiHanGirlViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"视频集锦";
+        self.title = @"内涵图片";
     }
     return self;
 }
@@ -29,20 +28,19 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [MobClick beginEvent:@"NH_Video"];
+    [MobClick beginEvent:@"NH_Girl"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [MobClick endEvent:@"NH_Video"];
+    [MobClick endEvent:@"NH_Girl"];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //test video url:http://my.tv.sohu.com/ipad/57087853.m3u8
     _isLoaded = YES;
     _requestType = RequestTypeNormal;
     _currentPage = 0;
@@ -52,12 +50,12 @@
 
 - (void)dealloc
 {
-    SafeClearRequest(_videoRequest);
+    SafeClearRequest(_girlRequest);
     self.collectionView.delegate = nil;
     self.collectionView.collectionViewDelegate = nil;
     self.collectionView.collectionViewDataSource = nil;
     self.collectionView = nil;
-    self.videoArray = nil;
+    self.girlArray = nil;
     [_refreshHeaderView release];
     [_loadMoreFooterView release];
     [_sideButton release];
@@ -71,20 +69,27 @@
     [super viewDidUnload];
 }
 
+#pragma mark - UIAction method
+
+- (IBAction)sideButtonClicked:(id)sender
+{
+    [self sideButtonDidClicked];
+}
+
 #pragma mark - PSCollectionViewDelegate and DataSource methods
 
 - (NSInteger)numberOfRowsInCollectionView:(PSCollectionView *)collectionView
 {
-    return [_videoArray count];
+    return [_girlArray count];
 }
 
 - (PSCollectionViewCell *)collectionView:(PSCollectionView *)collectionView cellForRowAtIndex:(NSInteger)index
 {
-    NSDictionary *item = [_videoArray objectAtIndex:index];
+    NSDictionary *item = [_girlArray objectAtIndex:index];
     
-    NeiHanVideoCell *cell = (NeiHanVideoCell *)[_collectionView dequeueReusableViewForClass:[NeiHanVideoCell class]];
+    NeiHanGirlCell *cell = (NeiHanGirlCell *)[_collectionView dequeueReusableViewForClass:[NeiHanGirlCell class]];
     if (!cell) {
-        cell = [[NeiHanVideoCell alloc] initWithFrame:CGRectZero];
+        cell = [[NeiHanGirlCell alloc] initWithFrame:CGRectZero];
     }
     [cell collectionView:_collectionView fillCellWithObject:item atIndex:index];
     
@@ -93,18 +98,20 @@
 
 - (CGFloat)collectionView:(PSCollectionView *)collectionView heightForRowAtIndex:(NSInteger)index
 {
-    NSDictionary *item = [_videoArray objectAtIndex:index];
+    NSDictionary *item = [_girlArray objectAtIndex:index];
     
-    return [NeiHanVideoCell rowHeightForObject:item inColumnWidth:_collectionView.colWidth];
+    return [NeiHanGirlCell rowHeightForObject:item inColumnWidth:_collectionView.colWidth];
 }
 
 - (void)collectionView:(PSCollectionView *)collectionView didSelectCell:(PSCollectionViewCell *)cell atIndex:(NSInteger)index
 {
-    NSDictionary *dict = [_videoArray objectAtIndex:index];
-    NeiHanVideoDetailViewController *detailVC = [[NeiHanVideoDetailViewController alloc] initWithNibName:@"NeiHanVideoDetailViewController" bundle:nil];
-    detailVC.videoDict = dict;
-    [self.navigationController pushViewController:detailVC animated:YES];
-    [detailVC release];
+    NSDictionary *dict = [_girlArray objectAtIndex:index];
+    QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
+    [qiushiImageVC setQiuShiImageURL:[dict objectForKey:@"large_url"]];
+    qiushiImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    [self presentViewController:qiushiImageVC animated:YES completion:nil];
+    [qiushiImageVC release];
 }
 
 #pragma mark - UIScrollView delegate method
@@ -129,7 +136,7 @@
     _requestType = RequestTypeNormal;
     
     _currentPage = 0;
-    [self loadNeiHanVideoDataSource];
+    [self loadNeiHanGirlDataSource];
 }
 
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
@@ -150,7 +157,7 @@
     _requestType = RequestTypeLoadMore;
     
     _currentPage++;
-    [self loadNeiHanVideoDataSource];
+    [self loadNeiHanGirlDataSource];
 }
 
 #pragma mark - ASIHTTPRequest delegate methods
@@ -168,10 +175,10 @@
     }
     
     if (_requestType == RequestTypeNormal) {
-        [_videoArray removeAllObjects];
+        [_girlArray removeAllObjects];
     }
     
-    [_videoArray addObjectsFromArray:[dic objectForKey:@"data"]];
+    [_girlArray addObjectsFromArray:[dic objectForKey:@"data"]];
     
     [self dataSourceDidLoad];
 }
@@ -188,23 +195,14 @@
 
 #pragma mark - ASIHTTPRequest method
 
-- (void)initNeiHanVideoWithPage:(NSInteger)page
+- (void)initNeiHanGirlRequestWithPage:(NSInteger)page
 {
-    self.videoRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_neihan_video(page * 10)]];
-    
-    _videoRequest.delegate = self;
-    [_videoRequest startAsynchronous];
+    self.girlRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_neihan_girl(page * 30)]];
+    _girlRequest.delegate = self;
+    [_girlRequest startAsynchronous];
 }
 
-
-#pragma mark - UIAction method
-
-- (IBAction)sideButtonClicked:(id)sender
-{
-    [self sideButtonDidClicked];
-}
-
-#pragma mark - Private methods
+#pragma mark - private methods
 
 - (void)initView
 {
@@ -236,14 +234,14 @@
         _collectionView.footerView = _loadMoreFooterView;
     }
     
-    self.videoArray = [NSMutableArray array];
+    self.girlArray = [NSMutableArray array];
     
-    [self loadNeiHanVideoDataSource];
+    [self loadNeiHanGirlDataSource];
 }
 
-- (void)loadNeiHanVideoDataSource
+- (void)loadNeiHanGirlDataSource
 {
-    [self initNeiHanVideoWithPage:_currentPage];
+    [self initNeiHanGirlRequestWithPage:_currentPage];
 }
 
 - (void)dataSourceDidLoad

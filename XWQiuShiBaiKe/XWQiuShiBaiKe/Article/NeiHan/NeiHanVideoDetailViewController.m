@@ -44,16 +44,22 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
-    _videoBodyLabel.text = [_videoDict objectForKey:@"wbody"];
-    NSURL *url = [NSURL URLWithString:[_videoDict objectForKey:@"vplay_url"]];
-    if (!self.videoPlayerViewController) {
-        self.videoPlayerViewController = [VideoPlayerKit videoPlayerWithContainingViewController:self optionalTopView:nil hideTopViewWithControls:YES];
-        self.videoPlayerViewController.delegate = self;
-        self.videoPlayerViewController.allowPortraitFullscreen = NO;
+    _videoBodyLabel.text = [_videoDict objectForKey:@"title"];
+    NSURL *url = [NSURL URLWithString:[_videoDict objectForKey:@"m3u8_url"]];
+    if (url) {
+        if (!self.videoPlayerViewController) {
+            self.videoPlayerViewController = [VideoPlayerKit videoPlayerWithContainingViewController:self optionalTopView:nil hideTopViewWithControls:YES];
+            self.videoPlayerViewController.delegate = self;
+            self.videoPlayerViewController.allowPortraitFullscreen = NO;
+        }
+        [self.videoPlayerViewController.view setFrame:CGRectMake(0, 0, 320, 230)];
+        [self.view addSubview:self.videoPlayerViewController.view];
+        [self.videoPlayerViewController playVideoWithTitle:@"" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:NO];
     }
-    [self.videoPlayerViewController.view setFrame:CGRectMake(0, 0, 320, 230)];
-    [self.view addSubview:self.videoPlayerViewController.view];
-    [self.videoPlayerViewController playVideoWithTitle:@"" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:NO];
+    else {
+        [Dialog simpleToast:@"已被删除,暂时无法播放"];
+    }
+    
 }
 
 - (IBAction)backButtonClicked:(id)sender

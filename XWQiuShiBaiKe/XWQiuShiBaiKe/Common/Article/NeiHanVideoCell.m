@@ -73,10 +73,10 @@
 {
     [super collectionView:collectionView fillCellWithObject:object atIndex:index];
     
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [object objectForKey:@"vpic_small"]]];
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [object objectForKey:@"img_url"]]];
     [self.imageView setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]];
     
-    self.captionLabel.text = [object objectForKey:@"vtitle"];
+    self.captionLabel.text = [object objectForKey:@"title"];
 }
 
 + (CGFloat)rowHeightForObject:(id)object inColumnWidth:(CGFloat)columnWidth
@@ -91,7 +91,7 @@
     height += imageHeight;
     
     // Label
-    NSString *caption = [object objectForKey:@"vtitle"];
+    NSString *caption = [object objectForKey:@"title"];
     CGSize labelSize = CGSizeZero;
     UIFont *labelFont = [UIFont systemFontOfSize:12.0];
     labelSize = [caption sizeWithFont:labelFont constrainedToSize:CGSizeMake(width, INT_MAX) lineBreakMode:UILineBreakModeWordWrap];
