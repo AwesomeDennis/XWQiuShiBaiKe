@@ -13,6 +13,7 @@
 #import "AboutViewController.h"
 #import "RIButtonItem.h"
 #import "UIAlertView+Blocks.h"
+#import "APPViewController.h"
 
 @interface SettingViewController ()
 
@@ -89,7 +90,7 @@
             rows = 3;
             break;
         case 3:
-            rows = 2;
+            rows = 3;
             break;
         default:
             break;
@@ -152,9 +153,12 @@
         case 3:
             switch (indexPath.row) {
                 case 0:
-                    settingTitle = @"升级至有广告版";
+                    settingTitle = @"精彩推荐";
                     break;
                 case 1:
+                    settingTitle = @"应用推荐";
+                    break;
+                case 2:
                     settingTitle = @"检查更新";
                     break;
                 default:
@@ -220,6 +224,8 @@
     else if (indexPath.section == 3) {
         if (indexPath.row == 0)
             [self showAppRecommendWebView];
+        else if (indexPath.row == 1)
+            [self showAPPViewController];
         else
             [MobClick checkUpdate];
     }
@@ -283,6 +289,12 @@
     [self presentCustomViewController:controller];
 }
 
+- (void)showAPPViewController
+{
+    APPViewController *appVC = [[APPViewController alloc] initWithNibName:@"APPViewController" bundle:nil];
+    [self presentCustomViewController:appVC];
+}
+
 - (void)presentCustomViewController:(UIViewController *)vc
 {
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -291,4 +303,5 @@
     [nav release];
     [vc release];
 }
+
 @end

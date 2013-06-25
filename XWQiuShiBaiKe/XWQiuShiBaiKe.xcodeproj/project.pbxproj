@@ -34,6 +34,10 @@
 		191EF6BE175DD9CC003748E2 /* XWPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */; };
 		191EF6C1175DDC3F003748E2 /* block_post_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6BF175DDC3F003748E2 /* block_post_background.png */; };
 		191EF6C2175DDC3F003748E2 /* block_post_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 191EF6C0175DDC3F003748E2 /* block_post_background@2x.png */; };
+		19255C381778198E00EFC384 /* q05.png in Resources */ = {isa = PBXBuildFile; fileRef = 19255C361778198E00EFC384 /* q05.png */; };
+		19255C391778198E00EFC384 /* q06.png in Resources */ = {isa = PBXBuildFile; fileRef = 19255C371778198E00EFC384 /* q06.png */; };
+		19255C3D17781EB000EFC384 /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19255C3B17781EB000EFC384 /* APPViewController.m */; };
+		19255C3E17781EB000EFC384 /* APPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19255C3C17781EB000EFC384 /* APPViewController.xib */; };
 		193055F2175619E2009DEE32 /* QBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 193055F1175619E2009DEE32 /* QBUser.m */; };
 		193382D317715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m in Sources */ = {isa = PBXBuildFile; fileRef = 193382D217715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.m */; };
 		193E0E64175497F200DA99D7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E0E63175497F200DA99D7 /* Default.png */; };
@@ -383,6 +387,11 @@
 		191EF6BD175DD9CC003748E2 /* XWPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPlaceHolderTextView.m; sourceTree = "<group>"; };
 		191EF6BF175DDC3F003748E2 /* block_post_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block_post_background.png; sourceTree = "<group>"; };
 		191EF6C0175DDC3F003748E2 /* block_post_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block_post_background@2x.png"; sourceTree = "<group>"; };
+		19255C361778198E00EFC384 /* q05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q05.png; sourceTree = "<group>"; };
+		19255C371778198E00EFC384 /* q06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q06.png; sourceTree = "<group>"; };
+		19255C3A17781EB000EFC384 /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
+		19255C3B17781EB000EFC384 /* APPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPViewController.m; sourceTree = "<group>"; };
+		19255C3C17781EB000EFC384 /* APPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APPViewController.xib; sourceTree = "<group>"; };
 		193055F0175619E2009DEE32 /* QBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBUser.h; sourceTree = "<group>"; };
 		193055F1175619E2009DEE32 /* QBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBUser.m; sourceTree = "<group>"; };
 		193382D117715C1A00B7BD28 /* UINavigationController+Rotation_IOS6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Rotation_IOS6.h"; sourceTree = "<group>"; };
@@ -830,6 +839,8 @@
 				190144F71771EC830088C07B /* q01.png */,
 				190144F81771EC830088C07B /* q02.png */,
 				190144F91771EC830088C07B /* q03.png */,
+				19255C361778198E00EFC384 /* q05.png */,
+				19255C371778198E00EFC384 /* q06.png */,
 				1916C2AE1772A0C800856AED /* developer.png */,
 				190144FA1771EC830088C07B /* style.css */,
 			);
@@ -1302,6 +1313,9 @@
 				1918272C1771AE7800240951 /* AboutViewController.h */,
 				1918272D1771AE7800240951 /* AboutViewController.m */,
 				1918272E1771AE7800240951 /* AboutViewController.xib */,
+				19255C3A17781EB000EFC384 /* APPViewController.h */,
+				19255C3B17781EB000EFC384 /* APPViewController.m */,
+				19255C3C17781EB000EFC384 /* APPViewController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1961,6 +1975,9 @@
 				195F32741773F9110049DC32 /* 57.png in Resources */,
 				195F32751773F9190049DC32 /* 114.png in Resources */,
 				19AE944A1775C8D700E9BA2A /* NeiHanGirlViewController.xib in Resources */,
+				19255C381778198E00EFC384 /* q05.png in Resources */,
+				19255C391778198E00EFC384 /* q06.png in Resources */,
+				19255C3E17781EB000EFC384 /* APPViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2083,6 +2100,7 @@
 				1916C2B61772F45D00856AED /* UIAlertView+Blocks.m in Sources */,
 				19AE94451775C8A700E9BA2A /* NeiHanGirlCell.m in Sources */,
 				19AE94491775C8D700E9BA2A /* NeiHanGirlViewController.m in Sources */,
+				19255C3D17781EB000EFC384 /* APPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
