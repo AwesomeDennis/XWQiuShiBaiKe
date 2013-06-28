@@ -27,6 +27,18 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginEvent:@"QB_DetailView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endEvent:@"QB_DetailView"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
