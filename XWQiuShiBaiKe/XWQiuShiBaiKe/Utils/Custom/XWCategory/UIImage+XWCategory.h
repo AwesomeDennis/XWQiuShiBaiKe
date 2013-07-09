@@ -10,4 +10,6 @@
 
 @interface UIImage (XWCategory)
 
+- (UIImage *)imageByScalingProportionallyToMinimumSize:(CGSize)targetSize;
+
 @end
