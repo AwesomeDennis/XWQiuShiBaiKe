@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 显示冒泡后并消失的“+1”组件
+ */
 @interface XWZoomInPlusView : UIScrollView <UIScrollViewDelegate>
 {
     UILabel *_labelPlus;
 }
 
+//显示的位置
 - (void)zoomInPlusTextInPoint:(CGPoint)point;
 
 @end

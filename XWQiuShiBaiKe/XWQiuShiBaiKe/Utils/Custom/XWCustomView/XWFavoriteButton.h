@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 收藏按钮
+ */
 @interface XWFavoriteButton : UIButton
 {
     UIButton *_favoriteButton;

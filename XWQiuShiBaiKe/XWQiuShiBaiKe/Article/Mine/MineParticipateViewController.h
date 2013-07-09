@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "QiuShiCell.h"
 
+/**
+ * @brief 我评论的
+ */
 @interface MineParticipateViewController : CommonViewController
 {
     EGORefreshTableHeaderView *_refreshHeaderView;

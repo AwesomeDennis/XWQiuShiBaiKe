@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 分享组件
+ */
 @class ShareOptionView;
 
 @protocol ShareOptionViewDelegate <NSObject>

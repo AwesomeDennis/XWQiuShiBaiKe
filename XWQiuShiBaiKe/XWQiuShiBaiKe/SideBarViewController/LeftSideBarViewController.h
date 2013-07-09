@@ -21,6 +21,9 @@
 #import "NeiHanGirlViewController.h"
 #import "NeiHanVideoViewController.h"
 
+/**
+ * @brief 左边侧拉栏
+ */
 @protocol SideBarSelectedDelegate;
 
 @interface LeftSideBarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, AuthViewControllerDelegate, MineQBInfoViewControllerDelegate>

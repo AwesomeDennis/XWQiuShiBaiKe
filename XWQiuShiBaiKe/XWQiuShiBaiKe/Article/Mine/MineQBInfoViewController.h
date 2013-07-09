@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 个人信息
+ */
 @protocol MineQBInfoViewControllerDelegate <NSObject>
 
 @optional

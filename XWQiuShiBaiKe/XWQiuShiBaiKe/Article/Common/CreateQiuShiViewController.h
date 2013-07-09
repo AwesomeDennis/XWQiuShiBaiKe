@@ -10,6 +10,9 @@
 #import "XWPlaceHolderTextView.h"
 #import "ASIHTTPRequest.h"
 
+/**
+ * @brief 写糗事，接口未明确
+ */
 @interface CreateQiuShiViewController : UIViewController <ASIHTTPRequestDelegate>
 
 @property (retain, nonatomic) ASIHTTPRequest *createQSRequest;

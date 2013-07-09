@@ -10,6 +10,9 @@
 #import "Comment.h"
 #import "XWCTView.h"
 
+/**
+ * @brief 评论cell
+ */
 @protocol CommentCellDelegate <NSObject>
 
 @optional

@@ -21,6 +21,7 @@
     return self;
 }
 
+//点击组件外的空白区域滑出分享窗口
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -32,6 +33,7 @@
 
 #pragma mark - Public methods
 
+//滑入
 - (void)fadeIn
 {
     [UIView animateWithDuration:0.5f animations:^{
@@ -41,6 +43,7 @@
     }];
 }
 
+//滑出
 - (void)fadeOut
 {
     [UIView animateWithDuration:0.3f animations:^{
@@ -99,6 +102,7 @@
     }
 }
 
+//点击各分享按钮
 - (void)shareButtonClicked:(id)sender
 {
     UIButton *button = (UIButton *)sender;

@@ -13,6 +13,9 @@
 #import "CommentCell.h"
 #import "ShareOptionView.h"
 
+/**
+ * @brief 糗事详细（评论）
+ */
 @interface QiuShiDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, ASIHTTPRequestDelegate, LoadMoreFooterViewDelegate, QiuShiCellDelegate, ShareOptionViewDelegate, CommentCellDelegate, MFMessageComposeViewControllerDelegate>
 {
     LoadMoreFooterView *_loadMoreFooterView;

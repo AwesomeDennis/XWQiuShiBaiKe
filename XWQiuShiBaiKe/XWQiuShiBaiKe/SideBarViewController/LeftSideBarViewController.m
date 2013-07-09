@@ -213,6 +213,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //点击侧拉栏cell，已选中直接关闭侧拉
     if ([_delegate respondsToSelector:@selector(leftSideBarSelectWithController:)]) {
         if ([indexPath isEqual:_selectIndexPath]) {
             [_delegate leftSideBarSelectWithController:nil];
@@ -226,6 +227,7 @@
 
 #pragma mark - AuthViewController delegate method
 
+//用户登录成功后回调设置侧拉栏的头像和名称
 - (void)QBUserDidLoginSuccessWithQBName:(NSString *)name andImage:(NSString *)imageUrl
 {
     if (imageUrl) {
@@ -241,6 +243,7 @@
 
 #pragma mark - MineQBInfoViewControllerDelegate method
 
+//退出登录后回调重置头像和名称
 - (void)QBUserDidLogOutSuccess
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -253,6 +256,9 @@
 
 #pragma mark - Private methods
 
+/**
+ * @brief init navigationcontroller with viewcontroller, return exist or new  
+ */
 - (UIViewController *)subConWithIndex:(NSIndexPath *)indexPath
 {
     UIViewController *vc = nil;
@@ -444,6 +450,7 @@
 
 #pragma mark - UIAction methods
 
+//头像按钮
 - (IBAction)faceTitleView:(id)sender
 {
     UIViewController *vc = nil;
@@ -461,6 +468,7 @@
     [vc release];
 }
 
+//设置按钮
 - (IBAction)sideSettingButtonClicked:(id)sender
 {
     SettingViewController *settingVC = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];

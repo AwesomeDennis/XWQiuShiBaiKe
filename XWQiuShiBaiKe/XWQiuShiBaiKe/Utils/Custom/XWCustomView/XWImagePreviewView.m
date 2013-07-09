@@ -64,6 +64,7 @@
     [self addSubview:_saveImageButton];
 }
 
+//在图片上加tap，点击后退出预览
 - (void)addTapGesture
 {
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
@@ -73,6 +74,7 @@
 
 #pragma mark - Public method
 
+//从网络上加载，依赖外部包
 - (void)initImageWithURL:(NSString *)url
 {
     [self showProgressHUD];
@@ -175,6 +177,7 @@
     _imageScrollView.zoomScale = minScale;
 }
 
+//使图像始终在屏幕正中央
 - (void)centerPreviewImageView
 {
     CGSize boundsSize = _imageScrollView.bounds.size;
@@ -197,7 +200,7 @@
 }
 
 /**
- * @description 加载图片成功后设置image's frame
+ * @brief 加载图片成功后设置image's frame
  */
 - (void)configPreviewImageViewWithImage:(UIImage *)image
 {
@@ -209,6 +212,7 @@
     [_hud hide:YES afterDelay:1];
 }
 
+//接收点击图片事件
 - (void)handleSingleTap:(UITapGestureRecognizer *)gesture
 {
     if (_delegate && [_delegate respondsToSelector:@selector(didTapPreviewView)]) {
@@ -217,7 +221,7 @@
 }
 
 /**
- * @description save image
+ * @brief save image
  */
 - (void)savePreviewImage
 {

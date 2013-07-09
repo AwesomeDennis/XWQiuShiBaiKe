@@ -269,6 +269,7 @@
     [_strollTableView reloadData];
 }
 
+/* 自动下拉刷新，效果不理想
 - (void)refreshed
 {
     [_strollTableView setContentOffset:CGPointMake(0, -75) animated:YES];
@@ -280,6 +281,7 @@
     [_refreshHeaderView egoRefreshScrollViewDidScroll:_strollTableView];
     [_refreshHeaderView egoRefreshScrollViewDidEndDragging:_strollTableView];
 }
+*/
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
@@ -293,6 +295,9 @@
 
 #pragma mark - XWSliderSwitchDelegate method 
 
+/**
+ * @brief 切换顶栏滑块的回调
+ */
 - (void)slideView:(XWSliderSwitch *)slideSwitch switchChangedAtIndex:(NSInteger)index
 {
     //_qiushiType = index == 0 ? QiuShiTypeSuggest : QiuShiTypeLatest;

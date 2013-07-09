@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 顶、踩按钮
+ */
 @interface XWVoteButton : UIButton
 {
     UIButton *_faceButton;

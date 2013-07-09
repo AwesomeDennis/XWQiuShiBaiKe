@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * @brief 用户
+ */
 @interface QBUser : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *last_visited_at;

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 评论按钮
+ */
 @interface XWCommentButton : UIButton
 {
     UILabel *_countLabel;

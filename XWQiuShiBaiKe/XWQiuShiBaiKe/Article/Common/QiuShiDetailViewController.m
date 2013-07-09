@@ -181,6 +181,7 @@
 
 #pragma mark - QiuShiCellDelegate method
 
+//点击糗事的图片
 - (void)didTapedQiuShiCellImage:(NSString *)midImageURL
 {
     QiuShiImageViewController *qiushiImageVC = [[QiuShiImageViewController alloc] initWithNibName:@"QiuShiImageViewController" bundle:nil];
@@ -228,6 +229,7 @@
 
 #pragma mark - ShareOptionViewDelegate methods
 
+//点击分享按钮的回调，平台的为实现
 - (void)shareOptionView:(ShareOptionView *)shareView didClickButtonAtIndex:(NSInteger)index
 {
     if (index == 4) {
@@ -248,6 +250,9 @@
 
 #pragma mark - CommentCellDelegate method
 
+/**
+ * @brief 点击评论中的楼层时回调，先判断楼层是否被和谐掉
+ */
 - (void)cellTextDidClicked:(NSInteger)floor
 {
     BOOL isFloorExist = NO;
@@ -267,6 +272,7 @@
 
 #pragma mark - MFMessageComposeViewControllerDelegate method
 
+//发送短信回调
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
 {
     NSString *message = @"";
@@ -333,6 +339,7 @@
 
 #pragma mark - MFMessage method
 
+//通过短信分享
 - (void)displaySMS:(NSString *)message
 {
     if ([MFMessageComposeViewController canSendText]) {

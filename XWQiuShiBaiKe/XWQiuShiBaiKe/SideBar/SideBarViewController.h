@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SideBarSelectedDelegate.h"
 
+/**
+ * @brief 主界面
+ */
 @interface SideBarViewController : UIViewController <SideBarSelectedDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
 //@property (nonatomic) BOOL sideBarShowing;

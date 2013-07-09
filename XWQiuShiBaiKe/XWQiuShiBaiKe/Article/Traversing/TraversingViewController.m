@@ -274,6 +274,7 @@
     [self sideButtonDidClicked];
 }
 
+//随机按钮，获取随机日期，重新请求
 - (IBAction)timeAgainButtonClicked:(id)sender
 {
     self.title = @"穿越中...";

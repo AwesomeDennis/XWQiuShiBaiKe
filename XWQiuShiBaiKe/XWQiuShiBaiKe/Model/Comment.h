@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * @brief 评论
+ */
 @interface Comment : NSObject
 
 @property (nonatomic,copy) NSString *commentID;             //糗事id

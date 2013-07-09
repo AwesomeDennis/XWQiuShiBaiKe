@@ -129,7 +129,7 @@
     NSString *name = _registerNameTextField.text;
     NSString *pwd = _registerPasswordTextField.text;
     if (name.length > 0 && pwd.length > 0) {
-        
+        //注册未实现
     }
     else {
         [self animateIncorrectMessage:_registerTextFieldView];
@@ -330,6 +330,7 @@
 
 - (void)animateIncorrectMessage:(UIView *)view
 {
+    //输入信息有误，晃动文本框
     CGAffineTransform moveRight = CGAffineTransformTranslate(CGAffineTransformIdentity, 8, 0);
     CGAffineTransform moveLeft = CGAffineTransformTranslate(CGAffineTransformIdentity, -8, 0);
     CGAffineTransform resetTransform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 0);

@@ -42,6 +42,7 @@
     // Do any additional setup after loading the view from its nib.
     [self initViews];
     
+    //监听设备方向
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     _videoBodyLabel.text = [_videoDict objectForKey:@"title"];
@@ -110,7 +111,7 @@
 }
 
 /**
- * @description 横屏时自动进入全屏，竖屏时退出全屏
+ * @brief 横屏时自动进入全屏，竖屏时退出全屏
  */
 - (void)orientationChanged:(NSNotification *)notification
 {

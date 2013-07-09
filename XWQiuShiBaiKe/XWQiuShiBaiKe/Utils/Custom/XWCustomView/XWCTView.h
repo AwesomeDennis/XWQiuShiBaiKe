@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreText/CoreText.h>
 
+/**
+ * @brief 使用CoreText来显示评论内容，设置楼层文字颜色及点击事件
+ */
 @protocol XWCTViewDelegate <NSObject>
 
 @optional

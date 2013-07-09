@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "VideoPlayerKit.h"
 
+/**
+ * @brief 视频播放界面，使用VideoPlayerKit
+ */
 @interface NeiHanVideoDetailViewController : UIViewController <VideoPlayerDelegate>
 
 @property (retain, nonatomic) NSDictionary *videoDict;

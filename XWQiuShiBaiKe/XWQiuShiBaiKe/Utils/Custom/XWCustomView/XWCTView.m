@@ -134,7 +134,6 @@
  * @param 文字内容、宽度
  * @return 文字占的高度
  */
-
 + (int)getAttributedStringHeightWithString:(NSAttributedString *)string  WidthValue:(int)width
 {
     int total_height = 0;

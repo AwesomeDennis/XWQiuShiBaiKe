@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "XWPlaceHolderTextView.h"
 
+/**
+ * @brief 创建评论
+ */
 @interface CreateCommentViewController : UIViewController <ASIHTTPRequestDelegate>
 
 @property (copy, nonatomic) NSString *qiushiID;

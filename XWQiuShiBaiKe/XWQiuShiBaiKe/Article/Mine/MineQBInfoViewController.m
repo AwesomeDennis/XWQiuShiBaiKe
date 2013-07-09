@@ -89,6 +89,7 @@
 - (IBAction)authButtonClicked:(id)sender {
 }
 
+//修改上传头像
 - (IBAction)faceButtonClicked:(id)sender
 {
     SafeRelease(_imageData);
@@ -294,6 +295,7 @@
     }
 }
 
+//取出QBUser，初始化头像和名称
 - (void)initMineHeaderView
 {
     if ([Toolkit getQBTokenLocal]) {

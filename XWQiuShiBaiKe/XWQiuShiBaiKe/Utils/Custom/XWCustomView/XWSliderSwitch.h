@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 自定义Switch，可以点击和拖动，最多支持3个选项
+ */
 @class XWSliderSwitch;
 
 @protocol XWSliderSwitchDelegate <NSObject>

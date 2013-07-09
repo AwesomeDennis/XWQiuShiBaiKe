@@ -43,6 +43,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //test video url:http://my.tv.sohu.com/ipad/57087853.m3u8
+    
     _isLoaded = YES;
     _requestType = RequestTypeNormal;
     _currentPage = 0;

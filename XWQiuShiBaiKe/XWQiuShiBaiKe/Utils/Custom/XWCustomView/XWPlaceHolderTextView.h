@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 带占位符的TextView
+ */
 @interface XWPlaceHolderTextView : UITextView
 
 @property (nonatomic, retain) NSString *placeHolder;

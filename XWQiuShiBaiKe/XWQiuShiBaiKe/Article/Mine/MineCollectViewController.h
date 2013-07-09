@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 我收藏的
+ */
 @interface MineCollectViewController : CommonViewController
 {
     EGORefreshTableHeaderView *_refreshHeaderView;

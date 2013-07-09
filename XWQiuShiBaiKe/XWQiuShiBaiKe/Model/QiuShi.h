@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * @brief 糗事
+ */
 @interface QiuShi : NSObject
 
 @property (nonatomic,copy) NSString *imageURL;                  //小图片地址

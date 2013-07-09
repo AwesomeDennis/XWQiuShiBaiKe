@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief 关于应用
+ */
 @interface AboutViewController : UIViewController
 
 @property (retain, nonatomic) IBOutlet UIButton *backButton;
 @property (retain, nonatomic) IBOutlet UIWebView *aboutWebView;
 
 - (IBAction)backButtonClicked:(id)sender;
+
 @end

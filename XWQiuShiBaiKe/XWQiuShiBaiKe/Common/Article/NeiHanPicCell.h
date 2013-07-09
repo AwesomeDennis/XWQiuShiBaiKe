@@ -8,6 +8,9 @@
 
 #import "PSCollectionViewCell.h"
 
+/**
+ * @brief 内涵图片cell，继承自PSCollectionViewCell
+ */
 @interface NeiHanPicCell : PSCollectionViewCell
 
 @property (retain, nonatomic) UIImageView *imageView;

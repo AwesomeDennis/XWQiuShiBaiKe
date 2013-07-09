@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UMUFPWebView.h"
-
+/**
+ * @brief 应用联盟
+ */
 @interface UMWebViewController : UIViewController
 {
     UMUFPWebView *_mWebView;

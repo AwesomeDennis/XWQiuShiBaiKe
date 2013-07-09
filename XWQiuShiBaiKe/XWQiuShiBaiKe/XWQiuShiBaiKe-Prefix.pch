@@ -21,7 +21,7 @@
 #import "LoadMoreFooterView.h"
 #import "PSCollectionView.h"
 #import "AppDelegate.h"
-#import "SYExtensions.h"
+#import "XWCategory.h"
 #import "XWCategory.h"
 #import "JSONKit.h"
 #import "MobClick.h"

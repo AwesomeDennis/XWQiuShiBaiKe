@@ -50,6 +50,7 @@
 
 #pragma mark - Public method
 
+//设置cell的内容
 - (void)configQiuShiCellWithQiuShi:(QiuShi *)qiushi
 {
     voteForCount = 0;
@@ -256,7 +257,7 @@
 }
 
 /**
- * @description 顶、踩、收藏按钮点击事件，顶踩接口参数未知
+ * @description 顶、踩、收藏按钮点击事件
  */
 - (void)voteForButtonClicked
 {

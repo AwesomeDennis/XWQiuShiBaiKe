@@ -91,6 +91,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(umCheck:) name:UMFBCheckFinishedNotification object:nil];
 }
 
+
 - (void)umCheck:(NSNotification *)notification
 {
     UIAlertView *alertView;

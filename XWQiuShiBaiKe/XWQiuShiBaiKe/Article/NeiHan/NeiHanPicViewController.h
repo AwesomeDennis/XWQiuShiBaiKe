@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "PSCollectionView.h"
 
+/**
+ * @brief 热图
+ */
 @interface NeiHanPicViewController : CommonViewController <PSCollectionViewDelegate, PSCollectionViewDataSource, ASIHTTPRequestDelegate>
 {
     EGORefreshTableHeaderView *_refreshHeaderView;

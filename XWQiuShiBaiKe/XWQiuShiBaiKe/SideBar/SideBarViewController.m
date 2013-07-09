@@ -111,7 +111,7 @@ const float MoveAnimationDuration = 0.3;
     return UIInterfaceOrientationMaskPortrait;
 }
 
-
+//添加tap手势，判断生效的范围
 - (void)contentViewAddTapGestures
 {
     if (_tapGestureRecognizer) {
@@ -137,6 +137,7 @@ const float MoveAnimationDuration = 0.3;
     return NO;
 }
 
+//向右拖动界面
 - (void)panInContentView:(UIPanGestureRecognizer *)panGestureReconginzer
 {
 //    if (panGestureReconginzer.state == UIGestureRecognizerStateBegan) {
@@ -181,6 +182,7 @@ const float MoveAnimationDuration = 0.3;
 
 #pragma mark - UINavigation delegate method
 
+//在二级导航移除pan手势
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if ([navigationController.viewControllers count]>1) {
@@ -210,6 +212,7 @@ const float MoveAnimationDuration = 0.3;
 }
 
 #pragma mark - side bar select delegate
+
 - (void)leftSideBarSelectWithController:(UIViewController *)controller
 {
     if ([controller isKindOfClass:[UINavigationController class]]) {
@@ -258,6 +261,7 @@ const float MoveAnimationDuration = 0.3;
 
 #pragma mark - animation method
 
+//滑动中的动画
 - (void)moveAnimationWithDirection:(SideBarShowDirection)direction duration:(float)duration
 {
     void (^animations)(void) = ^{

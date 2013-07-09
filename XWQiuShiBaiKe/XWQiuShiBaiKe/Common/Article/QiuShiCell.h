@@ -14,6 +14,9 @@
 #import "XWZoomInMinusView.h"
 #import "ASIHTTPRequest.h"
 
+/**
+ * @brief 糗事cell
+ */
 @class QiuShi;
 
 @protocol QiuShiCellDelegate <NSObject>
