@@ -12,7 +12,6 @@
 #import "XWFavoriteButton.h"
 #import "XWZoomInPlusView.h"
 #import "XWZoomInMinusView.h"
-#import "ASIHTTPRequest.h"
 
 /**
  * @brief 糗事cell

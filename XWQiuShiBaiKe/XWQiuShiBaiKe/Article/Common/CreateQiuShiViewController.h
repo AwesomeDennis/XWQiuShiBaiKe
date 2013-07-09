@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "XWPlaceHolderTextView.h"
-#import "ASIHTTPRequest.h"
 
 /**
  * @brief 写糗事，接口未明确

@@ -6,7 +6,6 @@
 //  Copyright (c) 2013年 renxinwei's MacBook Pro. All rights reserved.
 //
 
-#import "CommonViewController.h"
 #import "PSCollectionView.h"
 
 @interface NeiHanGirlViewController : CommonViewController <PSCollectionViewDelegate, PSCollectionViewDataSource, ASIHTTPRequestDelegate>

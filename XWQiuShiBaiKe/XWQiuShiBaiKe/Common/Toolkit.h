@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
-#import "EGORefreshTableHeaderView.h"
-#import "LoadMoreFooterView.h"
-#import "JSONKit.h"
 #import "QiuShiImageViewController.h"
-#import "SideBarViewController.h"
 #import "QiuShiDetailViewController.h"
 #import "XWSliderSwitch.h"
 #import "QiuShiCell.h"

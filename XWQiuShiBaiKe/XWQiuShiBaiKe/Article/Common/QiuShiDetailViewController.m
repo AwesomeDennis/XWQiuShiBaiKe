@@ -7,7 +7,6 @@
 //
 
 #import "QiuShiDetailViewController.h"
-#import "JSONKit.h"
 #import "QiuShiImageViewController.h"
 #import "CreateCommentViewController.h"
 #import "UIViewController+KNSemiModal.h"

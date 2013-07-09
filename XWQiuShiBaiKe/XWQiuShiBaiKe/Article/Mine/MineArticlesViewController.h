@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QiuShiCell.h"
 
 /**
  * @brief 我发表的
