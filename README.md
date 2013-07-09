@@ -60,3 +60,11 @@ xinwei's qiu shi bai ke iOS APP without Ad.<br />
 > 项目中使用的图片资源及接口数据均取自糗事百科，若有疑问请及时与本人联系
 
 > 如有需要请联系 邮箱：362922604@qq.com
+
+运行效果截图
+=============
+![1](http://apt.weiphone.com/photo/packages/24526/snapshot/e35d1b03-8fee-bff9-3fd2-38654a2b88df.jpg "1")
+![2](http://apt.weiphone.com/photo/packages/24526/snapshot/ecc0f6ac-9358-1307-b2a1-b36faffbe993.jpg "2")
+![3](http://apt.weiphone.com/photo/packages/24526/snapshot/6fdf0c85-69bc-6002-05a9-5f53d4bf7ee2.jpg "3")
+![4](http://apt.weiphone.com/photo/packages/24526/snapshot/1b7cee19-16d1-7b71-b7ed-c5dbd77d9318.jpg "4")
+![5](http://apt.weiphone.com/photo/packages/24526/snapshot/c4388598-d342-8632-483c-3056c8822509.jpg "5")
