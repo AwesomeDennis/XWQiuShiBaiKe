@@ -161,7 +161,7 @@
     NSDictionary *commentDict = [NSDictionary dictionaryWithObjectsAndKeys:_commentTextView.text, @"content", @"false", @"anonymous", nil];
     self.createCommentRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:api_create_comment(_qiushiID)]];
     [self.createCommentRequest setRequestMethod:@"POST"];
-    [self.createCommentRequest addRequestHeader:@"Qbtoken" value:[Toolkit getQBTokenLocal]];
+    [self.createCommentRequest addRequestHeader:@"Qbtoken" value:[Toolkit getQBTokenLocal] ? [Toolkit getQBTokenLocal] : @""];
     [self.createCommentRequest appendPostData:[commentDict toJSON]];
     [self.createCommentRequest setDelegate:self];
     [self.createCommentRequest startAsynchronous];
