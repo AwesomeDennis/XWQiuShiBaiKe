@@ -317,6 +317,9 @@
         [self presentSemiViewController:vc];
         [vc release];
     }
+    else {
+        [Dialog simpleToast:@"登录后才能发表评论"];
+    }
 }
 
 #pragma mark - Private methods

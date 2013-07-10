@@ -246,9 +246,11 @@
 //退出登录后回调重置头像和名称
 - (void)QBUserDidLogOutSuccess
 {
+    //退出后删除缓存的用户信息
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:nil forKey:@"QBToken"];
-    [defaults setObject:nil forKey:@"QBUser"];
+    [defaults removeObjectForKey:@"QBToken"];
+    [defaults removeObjectForKey:@"QBUser"];
+    [defaults synchronize];
     
     [_sideJoinQBButton setTitle:@"加入糗百" forState:UIControlStateNormal];
     [_sideFaceButton setImage:[UIImage imageNamed:@"side_user_avatar.png"] forState:UIControlStateNormal];
