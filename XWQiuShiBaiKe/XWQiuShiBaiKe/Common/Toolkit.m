@@ -38,6 +38,7 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:@"QBToken"];
+    [defaults synchronize];
 }
 
 //取出保存在本地的QBToken
@@ -53,6 +54,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:qbUser];
     [defaults setObject:data forKey:@"QBUser"];
+    [defaults synchronize];
 }
 
 //取出保存在本地的QBUser

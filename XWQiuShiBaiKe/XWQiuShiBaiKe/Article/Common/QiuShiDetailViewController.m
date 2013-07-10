@@ -310,10 +310,13 @@
 
 - (IBAction)createCommentButtonClicked:(id)sender
 {
-    CreateCommentViewController *vc = [[CreateCommentViewController alloc] initWithNibName:@"CreateCommentViewController" bundle:nil];
-    vc.qiushiID = _qiushi.qiushiID;
-    [self presentSemiViewController:vc];
-    [vc release];
+    //登录后才能评论
+    if ([Toolkit getQBTokenLocal]) {
+        CreateCommentViewController *vc = [[CreateCommentViewController alloc] initWithNibName:@"CreateCommentViewController" bundle:nil];
+        vc.qiushiID = _qiushi.qiushiID;
+        [self presentSemiViewController:vc];
+        [vc release];
+    }
 }
 
 #pragma mark - Private methods
