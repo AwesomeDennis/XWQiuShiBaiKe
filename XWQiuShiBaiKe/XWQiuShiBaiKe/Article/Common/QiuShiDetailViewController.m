@@ -233,7 +233,8 @@
 {
     if (index == 4) {
         //短信分享
-        [self displaySMS:_qiushi.content];
+        [Dialog simpleToast:@"未有设备测试，谁能支持下"];
+        //[self displaySMS:_qiushi.content];
     }
     else if (index == 5) {
         //复制内容
