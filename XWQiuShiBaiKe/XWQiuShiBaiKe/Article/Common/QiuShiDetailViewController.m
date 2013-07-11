@@ -123,6 +123,7 @@
         [imageView release];
         ((QiuShiCell *)cell).delegate = self;
         [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:_qiushi];
+        [((QiuShiCell *)cell) startDownloadQiuShiImage];
     }
     else {
         cell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];

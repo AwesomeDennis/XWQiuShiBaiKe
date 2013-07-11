@@ -142,8 +142,10 @@
     }
 
     NSMutableArray *strollArray = _qiushiType == QiuShiTypeSuggest ? _strollSuggestArray : _strollLatestArray;
-    if ([strollArray count]) {
+    if ([strollArray count] > 0) {
         [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[strollArray objectAtIndex:indexPath.row]];
+        if (_strollTableView.dragging == NO && _strollTableView.decelerating == NO)
+            [((QiuShiCell *)cell) startDownloadQiuShiImage];
     }
 
     return cell;
@@ -190,6 +192,14 @@
 {
     [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
     [_loadMoreFooterView loadMoreshScrollViewDidEndDragging:scrollView];
+    
+    if (!decelerate)
+        [self loadImageForOnScreenRows];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImageForOnScreenRows];
 }
 
 #pragma mark - EGORefreshTableHeaderDelegate methods
@@ -373,6 +383,21 @@
     self.strollRequest = [ASIHTTPRequest requestWithURL:url];
     self.strollRequest.delegate = self;
     [self.strollRequest startAsynchronous];
+}
+
+/**
+ * @brief This method is used in case the user scrolled into a set of cells that don't have their images yet.
+ */
+- (void)loadImageForOnScreenRows
+{
+    NSMutableArray *strollArray = _qiushiType == QiuShiTypeSuggest ? _strollSuggestArray : _strollLatestArray;
+    if ([strollArray count] > 0) {
+        NSArray *visiblePaths = [_strollTableView indexPathsForVisibleRows];
+        for (NSIndexPath *indexPath in visiblePaths) {
+            QiuShiCell *cell = (QiuShiCell *)[_strollTableView cellForRowAtIndexPath:indexPath];
+            [cell startDownloadQiuShiImage];
+        }
+    }
 }
 
 @end

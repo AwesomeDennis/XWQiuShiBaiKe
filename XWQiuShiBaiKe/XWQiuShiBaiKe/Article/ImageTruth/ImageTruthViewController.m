@@ -143,6 +143,7 @@
     NSMutableArray *imageTruthArray = _qiushiType == QiuShiTypeImgrank ? _imageTruthImgrankArray : _imageTruthImagesArray;
     if ([imageTruthArray count] > 0) {
         [((QiuShiCell *)cell) configQiuShiCellWithQiuShi:[imageTruthArray objectAtIndex:indexPath.row]];
+        [((QiuShiCell *)cell) startDownloadQiuShiImage];
     }
     
     return cell;

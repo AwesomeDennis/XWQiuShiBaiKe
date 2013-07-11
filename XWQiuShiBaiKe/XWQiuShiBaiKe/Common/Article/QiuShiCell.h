@@ -34,7 +34,9 @@
     XWCommentButton *_commentButton;
     XWFavoriteButton *_favoriteButton;
     
-    NSString *qiushiId;
+    NSString *_qiushiId;
+    NSString *_authorImageURL;
+    NSString *_imageURL;
     NSString *_midImageURL;
     NSInteger voteForCount;
     NSInteger voteAgainstCount;
@@ -50,6 +52,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *tagContentLabel;
 
 - (void)configQiuShiCellWithQiuShi:(QiuShi *)qiushi;
+- (void)startDownloadQiuShiImage;
 + (CGFloat)getCellHeight:(QiuShi *)qiushi;
 
 @end

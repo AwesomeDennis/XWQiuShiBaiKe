@@ -56,7 +56,7 @@
     voteForCount = 0;
     voteAgainstCount = 0;
     
-    qiushiId = qiushi.qiushiID;
+    _qiushiId = qiushi.qiushiID;
     voteForCount = qiushi.upCount;
     voteAgainstCount = qiushi.downCount;
     
@@ -69,7 +69,11 @@
         _nameLabel.text = qiushi.author;
         y += CGRectGetHeight(_nameLabel.frame) + 8;
         if ((NSNull *)qiushi.authorImageURL != [NSNull null]) {
-            [_avatarImageView setImageWithURL:[NSURL URLWithString:qiushi.authorImageURL] placeholderImage:[UIImage imageNamed:@"thumb_avatar.png"]];
+            _authorImageURL = qiushi.authorImageURL;
+            
+            SDWebImageManager *manager = [SDWebImageManager sharedManager];
+            UIImage *cacheImage = [manager imageWithURL:[NSURL URLWithString:_authorImageURL]];
+            if (cacheImage) [_avatarImageView setImage:cacheImage];
         }
     }
     else {
@@ -96,7 +100,12 @@
         rect = _pictureImageView.frame;
         rect.origin.y = y;
         _pictureImageView.frame = rect;
-        [_pictureImageView setImageWithURL:[NSURL URLWithString:qiushi.imageURL] placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]];
+        _imageURL = qiushi.imageURL;
+        
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        UIImage *cacheImage = [manager imageWithURL:[NSURL URLWithString:_imageURL]];
+        if (cacheImage) [_pictureImageView setImage:cacheImage];
+        
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
         [_pictureImageView addGestureRecognizer:tap];
         [tap release];
@@ -153,6 +162,15 @@
     [self initQiuShiCell];
 }
 
+- (void)startDownloadQiuShiImage
+{
+    if (_authorImageURL)
+        [_avatarImageView setImageWithURL:[NSURL URLWithString:_authorImageURL] placeholderImage:[UIImage imageNamed:@"thumb_avatar.png"]];
+    if (_imageURL)
+        [_pictureImageView setImageWithURL:[NSURL URLWithString:_imageURL] placeholderImage:[UIImage imageNamed:@"thumb_pic.png"]];
+        //[self downloadImageFromURL:[NSURL URLWithString:_imageURL] withPlaceHolderImage:[UIImage imageNamed:@"thumb_pic.png"] ForImageView:_pictureImageView];
+}
+
 + (CGFloat)getCellHeight:(QiuShi *)qiushi
 {
     CGFloat height = 10;
@@ -190,6 +208,26 @@
 }
 
 #pragma mark - Private methods
+
+/**
+ * @brief 在图片加载完成之前添加等待提示
+ */
+- (void)downloadImageFromURL:(NSURL *)url withPlaceHolderImage:(UIImage *)placeholderImage ForImageView:(UIImageView *)imageView
+{
+    __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator.center = imageView.center;
+    [activityIndicator startAnimating];
+    activityIndicator.hidesWhenStopped = YES;
+    [imageView setImageWithURL:url placeholderImage:placeholderImage success:^(UIImage *image, BOOL cached) {
+        [activityIndicator stopAnimating];
+        [activityIndicator removeFromSuperview];
+    } failure:^(NSError *error) {
+        [activityIndicator stopAnimating];
+        [activityIndicator removeFromSuperview];
+    }];
+    [imageView addSubview:activityIndicator];
+    [activityIndicator release];
+}
 
 //点击图片
 - (void)handleSingleTap:(UITapGestureRecognizer *)gesture
@@ -302,7 +340,7 @@
 
 - (void)initCollectRequestWithMethod:(NSString *)method
 {
-    NSURL *url = [NSURL URLWithString:api_qiushi_collect(qiushiId)];
+    NSURL *url = [NSURL URLWithString:api_qiushi_collect(_qiushiId)];
     self.collectRequest = [ASIHTTPRequest requestWithURL:url];
     _collectRequest.delegate = self;
     [_collectRequest addRequestHeader:@"Qbtoken" value:[Toolkit getQBTokenLocal]];
